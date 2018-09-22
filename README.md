@@ -251,8 +251,8 @@ backdoors.
     option target 'DNAT'
     option dest_ip '<lanip>'
 
-##### Wanna have some fun? Edit all false to true and vice versa ;p
-![#f03c15](###### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED ))
+##### Wanna have some fun? Edit all false to true and vice versa ;p 
+###### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED )
 
     sed -i 's/false/true/g' /www/cards/*.lp
     sed -i 's/false/true/g' /www/lua/*.lua
@@ -274,7 +274,7 @@ backdoors.
     sed -i 's/superuser/admin/' /www/docroot/modals/mmpbx-global-modal.lp 
     uci commit
 
-#### List URLs for firmware that can be downloaded.
+##### List all URLs for your firmware that can be downloaded:
 
      strings /etc/cwmpd.db 
 
@@ -316,11 +316,6 @@ backdoors.
     uci set xdsl.dsl0.maxdsdatarate='140000'   # 11000 default
     uci set xdsl.dsl0.maxusdatarate='60000'    # 40000 default
    
-##### Enable/Disable WIFI
-
-    uci set wireless.radio_2G.state='1'
-    uci set wireless.radio_5G.state='1'
-
 ##### Enable/Disable dnsmasq:
  
     uci show dhcp.lan.ignore='1'
@@ -349,12 +344,12 @@ backdoors.
 
     netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u  
      
-##### Disable WWAN support (mobiled)
+##### Enable or Disable WWAN support (mobiled)
 
      uci set mobiled.globals.enabled='0'
      uci set mobiled.device_defaults.enabled='0'
      
-##### Disable Content Sharing (Samba / DNLA)
+##### Enable or Disable Content Sharing (Samba / DNLA)
 
      uci set samba.samba.enabled='1'
      uci set dlnad.config.enabled='1'
@@ -428,16 +423,20 @@ backdoors.
 
     uci set web.uidefault.nsplink='https://sendit.nu'
 
-##### This will show all ip connected to your router atm..
+##### This will show all traffic on your router:
+
+    netstat -tulnp 
+
+##### This will show all ip numbers connected to your router atm..
 
     netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u  
   
-##### Enable/Disable WWAN support (mobiled)
+##### Enable or Disable WWAN support (mobiled)
 
      uci set mobiled.globals.enabled='1'
      uci set mobiled.device_defaults.enabled='1'
     
-##### Disable Content Sharing (Samba / DNLA)
+##### Enable or Disable Content Sharing (Samba / DNLA)
 
      uci set samba.samba.enabled='1'
      uci set dlnad.config.enabled='1'
