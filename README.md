@@ -21,7 +21,7 @@ backdoors.
 
 ##### Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
 
-###### You have to add our admin user to upgradefw role and after this has been done you will get access. I have added a preview below the commands where to upload your new firmware (THIS IS DANGEROUS - DONT PLAY WITH THIS IF YOU HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS):
+###### You have to add our admin user to upgradefw role and after this has been done you will get access. I have added a preview below the commands where to upload your new firmware (THIS IS DANGEROUS - DONT PLAY WITH THIS IF YOU HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH WRONG FIRMWARE, PERMANENT!):
 
     uci add_list web.uidefault.upgradefw_role='admin'
     uci commit
