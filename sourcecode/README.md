@@ -6,7 +6,7 @@
 
 # HOWTO
 
-#### If you are interested in setting up your own openwrt setup, you can follow openwrt awesome docs on url https://wiki.openwrt.org/doc/. Below I have listed the packages needed on a Gentoo setup required for build system. That's a bit of a reminder I'm writing this so use the docs if you will setup something for real. 
+#### If you are interested in setting up your own openwrt setup, you can follow openwrt awesome docs on url https://wiki.openwrt.org/doc/. Below I have listed the packages needed for a Gentoo setup wich is required for build system, first part. That's a bit of a reminder I'm writing this so use the docs if you will setup something for real. 
 
 ##### Required packages for build system on a Gentoo machine.
     
