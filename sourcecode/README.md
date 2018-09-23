@@ -1,7 +1,7 @@
 # README
 
 ##### Technicolor TG799vac source code release vant-f_telia_17.2.278
-##### The code was published with the help from the people in these forum threads: https://forum.lede-project.org/t/technicolor-gpl-source-code-request/
+##### The code was published with the help from the people in this forum thread: https://forum.lede-project.org/t/technicolor-gpl-source-code-request/
 ##### A zip file can be downloaded from url: https://mega.nz/#!AJ41kZxA!dA-vEiqJMsOskVituQmvA25NeQ7xjxa7XAJFYka3e00
 
 # HOWTO
