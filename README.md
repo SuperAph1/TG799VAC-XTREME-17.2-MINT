@@ -51,7 +51,7 @@ backdoors.
 ##### When you have successfully logged in, set a new root password, edit /etc/config/dropbear (THEY ARE USING 60022 AS DEFUALT PORT IN THIS VERSION NOT 22 AS BEFORE)
 
     passwd                                                                    # Set a new root password          
-    sed -i "s/'option enable '0'/option enable '1'/g" /etc/config/dropbear    # Enable dropbear for LAN 
+    sed -i "s/option enable '0'/option enable '1'/g" /etc/config/dropbear     # Enable dropbear for LAN 
     /etc/init.d/dropbear restart                                              # Restart dropbear
     exit                                                                      # Drop the netcat window and ssh into your router instead
     ssh -p 60022 root@192.168.1.1                                             # Login with the password you typed earlier.
