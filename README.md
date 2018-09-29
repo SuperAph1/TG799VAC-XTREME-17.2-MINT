@@ -401,49 +401,16 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
      cat /tmp/dhcp.leases
      1534969000 macaddr lanip machine macaddr
      
-##### Add new modals., th
-uci set web.l2tpipsecservermodal=rule
-uci set web.ruleset_main.rules=l2tpipsecservermodal
-uci add_list web.l2tpipsecservermodal.target='/modals/l2tp-ipsec-server-modal.lp'
-uci set web.l2tpipsecservermodal.roles='admin'
-uci commit; /etc/init.d/nginx restart
+##### Add new modals. VPN Example
+
+    uci set web.l2tpipsecservermodal=rule
+    uci set web.ruleset_main.rules=l2tpipsecservermodal
+    uci add_list web.l2tpipsecservermodal.target='/modals/l2tp-ipsec-server-modal.lp'
+    uci set web.l2tpipsecservermodal.roles='admin'
+    uci commit; /etc/init.d/nginx restart
 
 ##### Enable or disable nginx remote: 
      uci set web.remote.active='1'
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
-
-##### 
 
 ##### To view arp log
  
