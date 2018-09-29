@@ -68,8 +68,18 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
 ![Screenshot](files/reset-router-with-rtfd-if-webgui-crashed.gif)
 
-##### I got many questions in my mail inbox how-to hack the Telia router with minimal settings to get fully unlock it with and root the device and get a brand new interface from Technicolor wich is default with _all_ default 
-settings. So i decided to create a preview here at top to show you all how this is done, huge respect  to the italians that made this public and these who maintaince the GUI with new upgrades.
+##### Banner (DEFAULT)
+
+![Screenshot](files/banner_before_default.png)
+
+##### WEBUI (DEFAULT)
+
+![Screenshot](files/webgui_default.png)
+
+##### When you have successfully hacked your router this is the result: 
+
+
+##### I got many questions in my mail inbox how-to hack the Telia router with minimal settings to get fully unlock it with and root the device and get a brand new interface from Technicolor wich is default with _all_ default settings. So i decided to create a preview here at top to show you all how this is done, huge respect  to the italians that made this public and these who maintaince the GUI with new upgrades.
 
 ###### When you have root access to your router see how to get root access above on the Telia firmware.
 
@@ -98,16 +108,6 @@ settings. So i decided to create a preview here at top to show you all how this 
 ![Screenshot](files/proof.png)
 ![Screenshot](files/upgrade.png)
 
-
-##### Banner (DEFAULT)
-
-![Screenshot](files/banner_before_default.png)
-
-##### WEBUI (DEFAULT)
-
-![Screenshot](files/webgui_default.png)
-
-##### When you have successfully hacked your router this is the result: 
 
 ##### Banner (AFTER)
 
