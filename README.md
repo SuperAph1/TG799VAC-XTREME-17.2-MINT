@@ -79,8 +79,7 @@ settings. So i decided to create a preview here at top to show you all how this 
      And finally to make changes in progress and root your device type:
      /etc/init.d/rootdevice force
 
-###### Its time show your patience now, you should see a messeage: Root Script: Rooting in progress.. Wait few seconds, and now reboot router. Thats it, enjoy your fully unlocked router with alot of new settings! When you will  
-try to login after this process is done, it will look a like:
+###### Its time show your patience now, you should see a messeage: Root Script: Rooting in progress.. Wait few seconds, and now reboot router. Thats it, enjoy your fully unlocked router with alot of new settings! When you will  try to login after this process is done, it will look a like:
 
 ![Screenshot](files/login-screen-after-root.png)
 
