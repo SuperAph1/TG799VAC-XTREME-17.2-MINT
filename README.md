@@ -74,6 +74,9 @@ settings. So i decided to create a preview here at top to show you all how this 
 ###### When you have root access to your router see how to get root access above on the Telia firmware.
 
 ###### Lets root it, then do following:
+
+![Screenshot](files/reset_router.gif)
+
      wget -P /tmp https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2  
      bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -
      And finally to make changes in progress and root your device type:
