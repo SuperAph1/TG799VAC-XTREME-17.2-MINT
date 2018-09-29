@@ -51,10 +51,43 @@ backdoors.
 ##### When you have successfully logged in, set a new root password, edit /etc/config/dropbear (THEY ARE USING 60022 AS DEFUALT PORT IN THIS VERSION NOT 22 AS BEFORE)
 
     passwd                                                                    # Set a new root password          
-    sed -i "s/option enable '0'/option enable '1'/g" /etc/config/dropbear     # Enable dropbear for LAN 
+    sed -i "s/'option enable '0'/option enable '1'/g" /etc/config/dropbear    # Enable dropbear for LAN 
     /etc/init.d/dropbear restart                                              # Restart dropbear
     exit                                                                      # Drop the netcat window and ssh into your router instead
     ssh -p 60022 root@192.168.1.1                                             # Login with the password you typed earlier.
+
+
+##### If WEBGUI is broken then you allways can reset your router with 'rtfd -all' command, use 'rtfd --soft' for keep settings.
+
+![Screenshot](files/reset-router-with-rtfd-if-webgui-crashed.gif)
+
+##### I got many questions in my mail inbox how-to hack the Telia router with minimal settings to get fully unlock it with and root the device and get a brand new interface from Technicolor wich is default with _all_ default settings. So i decided to create a preview here at top to show you all how this is done, huge respect  to the italians that made this public and these who maintaince the GUI with new upgrades.
+
+###### When you have root access to your router see how to get root access above on the Telia firmware.
+
+###### Lets root it, then do following:
+     wget -P /tmp https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2  
+     bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -
+     And finally to make changes in progress and root your device type:
+     /etc/init.d/rootdevice force
+
+###### Its time show your patience now, you should see a messeage: Root Script: Rooting in progress.. Wait few seconds, and now reboot router. Thats it, enjoy your fully unlocked router with alot of new settings! When you will  try to login after this process is done, it will look a like:
+
+![Screenshot](files/login-screen-after-root.png)
+
+##### Printing some other examples here below: 
+
+![Screenshot](files/tim.png)
+![Screenshot](files/tim-white.png)
+![Screenshot](files/dark-white.png)
+![Screenshot](files/stats-login-after-root.png)
+![Screenshot](files/gateway-info.png)
+![Screenshot](files/gatewayinfo2.png)
+![Screenshot](files/gatewayinfo3.png)
+![Screenshot](files/gatewayinfo4.png)
+![Screenshot](files/proof.png)
+![Screenshot](files/upgrade.png)
+
 
 ##### Banner (DEFAULT)
 
@@ -235,7 +268,6 @@ backdoors.
 ###### FIREWALL
 
     cat >> /etc/config/firewall 
-
     # WUSEMAN WAS HERE
     # EDITED: 2018-08-14
 
@@ -276,7 +308,7 @@ backdoors.
 
 ##### List all URLs for your firmware that can be downloaded:
 
-     strings /etc/cwmpd.db 
+    strings /etc/cwmpd.db 
 
     SQLite format 3
     tabletidkvtidkv
@@ -308,9 +340,9 @@ backdoors.
     transfera StartTimed
     transfera PasswordV
     
-##### OTHER EXAMPLES JUST FOR FUN    
+##### OTHER TIPS & TRICKS  
     
-##### Changing max sync speed
+##### Changing max sync speed on your modem:
 
     uci set xdsl.dsl0.maxaggrdatarate='200000' # 16000 default
     uci set xdsl.dsl0.maxdsdatarate='140000'   # 11000 default
@@ -326,7 +358,7 @@ backdoors.
      
 ##### Using bridge mode with a dedicated PPPoE ethernet port:
   
-    uci set network.lan.dns='8.8.8.8'
+    uci set network.lan.dns='1.1.1.1'
     uci set network.lan.gateway='192.168.0.254'
     uci set mmpbxrvsipnet.sip_net.interface='lan'
     uci set mmpbxrvsipnet.sip_net.interface6='lan6'
@@ -359,6 +391,50 @@ backdoors.
      cat /tmp/dhcp.leases
      1534969000 macaddr lanip machine macaddr
      
+##### Add new modals., th
+uci set web.l2tpipsecservermodal=rule
+uci set web.ruleset_main.rules=l2tpipsecservermodal
+uci add_list web.l2tpipsecservermodal.target='/modals/l2tp-ipsec-server-modal.lp'
+uci set web.l2tpipsecservermodal.roles='admin'
+uci commit; /etc/init.d/nginx restart
+
+##### Enable or disable nginx remote: 
+     uci set web.remote.active='1'
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
+##### 
+
 ##### To view arp log
  
      cat /tmp/arp.log
