@@ -130,7 +130,10 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
     
 ![Screenshot](files/beforeandafter.png)
 
-###### Get VPN access in webgui:
+##### Get VPN access in webgui:
+
+![Screenshot](files/vpn-in-webgui.png)
+
 
 ###### Add l2tpip to rules: 
     list rules 'l2tpipsecservermodal'
