@@ -130,6 +130,18 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
     
 ![Screenshot](files/beforeandafter.png)
 
+###### Get VPN access in webgui:
+
+###### Add l2tpip to rules: 
+    list rules 'l2tpipsecservermodal'
+
+###### Now add below to /etc/config/web
+
+    config rule 'l2tpipsecservermodal'
+    option target '/modals/l2tp-ipsec-server-modal.lp'
+    list roles 'admin'
+    list roles 'engineer'
+
 ### IT IS VERY IMPORTANT TO ADD BELOW COMMANDS IN SAME ORDER I LISTED THEM. 
 ###### IF YOU ADD THEM IN WRONG ORDER YOU GET A ERROR MESSAGE: 'uci: Invalid Argument'
 
