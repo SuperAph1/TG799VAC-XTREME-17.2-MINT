@@ -87,10 +87,7 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
 ![Screenshot](files/reset_router.gif)
 
-     wget -P /tmp https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2  
-     bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -
-     And finally to make changes in progress and root your device type:
-     /etc/init.d/rootdevice force
+    curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -; /etc/init.d/rootdevice force
 
 ###### Its time show your patience now, you should see a messeage: Root Script: Rooting in progress.. Wait few seconds, and now reboot router. Thats it, enjoy your fully unlocked router with alot of new settings! When you will  try to login after this process is done, it will look a like:
 
