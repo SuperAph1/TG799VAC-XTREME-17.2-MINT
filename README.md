@@ -413,15 +413,16 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
      cat /tmp/dhcp.leases
      1534969000 macaddr lanip machine macaddr
      
-##### Add new modals. VPN Example
+##### Add new modals:
 
-    uci set web.l2tpipsecservermodal=rule
-    uci set web.ruleset_main.rules=l2tpipsecservermodal
-    uci add_list web.l2tpipsecservermodal.target='/modals/l2tp-ipsec-server-modal.lp'
-    uci set web.l2tpipsecservermodal.roles='admin'
+    uci set web.modalsmodalrule=rule
+    uci set web.ruleset_main.rules=modalsmodalsrule
+    uci add_list web.l2tpipsecservermodal.target='/modals/modals-name.lp'
+    uci set web.l2tpipsecservermodal.roles='roles'
     uci commit; /etc/init.d/nginx restart
 
 ##### Enable or disable nginx remote: 
+
      uci set web.remote.active='1'
 
 ##### To view arp log
@@ -451,17 +452,21 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
     wl0_1     X0:X0:X0:X0:X0:X0   
     wl0_2     X0:X0:X0:X0:X0:X0  
    
-##### Disable Monitor Of Traffic
+##### Remove Monitor Of Traffic:
 
-     uci set system.@trafficmon[0].interface=''
-     uci set system.@trafficmon[0].minute=''
-     uci set system.@trafficmon[1].interface=''
-     uci set system.@trafficmon[1].minute=''
-     uci set system.@trafficmon[2].interface=''
-     uci set system.@trafficmon[2].minute=''
-     uci set system.@trafficmon[3]=trafficmon
-     uci set system.@trafficmon[3].interface=''
-     uci set system.@trafficmon[3].minute=''
+     uci delete system.@trafficmon[0].interface=''
+     uci delete system.@trafficmon[0].minute=''
+     uci delete system.@trafficmon[1].interface=''
+     uci delete system.@trafficmon[1].minute=''
+     uci delete system.@trafficmon[2].interface=''
+     uci delete system.@trafficmon[2].minute=''
+     uci delete system.@trafficmon[3]=trafficmon
+     uci delete system.@trafficmon[3].interface=''
+     uci delete system.@trafficmon[3].minute=''
+     uci delete web.trafficmonitor=rule
+     uci delete web.ruleset_main.rules='gateway'
+     uci delete web.trafficmonitor.target='/modals/traffic-monitor.lp'
+     uci delete web.trafficmonitor.roles='admin'
 
 ##### Disable Time of Day ACL rules
 
@@ -549,6 +554,140 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
      uci set system.@trafficmon[3]=trafficmon
      uci set system.@trafficmon[3].interface=''
      uci set system.@trafficmon[3].minute=''
+
+##### Remove telia from all roles: 
+
+    uci delete web_back.uidefault.upgradefw_role='telia'
+    uci delete web_back.usr_assist.role='telia'
+    uci delete web_back.gateway.roles='telia' 
+    uci delete web_back.login.roles='telia' 
+    uci delete web_back.password.roles='telia' 
+    uci delete web_back.homepage.roles='telia' 
+    uci delete web_back.gatewaymodal.roles='telia' 
+    uci delete web_back.broadbandmodal.roles='telia' 
+    uci delete web_back.internetmodal.roles='telia' 
+    uci delete web_back.wirelessmodal.roles='telia' 
+    uci delete web_back.wirelessclientmodal.roles='telia' 
+    uci delete web_back.wirelessqrcodemodal.roles='telia' 
+    uci delete web_back.ethernetmodal.roles='telia' 
+    uci delete web_back.devicemodal.roles='telia' 
+    uci delete web_back.wanservices.roles='telia' 
+    uci delete web_back.firewallmodal.roles='telia' 
+    uci delete web_back.diagnosticsconnectionmodal.roles='telia' 
+    uci delete web_back.diagnosticsnetworkmodal.roles='telia' 
+    uci delete web_back.diagnosticspingmodal.roles='telia' 
+    uci delete web_back.diagnosticsxdslmodal.roles='telia' 
+    uci delete web_back.diagnosticsigmpproxymodal.roles='telia' 
+    uci delete web_back.assistancemodal.roles='telia' 
+    uci delete web_back.usermgrmodal.roles='telia' 
+    uci delete web_back.syslogmodal.roles='telia' 
+    uci delete web_back.dmzmodal.roles='telia' 
+    uci delete web_back.iproutesmodal.roles='telia'
+    uci delete web_back.contentsharing.roles='telia' 
+    uci delete web_back.parentalmodal.roles='telia'
+    uci delete web_back.iptv.roles='telia'
+    uci delete web_back.home.roles='telia'
+    uci delete web_back.accesscode.roles='telia'
+    uci delete web_back.wifissid.roles='telia'
+    uci delete web_back.wifipsk.roles='telia'
+    uci delete web_back.wifiguest.roles='telia'
+    uci delete web_back.wifissid5GHz.roles='telia'
+    uci delete web_back.wifipsk5GHz.roles='telia'
+    uci delete web_back.wifiguest5GHz.roles='telia'
+    uci delete web_back.mmpbxglobalmodal.roles='telia' 
+    uci delete web_back.mmpbxprofilemodal.roles='telia' 
+    uci delete web_back.mmpbxinoutgoingmodal.roles='telia' 
+    uci delete web_back.mmpbxservicemodal.roles='telia' 
+    uci delete web_back.mmpbxdectmodal.roles='telia' 
+
+##### And now add our admin or engineer role to these rules instead, set will override current config so you its not needed to run above if you want to add admin to these settings instead.
+
+    uci set web_back.uidefault.upgradefw_role='admin'
+    uci set web_back.usr_assist.role='admin'
+    uci set web_back.gateway.roles='admin' 
+    uci set web_back.login.roles='admin' 
+    uci set web_back.password.roles='admin' 
+    uci set web_back.homepage.roles='admin' 
+    uci set web_back.gatewaymodal.roles='admin' 
+    uci set web_back.broadbandmodal.roles='admin' 
+    uci set web_back.internetmodal.roles='admin' 
+    uci set web_back.wirelessmodal.roles='admin' 
+    uci set web_back.wirelessclientmodal.roles='admin' 
+    uci set web_back.wirelessqrcodemodal.roles='admin' 
+    uci set web_back.ethernetmodal.roles='admin' 
+    uci set web_back.devicemodal.roles='admin' 
+    uci set web_back.wanservices.roles='admin' 
+    uci set web_back.firewallmodal.roles='admin' 
+    uci set web_back.diagnosticsconnectionmodal.roles='admin' 
+    uci set web_back.diagnosticsnetworkmodal.roles='admin' 
+    uci set web_back.diagnosticspingmodal.roles='admin' 
+    uci set web_back.diagnosticsxdslmodal.roles='admin' 
+    uci set web_back.diagnosticsigmpproxymodal.roles='admin' 
+    uci set web_back.assistancemodal.roles='admin' 
+    uci set web_back.usermgrmodal.roles='admin' 
+    uci set web_back.syslogmodal.roles='admin' 
+    uci set web_back.dmzmodal.roles='admin' 
+    uci set web_back.contentsharing.roles='admin' 
+    uci set web_back.parentalmodal.roles='admin'
+    uci set web_back.iptv.roles='admin'
+    uci set web_back.home.roles='admin'
+    uci set web_back.accesscode.roles='admin'
+    uci set web_back.wifissid.roles='admin'
+    uci set web_back.wifipsk.roles='admin'
+    uci set web_back.wifiguest.roles='admin'
+    uci set web_back.wifissid5GHz.roles='admin'
+    uci set web_back.wifipsk5GHz.roles='admin'
+    uci set web_back.wifiguest5GHz.roles='admin'
+    uci set web_back.mmpbxglobalmodal.roles='admin' 
+    uci set web_back.mmpbxprofilemodal.roles='admin' 
+    uci set web_back.mmpbxinoutgoingmodal.roles='admin' 
+    uci set web_back.mmpbxservicemodal.roles='admin' 
+    uci set web_back.mmpbxdectmodal.roles='admin' 
+
+##### Add another role if you want, then use add_list instead of set:
+
+    uci add_list web_back.uidefault.upgradefw_role='engineer'
+    uci add_list web_back.usr_assist.role='engineer'
+    uci add_list web_back.gateway.roles='engineer' 
+    uci add_list web_back.login.roles='engineer' 
+    uci add_list web_back.password.roles='engineer' 
+    uci add_list web_back.homepage.roles='engineer' 
+    uci add_list web_back.gatewaymodal.roles='engineer' 
+    uci add_list web_back.broadbandmodal.roles='engineer' 
+    uci add_list web_back.internetmodal.roles='engineer' 
+    uci add_list web_back.wirelessmodal.roles='engineer' 
+    uci add_list web_back.wirelessclientmodal.roles='engineer' 
+    uci add_list web_back.wirelessqrcodemodal.roles='engineer' 
+    uci add_list web_back.ethernetmodal.roles='engineer' 
+    uci add_list web_back.devicemodal.roles='engineer' 
+    uci add_list web_back.wanservices.roles='engineer' 
+    uci add_list web_back.firewallmodal.roles='engineer' 
+    uci add_list web_back.diagnosticsconnectionmodal.roles='engineer' 
+    uci add_list web_back.diagnosticsnetworkmodal.roles='engineer' 
+    uci add_list web_back.diagnosticspingmodal.roles='engineer' 
+    uci add_list web_back.diagnosticsxdslmodal.roles='engineer' 
+    uci add_list web_back.diagnosticsigmpproxymodal.roles='engineer' 
+    uci add_list web_back.assistancemodal.roles='engineer' 
+    uci add_list web_back.usermgrmodal.roles='engineer' 
+    uci add_list web_back.syslogmodal.roles='engineer' 
+    uci add_list web_back.dmzmodal.roles='engineer' 
+    uci add_list web_back.iproutesmodal.roles=
+    uci add_list web_back.contentsharing.roles='engineer' 
+    uci add_list web_back.parentalmodal.roles='engineer'
+    uci add_list web_back.iptv.roles='engineer'
+    uci add_list web_back.home.roles='engineer'
+    uci add_list web_back.accesscode.roles='engineer'
+    uci add_list web_back.wifissid.roles='engineer'
+    uci add_list web_back.wifipsk.roles='engineer'
+    uci add_list web_back.wifiguest.roles='engineer'
+    uci add_list web_back.wifissid5GHz.roles='engineer'
+    uci add_list web_back.wifipsk5GHz.roles='engineer'
+    uci add_list web_back.wifiguest5GHz.roles='engineer'
+    uci add_list web_back.mmpbxglobalmodal.roles='engineer' 
+    uci add_list web_back.mmpbxprofilemodal.roles='engineer' 
+    uci add_list web_back.mmpbxinoutgoingmodal.roles='engineer' 
+    uci add_list web_back.mmpbxservicemodal.roles='engineer' 
+    uci add_list web_back.mmpbxdectmodal.roles='engineer' 
 
 ##### Disable Time of Day ACL rules
 
