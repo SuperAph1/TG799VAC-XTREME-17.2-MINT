@@ -393,10 +393,19 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 ##### Edit nsplink to something else (where you get redirected when you click on the logo at top) 
 
     uci set web.uidefault.nsplink='https://sendit.nu'
+    
+##### This will show all traffic on your router with netstat:
 
-##### This will show all ip connected to your router atm..
+    netstat -tulnp 
+
+##### This will show all ip numbers connected to your router atm..
 
     netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u  
+     
+##### Capture traffic on all interfaces (add -i wl0 for include wifi):
+
+    tcpdump -vvv -ttt -p -U
+    tcpdump -i wl0 -vvv -ttt -p -U
      
 ##### Enable or Disable WWAN support (mobiled)
 
@@ -493,14 +502,7 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
     uci set web.uidefault.nsplink='https://sendit.nu'
 
-##### This will show all traffic on your router:
-
-    netstat -tulnp 
-
-##### This will show all ip numbers connected to your router atm..
-
-    netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u  
-  
+ 
 ##### Enable or Disable WWAN support (mobiled)
 
      uci set mobiled.globals.enabled='1'
@@ -692,6 +694,14 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 ##### Disable Time of Day ACL rules
 
      uci set tod.global.enabled='0'
+     
+##### List installed packages:
+
+    echo $(opkg list_installed | awk '{ print $1 }') 
+   
+##### List installed packages in a tree:
+
+    echo $(opkg list_installed | awk '{ print $1 }') | xargs -n 1
      
 ##### For login with debug mode enabled, then please go to:
      
