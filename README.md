@@ -38,13 +38,11 @@ HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH W
 
 ![Screenshot](files/adduser.gif)
 
-
-
-##### wuseman has 100% control over Telia and Superuser and is now added to telia ;) - (updated: 2018-09-15)
+##### wuseman got 100% control over Telia and Superuser roles and we are now able to add our user to become a Telia user:
 
 ![Screenshot](files/wuseman.pwned.telia.png)
 
-# HOWTO
+# HOWTO GET ROOT ACCESS FROM WEBGUI:
 
 ##### Let us begin to hack for real now.. Set up a netcat listener on your machine, and adjust any firewall rules to allow an inbound connection:
 
@@ -57,27 +55,24 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
 ##### When you have successfully logged in, set a new root password, edit /etc/config/dropbear (THEY ARE USING 60022 AS DEFUALT PORT IN THIS VERSION NOT 22 AS BEFORE)
 
-    passwd                                                                    # Set a new root password          
-    sed -i "s/'option enable '0'/option enable '1'/g" /etc/config/dropbear    # Enable dropbear for LAN 
-    /etc/init.d/dropbear restart                                              # Restart dropbear
-    exit                                                                      # Drop the netcat window and ssh into your router instead
-    ssh -p 60022 root@192.168.1.1                                             # Login with the password you typed earlier.
+    passwd                                                                             
+    sed -i "s/'option enable '0'/option enable '1'/g" /etc/config/dropbear    
+    /etc/init.d/dropbear restart                                             
+    exit                                                                   
+    ssh -p 60022 root@192.168.1.1                                           
 
 
 ##### If WEBGUI is broken then you allways can reset your router with 'rtfd -all' command, use 'rtfd --soft' for keep settings.
 
 ![Screenshot](files/reset-router-with-rtfd-if-webgui-crashed.gif)
 
-##### Banner (DEFAULT)
-
-![Screenshot](files/banner_before_default.png)
-
-##### WEBUI (DEFAULT)
+##### Banner (our internet providers have given us an firmware with absolutely minimal features, fuck you!!)
 
 ![Screenshot](files/webgui_default.png)
 
-##### When you have successfully hacked your router this is the result: 
+##### Banner(Default)
 
+![Screenshot](files/banner_before_default.png)
 
 ##### I got many questions in my mail inbox how-to hack the Telia router with minimal settings to get fully unlock it with and root the device and get a brand new interface from Technicolor wich is default with _all_ default settings. So i decided to create a preview here at top to show you all how this is done, huge respect  to the italians that made this public and these who maintaince the GUI with new upgrades.
 
@@ -89,11 +84,19 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
     curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -; /etc/init.d/rootdevice force
 
-###### Its time show your patience now, you should see a messeage: Root Script: Rooting in progress.. Wait few seconds, and now reboot router. Thats it, enjoy your fully unlocked router with alot of new settings! When you will  try to login after this process is done, it will look a like:
+###### Its time to show your patience now, you should see a messeage: Root Script: Rooting in progress.. Wait few seconds, and now reboot router. Thats it, enjoy your fully unlocked router with alot of new settings! When you will  try to login after this process is done, it will look a like:
 
 ![Screenshot](files/login-screen-after-root.png)
 
-##### Printing some other examples here below: 
+##### Stats view:
+
+![Screenshot](files/stats-view.gif)
+
+##### Telstra Extension, really nice overview: 
+
+![Screenshot](files/telstra-gui.png)
+
+##### Printing some other examples below from Ansuels repo: 
 
 ![Screenshot](files/tim.png)
 ![Screenshot](files/dark-white.png)
@@ -110,7 +113,7 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
 ![Screenshot](files/banner_when_done.png)
 
-##### WEBUI (LUCI - REALLY ADVANCED - HIGH RISK TO BRICK YOUR DEVICE - I BRICKED MY OLD)
+##### WEBUI (LUCI - REALLY ADVANCED - HIGH RISK - MIGHT BRICK YOUR DEVICE - I BRICKED MY OLD)
 
 ![Screenshot](files/wusemans_pwnS-100-percent-complete-hacking.png)
 
@@ -134,8 +137,8 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
 ![Screenshot](files/vpn-in-webgui.png)
 
-
 ###### Add l2tpip to rules: 
+
     list rules 'l2tpipsecservermodal'
 
 ###### Now add below to /etc/config/web
