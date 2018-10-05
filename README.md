@@ -101,13 +101,7 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 ![Screenshot](files/tim.png)
 ![Screenshot](files/dark-white.png)
 ![Screenshot](files/stats-login-after-root.png)
-![Screenshot](files/gateway-info.png)
-![Screenshot](files/gatewayinfo2.png)
-![Screenshot](files/gatewayinfo3.png)
-![Screenshot](files/gatewayinfo4.png)
-![Screenshot](files/proof.png)
-![Screenshot](files/upgrade.png)
-
+![Screenshot](files/webgui-tour.gif)
 
 ##### Banner (AFTER)
 
