@@ -96,6 +96,10 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
 ![Screenshot](files/telstra-gui.png)
 
+##### WEBUI (LUCI - REALLY ADVANCED - HIGH RISK - MIGHT BRICK YOUR DEVICE - I BRICKED MY OLD)
+
+![Screenshot](files/wusemans_pwnS-100-percent-complete-hacking.png)
+
 ##### Printing some other examples below from Ansuels repo: 
 
 ![Screenshot](files/tim.png)
@@ -112,10 +116,6 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 ##### Banner (AFTER)
 
 ![Screenshot](files/banner_when_done.png)
-
-##### WEBUI (LUCI - REALLY ADVANCED - HIGH RISK - MIGHT BRICK YOUR DEVICE - I BRICKED MY OLD)
-
-![Screenshot](files/wusemans_pwnS-100-percent-complete-hacking.png)
 
 ##### This is how it can be if you will stay with Telia gui (Recommended):
 
