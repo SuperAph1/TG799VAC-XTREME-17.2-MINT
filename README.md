@@ -7,15 +7,9 @@
    ofc i have hacked this one aswell since i DO not want backdoors in my network..
 
    I have not found any other tutorial how-to hack this version from technicolor in this way I have done it. Someone has to be the first on a new exploit and let everyone know what's really is an open door straight into your 
-network and your digital life. This is 
-   nothing people just should say things like "i do not care" cause this can really be abused if there is some blackhat hacker on the support or if someone just is curios about your life and has enough freetime . With TSHARK or 
-WSHARK they can sniff ALL your 
-traffic no matter what ppl say since the router is the last point in 'almost' all home-networks. I exposing Telia again cause i see this as a REAL threat to our privacy...I had never questioned this if the providers had been 
-straight and honest about what they 
-actually 
-   have access to. I will expose every setting, every ip and every key i can found until they will remove the backdoors. Now im bored so let's start i really hate to write descs and the faster you get this information, the faster 
-you can protect yourself from the 
-backdoors. 
+   network and your digital life. This is 
+   nothing people just should say things like "i do not care" cause this can really be abused if there is some blackhat hacker on the support or if someone just is curios about your life and has enough freetime . With TSHARK or WSHARK they can sniff ALL your traffic no matter what ppl say since the router is the last point in 'almost' all home-networks. I exposing Telia again cause i see this as a REAL threat to our privacy...I had never questioned this if the providers had been straight and honest about what they actually 
+   have access to. I will expose every setting, every ip and every key i can found until they will remove the backdoors. Now im bored so let's start i really hate to write descs and the faster you get this information, the faster you can protect yourself from the backdoors. 
 
 ##### FIRST SOME RLY SCARRY SHIT THAT USERS HAS NO KNOWLEDGE ABOUT AT ALL!! 
 
@@ -24,7 +18,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ![Screenshot](files/wth.png)
 
-##### Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
+#### Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
 
 ###### You have to add our admin user to upgradefw role and after this has been done you will get access. I have added a preview below the commands where to upload your new firmware (THIS IS DANGEROUS - DONT PLAY WITH THIS IF YOU HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH WRONG FIRMWARE, PERMANENT!):
 
@@ -41,9 +35,13 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ![Screenshot](files/wuseman.pwned.telia.png)
 
-##### Install packages (If things got fucked up cause of space or something similiar then just begin from 0 again with command):
+##### If things got fucked anytime because of to low space or something similiar when you just get stuck, then mtd will be your rescue, this will restore router to factory default 100%: 
+
+![Screenshot](files/files/erase-rootfs.gif)
 
      'mtd -r erase rootfs_data':
+
+##### Install custom packages from any arch:
 
 ![Screenshot](files/install-opkg-packages.gif)
 
