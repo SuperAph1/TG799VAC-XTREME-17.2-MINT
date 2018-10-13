@@ -37,11 +37,11 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ##### If things got fucked anytime because of to low space or something similiar when you just get stuck, then mtd will be your rescue, this will restore router to factory default 100%: 
 
-![Screenshot](files/files/erase-rootfs.gif)
+![Screenshot](files/erase-rootfs.gif)
 
-     'mtd -r erase rootfs_data':
+      mtd -r erase rootfs_data
 
-##### Install custom packages from any arch:
+##### When you gonna install custom packages from any arch there might be a little problem with term, this is how you will fix it:
 
 ![Screenshot](files/install-opkg-packages.gif)
 
@@ -434,6 +434,10 @@ restore the router, what are they doing with this data? This is really unpleasan
 
      cat /tmp/dhcp.leases
      1534969000 macaddr lanip machine macaddr
+
+##### To view all ipv4 adresses in uci settings:
+
+     show | uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
      
 ##### Add new modals:
 
