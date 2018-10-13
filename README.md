@@ -44,15 +44,17 @@ restore the router, what are they doing with this data? This is really unpleasan
 ##### Install custom packages from any arch:
 
 ![Screenshot](files/install-opkg-packages.gif)
+
      cat > /etc/opkg.conf
-     dest root /
-     dest ram /tmp
-     lists_dir ext /var/opkg-lists
-     option overlay_root /overlay
-     arch all 1
-     arch noarch 1
-     arch brcm63xx 3
-     arch brcm63xx-tch 10
+
+      dest root /
+      dest ram /tmp
+      lists_dir ext /var/opkg-lists
+      option overlay_root /overlay
+      arch all 1
+      arch noarch 1
+      arch brcm63xx 3
+      arch brcm63xx-tch 10
 
 # HOWTO GET ROOT ACCESS FROM WEBGUI:
 
