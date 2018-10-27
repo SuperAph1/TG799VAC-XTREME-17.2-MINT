@@ -192,7 +192,7 @@ restore the router, what are they doing with this data? This is really unpleasan
         option lookup_host 'domain.com'
         option domain 'domain.com'
 
-###### List product, serial, ssid prefix etc by below command:
+##### List product, serial, ssid prefix etc by below command:
 
     cat /var/hostapd.env | sed 's/^_//g' | sed 's/=/ ===> /g'
     COMPANY_NAME ===> Technicolor
@@ -207,11 +207,11 @@ restore the router, what are they doing with this data? This is really unpleasan
     MACADDR ===> E0-B9-15-23-22-54
     WL_MACADDR ===> E0-B9-15-23-45-55
 
-####### List all files where "password=" is stored: 
+##### List all files where "password=" is stored: 
 
     sudo grep -rP -w -e 'password=' .| grep -v Binary | grep -v ddns
     
-###### List all files where you can find your serial: 
+##### List all files where you can find your serial: 
 
     find . -type f | xargs grep -e 'SERIAL' | cut -d':' -f1 | grep / | uniq
 
