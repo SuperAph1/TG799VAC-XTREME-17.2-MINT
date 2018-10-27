@@ -1,0 +1,42 @@
+#!/bin/bash -x
+####################################################################################################################################################
+# Author: wuseman <info@wuseman.com>                                                                                                               #
+# Desc: Download all compatible ipks with tg799vac xtreme from openwrt by and sort every package perfect in folders by package name.               #
+# - This script was created for ppl other people who love sort things perfect for archive storage                                                  #
+# Created: 2018-10-13                                                                                                                              #
+####################################################################################################################################################
+
+#set -e
+
+# Desc: Download all compatible ipks with tg799vac xtreme from openwrt by a simple command
+
+SOURCE="https://archive.openwrt.org/attitude_adjustment/12.09/brcm63xx/generic/packages"
+ARCHIVEDIR="/var/git/TG799VAC-XTREME-17.2-MINT/ipkg_packages"
+
+sort_packages_by_folder() {
+lynx -dump $SOURCE | grep -Eo '(http|https)://[^/"]+.*' | cut -d/ -f9 | cut -d'-' -f1 | uniq | grep -v [0-9] |sed '/Packages.gz/d' > /tmp/ipkg.folders
+cd $ARCHIVEDIR; cat /tmp/ipkg.folders | xargs mkdir -p
+}
+
+
+lynx -dump $SOURCE | grep -Eo '(http|https)://[^/"]+.*' > /tmp/ipkg.packages
+
+dn2dir() {
+PACKAGE=$(cat /tmp/ipkg.packages | cut -d/ -f9 | cut -d- -f1 | uniq | grep -v [0-9] | head -n 1)
+cd $ARCHIVEDIR/
+for i in $(cat /tmp/ipkg.folders | head -n 1); do
+cat /tmp/ipkg.packages | grep $i > /tmp/c
+sed -i '1d' /tmp/ipkg.packages
+echo Downloading all $PACKAGE* packages into \-\> $ARCHIVEDIR/$PACKAGE/
+wget -q -i /tmp/c -P $ARCHIVEDIR/$i/
+sleep 5
+done
+}
+
+sort_packages_by_folder
+
+for totalpackages in $(seq 1 $(cat /tmp/ipkg.packages | wc -l)); do
+dn2dir
+done
+
+echo -e "\e[1;32m*\e[0m All packages has been successfully downloaded and sorted.."
