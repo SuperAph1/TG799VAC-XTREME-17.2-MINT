@@ -228,6 +228,13 @@ restore the router, what are they doing with this data? This is really unpleasan
         option mac 'macaddr'
         option ip 'prefered.localip'
 
+##### Some guys on openwrt forum claims that your webgui will be faster if you change some power settings (DO IT ON YOUR OWN RISK I HAVENT TRIED)
+
+    pwrctl config --cpuspeed 0
+    pwrctl config --wait off
+    pwrctl config --ethapd off
+    pwrctl config --eee off
+    pwrctl config --autogreeen off
 
 ##### First of all we want to change telia > admin in all lp files.
 
