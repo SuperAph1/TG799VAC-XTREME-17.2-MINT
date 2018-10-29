@@ -17,7 +17,9 @@
 ## SHORT VERSION
 
 Please wait 20-30 seconds before you trying to ssh into your router please..
+
 Default password: root
+
 Connect to router: 'ssh root@192.168.1.1'
 
 Copy and paste all this stuff in dyndns field in webgui (edit ip): 
