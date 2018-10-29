@@ -170,7 +170,7 @@
 
 #### With below setting you will be allowed to install packages from more repos:
 
-    cat > /etc/opkg.conf
+    echo " 
 
     dest root /
     dest ram /tmp
@@ -179,7 +179,54 @@
     arch all 1
     arch noarch 1
     arch brcm63xx 3
-    arch brcm63xx-tch 10
+    arch brcm63xx-tch 10" > /etc/opkg.conf
+
+#### Enable TFTP and flash your device with TFTP:
+
+    Set tftp enable 
+      uci set dhcp.dnsmasq.enable_tftp='1'
+
+    Switch device power off (or pull the power cord).
+    Connect a client to the device via Ethernet to LAN1
+    Trigger the rescue function by pressing and holding the reset button of the device and then turning the device on (or plug in the power cord).
+    You can release the reset button after a few seconds.
+    The device will take ~15-20 seconds to boot a mini-web server, that provides only a single function: it can upload a firmware file and has a button to trigger the flash process. The web-server will usually be available under either (if in doubt, try both)
+    http://192.168.1.1
+
+#### Setup a TFTP server on your Gentoo Linux pc:
+
+    Install atftpd: 
+     emerge --sync; emerge -a atftpd
+
+    Create tftp dir:
+     mkdir /mnt/tftp
+ 
+    Copy firmware to our new tftp dir:
+     cp <firmware.bin> /mnt/tftp/
+    
+    Change the ownership of the folder and the file in it:
+     chown nobody:nogroup -R /mnt/tftp
+
+    Setup configuration for our new dir:
+     echo 'TFTPD_ROOT="/mnt/tftp"
+           TFTPD_OPTS="--daemon --user nobody --group nobody' > /etc/conf.d/atftp
+ 
+    Run TFTP server
+     /etc/init.d/atftpd start
+
+
+    Thats it, now use getent to confirm it is up and running:
+      getent services tftp
+
+#### Use TFTP to push firmware to tg799vac router:
+
+    First you need to setup a static ip to be able to communicate with router:
+     ifconfig eth0 192.168.1.2 netmask 255.255.255.0 up 
+     route add default gw 192.168.1.1
+     echo "nameserver 192.168.1.1" > /etc/resolv.conf
+
+    Use wireshark for listen on BOOTP message, when tg799 router reporting BOOTP then run below command: 
+    atftp --trace --option "timeout 1" --option "mode octet" --put --local-file tg799bin.firmware.rbi <ip-addr/hostname>
 
 #### Got stuck with some packages that says error opening terminal? No worries - This is caused cause colors - Run below command to fix the xterm problem:
 
@@ -206,7 +253,7 @@
     for settings in $(uci show | awk -F. '{print $1}' | uniq);do uci show $settings > $settings;done
 
 
-#### List product, serial, ssid prefix etc by below command:
+#### List product, serial, ssid prefix etc;
 
     cat /var/hostapd.env | sed 's/^_//g' | sed 's/=/ ===> /g'
       COMPANY_NAME ===> Technicolor
@@ -357,7 +404,7 @@
     option target 'DNAT'
     option dest_ip '<lanip>'" >> /etc/config/firewall
 
-###### Example 2 - UCI method
+##### Example 2 - UCI method
 
     uci set firewall.userredirect4320=userredirect
     uci set firewall.userredirect4320.family='<ipv4/ipv6>'
@@ -431,42 +478,50 @@
     transfera StartTimed
     transfera PasswordV
 
-##### Changing max sync speed on your modem:
+#### List network devices:
+
+    awk '{print $1}' /proc/net/dev
+
+#### To get a fresh network configuration on your client system you can remove all IP addresses via:
+ 
+      ip a flush dev <device>
+
+#### Changing max sync speed on your modem:
 
     uci set xdsl.dsl0.maxaggrdatarate='200000' # 16000 default
     uci set xdsl.dsl0.maxdsdatarate='140000'   # 11000 default
     uci set xdsl.dsl0.maxusdatarate='60000'    # 40000 default
 
-##### Enable or Disable dnsmasq:
+#### Enable or Disable dnsmasq:
 
     uci show dhcp.lan.ignore='1'
 
-##### Enable or Disable network time server:
+#### Enable or Disable network time server:
 
     uci set system.ntp.enable_server='1'
 
-##### You can check the current running dns with:
+#### Check the current running dns with:
 
     cat /etc/resolv.conf
 
-##### Edit nsplink to something else (where you get redirected when you click on the logo at top)
+#### Edit nsplink to something else (where you get redirected when you click on the logo at top)
 
     uci set web.uidefault.nsplink='https://sendit.nu'
 
-##### This will show all traffic on your router with netstat:
+#### This will show all traffic on your router with netstat:
 
     netstat -tulnp
 
-##### This will show all ip numbers connected to your router atm..
+#### This will show all ip numbers connected to your router atm..
 
     netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u
 
-##### Capture traffic on all interfaces (add -i wl0 for include wifi):
+#### Capture traffic on all interfaces (add -i wl0 for include wifi):
 
     tcpdump -vvv -ttt -p -U
     tcpdump -i wl0 -vvv -ttt -p -U
 
-##### Enable or Disable Content Sharing (Samba / DNLA)
+#### Enable or Disable Content Sharing (Samba / DNLA)
 
     uci set samba.samba.enabled='1'
     uci set dlnad.config.enabled='1'
@@ -486,7 +541,7 @@
 
     uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 
-#### See CPU info with clash:
+#### Print CPU info with clash:
 
     clash showinfo cpu
 
@@ -507,9 +562,6 @@
      Hardware    : BCM963138
      Revision    : 0000
      Serial     : 0000000000000000
-
-
-    uci commit; /etc/init.d/nginx restart
 
 ##### Enable or Disable GUI:
 
@@ -601,7 +653,7 @@
     uci set siege.log.enable_syslog='1'
     uci del_list web_back.syslogmodal.roles='telia'
 
-##### Enable or Disable Time of Day ACL rules
+##### Enable or Disable Time of Day ACL rules:
 
     uci set tod.global.enabled='0'
 
@@ -609,25 +661,20 @@
 
     http://192.168.1.1/?debug=1
 
-##### Enable or Disable so your router wont restart if there is an segmentation fault in a user space program.
+##### Enable or Disable so your router wont restart if there is an segmentation fault in a user space program:
 
     uci set system.@coredump[0].reboot='0'
     uci commit system
 
-##### Just type below command for print the accesskey. (More info will get added here soon how this is generated)
+#### Just type below command for print the accesskey:
 
     sed -e 's/^\(.\{8\}\).*/\1/' /proc/rip/0124
 
-##### You can check the current running dns with
+#### You can check the current running dns with
 
     cat /etc/resolv.conf
 
-##### Enable or Disable WWAN support (mobiled)
-
-    uci set mobiled.globals.enabled='1'
-    uci set mobiled.device_defaults.enabled='1'
-
-##### Enable or Disable Content Sharing (Samba / DNLA)
+##### Enable or Disable Content Sharing (Samba / DNLA):
 
     uci set samba.samba.enabled='1'
     uci set dlnad.config.enabled='1'
@@ -637,11 +684,7 @@
     cat /tmp/dhcp.leases
     1534969000 macaddr lanip machine macaddr
 
-##### Enable or Disable TFTP:
-
-    uci set dhcp.dnsmasq.enable_tftp='1'
-
-##### Disable Time of Day ACL rules
+#### Disable Time of Day ACL rules
 
     uci set tod.global.enabled='0'
 
@@ -652,6 +695,7 @@
 ##### List installed packages in a tree:
 
     echo $(opkg list_installed | awk '{ print $1 }') | xargs -n 1
+
 #### IT IS VERY IMPORTANT TO ADD BELOW COMMANDS IN SAME ORDER I LISTED THEM.
 ##### IF YOU ADD THEM IN WRONG ORDER YOU GET A ERROR MESSAGE: 'uci: Invalid Argument'
 
@@ -896,8 +940,8 @@
     sed -i 's/false/true/g' /www/docroot/
     sed -i 's/false/true/g' /www/docroot/ajax/*.lua
 
-##### Add admin to everything and remove supuser and admin
-###### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED )
+#### Add admin to everything and remove superuser & telia:
+##### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED )
 
     sed -i 's/false/true/g' /www/cards/010_lte.lp
     sed -i 's/telia/admin/' /www/docroot/modals/gateway-modal.lp
@@ -907,12 +951,14 @@
     sed -i 's/superuser/admin/' /www/docroot/modals/internet-modal.lp
     sed -i 's/superuser/admin/' /www/docroot/modals/mmpbx-global-modal.lp
     uci commit
-##### Example on how-to add a new new modal:
+
+#### Add a new new modal:
 
     uci set web.modalsmodalrule=rule
     uci set web.ruleset_main.rules=modalsmodalsrule
     uci add_list web.l2tpipsecservermodal.target='/modals/modals-name.lp'
     uci set web.l2tpipsecservermodal.roles='roles'
+
 #### A minimal alias definition for a bridged interface might be:
 
     config interface lan
@@ -975,12 +1021,19 @@
      option 'vlan' '4'
      option 'ports' '0 5' #lan4 " > /etc/config/network
 
-##### Using bridge mode with a dedicated PPPoE ethernet port:
+#### Using bridge mode with a dedicated PPPoE ethernet port:
 
     uci set network.lan.dns='1.1.1.1'
     uci set network.lan.gateway='192.168.0.254'
     uci set mmpbxrvsipnet.sip_net.interface='lan'
     uci set mmpbxrvsipnet.sip_net.interface6='lan6'
+
+#### Mirror Servers for openwrt:
+
+    http://mirrors.tuna.tsinghua.edu.cn/openwrt   HTTP, HTTPS, RSYNC     China
+    http://tp.stw-bonn.de/pub/openwrt/            HTTP, FTP              Germany
+    http://http://openwrt.emagnus.eu/openwrt/     HTTP, HTTPS, RSYNC     Germany
+    http://ba.mirror.garr.it/mirrors/openwrt/     HTTP, FTP, RSYNC       Italy
 
 ## Be careful with settings not provided by me! ;)
 
