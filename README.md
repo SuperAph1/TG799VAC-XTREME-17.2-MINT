@@ -236,6 +236,11 @@ save and just wait 4-5 seconds and you have just got full root access of your TG
 
 ##### Some guys on openwrt forum claims that your webgui will be faster if you change some power settings (DO IT ON YOUR OWN RISK I HAVENT TRIED)
 
+<<<<<<< HEAD
+=======
+##### Some guys on openwrt forum claims that your webgui will be faster if you change some power settings (DO IT ON YOUR OWN RISK I HAVENT TRIED)
+
+>>>>>>> 1e81ead4dbc1b559dc4ea74751f3edb5b42495cc
     pwrctl config --cpuspeed 0
     pwrctl config --wait off
     pwrctl config --ethapd off
