@@ -235,8 +235,6 @@
     export TERM=linux
     export TERMINFO=/etc/terminfo
 
-![Screenshot](files/install-opkg-packages.gif)
-
 #### Run uci-whois.sh from scripts dir to whois all ip's that your isp added for various settings:
 
 ![Screenshot](files/whois.gif)
