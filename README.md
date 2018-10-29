@@ -1,3 +1,5 @@
+![Screenshot](files/felia1.jpg)
+
 # README
 
    Alright guys, i have bricked my old TG799VAC-XTREME when i figured out how to generate the access key so I just got my new TG799 VAC Xtreme2 with version 17.2 Mint, ofc i have hacked this one aswell since i DO not want backdoors in my network..
@@ -15,6 +17,8 @@
 # HOWTO GET ROOT ACCESS FROM WEBGUI:
 
 ## SHORT VERSION
+
+![Screenshot](files/short-version.gif)
 
 #### 1) Please wait 20-30 seconds before you trying to ssh into your router please after you pasted below commands.
 #### 2) Connect to router: 'ssh root@192.168.1.1'
