@@ -16,11 +16,10 @@
 
 ## SHORT VERSION
 
-#### Please wait 20-30 seconds before you trying to ssh into your router please..
-
-#### Default password: root
-
-#### Connect to router: 'ssh root@192.168.1.1'
+#### 1) Please wait 20-30 seconds before you trying to ssh into your router please after you pasted below commands.
+#### 2) Connect to router: 'ssh root@192.168.1.1'
+#### 3) Default password: root
+#### 4) You have just hacked your router in 20 seconds. You also toke over root account from telia & technicolor devs.
 
 ##### Copy and paste all this stuff in dyndns field in webgui (edit ip): 
 
