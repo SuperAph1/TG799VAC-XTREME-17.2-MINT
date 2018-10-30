@@ -674,6 +674,93 @@
     uci set siege.log.enable_syslog='1'
     uci del_list web_back.syslogmodal.roles='telia'
 
+#### Grab all filters from log.txt when you export this from diagnostic tab and then insert the lines in /etc/config/system to log everything on your syslog server:
+
+    cat log.txt  | awk '{print $7}' | sed 's/://g' | uniq -d | sort -r | uniq | sed 's/^/        list log_filter "/g' | sed 's/$/"/g'|sed "s/\"/'/g"
+
+##### Something like this should be a good setup to log everything:
+
+    config system
+        option zonename 'Europe/Stockholm'
+        option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+        option network_timezone '0'       
+        option cronloglevel '5'                     
+        option hostname 'router'                    
+        option wizard_accessed '1' 
+        option hw_reboot_count '1'
+        option log_port '514'     
+        option log_filter_ip '192.168.1.144'
+        option sw_reboot_count '0'   
+        list log_filter 'warmboot'   
+        list log_filter 'cwmpd'   
+        list log_filter 'Critical'          
+        list log_filter 'Zonewatcher'       
+        list log_filter 'wifiinfo'  
+        list log_filter 'mmpbxd'  
+        list log_filter 'Everything'
+        list log_filter 'transformer'
+        list log_filter 'Zonewatcher'  
+        list log_filter 'zoneredird'   
+        list log_filter 'zone_daemon'  
+        list log_filter 'transformer[5113]'
+        list log_filter 'syslog'
+        list log_filter 'root'
+        list log_filter 'premiumd' 
+        list log_filter 'odhcpd[4785]'    
+        list log_filter 'nginx'                     
+        list log_filter 'mmpbxd[9050]'
+        list log_filter 'kernel'  
+        list log_filter 'ipks'            
+        list log_filter 'hostmanager'               
+        list log_filter 'hostapd'         
+        list log_filter 'fseventd'                  
+        list log_filter 'dropbear[8175]'               
+        list log_filter 'dropbear[10079]'              
+        list log_filter 'dnsmasq-dhcp[4208]'
+        list log_filter 'ddns-scripts[7103]'
+        list log_filter 'cwmpd[8230]'     
+        list log_filter 'cwmpd'                     
+        list log_filter 'assist.remote'             
+        list log_filter '[8549]'
+
+#### On your syslog server then put this in /etc/syslog/syslog.conf to recieve all messages from your tg799 xtream router.
+
+#### Here is a screenshot from the listening server with the config below:
+
+![Screenshot](files/syslog.png)
+
+    @version: 3.17
+    #
+    # wusemans syslog-ng configuration file for Gentoo Linux
+
+    # https://bugs.gentoo.org/426814
+    @include "scl.conf"
+
+    options {
+        time-reap(30);
+        mark-freq(10);
+        keep-hostname(yes);
+        };
+    source s_local { system(); internal(); };
+    source s_network {
+        syslog(transport(udp) port(514));
+        };
+    destination d_local {
+    file("/var/log/syslogs/syslog-messages_${HOST}"); };
+    destination d_logs {
+        file(
+            "/var/log/syslogs/syslog-messages.ogs.txt"
+            owner("root")
+            group("root")
+            perm(0777)
+            ); };
+    log { source(s_local); source(s_network); destination(d_logs); };
+
+
+##### Now restart system on your router and you should see * messages:
+
+     /etc/init.d/system restart
+
 ##### Enable or Disable Time of Day ACL rules:
 
     uci set tod.global.enabled='0'
