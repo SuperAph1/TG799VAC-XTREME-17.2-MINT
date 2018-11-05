@@ -184,8 +184,45 @@
 
      Computing hash for <username>:minitr064d:<password>
      dba1af121349128daf864727a33b1614
+     
+#### OPENVPN Client
 
-#### With below setting you will be allowed to install packages from more repos:
+##### Install Required Packages:
+
+     opkg update; opkg install openvpn-openssl openssl-util
+
+##### Configs - Network:
+
+    uci set network.vpnclient="interface"
+    uci set network.vpnclient.ifname="tun0"
+    uci set network.vpnclient.proto="none"
+    uci commit network;service network restart
+    
+##### Configs - Firewall:
+
+     uci add firewall zone
+     uci set firewall.@zone[-1].name="<vpn_client>"
+     uci add_list firewall.@zone[-1].network="<vpn_client>"
+     uci set firewall.@zone[-1].input="REJECT"
+     uci set firewall.@zone[-1].output="ACCEPT"
+     uci set firewall.@zone[-1].forward="REJECT"
+     uci set firewall.@zone[-1].masq="​1"​
+     uci set firewall.@zone[-1].mtu_fix="1"
+     uci add firewall forwarding
+     uci set firewall.@forwarding[-1].src="lan"
+     uci set firewall.@forwarding[-1].dest="<vpn_client>"
+     uci commit firewall; service firewall restart
+     
+#### Setup openvpn client:
+
+     uci set openvpn.vpnclient="openvpn"
+     uci set openvpn.vpnclient.enabled="1"
+     uci set openvpn.vpnclient.config="/etc/openvpn/vpnclient.ovpn"
+     uci commit openvpn;service openvpn restart
+
+#### OPKG
+
+##### With below setting you will be allowed to install packages from more repos:
 
     echo " 
 
