@@ -20,7 +20,7 @@
 
 ![Screenshot](files/short-version.gif)
 
-#### 1) Please wait 20-30 seconds before you trying to ssh into your router please after you pasted below commands.
+#### 1) Please wait 20-30 seconds before you trying to ssh into your router
 #### 2) Connect to router: 'ssh root@192.168.1.1'
 #### 3) Default password: root
 #### 4) You have just hacked your router in 20 seconds. You also toke over root account from telia & technicolor devs.
