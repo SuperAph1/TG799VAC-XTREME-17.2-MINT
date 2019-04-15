@@ -224,16 +224,21 @@
 
 ##### With below setting you will be allowed to install packages from more repos:
 
-    echo " 
 
-    dest root /
-    dest ram /tmp
-    lists_dir ext /var/opkg-lists
-    option overlay_root /overlay
-    arch all 1
-    arch noarch 1
-    arch brcm63xx 3
-    arch brcm63xx-tch 10" > /etc/opkg.conf
+echo "
+      arch all 100
+      arch brcm63xx 200
+      arch brcm63xx-tch 300
+     " > /etc/opkg.conf 
+
+echo  "
+        src/gz chaos_calmer http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/base
+        src/gz luci http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/luci
+        src/gz management http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/management
+        src/gz routing http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/routing
+        src/gz packages http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/packages
+        src/gz telephony http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/telephony
+" > /etc/opkg/distfeeds.conf
 
 #### Enable TFTP and flash your device with TFTP:
 
