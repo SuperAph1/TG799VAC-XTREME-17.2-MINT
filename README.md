@@ -1,4 +1,4 @@
-### Telia has released 17.2.0405-1441010-20181017112915 and the exploit has been solved, will update this wiki how to gain root access back on this firmware soon.
+# FELIA
 
 ![Screenshot](files/felia1.jpg)
 
