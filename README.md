@@ -2,7 +2,7 @@
 
 ![Screenshot](files/felia1.jpg)
 
-### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing, more info about this can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are.
+### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing and then you can follow this wiki, more info about how to downgrade your firmware can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are - If you leeching the firmwares, then keep seeding.
 
 # README
 
