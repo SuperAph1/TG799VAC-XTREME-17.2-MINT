@@ -2,9 +2,9 @@
 
 ![Screenshot](files/felia1.jpg)
 
-# README
+### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing, more info about this can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are.
 
-## Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing, more info about this can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are.
+# README
 
    Alright guys, i have bricked my old TG799VAC-XTREME when i figured out how to generate the access key so I just got my new TG799 VAC Xtreme2 with version 17.2 Mint, ofc i have hacked this one aswell since i DO not want backdoors in my network..
 
