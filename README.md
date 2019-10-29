@@ -4,7 +4,7 @@
 
 #### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing and then you can follow this wiki, more info about how to downgrade your firmware can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are - _If you leeching the firmwares, then seed 24/7 for help others_
 
-#### For know wich firmware you need, see @LuKePicci comment [here](https://github.com/wuseman/TG799VAC-XTREME-17.2-MINT/issues/9#issuecomment-533571460) - I’m really grateful for your help here luke.
+#### For know wich firmware you need, see [@LuKePicci](https://github.com/LuKePicci) comment [here](https://github.com/wuseman/TG799VAC-XTREME-17.2-MINT/issues/9#issuecomment-533571460) - I’m really grateful for your help here luke.
 
 #### Telia - VBNT-W firmwares can be downloaded from:
 
