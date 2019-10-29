@@ -4,6 +4,20 @@
 
 ### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing and then you can follow this wiki, more info about how to downgrade your firmware can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are - _If you leeching the firmwares, then seed 24/7 for help others_
 
+### Telia - VBNT-H firmwares can be downloaded from:
+
+    https://nr1.nu/archive/technicolor/firmware/VBNT-H/1627732h2221002closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441002closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441018closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172405h1441028closed.rbi
+
+### Telia - VANT-R firmwares can also be downloaded from:
+
+    https://nr1.nu/archive/technicolor/firmware/VANT-R/172339r1021022closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-R/1627732r2221004closed.rbi
+
+#### If you want me host more firmwares just setup a FTP or something so I can leech them and I will host them for you, send an e-mail with info to wuseman@nr1.nu
+
 # README
 
    Alright guys, i have bricked my old TG799VAC-XTREME when i figured out how to generate the access key so I just got my new TG799 VAC Xtreme2 with version 17.2 Mint, ofc i have hacked this one aswell since i DO not want backdoors in my network..
