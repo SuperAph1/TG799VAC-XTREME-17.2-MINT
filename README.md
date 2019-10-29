@@ -4,6 +4,8 @@
 
 # README
 
+## Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing, more info about this can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are.
+
    Alright guys, i have bricked my old TG799VAC-XTREME when i figured out how to generate the access key so I just got my new TG799 VAC Xtreme2 with version 17.2 Mint, ofc i have hacked this one aswell since i DO not want backdoors in my network..
 
    I have not found any other tutorial how-to hack this version from technicolor in this way I have done it. Someone has to be the first on a new exploit and let everyone know what's really is an open door straight into your network and your digital life. This is    nothing people just should say things like "i do not care" cause this can really be abused if there is some blackhat hacker on the support or if someone just is curios about your life and has enough freetime . With TSHARK or 
