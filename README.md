@@ -6,21 +6,26 @@
 
 #### For know wich firmware you need, see [@LuKePicci](https://github.com/LuKePicci) comment [here](https://github.com/wuseman/TG799VAC-XTREME-17.2-MINT/issues/9#issuecomment-533571460) - I’m really grateful for your help here luke.
 
-#### Telia - VBNT-W firmwares can be downloaded from:
+#### Telia - VANT-W firmwares can be downloaded from:
 
-    Comming soon.
+    https://nr1.nu/archive/technicolor/firmware/VBNT-W/172405w1441030closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-W/172339w1441004closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-W/172339w1441020closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-W/1627732w2221002closed.rbi
+    
+#### Telia - VANT-R firmwares can also be downloaded from:
+
+    https://nr1.nu/archive/technicolor/firmware/VANT-R/172405r1021034closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-R/172339r1021022closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-R/1627732r2221004closed.rbi
+    
     
 #### Telia - VBNT-H firmwares can be downloaded from:
 
-    https://nr1.nu/archive/technicolor/firmware/VBNT-H/1627732h2221002closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441002closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441018closed.rbi
     https://nr1.nu/archive/technicolor/firmware/VBNT-H/172405h1441028closed.rbi
-
-#### Telia - VANT-R firmwares can also be downloaded from:
-
-    https://nr1.nu/archive/technicolor/firmware/VANT-R/172339r1021022closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-R/1627732r2221004closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441018closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441002closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VBNT-H/1627732h2221002closed.rbi
     
 ##### Bonus from 2019-10-29. Since I have been blacklisted by Telia from getting new routers for free and they force me to pay full price if I want a new router I decided to share their secret password in plain-text. Telia's default password in plain-text is: '_T3L1a!SuPPor7' for all Technicolor routers - Enjoy!
 
