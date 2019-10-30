@@ -8,10 +8,10 @@
 
 #### Telia - VANT-W firmwares can be downloaded from:
 
-    https://nr1.nu/archive/technicolor/firmware/VBNT-W/172405w1441030closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-W/172339w1441004closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-W/172339w1441020closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-W/1627732w2221002closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-W/172405w1441030closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-W/172339w1441004closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-W/172339w1441020closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-W/1627732w2221002closed.rbi
     
 #### Telia - VANT-R firmwares can also be downloaded from:
 
