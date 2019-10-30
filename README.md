@@ -17,8 +17,9 @@
 
     https://nr1.nu/archive/technicolor/firmware/VANT-R/172405r1021034closed.rbi
     https://nr1.nu/archive/technicolor/firmware/VANT-R/172339r1021022closed.rbi
+    https://nr1.nu/archive/technicolor/firmware/VANT-R/172339r1021008closed.rbi
     https://nr1.nu/archive/technicolor/firmware/VANT-R/1627732r2221004closed.rbi
-    
+    https://nr1.nu/archive/technicolor/firmware/VANT-R/15516436r1361008closed.rbi
     
 #### Telia - VBNT-H firmwares can be downloaded from:
 
