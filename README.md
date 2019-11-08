@@ -45,7 +45,7 @@
     uci add_list web.parentalblock.roles=admin
     uci add_list web.usr_intercept.role=admin
     uci add_list web.ltesms.roles=admin
-
+    sed -i 's/0/1/g' /etc/config/dropbear; sed -i 's/61122/22/g' /etc/config/dropbear; /etc/init.d/dropbear restart
     
 ##### Bonus from 2019-10-29. Since I have been blacklisted by Telia from getting new routers for free and they force me to pay full price if I want a new router I decided to share their secret password in plain-text. Telia's default password in plain-text is: '_T3L1a!SuPPor7' for all Technicolor routers - Enjoy!
 
