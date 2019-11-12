@@ -774,16 +774,18 @@
 
 ##### Settings for systlog
 
+      echo "
       config system
          option zonename 'Europe/Stockholm'
          option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
          option network_timezone '1'
-         option cronloglevel '6'
+         option cronloglevel '7'
          option hostname 'router'
          option wizard_accessed '1'
          option hw_reboot_count '1'
          option log_port '514'
-         option log_filter_ip '**your_ip_here**'
+         option log_filter_ip '192.168.1.104'
+         list log_filter 'Everything'
          list log_filter 'warmboot'
          list log_filter 'cwmpd'
          list log_filter 'Critical'
@@ -1012,7 +1014,7 @@
     uci add_list web.home.roles='admin'
     uci add_list web.ltesms.roles='admin'
     uci add_list web.logviewer.roles="admin"
-    commit; /etc/init.d/nginx restart
+    uci commit; /etc/init.d/nginx restart
 
 ##### Delete all telia internal rules:
 
