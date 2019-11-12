@@ -1,6 +1,6 @@
 # FELIA
 
-[Website](https://wuseman.github.io/TG799VAC-XTREME-17.2-MINT/)
+Website for this place can be found [here](https://wuseman.github.io/TG799VAC-XTREME-17.2-MINT/)
 
 ![Screenshot](files/felia1.jpg)
 
