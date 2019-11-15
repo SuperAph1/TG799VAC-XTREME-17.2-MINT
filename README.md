@@ -6,7 +6,7 @@ Website for this place can be found [here](https://wuseman.github.io/TG799VAC-XT
 
 ## Notice 2019-11-15: 
 
-If you have root access (telia still sending out devices with version 17.03) so the first thing you really must do is to edit the dropbear file on bank 2, otherwise you will be locked out when they pushing the firmware to 17.04 and then you are pretty lost unless you know how you can setup a MGMT netwowrk and gain root access this way. 
+If you have root access (telia still sending out devices with version 17.03) so the first thing you really must do is to edit the dropbear file on bank 2, otherwise you will be locked out when they pushing the firmware to 17.04 and then you are pretty lost unless you know how you can setup a MGMT network and gain root access this way. 
 
 #### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing and then you can follow this wiki, more info about how to downgrade your firmware can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are - _If you leeching the firmwares, then seed 24/7 for help others_
 
