@@ -14,25 +14,25 @@ If you have root access (telia still sending out devices with version 17.03) so 
 
 #### Telia - VANT-W firmwares can be downloaded from:
 
-    https://nr1.nu/archive/technicolor/firmware/VANT-W/172405w1441030closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-W/172339w1441004closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-W/172339w1441020closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-W/1627732w2221002closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-W/172405w1441030closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-W/172339w1441004closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-W/172339w1441020closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-W/1627732w2221002closed.rbi
     
 #### Telia - VANT-R firmwares can also be downloaded from:
 
-    https://nr1.nu/archive/technicolor/firmware/VANT-R/172405r1021034closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-R/172339r1021022closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-R/172339r1021008closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-R/1627732r2221004closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VANT-R/15516436r1361008closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-R/172405r1021034closed.rbi
+    http://94.242.57.127archive/technicolor/firmware/VANT-R/172339r1021022closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-R/172339r1021008closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-R/1627732r2221004closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VANT-R/15516436r1361008closed.rbi
     
 #### Telia - VBNT-H firmwares can be downloaded from:
 
-    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172405h1441028closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441018closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-H/172339h1441002closed.rbi
-    https://nr1.nu/archive/technicolor/firmware/VBNT-H/1627732h2221002closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VBNT-H/172405h1441028closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VBNT-H/172339h1441018closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VBNT-H/172339h1441002closed.rbi
+    http://94.242.57.127/archive/technicolor/firmware/VBNT-H/1627732h2221002closed.rbi
     
  #### Get access to all cards on latest firmware:
  
