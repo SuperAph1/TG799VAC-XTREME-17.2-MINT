@@ -42,7 +42,7 @@ For get the CSFR code if you are building some kind of scripts the easiest way t
 
 Commands must be executed on the router: 
 
-    wget http://131.116.22.230:80/172339o1901024closed.rbi från routern
+    wget http://131.116.22.230:80/172339o1901024closed.rbi
 
 For upgrade firmware, you just have to type:
 
