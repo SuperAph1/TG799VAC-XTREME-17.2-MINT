@@ -967,7 +967,6 @@ For upgrade firmware, you just have to type:
 
     uci add_list web.ruleset_main.rules=xdsllowmodal
     uci add_list web.ruleset_main.rules=systemmodal
-    uci add_list web.ruleset_main.rules=natalghelpermodal
     uci add_list web.ruleset_main.rules=diagnostics
     uci add_list web.ruleset_main.rules=basicviewaccesscodemodal
     uci add_list web.ruleset_main.rules=basicviewwifiguestmodal
@@ -978,7 +977,6 @@ For upgrade firmware, you just have to type:
     uci add_list web.ruleset_main.rules=basicviewwifissid5GHzmodal
     uci add_list web.ruleset_main.rules=relaymodal
     uci add_list web.ruleset_main.rules=iproutesmodal
-    uci add_list web.ruleset_main.rules=mmpbxinoutgoingmapmodal
     uci add_list web.ruleset_main.rules=mmpbxstatisticsmodal
     uci commit; /etc/init.d/nginx restart
 
