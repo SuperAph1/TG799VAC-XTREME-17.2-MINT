@@ -38,6 +38,16 @@ For get the CSFR code if you are building some kind of scripts the easiest way t
     http://94.242.57.127/archive/technicolor/firmware/VBNT-H/172339h1441002closed.rbi
     http://94.242.57.127/archive/technicolor/firmware/VBNT-H/1627732h2221002closed.rbi
     
+#### Telia - VDNT-O firmwares can be downloaded from:
+
+Commands must be executed on the router: 
+
+    wget http://131.116.22.230:80/172339o1901024closed.rbi från routern
+
+For upgrade firmware, you just have to type:
+
+    sysupgrade --safe -o 172339o1901024closed.rbi
+    
  #### Get access to all cards on latest firmware:
  
     uci add_list web.uidefault.upgradefw_role admin
