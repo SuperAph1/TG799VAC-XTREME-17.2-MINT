@@ -864,32 +864,107 @@ For upgrade firmware, you just have to type:
 
 ![Screenshot](files/syslog.png)
 
-    @version: 3.17
-    #
-    # wusemans syslog-ng configuration file for Gentoo Linux
-
-    # https://bugs.gentoo.org/426814
+    @version: 3.22
     @include "scl.conf"
 
     options {
-        time-reap(30);
-        mark-freq(10);
-        keep-hostname(yes);
-        };
-    source s_local { system(); internal(); };
-    source s_network {
-        syslog(transport(udp) port(514));
-        };
-    destination d_local {
-    file("/var/log/syslogs/syslog-messages_${HOST}"); };
-    destination d_logs {
-        file(
-            "/var/log/syslogs/syslog-messages.ogs.txt"
-            owner("root")
-            group("root")
-            perm(0777)
-            ); };
-    log { source(s_local); source(s_network); destination(d_logs); };
+        create_dirs(yes);
+        owner(wuseman);
+        group(wuseman);
+        perm(0644);
+        dir_owner(wuseman);
+        dir_group(wuseman);
+        dir_perm(0755);
+    };
+ 
+ 
+    source s_udp {
+        network (
+                ip-protocol(6)
+                transport("udp")
+                port(514)
+        );
+        network (
+                transport("udp")
+                port(514)
+        );
+    };
+
+    destination d_host-specific {
+        file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-syslog.log");
+    };
+
+    log {
+        source(s_udp);
+        destination(d_host-specific);
+    };
+
+
+    source src {
+    unix-stream("/dev/log" max-connections(256));
+    internal();
+    };
+
+    source kernsrc { file("/proc/kmsg"); };
+
+    # define destinations
+    destination authlog { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-auth.log"); };
+    destination syslog { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-syslog"); };
+    destination cron { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-cron.log"); };
+    destination daemon { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-daemon.log"); };
+    destination kern { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-kern.log"); };
+    destination lpr { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-lpr.log"); };
+    destination user { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-user.log"); };
+    destination mail { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.log"); };
+    destination mailinfo { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.info"); };
+    destination mailwarn { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.warn"); };
+    destination mailerr { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.err"); };
+    destination newscrit { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-news/news.crit"); };
+    destination newserr { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-news/news.err"); };
+    destination newsnotice { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-news/news.notice"); };
+    destination debug { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-debug"); };
+    destination messages { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-messages"); };
+    destination console { usertty("root"); };
+    destination console_all { file("/dev/tty12"); };
+    #destination console_all { file("/dev/console"); };
+    filter f_authpriv { facility(auth, authpriv); };
+    filter f_syslog { not facility(authpriv, mail); };
+    filter f_cron { facility(cron); };
+    filter f_daemon { facility(daemon); };
+    filter f_kern { facility(kern); };
+    filter f_lpr { facility(lpr); };
+    filter f_mail { facility(mail); };
+    filter f_user { facility(user); };
+    filter f_debug { not facility(auth, authpriv, news, mail); };
+    filter f_messages { level(info..warn)
+        and not facility(auth, authpriv, mail, news); };
+    filter f_emergency { level(emerg); };
+    filter f_info { level(info); };
+    filter f_notice { level(notice); };
+    filter f_warn { level(warn); };
+    filter f_crit { level(crit); };
+    filter f_err { level(err); };
+    filter f_failed { message("failed"); };
+    filter f_denied { message("denied"); };
+
+    # connect filter and destination
+    log { source(src); filter(f_authpriv); destination(authlog); };
+    log { source(src); filter(f_syslog); destination(syslog); };
+    log { source(src); filter(f_cron); destination(cron); };
+    log { source(src); filter(f_daemon); destination(daemon); };
+    log { source(kernsrc); filter(f_kern); destination(kern); };
+    log { source(src); filter(f_lpr); destination(lpr); };
+    log { source(src); filter(f_mail); destination(mail); };
+    log { source(src); filter(f_user); destination(user); };
+    log { source(src); filter(f_mail); filter(f_info); destination(mailinfo); };
+    log { source(src); filter(f_mail); filter(f_warn); destination(mailwarn); };
+    log { source(src); filter(f_mail); filter(f_err); destination(mailerr); };
+    log { source(src); filter(f_debug); destination(debug); };
+    log { source(src); filter(f_messages); destination(messages); };
+    log { source(src); filter(f_emergency); destination(console); };
+
+    # default log
+    log { source(src); destination(console_all); };
 
 
 ##### Now restart system on your router and you should see * messages:
