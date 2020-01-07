@@ -1,0 +1,3491 @@
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3372 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8496 root      1648 S    /usr/bin/fseventd -d
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8624 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8845 root     11200 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4232 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13287 root      1232 S    /usr/sbin/watchdog-tch -c /var/etc/watchdog.conf --foreground
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18019 root         0 SW   [flush-0:11]
+18020 root         0 SW   [flush-mtd-unmap]
+18021 root      1904 S    /bin/sh -c sleep 10
+18022 root      1904 S    sleep 10
+18051 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3372 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8496 root      1648 S    /usr/bin/fseventd -d
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8624 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8845 root      7104 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4232 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13287 root      1232 S    /usr/sbin/watchdog-tch -c /var/etc/watchdog.conf --foreground
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18019 root         0 SW   [flush-0:11]
+18020 root         0 SW   [flush-mtd-unmap]
+18021 root      1904 S    /bin/sh -c sleep 10
+18022 root      1904 S    sleep 10
+18057 root      2196 R    {K02mmpbxd} /bin/sh /etc/rc.common /etc/rc.d/K02mmpbxd shutdown
+18058 root      1952 S    {K03mud} /bin/sh /etc/rc.common /etc/rc.d/K03mud shutdown
+18060 root      1904 S    lock /tmp/.execute.lock
+18069 root      1904 S    sleep 1
+18072 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8496 root      1648 S    /usr/bin/fseventd -d
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8624 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8845 root      7104 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4232 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13287 root      1232 S    /usr/sbin/watchdog-tch -c /var/etc/watchdog.conf --foreground
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18019 root         0 SW   [flush-0:11]
+18020 root         0 SW   [flush-mtd-unmap]
+18021 root      1904 S    /bin/sh -c sleep 10
+18022 root      1904 S    sleep 10
+18057 root      2136 S    {K02mmpbxd} /bin/sh /etc/rc.common /etc/rc.d/K02mmpbxd shutdown
+18058 root      1952 S    {K03mud} /bin/sh /etc/rc.common /etc/rc.d/K03mud shutdown
+18060 root      1904 S    lock /tmp/.execute.lock
+18074 root      1904 S    sleep 1
+18093 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8496 root      1648 S    /usr/bin/fseventd -d
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8624 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8845 root      7104 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4232 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18019 root         0 SW   [flush-0:11]
+18020 root         0 SW   [flush-mtd-unmap]
+18021 root      1904 S    /bin/sh -c sleep 10
+18022 root      1904 S    sleep 10
+18058 root      1952 S    {K03mud} /bin/sh /etc/rc.common /etc/rc.d/K03mud shutdown
+18108 root      1904 S    sleep 1
+18124 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 RW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8496 root      1648 S    /usr/bin/fseventd -d
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8624 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8845 root      7104 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4232 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18019 root         0 SW   [flush-0:11]
+18020 root         0 SW   [flush-mtd-unmap]
+18058 root      1952 S    {K03mud} /bin/sh /etc/rc.common /etc/rc.d/K03mud shutdown
+18126 root      1904 S    sleep 1
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18129 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8496 root      1648 S    /usr/bin/fseventd -d
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8624 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8845 root      7104 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4232 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18019 root         0 SW   [flush-0:11]
+18020 root         0 SW   [flush-mtd-unmap]
+18058 root      1952 S    {K03mud} /bin/sh /etc/rc.common /etc/rc.d/K03mud shutdown
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18131 root      1904 S    sleep 1
+18132 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8496 root      1648 S    /usr/bin/fseventd -d
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8624 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8845 root      7104 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4232 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18019 root         0 SW   [flush-0:11]
+18020 root         0 SW   [flush-mtd-unmap]
+18058 root      1952 S    {K03mud} /bin/sh /etc/rc.common /etc/rc.d/K03mud shutdown
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18131 root      1904 S    sleep 1
+18133 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 8696 root      3428 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4236 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18144 root      1904 R    ps -w
+18148 root      1948 S    {K05fseventd} /bin/sh /etc/rc.common /etc/rc.d/K05fseventd shutdown
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 RW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4236 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13041 root     16652 S    /usr/bin/cwmpd
+13042 root      4268 S    lua /usr/bin/cwmpevents
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18158 root      1904 R    ps -w
+18160 root      2000 S    {K10cwmpd} /bin/sh /etc/rc.common /etc/rc.d/K10cwmpd shutdown
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4236 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18170 root      1948 S    {K10ddns} /bin/sh /etc/rc.common /etc/rc.d/K10ddns shutdown
+18171 root      1952 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -- stop
+18186 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4236 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18170 root      1948 S    {K10ddns} /bin/sh /etc/rc.common /etc/rc.d/K10ddns shutdown
+18171 root      1952 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -- stop
+18195 root      1908 S    find /lib /usr/lib -name libcurl.so* -exec grep -i all_proxy {} ;
+18197 root      1904 R    {exe} grep -i all_proxy /usr/lib/libcurl.so.4.4.0
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 R    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18213 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4236 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18170 root      1948 S    {K10ddns} /bin/sh /etc/rc.common /etc/rc.d/K10ddns shutdown
+18171 root      1952 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -- stop
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18214 root      2052 R    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/fi
+18220 root      1904 R    ps -w
+18224 root      1392 R    uci -q get ddns global ddns_rundir
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9287 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9317 root      4236 S    lua /usr/bin/redirecthelper.lua
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18214 root      2052 R    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/fi
+18244 root      1904 R    ps -w
+18250 root      1992 S    {K12redirecthelp} /bin/sh /etc/rc.common /etc/rc.d/K12redirecthelper shutdown
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5402 root     20968 S    lua /usr/bin/transformer
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7155 root      2748 S    /usr/sbin/nmbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18214 root      2052 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/fi
+18269 root      1904 R    ps -w
+18270 root      1916 R    {K20transformer} /bin/sh /etc/rc.common /etc/rc.d/K20transformer shutdown
+18271 root      1980 R    ip6tables -t raw -A helper_binds -p udp --dport 10080 -j CT --helper amanda
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7068 root      4368 S N  /usr/sbin/smbd -D
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13301 root      2204 S    /usr/bin/igmpproxy
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18272 root      2048 R    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/to
+18292 root      2052 R    {K35samba} /bin/sh /etc/rc.common /etc/rc.d/K35samba shutdown
+18294 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2334 root      3444 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2338 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6300 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5496 root      1644 S    /usr/bin/mcsnooper
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18272 root      2000 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/to
+18317 root      2308 R    iptables -I zone_lan_forward -p tcp --dport 80 -m connmark --mark 0x0000000/0x6000000 -m comment --commen
+18318 root      1904 R    ps -w
+18319 root      1940 R    {K36ledfw} /bin/sh /etc/rc.common /etc/rc.d/K36ledfw shutdown
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5531 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+17981 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+17982 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:60022 -I 3611 -K 300
+17983 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd2d:1
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18272 root      2000 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/to
+18335 root      1904 R    ps -w
+18337 root      1960 R    {K45neighm} /bin/sh /etc/rc.common /etc/rc.d/K45neighm shutdown
+18338 root      2092 R    ip6tables -I zone_Guest1_forward -m comment --comment Time-of-Day -j timeofday_fw
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 RW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 6305 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6307 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18355 root      2032 S    {K60ipsec} /bin/sh /etc/rc.common /etc/rc.d/K60ipsec shutdown
+18356 root      1904 R    ps -w
+18357 root      1956 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/fi
+18360 root      1904 S    {ipsec} /bin/sh /usr/sbin/ipsec stop
+18361 root      1160 R    uname -s
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18127 root      1904 S    /bin/sh -c sleep 10
+18128 root      1904 S    sleep 10
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18355 root      2032 S    {K60ipsec} /bin/sh /etc/rc.common /etc/rc.d/K60ipsec shutdown
+18360 root      1924 S    {ipsec} /bin/sh /usr/sbin/ipsec stop
+18366 root      1904 S    sleep 1
+18375 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2423 root      4576 S    lua /usr/bin/hostmanager.lua
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18355 root      2032 S    {K60ipsec} /bin/sh /etc/rc.common /etc/rc.d/K60ipsec shutdown
+18360 root      1924 S    {ipsec} /bin/sh /usr/sbin/ipsec stop
+18366 root      1904 S    sleep 1
+18387 root      1904 S    /bin/sh -c sleep 10
+18389 root      1904 S    sleep 10
+18390 root      1964 R    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/fi
+18391 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5236 root      1552 S    /usr/bin/dhcpopassthrud
+ 5439 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18387 root      1904 S    /bin/sh -c sleep 10
+18389 root      1904 S    sleep 10
+18390 root      1968 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/fi
+18412 root      1904 R    ps -w
+18417 root      1996 S    {K73dhcpopassthr} /bin/sh /etc/rc.common /etc/rc.d/K73dhcpopassthrud shutdown
+18420 root      1980 R    iptables -t nat -I MMPBX -p udp -m udp --dport 5060 -m comment --comment DMZ_Exception_SIP -j ACCEPT
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 R    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 RW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3639 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5186 root      1736 S    /usr/sbin/odhcpd
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18387 root      1904 S    /bin/sh -c sleep 10
+18389 root      1904 S    sleep 10
+18428 root      1992 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+18436 root      1904 R    ps -w
+18439 root      1996 S    {K85odhcpd} /bin/sh /etc/rc.common /etc/rc.d/K85odhcpd shutdown
+18440 root      2248 R    iptables-save -t filter
+18441 root      1904 S    grep SKIP_HTTP_HELPER
+18442 root      1992 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 RW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2357 root      1500 S    /sbin/logd -S 64
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18387 root      1904 S    /bin/sh -c sleep 10
+18389 root      1904 S    sleep 10
+18428 root      1992 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+18462 root      1904 R    ps -w
+18464 root      2000 S    {K89log} /bin/sh /etc/rc.common /etc/rc.d/K89log shutdown
+18465 root      2092 R    ip6tables-save -t filter
+18466 root      1904 S    grep SKIP_HTTP_HELPER
+18467 root      1992 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 S    /sbin/netifd
+ 3805 root         0 SW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18387 root      1904 S    /bin/sh -c sleep 10
+18389 root      1904 S    sleep 10
+18428 root      2012 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+18474 root      2000 S    {K90network} /bin/sh /etc/rc.common /etc/rc.d/K90network shutdown
+18479 root      1904 R    {ifdown} /bin/sh /sbin/ifdown -a
+18487 root      1904 R    ps -w
+root@OpenWrt:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  409 root      1532 S    /sbin/ubusd
+  497 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  618 root         0 SW   [bcmxtm_rx]
+  650 root         0 SW   [bcmFlwStatsTask]
+  656 root         0 SW   [fapGsoLoopBk]
+  657 root         0 SW   [kpAliveWatchdog]
+  659 root         0 SW   [bcmsw_rx]
+  694 root         0 SW   [bcmsw_timer]
+  696 root         0 SW   [bcmsw]
+  780 root         0 SW   [wl0-kthrd]
+  783 root         0 SW   [wfd0-thrd]
+ 2305 root         0 SW<  [led_shift_queue]
+ 2368 root      6308 S    /usr/bin/swmdk
+ 2408 root      2108 S    /usr/bin/bcmubusbridge
+ 2996 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3010 root         0 SW   [kworker/1:2]
+ 3018 root         0 SW   [kworker/0:2]
+ 3134 root         0 SW   [dsl0]
+ 3587 root      2128 D    /sbin/netifd
+ 3805 root         0 DW   [kworker/u:2]
+ 3813 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5163 root      6316 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5207 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5487 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7188 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8387 root      5324 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 8595 root      3360 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 8658 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9179 root      1408 S    /sbin/mountd -f
+ 9328 root      1908 S <  /usr/sbin/ntpd -n -N -l -S /usr/sbin/ntpd-hotplug -p ntp1.rgw.telia.se -p ntp2.rgw.telia.se
+ 9562 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+12654 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12669 nobody    6272 S    nginx: worker process
+13531 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13537 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+13707 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+14612 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14615 root      1916 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+16447 root      1904 S    /bin/sh
+17899 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+17900 root      1912 S    -ash
+18020 root         0 SW   [flush-mtd-unmap]
+18198 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+18200 root      3396 S    fw3 reload
+18201 root         0 Z    [hotplug-call]
+18202 root         0 Z    [hotplug-call]
+18203 root         0 Z    [hotplug-call]
+18204 root         0 Z    [hotplug-call]
+18205 root         0 Z    [hotplug-call]
+18206 root         0 Z    [hotplug-call]
+18207 root         0 Z    [hotplug-call]
+18208 root         0 Z    [hotplug-call]
+18209 root         0 Z    [hotplug-call]
+18210 root         0 Z    [hotplug-call]
+18211 root         0 Z    [hotplug-call]
+18212 root         0 Z    [hotplug-call]
+18387 root      1904 S    /bin/sh -c sleep 10
+18389 root      1904 S    sleep 10
+18428 root      2012 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+18474 root      2000 S    {K90network} /bin/sh /etc/rc.common /etc/rc.d/K90network shutdown
+18479 root      1904 S    {ifdown} /bin/sh /sbin/ifdown -a
+18496 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18506 root      2012 D    {gre.sh} /bin/sh ./gre.sh gretap teardown gre {"proto":"gretap","peeraddr":"213.64.234.83","mtu":1578,"df
+18508 root      1904 R    ps -w
+18512 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18513 root      2176 R    iptables -t mangle -L QoS_FW -n
+18517 root      1940 R    {hotplug-call} /bin/sh /sbin/hotplug-call net
+18518 root      1612 R    ubus call network.interface down { "interface" : "iptv" }
+18519 root      2012 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+18522 root      1988 R    ip6tables-save -t raw
+18523 root      1912 S    grep helper_binds
+18525 root      1904 R    grep helper http
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  405 root      1532 S    /sbin/ubusd
+  493 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  614 root         0 SW   [bcmxtm_rx]
+  647 root         0 SW   [bcmFlwStatsTask]
+  652 root         0 SW   [fapGsoLoopBk]
+  653 root         0 SW   [kpAliveWatchdog]
+  655 root         0 SW   [bcmsw_rx]
+  689 root         0 SW   [bcmsw_timer]
+  691 root         0 SW   [bcmsw]
+  776 root         0 SW   [wl0-kthrd]
+  779 root         0 SW   [wfd0-thrd]
+ 2301 root         0 SW<  [led_shift_queue]
+ 2331 root      3672 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2334 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2353 root      1500 S    /sbin/logd -S 64
+ 2364 root      6308 S    /usr/bin/swmdk
+ 2404 root      2108 S    /usr/bin/bcmubusbridge
+ 2419 root      4588 S    lua /usr/bin/hostmanager.lua
+ 2992 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3004 root         0 SW   [kworker/1:2]
+ 3126 root         0 SW   [dsl0]
+ 3579 root      2128 S    /sbin/netifd
+ 3635 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3760 root         0 SW   [kworker/u:2]
+ 3796 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5160 root      6320 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5182 root      1740 S    /usr/sbin/odhcpd
+ 5205 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5239 root      1552 S    /usr/bin/dhcpopassthrud
+ 5408 root     21064 S    lua /usr/bin/transformer
+ 5448 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5473 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5500 root      1644 S    /usr/bin/mcsnooper
+ 5532 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6342 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6344 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7288 root      4368 S N  /usr/sbin/smbd -D
+ 7360 root      2748 S    /usr/sbin/nmbd -D
+ 7407 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8021 root      3432 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 8911 root      5304 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 9025 root      1648 S    /usr/bin/fseventd -d
+ 9166 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 9206 root      6956 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 9252 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9349 root      7104 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 9609 root      1408 S    /sbin/mountd -f
+ 9668 root      4220 S    lua /usr/bin/pinholehelper.lua
+ 9705 root      4240 S    lua /usr/bin/redirecthelper.lua
+12399 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12411 nobody    6952 S    nginx: worker process
+12651 root     20756 S    /usr/bin/cwmpd
+12653 root      4268 S    lua /usr/bin/cwmpevents
+12935 root      2204 S    /usr/bin/igmpproxy
+12954 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+13254 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13255 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+14929 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+15221 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15222 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15347 root      1912 S    -ash
+16113 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 90.227.130.190:22 -I 3600 -K 300
+16114 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -p 192.168.1.1:22 -p fd16:e2d8:cc0c::1:22 -p 2001:2002:5
+16628 root      3364 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+17963 root      1904 S    sleep 60
+18839 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18930 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18936 root      2096 S    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh ifup Guest1 wl0_1
+18938 root      1904 S    lock /var/lock/LCK.mwan
+18983 root         0 SW   [flush-0:11]
+18985 root         0 SW   [flush-mtd-unmap]
+19063 root      1924 S    {config.sh} /bin/sh /usr/lib/cwmpd/transfers/config.sh /tmp/cwmp_downupl_vrTxJR
+19066 root      1904 S    /bin/sh -c sleep 10
+19070 root      1904 S    sleep 10
+19123 root      3984 S    lua /usr/lib/cwmpd/transfers/exec_config.lua /tmp/dl-config-316533356264353764393738336662396266616462383
+19128 root      2168 R    {K02mmpbxd} /bin/sh /etc/rc.common /etc/rc.d/K02mmpbxd shutdown
+19129 root      1952 S    {K03mud} /bin/sh /etc/rc.common /etc/rc.d/K03mud shutdown
+19141 root      1904 S    /bin/sh -c /etc/init.d/mwan reload
+19143 root      1948 S    {mwan} /bin/sh /etc/rc.common /etc/init.d/mwan reload
+19147 root      2020 S    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh stop
+19149 root      1904 S    lock /var/lock/LCK.mwan
+19199 root      1904 S    lock /tmp/.execute.lock
+19218 root      1904 S    sleep 1
+19225 root      1904 R    ps -w
+19227 root      2200 R    iptables -t mangle --append new_mwan_rules --jump MARK -i br-lan -s 0.0.0.0/0 -d 81.236.58.19 -p udp --sp
+root@router:/tmp# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  405 root      1532 S    /sbin/ubusd
+  493 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  614 root         0 SW   [bcmxtm_rx]
+  647 root         0 SW   [bcmFlwStatsTask]
+  652 root         0 SW   [fapGsoLoopBk]
+  653 root         0 SW   [kpAliveWatchdog]
+  655 root         0 RW   [bcmsw_rx]
+  689 root         0 SW   [bcmsw_timer]
+  691 root         0 SW   [bcmsw]
+  776 root         0 SW   [wl0-kthrd]
+  779 root         0 SW   [wfd0-thrd]
+ 2301 root         0 SW<  [led_shift_queue]
+ 2331 root      3748 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2334 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2353 root      1500 S    /sbin/logd -S 64
+ 2364 root      6308 S    /usr/bin/swmdk
+ 2404 root      2108 S    /usr/bin/bcmubusbridge
+ 2419 root      4588 S    lua /usr/bin/hostmanager.lua
+ 2992 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3004 root         0 SW   [kworker/1:2]
+ 3126 root         0 SW   [dsl0]
+ 3579 root      2128 S    /sbin/netifd
+ 3635 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3760 root         0 SW   [kworker/u:2]
+ 3796 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5160 root      6320 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5182 root      1740 S    /usr/sbin/odhcpd
+ 5205 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5239 root      1552 S    /usr/bin/dhcpopassthrud
+ 5408 root     21064 R    lua /usr/bin/transformer
+ 5448 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5473 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5500 root      1644 S    /usr/bin/mcsnooper
+ 5532 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6342 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6344 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7288 root      4368 S N  /usr/sbin/smbd -D
+ 7360 root      2748 S    /usr/sbin/nmbd -D
+ 7407 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8911 root      5304 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 9166 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 9252 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9609 root      1408 S    /sbin/mountd -f
+ 9668 root      4224 S    lua /usr/bin/pinholehelper.lua
+ 9705 root      4244 S    lua /usr/bin/redirecthelper.lua
+12399 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12411 nobody    6984 S    nginx: worker process
+12935 root      2204 S    /usr/bin/igmpproxy
+12954 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+13254 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13255 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+14929 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+15221 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15222 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15347 root      1912 S    -ash
+16113 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 90.227.130.190:22 -I 3600 -K 300
+16114 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -p 192.168.1.1:22 -p fd16:e2d8:cc0c::1:22 -p 2001:2002:5
+16628 root      3364 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+17963 root      1904 S    sleep 60
+18839 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18985 root         0 SW   [flush-mtd-unmap]
+19063 root      1924 S    {config.sh} /bin/sh /usr/lib/cwmpd/transfers/config.sh /tmp/cwmp_downupl_vrTxJR
+19123 root      3984 S    lua /usr/lib/cwmpd/transfers/exec_config.lua /tmp/dl-config-316533356264353764393738336662396266616462383
+19141 root      1904 S    /bin/sh -c /etc/init.d/mwan reload
+19143 root      1948 S    {mwan} /bin/sh /etc/rc.common /etc/init.d/mwan reload
+19359 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+19369 root      3416 S    fw3 -q reload
+19372 root         0 Z    [hotplug-call]
+19373 root         0 Z    [hotplug-call]
+19374 root         0 Z    [hotplug-call]
+19375 root         0 Z    [hotplug-call]
+19376 root         0 Z    [hotplug-call]
+19377 root         0 Z    [hotplug-call]
+19378 root         0 Z    [hotplug-call]
+19379 root         0 Z    [hotplug-call]
+19380 root         0 Z    [hotplug-call]
+19381 root         0 Z    [hotplug-call]
+19382 root         0 Z    [hotplug-call]
+19383 root         0 Z    [hotplug-call]
+19420 root      1948 S    {K10ddns} /bin/sh /etc/rc.common /etc/rc.d/K10ddns shutdown
+19422 root      1952 D    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -- stop
+19462 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+19464 root      1904 S    /bin/sh -c sleep 10
+19465 root      1904 S    sleep 10
+19469 root      2392 S    fw3 reload
+19502 root      2044 R    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh start
+19504 root      1956 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/to
+19506 root      1904 S    lock /var/lock/LCK.mwan
+19509 root      1904 R    ps -w
+19512 root       504 R    uci -q get parental.general.accept_mark_value
+19514 root       676 R    [find]
+root@router:/tmp# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  405 root      1532 S    /sbin/ubusd
+  493 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  614 root         0 SW   [bcmxtm_rx]
+  647 root         0 SW   [bcmFlwStatsTask]
+  652 root         0 SW   [fapGsoLoopBk]
+  653 root         0 SW   [kpAliveWatchdog]
+  655 root         0 SW   [bcmsw_rx]
+  689 root         0 SW   [bcmsw_timer]
+  691 root         0 SW   [bcmsw]
+  776 root         0 SW   [wl0-kthrd]
+  779 root         0 SW   [wfd0-thrd]
+ 2301 root         0 SW<  [led_shift_queue]
+ 2331 root      3748 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2334 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2353 root      1500 S    /sbin/logd -S 64
+ 2364 root      6308 S    /usr/bin/swmdk
+ 2404 root      2108 S    /usr/bin/bcmubusbridge
+ 2419 root      4588 S    lua /usr/bin/hostmanager.lua
+ 2992 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3004 root         0 SW   [kworker/1:2]
+ 3126 root         0 SW   [dsl0]
+ 3579 root      2128 S    /sbin/netifd
+ 3635 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3760 root         0 SW   [kworker/u:2]
+ 3796 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5160 root      6320 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5182 root      1740 S    /usr/sbin/odhcpd
+ 5205 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5239 root      1552 S    /usr/bin/dhcpopassthrud
+ 5408 root     21064 S    lua /usr/bin/transformer
+ 5448 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5473 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5500 root      1644 S    /usr/bin/mcsnooper
+ 5532 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6342 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6344 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7288 root      4368 S N  /usr/sbin/smbd -D
+ 7360 root      2748 S    /usr/sbin/nmbd -D
+ 7407 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8911 root      5304 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 9166 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 9252 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9609 root      1408 S    /sbin/mountd -f
+ 9668 root      4224 S    lua /usr/bin/pinholehelper.lua
+ 9705 root      4244 S    lua /usr/bin/redirecthelper.lua
+12399 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12411 nobody    7024 S    nginx: worker process
+12935 root      2204 S    /usr/bin/igmpproxy
+13254 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13255 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+14929 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+15221 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15222 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15347 root      1912 S    -ash
+16113 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 90.227.130.190:22 -I 3600 -K 300
+16114 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -p 192.168.1.1:22 -p fd16:e2d8:cc0c::1:22 -p 2001:2002:5
+16628 root      3364 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+18839 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18985 root         0 SW   [flush-mtd-unmap]
+19063 root      1924 S    {config.sh} /bin/sh /usr/lib/cwmpd/transfers/config.sh /tmp/cwmp_downupl_vrTxJR
+19123 root      3984 S    lua /usr/lib/cwmpd/transfers/exec_config.lua /tmp/dl-config-316533356264353764393738336662396266616462383
+19141 root      1904 S    /bin/sh -c /etc/init.d/mwan reload
+19143 root      1948 S    {mwan} /bin/sh /etc/rc.common /etc/init.d/mwan reload
+19359 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+19369 root      3416 S    fw3 -q reload
+19372 root         0 Z    [hotplug-call]
+19373 root         0 Z    [hotplug-call]
+19374 root         0 Z    [hotplug-call]
+19375 root         0 Z    [hotplug-call]
+19376 root         0 Z    [hotplug-call]
+19377 root         0 Z    [hotplug-call]
+19378 root         0 Z    [hotplug-call]
+19379 root         0 Z    [hotplug-call]
+19380 root         0 Z    [hotplug-call]
+19381 root         0 Z    [hotplug-call]
+19382 root         0 Z    [hotplug-call]
+19383 root         0 Z    [hotplug-call]
+19462 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+19464 root      1904 S    /bin/sh -c sleep 10
+19465 root      1904 S    sleep 10
+19469 root      2392 S    fw3 reload
+19502 root      2088 S    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh start
+19504 root      2004 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/to
+19506 root      1904 S    lock /var/lock/LCK.mwan
+19582 root      1992 S    {K12redirecthelp} /bin/sh /etc/rc.common /etc/rc.d/K12redirecthelper shutdown
+19584 root      1996 S    iptables -t mangle --new-chain mwan_rules_hook
+19588 root      1904 R    ps -w
+19593 root      1976 R    ip6tables -I zone_lan_forward -p tcp --dport 80 -m connmark --mark 0x0000000/0x6000000 -m comment --comme
+19594 root      1544 R    ubus call service delete { "name": "redirecthelper" }
+root@router:/tmp# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  405 root      1532 S    /sbin/ubusd
+  493 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  614 root         0 SW   [bcmxtm_rx]
+  647 root         0 SW   [bcmFlwStatsTask]
+  652 root         0 SW   [fapGsoLoopBk]
+  653 root         0 SW   [kpAliveWatchdog]
+  655 root         0 SW   [bcmsw_rx]
+  689 root         0 SW   [bcmsw_timer]
+  691 root         0 SW   [bcmsw]
+  776 root         0 SW   [wl0-kthrd]
+  779 root         0 SW   [wfd0-thrd]
+ 2301 root         0 SW<  [led_shift_queue]
+ 2331 root      3748 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 2334 root      4368 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 2353 root      1500 S    /sbin/logd -S 64
+ 2364 root      6308 S    /usr/bin/swmdk
+ 2404 root      2108 S    /usr/bin/bcmubusbridge
+ 2419 root      4588 S    lua /usr/bin/hostmanager.lua
+ 2992 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3004 root         0 SW   [kworker/1:2]
+ 3126 root         0 SW   [dsl0]
+ 3579 root      2128 S    /sbin/netifd
+ 3635 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3760 root         0 SW   [kworker/u:2]
+ 3796 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5160 root      6320 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5182 root      1740 S    /usr/sbin/odhcpd
+ 5205 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5239 root      1552 S    /usr/bin/dhcpopassthrud
+ 5448 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5473 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 5500 root      1644 S    /usr/bin/mcsnooper
+ 5532 root      1812 S    /usr/bin/neighmd -m 0x7
+ 6342 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 6344 root     37444 S    /usr/lib/ipsec/charon --use-syslog
+ 7407 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8911 root      5304 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 9166 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 9252 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9609 root      1408 S    /sbin/mountd -f
+12399 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12411 nobody    7024 S    nginx: worker process
+13254 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13255 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+14929 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+15221 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15222 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15347 root      1912 S    -ash
+16113 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 90.227.130.190:22 -I 3600 -K 300
+16114 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -p 192.168.1.1:22 -p fd16:e2d8:cc0c::1:22 -p 2001:2002:5
+16628 root      3364 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+18839 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18985 root         0 SW   [flush-mtd-unmap]
+19063 root      1924 S    {config.sh} /bin/sh /usr/lib/cwmpd/transfers/config.sh /tmp/cwmp_downupl_vrTxJR
+19123 root      3984 S    lua /usr/lib/cwmpd/transfers/exec_config.lua /tmp/dl-config-316533356264353764393738336662396266616462383
+19141 root      1904 S    /bin/sh -c /etc/init.d/mwan reload
+19143 root      1948 S    {mwan} /bin/sh /etc/rc.common /etc/init.d/mwan reload
+19359 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+19369 root      3416 S    fw3 -q reload
+19372 root         0 Z    [hotplug-call]
+19373 root         0 Z    [hotplug-call]
+19374 root         0 Z    [hotplug-call]
+19375 root         0 Z    [hotplug-call]
+19376 root         0 Z    [hotplug-call]
+19377 root         0 Z    [hotplug-call]
+19378 root         0 Z    [hotplug-call]
+19379 root         0 Z    [hotplug-call]
+19380 root         0 Z    [hotplug-call]
+19381 root         0 Z    [hotplug-call]
+19382 root         0 Z    [hotplug-call]
+19383 root         0 Z    [hotplug-call]
+19462 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+19464 root      1904 S    /bin/sh -c sleep 10
+19465 root      1904 S    sleep 10
+19469 root      2392 S    fw3 reload
+19502 root      2088 S    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh start
+19506 root      1904 S    lock /var/lock/LCK.mwan
+19584 root      1996 S    iptables -t mangle --new-chain mwan_rules_hook
+19652 root      1904 R    ps -w
+19657 root      1940 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /usr/share/miniup
+19661 root      1948 R    {K36ledfw} /bin/sh /etc/rc.common /etc/rc.d/K36ledfw shutdown
+19662 root      1980 R    iptables -t nat -N MINIUPNPD
+root@router:/tmp# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  405 root      1532 S    /sbin/ubusd
+  493 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  614 root         0 SW   [bcmxtm_rx]
+  647 root         0 SW   [bcmFlwStatsTask]
+  652 root         0 SW   [fapGsoLoopBk]
+  653 root         0 SW   [kpAliveWatchdog]
+  655 root         0 SW   [bcmsw_rx]
+  689 root         0 SW   [bcmsw_timer]
+  691 root         0 SW   [bcmsw]
+  776 root         0 SW   [wl0-kthrd]
+  779 root         0 SW   [wfd0-thrd]
+ 2301 root         0 SW<  [led_shift_queue]
+ 2353 root      1500 S    /sbin/logd -S 64
+ 2364 root      6308 S    /usr/bin/swmdk
+ 2404 root      2108 S    /usr/bin/bcmubusbridge
+ 2419 root      4588 S    lua /usr/bin/hostmanager.lua
+ 2992 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3004 root         0 SW   [kworker/1:2]
+ 3126 root         0 SW   [dsl0]
+ 3579 root      2128 S    /sbin/netifd
+ 3635 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3760 root         0 SW   [kworker/u:2]
+ 3796 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5160 root      6320 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5182 root      1740 S    /usr/sbin/odhcpd
+ 5205 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5239 root      1552 S    /usr/bin/dhcpopassthrud
+ 5448 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5473 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7407 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8911 root      5304 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 9166 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 9252 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9609 root      1408 S    /sbin/mountd -f
+12399 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12411 nobody    7124 S    nginx: worker process
+13254 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13255 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+14929 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+15221 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15222 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15347 root      1912 S    -ash
+16628 root      3364 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+18839 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18985 root         0 SW   [flush-mtd-unmap]
+19063 root      1924 S    {config.sh} /bin/sh /usr/lib/cwmpd/transfers/config.sh /tmp/cwmp_downupl_vrTxJR
+19123 root      3984 S    lua /usr/lib/cwmpd/transfers/exec_config.lua /tmp/dl-config-316533356264353764393738336662396266616462383
+19141 root      1904 S    /bin/sh -c /etc/init.d/mwan reload
+19143 root      1948 S    {mwan} /bin/sh /etc/rc.common /etc/init.d/mwan reload
+19359 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+19369 root      3416 S    fw3 -q reload
+19372 root         0 Z    [hotplug-call]
+19373 root         0 Z    [hotplug-call]
+19374 root         0 Z    [hotplug-call]
+19375 root         0 Z    [hotplug-call]
+19376 root         0 Z    [hotplug-call]
+19377 root         0 Z    [hotplug-call]
+19378 root         0 Z    [hotplug-call]
+19379 root         0 Z    [hotplug-call]
+19380 root         0 Z    [hotplug-call]
+19381 root         0 Z    [hotplug-call]
+19382 root         0 Z    [hotplug-call]
+19383 root         0 Z    [hotplug-call]
+19462 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+19464 root      1904 S    /bin/sh -c sleep 10
+19465 root      1904 S    sleep 10
+19469 root      2392 S    fw3 reload
+19502 root      2088 S    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh start
+19506 root      1904 S    lock /var/lock/LCK.mwan
+19720 root      1992 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+19756 root      1904 R    ps -w
+19762 root      1988 S    ip6tables -F weburlfilter
+19763 root      1940 R    {K70hostmanager} /bin/sh /etc/rc.common /etc/rc.d/K70hostmanager shutdown
+root@router:/tmp# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  405 root      1532 S    /sbin/ubusd
+  493 root      4596 R    /usr/sbin/cgrulesengd -n -Q -u root
+  614 root         0 SW   [bcmxtm_rx]
+  647 root         0 SW   [bcmFlwStatsTask]
+  652 root         0 SW   [fapGsoLoopBk]
+  653 root         0 SW   [kpAliveWatchdog]
+  655 root         0 SW   [bcmsw_rx]
+  689 root         0 SW   [bcmsw_timer]
+  691 root         0 SW   [bcmsw]
+  776 root         0 SW   [wl0-kthrd]
+  779 root         0 SW   [wfd0-thrd]
+ 2301 root         0 SW<  [led_shift_queue]
+ 2353 root      1500 S    /sbin/logd -S 64
+ 2364 root      6308 S    /usr/bin/swmdk
+ 2404 root      2108 S    /usr/bin/bcmubusbridge
+ 2992 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3004 root         0 SW   [kworker/1:2]
+ 3126 root         0 SW   [dsl0]
+ 3579 root      2128 S    /sbin/netifd
+ 3635 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 3760 root         0 SW   [kworker/u:2]
+ 3796 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5160 root      6320 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5205 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5473 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7407 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8911 root      5308 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 9166 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 9252 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9609 root      1408 S    /sbin/mountd -f
+12399 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12411 nobody    7256 S    nginx: worker process
+13254 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13255 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+14929 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+15221 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15222 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15347 root      1912 S    -ash
+16628 root      3364 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+18839 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18985 root         0 SW   [flush-mtd-unmap]
+19063 root      1924 S    {config.sh} /bin/sh /usr/lib/cwmpd/transfers/config.sh /tmp/cwmp_downupl_vrTxJR
+19123 root      3984 S    lua /usr/lib/cwmpd/transfers/exec_config.lua /tmp/dl-config-316533356264353764393738336662396266616462383
+19141 root      1904 S    /bin/sh -c /etc/init.d/mwan reload
+19143 root      1948 S    {mwan} /bin/sh /etc/rc.common /etc/init.d/mwan reload
+19359 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+19369 root      3416 S    fw3 -q reload
+19372 root         0 Z    [hotplug-call]
+19373 root         0 Z    [hotplug-call]
+19374 root         0 Z    [hotplug-call]
+19375 root         0 Z    [hotplug-call]
+19376 root         0 Z    [hotplug-call]
+19377 root         0 Z    [hotplug-call]
+19378 root         0 Z    [hotplug-call]
+19379 root         0 Z    [hotplug-call]
+19380 root         0 Z    [hotplug-call]
+19381 root         0 Z    [hotplug-call]
+19382 root         0 Z    [hotplug-call]
+19383 root         0 Z    [hotplug-call]
+19462 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+19464 root      1904 S    /bin/sh -c sleep 10
+19465 root      1904 S    sleep 10
+19469 root      2392 S    fw3 reload
+19502 root      2088 S    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh start
+19506 root      1904 S    lock /var/lock/LCK.mwan
+19720 root      1992 S    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/we
+19814 root      1992 S    {K89conntrackd} /bin/sh /etc/rc.common /etc/rc.d/K89conntrackd shutdown
+19825 root      1904 R    ps -w
+19830 root         0 DW   [ip6tables]
+19833 root      1456 D    ip -f inet rule add pref 2016 fwmark 0x10000000 0xf0000000 table main
+root@router:/tmp# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  212 root         0 SW   [kworker/1:1]
+  256 root         0 SWN  [jffs2_gcd_mtd2]
+  405 root      1532 S    /sbin/ubusd
+  493 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  614 root         0 SW   [bcmxtm_rx]
+  647 root         0 SW   [bcmFlwStatsTask]
+  652 root         0 SW   [fapGsoLoopBk]
+  653 root         0 SW   [kpAliveWatchdog]
+  655 root         0 RW   [bcmsw_rx]
+  689 root         0 SW   [bcmsw_timer]
+  691 root         0 SW   [bcmsw]
+  776 root         0 SW   [wl0-kthrd]
+  779 root         0 SW   [wfd0-thrd]
+ 2301 root         0 SW<  [led_shift_queue]
+ 2364 root      6308 S    /usr/bin/swmdk
+ 2404 root      2108 S    /usr/bin/bcmubusbridge
+ 2992 root     14512 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 3004 root         0 SW   [kworker/1:2]
+ 3126 root         0 SW   [dsl0]
+ 3579 root      2128 S    /sbin/netifd
+ 3760 root         0 SW   [kworker/u:2]
+ 3796 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 5160 root      6320 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 5205 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 5
+ 5473 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 7407 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 8911 root      5308 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 9166 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 9252 root      2152 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 9609 root      1408 S    /sbin/mountd -f
+12399 root      4304 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+12411 nobody    7256 S    nginx: worker process
+13254 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+13255 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+14929 root      1612 R    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:61122 -p 2001:2002:5ae3:82be::1:61122 -p
+15221 dnsmasq   1984 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15222 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+15347 root      1912 S    -ash
+16628 root      3364 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+18839 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+18985 root         0 SW   [flush-mtd-unmap]
+19063 root      1924 S    {config.sh} /bin/sh /usr/lib/cwmpd/transfers/config.sh /tmp/cwmp_downupl_vrTxJR
+19123 root      3984 S    lua /usr/lib/cwmpd/transfers/exec_config.lua /tmp/dl-config-316533356264353764393738336662396266616462383
+19141 root      1904 S    /bin/sh -c /etc/init.d/mwan reload
+19143 root      1948 S    {mwan} /bin/sh /etc/rc.common /etc/init.d/mwan reload
+19359 root      1940 S    {hotplug-call} /bin/sh /sbin/hotplug-call iface
+19369 root      3416 S    fw3 -q reload
+19372 root         0 Z    [hotplug-call]
+19373 root         0 Z    [hotplug-call]
+19374 root         0 Z    [hotplug-call]
+19375 root         0 Z    [hotplug-call]
+19376 root         0 Z    [hotplug-call]
+19377 root         0 Z    [hotplug-call]
+19378 root         0 Z    [hotplug-call]
+19379 root         0 Z    [hotplug-call]
+19380 root         0 Z    [hotplug-call]
+19381 root         0 Z    [hotplug-call]
+19382 root         0 Z    [hotplug-call]
+19383 root         0 Z    [hotplug-call]
+19462 root      1996 S    {firewall} /bin/sh /etc/rc.common /etc/init.d/firewall reload
+19469 root      2392 S    fw3 reload
+19502 root      2100 S    {setup.sh} /bin/sh /usr/lib/mwan/setup.sh start
+19506 root      1904 S    lock /var/lock/LCK.mwan
+19860 root      2000 S    {K90network} /bin/sh /etc/rc.common /etc/rc.d/K90network shutdown
+19868 root      1904 S    {ifdown} /bin/sh /sbin/ifdown -a
+19883 root      1904 S    /bin/sh -c sleep 10
+19885 root      1904 S    sleep 10
+19888 root      1904 R    ps -w
+19891 root      1948 R    /bin/sh -c config() { echo "You cannot use UCI in firewall includes!" >&2; exit 1; }; . /lib/functions/fi
+19894 root      1328 R    iptables -t mangle --append new_mwan_rules --jump MARK -i br-lan -s 0.0.0.0/0 -d 194.22.194.0/24 -p udp -
+
