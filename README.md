@@ -6,7 +6,15 @@ Website for this place can be found [here](https://wuseman.github.io/TG799VAC-XT
 
 ## Very Important Notice 2019-11-15: 
 
+It is possible to get root access on 17.2.405 version if you are using a MiTM attack, but its a mess so read below: 
+
 If you have root access (telia still sending out devices with version 17.03) so the first thing you really must do is to edit the dropbear file on bank 2, otherwise you will be locked out when they pushing the firmware to 17.04 and then you are pretty lost unless you know how you can setup a MGMT network and gain root access this way. 
+
+Also for disable  to get your router to get upgrade you can type below command ASAP you have connected to shell:
+     
+     uci set cwmpd.cwmpd_config.state=0
+     uci commit
+     rm /etc/cwmp*     
 
 For get the CSFR code if you are building some kind of scripts the easiest way to get it is by visit: 
  
