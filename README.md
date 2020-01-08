@@ -16,6 +16,13 @@ Also for disable  to get your router to get upgrade you can type below command A
      uci commit
      rm /etc/cwmp*     
 
+#### For get all info and settings from your device (Thanks to [@LuKePicci](https://github.com/LuKePicci) for this as well)
+
+     clash
+     get InternetGatewayDevice
+     
+     Once type above command, wait for few seconds and you wil dump entire settings for your device.
+
 For get the CSFR code if you are building some kind of scripts the easiest way to get it is by visit: 
  
      http://192.168.1.1/login.lp?action=getcsrf
