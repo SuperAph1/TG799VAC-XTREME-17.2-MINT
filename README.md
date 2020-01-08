@@ -19,8 +19,38 @@ Also for disable  to get your router to get upgrade you can type below command A
 #### For get all info and settings from your device (Thanks to [@LuKePicci](https://github.com/LuKePicci) for this as well)
 
      clash
-     get InternetGatewayDevice
+     root> get InternetGatewayDevice.
+     InternetGatewayDevice.LANDeviceNumberOfEntries [unsignedInt] = 2
+     InternetGatewayDevice.DeviceSummary [string] = InternetGatewayDevice:1.9[](Baseline:1, EthernetLAN:1, WiFiLAN:1, ADSLWAN:1,      EthernetWAN:1, Time:1, IPPing:1, TraceRoute:1, ATMLoopback:1, Download:1, DownloadTCP:1, Upload:1, UploadTCP:1, UDPEcho:1, UDPEchoPlus:1), VoiceService:1.0[1](SIPEndpoint:1, TAEndpoint:1)
+     InternetGatewayDevice.WANDeviceNumberOfEntries [unsignedInt] = 2
+     InternetGatewayDevice.UserNumberOfEntries [unsignedInt] = 4
+     InternetGatewayDevice.Capabilities.PerformanceDiagnostic.DownloadTransports [string] = HTTP
+     InternetGatewayDevice.Capabilities.PerformanceDiagnostic.UploadTransports [string] = HTTP
+     InternetGatewayDevice.DeviceInfo.ProductClass [string] = TG799vn v2
+     InternetGatewayDevice.DeviceInfo.VendorConfigFileNumberOfEntries [unsignedInt] = 1
+     InternetGatewayDevice.DeviceInfo.X_000E50_SwitchtoPassiveBank [boolean] = 0
+     InternetGatewayDevice.DeviceInfo.UpTime [unsignedInt] = 16583
+     InternetGatewayDevice.DeviceInfo.ProvisioningCode [string] = 
+     InternetGatewayDevice.DeviceInfo.X_000E50_SoftwareVersionPassiveBank [string] = 16.2.7732
+     InternetGatewayDevice.DeviceInfo.ModelNumber [string] = TG799vn v2
+     InternetGatewayDevice.DeviceInfo.X_000E50_RebootCause [string] = CWMP
+     InternetGatewayDevice.DeviceInfo.AdditionalSoftwareVersion [string] = 7e33e895fd9205aade75cxxxa3b584310d496ac9e
+     InternetGatewayDevice.DeviceInfo.HardwareVersion [string] = VDNT-O
+     InternetGatewayDevice.DeviceInfo.ManufacturerOUI [string] = 9C9726
+     InternetGatewayDevice.DeviceInfo.ModemFirmwareVersion [string] = A2pv6F039v2.d26d
+     InternetGatewayDevice.DeviceInfo.X_000E50_BootloaderVersion [string] = 2.0.6
+     InternetGatewayDevice.DeviceInfo.X_000E50_TotalHWReboot [unsignedInt] = 1
+     InternetGatewayDevice.DeviceInfo.Manufacturer [string] = Technicolor
+     InternetGatewayDevice.DeviceInfo.VendorLogFileNumberOfEntries [unsignedInt] = 0
+     InternetGatewayDevice.DeviceInfo.SpecVersion [string] = 1.0
+     InternetGatewayDevice.DeviceInfo.X_000E50_ReturnToFactoryDefaultsSoft [boolean] = 0
+     InternetGatewayDevice.DeviceInfo.FirstUseDate [dateTime] = 0001-01-01T00:00:00Z
+     InternetGatewayDevice.DeviceInfo.SerialNumber [string] = CP1352CS00G
+     InternetGatewayDevice.DeviceInfo.DeviceLog [string] = ault route!
+     Wed Jan  8 18:04:53 2020 daemon.info odhcpd[5086]: Using a RA lifetime of     
+     ...... and some extremely much more stuff will be printed..
      
+    
      Once type above command, wait for few seconds and you wil dump entire settings for your device.
 
 For get the CSFR code if you are building some kind of scripts the easiest way to get it is by visit: 
