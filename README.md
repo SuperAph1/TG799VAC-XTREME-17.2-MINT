@@ -47,8 +47,35 @@ Also for disable  to get your router to get upgrade you can type below command A
      InternetGatewayDevice.DeviceInfo.FirstUseDate [dateTime] = 0001-01-01T00:00:00Z
      InternetGatewayDevice.DeviceInfo.SerialNumber [string] = CP1352CS00G
      InternetGatewayDevice.DeviceInfo.DeviceLog [string] = ault route!
-     Wed Jan  8 18:04:53 2020 daemon.info odhcpd[5086]: Using a RA lifetime of     
-     ...... and some extremely much more stuff will be printed..
+     InternetGatewayDevice.Services.VoiceService.2.X_000E50_HandsetUpgrade.NumberOfHandsetUpgradeURLEntries [unsignedInt] = 0
+     InternetGatewayDevice.Services.X_000E50_DNSProxy.DNSRebindProtection [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_DNSProxy.RebindDomain [string] = 
+     InternetGatewayDevice.Services.X_000E50_Internet.WANConnection [string] = 
+     InternetGatewayDevice.Services.X_000E50_Internet.DMZEnable [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_KernelCrash.Upload [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_KernelCrash.Action [string] = compress
+     InternetGatewayDevice.Services.X_000E50_KernelCrash.URL [string] = https://internal-core.tgwfd.org:5443
+     InternetGatewayDevice.Services.X_000E50_OSGI.Configuration.Enable [boolean] = 1
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.IPIntf [string] = 
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.User [string] = assist
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Port [unsignedInt] = 60443
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.RandomPassword [boolean] = 1
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Password [string] = 
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Secure [boolean] = 1
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Name [string] = remote
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Status [string] = Inactive
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Start [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Mode [string] = Temporary
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.RandomPort [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.URL [string] = 
+     InternetGatewayDevice.Services.X_000E50_Telnet.Enable [boolean] = 
+     InternetGatewayDevice.Services.X_000E50_ngwfdd.CoredumpURL [string] = https://telia-core.tgwfd.org:5443/
+     InternetGatewayDevice.Services.X_000E50_ngwfdd.Enable [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_Internet.WANConnection [string] = 
+     InternetGatewayDevice.Services.X_000E50_ngwfdd.BaseURL [string] = https://telia:ZDgFbBH5jQvUocL7@telia-gw.tgwfd.org:8443/
+          InternetGatewayDevice.Services.X_000E50_ngwfdd.Tag [string] = TeliaFT
+  
+  ...... and some extremely much more stuff will be printed..
      
     
      Once type above command, wait for few seconds and you wil dump entire settings for your device.
