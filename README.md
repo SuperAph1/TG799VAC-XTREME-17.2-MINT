@@ -1431,7 +1431,7 @@ For upgrade firmware, you just have to type:
 # CONTACT
 
     If you have problems, questions, ideas or suggestions please contact
-    us by posting to info@sendit.nu
+    us by posting to wuseman@nr1.nu
 
 # WEB SITE
 
