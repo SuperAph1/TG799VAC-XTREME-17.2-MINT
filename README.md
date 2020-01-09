@@ -10,7 +10,7 @@ It is possible to get root access on 17.2.405 version if you are using a MiTM at
 
 If you have root access (telia still sending out devices with version 17.03) so the first thing you really must do is to edit the dropbear file on bank 2, otherwise you will be locked out when they pushing the firmware to 17.04 and then you are pretty lost unless you know how you can setup a MGMT network and gain root access this way. 
 
-Also for disable  to get your router to get upgrade you can type below command ASAP you have connected to shell:
+Also for disable  so your router wont get upgraded you can type below command ASAP you have connected to shell:
      
      uci set cwmpd.cwmpd_config.state=0
      uci commit
