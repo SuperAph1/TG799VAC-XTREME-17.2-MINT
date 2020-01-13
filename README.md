@@ -6,7 +6,79 @@ Website for this place can be found [here](https://wuseman.github.io/TG799VAC-XT
 
 ## Very Important Notice 2019-11-15: 
 
+It is possible to get root access on 17.2.405 version if you are using a MiTM attack, but its a mess so read below: 
+
 If you have root access (telia still sending out devices with version 17.03) so the first thing you really must do is to edit the dropbear file on bank 2, otherwise you will be locked out when they pushing the firmware to 17.04 and then you are pretty lost unless you know how you can setup a MGMT network and gain root access this way. 
+
+Also for disable  so your router wont get upgraded you can type below command ASAP you have connected to shell:
+     
+     uci set cwmpd.cwmpd_config.state=0
+     uci commit
+     rm /etc/cwmp*     
+
+#### For get all info and settings from your device (Thanks to [@LuKePicci](https://github.com/LuKePicci) for this as well)
+
+     clash
+     root> get InternetGatewayDevice.
+     InternetGatewayDevice.LANDeviceNumberOfEntries [unsignedInt] = 2
+     InternetGatewayDevice.DeviceSummary [string] = InternetGatewayDevice:1.9[](Baseline:1, EthernetLAN:1, WiFiLAN:1, ADSLWAN:1,      EthernetWAN:1, Time:1, IPPing:1, TraceRoute:1, ATMLoopback:1, Download:1, DownloadTCP:1, Upload:1, UploadTCP:1, UDPEcho:1, UDPEchoPlus:1), VoiceService:1.0[1](SIPEndpoint:1, TAEndpoint:1)
+     InternetGatewayDevice.WANDeviceNumberOfEntries [unsignedInt] = 2
+     InternetGatewayDevice.UserNumberOfEntries [unsignedInt] = 4
+     InternetGatewayDevice.Capabilities.PerformanceDiagnostic.DownloadTransports [string] = HTTP
+     InternetGatewayDevice.Capabilities.PerformanceDiagnostic.UploadTransports [string] = HTTP
+     InternetGatewayDevice.DeviceInfo.ProductClass [string] = TG799vn v2
+     InternetGatewayDevice.DeviceInfo.VendorConfigFileNumberOfEntries [unsignedInt] = 1
+     InternetGatewayDevice.DeviceInfo.X_000E50_SwitchtoPassiveBank [boolean] = 0
+     InternetGatewayDevice.DeviceInfo.UpTime [unsignedInt] = 16583
+     InternetGatewayDevice.DeviceInfo.ProvisioningCode [string] = 
+     InternetGatewayDevice.DeviceInfo.X_000E50_SoftwareVersionPassiveBank [string] = 16.2.7732
+     InternetGatewayDevice.DeviceInfo.ModelNumber [string] = TG799vn v2
+     InternetGatewayDevice.DeviceInfo.X_000E50_RebootCause [string] = CWMP
+     InternetGatewayDevice.DeviceInfo.AdditionalSoftwareVersion [string] = 7e33e895fd9205aade75cxxxa3b584310d496ac9e
+     InternetGatewayDevice.DeviceInfo.HardwareVersion [string] = VDNT-O
+     InternetGatewayDevice.DeviceInfo.ManufacturerOUI [string] = 9C9726
+     InternetGatewayDevice.DeviceInfo.ModemFirmwareVersion [string] = A2pv6F039v2.d26d
+     InternetGatewayDevice.DeviceInfo.X_000E50_BootloaderVersion [string] = 2.0.6
+     InternetGatewayDevice.DeviceInfo.X_000E50_TotalHWReboot [unsignedInt] = 1
+     InternetGatewayDevice.DeviceInfo.Manufacturer [string] = Technicolor
+     InternetGatewayDevice.DeviceInfo.VendorLogFileNumberOfEntries [unsignedInt] = 0
+     InternetGatewayDevice.DeviceInfo.SpecVersion [string] = 1.0
+     InternetGatewayDevice.DeviceInfo.X_000E50_ReturnToFactoryDefaultsSoft [boolean] = 0
+     InternetGatewayDevice.DeviceInfo.FirstUseDate [dateTime] = 0001-01-01T00:00:00Z
+     InternetGatewayDevice.DeviceInfo.SerialNumber [string] = CP1352CS00G
+     InternetGatewayDevice.DeviceInfo.DeviceLog [string] = ault route!
+     InternetGatewayDevice.Services.VoiceService.2.X_000E50_HandsetUpgrade.NumberOfHandsetUpgradeURLEntries [unsignedInt] = 0
+     InternetGatewayDevice.Services.X_000E50_DNSProxy.DNSRebindProtection [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_DNSProxy.RebindDomain [string] = 
+     InternetGatewayDevice.Services.X_000E50_Internet.WANConnection [string] = 
+     InternetGatewayDevice.Services.X_000E50_Internet.DMZEnable [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_KernelCrash.Upload [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_KernelCrash.Action [string] = compress
+     InternetGatewayDevice.Services.X_000E50_KernelCrash.URL [string] = https://internal-core.tgwfd.org:5443
+     InternetGatewayDevice.Services.X_000E50_OSGI.Configuration.Enable [boolean] = 1
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.IPIntf [string] = 
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.User [string] = assist
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Port [unsignedInt] = 60443
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.RandomPassword [boolean] = 1
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Password [string] = 
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Secure [boolean] = 1
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Name [string] = remote
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Status [string] = Inactive
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Start [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Mode [string] = Temporary
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.RandomPort [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.URL [string] = 
+     InternetGatewayDevice.Services.X_000E50_Telnet.Enable [boolean] = 
+     InternetGatewayDevice.Services.X_000E50_ngwfdd.CoredumpURL [string] = https://telia-core.tgwfd.org:5443/
+     InternetGatewayDevice.Services.X_000E50_ngwfdd.Enable [boolean] = 0
+     InternetGatewayDevice.Services.X_000E50_Internet.WANConnection [string] = 
+     InternetGatewayDevice.Services.X_000E50_ngwfdd.BaseURL [string] = https://telia:ZDgFbBH5jQvUocL7@telia-gw.tgwfd.org:8443/
+          InternetGatewayDevice.Services.X_000E50_ngwfdd.Tag [string] = TeliaFT
+  
+  ...... and some extremely much more stuff will be printed..
+     
+    
+     Once type above command, wait for few seconds and you wil dump entire settings for your device.
 
 For get the CSFR code if you are building some kind of scripts the easiest way to get it is by visit: 
  
@@ -865,32 +937,107 @@ For upgrade firmware, you just have to type:
 
 ![Screenshot](files/syslog.png)
 
-    @version: 3.17
-    #
-    # wusemans syslog-ng configuration file for Gentoo Linux
-
-    # https://bugs.gentoo.org/426814
+    @version: 3.22
     @include "scl.conf"
 
     options {
-        time-reap(30);
-        mark-freq(10);
-        keep-hostname(yes);
-        };
-    source s_local { system(); internal(); };
-    source s_network {
-        syslog(transport(udp) port(514));
-        };
-    destination d_local {
-    file("/var/log/syslogs/syslog-messages_${HOST}"); };
-    destination d_logs {
-        file(
-            "/var/log/syslogs/syslog-messages.ogs.txt"
-            owner("root")
-            group("root")
-            perm(0777)
-            ); };
-    log { source(s_local); source(s_network); destination(d_logs); };
+        create_dirs(yes);
+        owner(wuseman);
+        group(wuseman);
+        perm(0644);
+        dir_owner(wuseman);
+        dir_group(wuseman);
+        dir_perm(0755);
+    };
+ 
+ 
+    source s_udp {
+        network (
+                ip-protocol(6)
+                transport("udp")
+                port(514)
+        );
+        network (
+                transport("udp")
+                port(514)
+        );
+    };
+
+    destination d_host-specific {
+        file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-syslog.log");
+    };
+
+    log {
+        source(s_udp);
+        destination(d_host-specific);
+    };
+
+
+    source src {
+    unix-stream("/dev/log" max-connections(256));
+    internal();
+    };
+
+    source kernsrc { file("/proc/kmsg"); };
+
+    # define destinations
+    destination authlog { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-auth.log"); };
+    destination syslog { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-syslog"); };
+    destination cron { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-cron.log"); };
+    destination daemon { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-daemon.log"); };
+    destination kern { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-kern.log"); };
+    destination lpr { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-lpr.log"); };
+    destination user { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-user.log"); };
+    destination mail { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.log"); };
+    destination mailinfo { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.info"); };
+    destination mailwarn { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.warn"); };
+    destination mailerr { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-mail.err"); };
+    destination newscrit { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-news/news.crit"); };
+    destination newserr { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-news/news.err"); };
+    destination newsnotice { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-news/news.notice"); };
+    destination debug { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-debug"); };
+    destination messages { file("/home/wuseman/logs/$HOST/$YEAR-$MONTH-$DAY/${HOST}-messages"); };
+    destination console { usertty("root"); };
+    destination console_all { file("/dev/tty12"); };
+    #destination console_all { file("/dev/console"); };
+    filter f_authpriv { facility(auth, authpriv); };
+    filter f_syslog { not facility(authpriv, mail); };
+    filter f_cron { facility(cron); };
+    filter f_daemon { facility(daemon); };
+    filter f_kern { facility(kern); };
+    filter f_lpr { facility(lpr); };
+    filter f_mail { facility(mail); };
+    filter f_user { facility(user); };
+    filter f_debug { not facility(auth, authpriv, news, mail); };
+    filter f_messages { level(info..warn)
+        and not facility(auth, authpriv, mail, news); };
+    filter f_emergency { level(emerg); };
+    filter f_info { level(info); };
+    filter f_notice { level(notice); };
+    filter f_warn { level(warn); };
+    filter f_crit { level(crit); };
+    filter f_err { level(err); };
+    filter f_failed { message("failed"); };
+    filter f_denied { message("denied"); };
+
+    # connect filter and destination
+    log { source(src); filter(f_authpriv); destination(authlog); };
+    log { source(src); filter(f_syslog); destination(syslog); };
+    log { source(src); filter(f_cron); destination(cron); };
+    log { source(src); filter(f_daemon); destination(daemon); };
+    log { source(kernsrc); filter(f_kern); destination(kern); };
+    log { source(src); filter(f_lpr); destination(lpr); };
+    log { source(src); filter(f_mail); destination(mail); };
+    log { source(src); filter(f_user); destination(user); };
+    log { source(src); filter(f_mail); filter(f_info); destination(mailinfo); };
+    log { source(src); filter(f_mail); filter(f_warn); destination(mailwarn); };
+    log { source(src); filter(f_mail); filter(f_err); destination(mailerr); };
+    log { source(src); filter(f_debug); destination(debug); };
+    log { source(src); filter(f_messages); destination(messages); };
+    log { source(src); filter(f_emergency); destination(console); };
+
+    # default log
+    log { source(src); destination(console_all); };
 
 
 ##### Now restart system on your router and you should see * messages:
@@ -1285,13 +1432,13 @@ For upgrade firmware, you just have to type:
 # CONTACT
 
     If you have problems, questions, ideas or suggestions please contact
-    us by posting to info@sendit.nu
+    us by posting to wuseman@nr1.nu
 
 # WEB SITE
 
     Visit our homepage for the latest info and updated tools
 
-    https://sendit.nu & https://github.com/wuseman/
+    https://nr1.nu & https://github.com/wuseman/
 
 ### END!
 
