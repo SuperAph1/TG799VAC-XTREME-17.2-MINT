@@ -1,0 +1,153 @@
+Bootloader: ps2.0.6
+
+ root@router:~# ps -w
+  PID USER       VSZ STAT COMMAND
+    1 root      1876 S    /sbin/procd
+    2 root         0 SW   [kthreadd]
+    3 root         0 SW   [ksoftirqd/0]
+    4 root         0 SW   [kworker/0:0]
+    5 root         0 SW   [kworker/u:0]
+    6 root         0 SW   [migration/0]
+    7 root         0 SW   [migration/1]
+    9 root         0 SW   [ksoftirqd/1]
+   10 root         0 SW   [kworker/0:1]
+   11 root         0 SW<  [khelper]
+   12 root         0 SW   [kworker/u:1]
+   67 root         0 SW   [sync_supers]
+   69 root         0 SW   [bdi-default]
+   71 root         0 SW<  [kblockd]
+   79 root         0 SW   [khubd]
+   99 root         0 SW   [skbFreeTask]
+  100 root         0 SW   [bcmFapDrv]
+  101 root         0 SW<  [bpm]
+  119 root         0 SWN  [kswapd0]
+  120 root         0 SW   [fsnotify_mark]
+  122 root         0 SW<  [crypto]
+  134 root         0 SW<  [kthrotld]
+  152 root         0 SW   [mtdblock0]
+  158 root         0 SW   [mtdblock1]
+  163 root         0 SW   [mtdblock2]
+  168 root         0 SW   [mtdblock3]
+  173 root         0 SW   [mtdblock4]
+  178 root         0 SW   [mtdblock5]
+  183 root         0 SW   [mtdblock6]
+  188 root         0 SW   [mtdblock7]
+  201 root         0 SW<  [linkwatch]
+  211 root         0 SW<  [deferwq]
+  256 root         0 DWN  [jffs2_gcd_mtd2]
+  397 root      1596 S    /sbin/ubusd
+  483 root      4596 S    /usr/sbin/cgrulesengd -n -Q -u root
+  604 root         0 SW   [bcmxtm_rx]
+  631 root         0 SW   [bcmFlwStatsTask]
+  642 root         0 SW   [fapGsoLoopBk]
+  643 root         0 SW   [kpAliveWatchdog]
+  645 root         0 SW   [bcmsw_rx]
+  680 root         0 SW   [bcmsw_timer]
+  682 root         0 SW   [bcmsw]
+  766 root         0 SW   [wl0-kthrd]
+  769 root         0 SW   [wfd0-thrd]
+ 1171 root         0 SW<  [led_shift_queue]
+ 1201 root      2920 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+ 1204 root      4564 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+ 1223 root      1500 S    /sbin/logd -S 64
+ 1231 root      1616 S    logread -f
+ 1232 root      1940 S    awk -v pattern=((Everything)|(warmboot)|(cwmpd)|(Critical)|(Zonewatcher)|(wifiinfo)|(mmpbxd)|(Everything)
+ 1247 root      6308 S    /usr/bin/swmdk
+ 1287 root      2108 S    /usr/bin/bcmubusbridge
+ 1302 root      4808 S    lua /usr/bin/hostmanager.lua
+ 1878 root     14916 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 2011 root         0 SW   [dsl0]
+ 2466 root      2144 S    /sbin/netifd
+ 2518 root      2000 S <  /usr/sbin/conntrackd -C /etc/conntrackd/conntrackd.conf
+ 2718 root      4288 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 2748 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_mgmt -C -R -O 1 -O
+ 2749 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_iptv -V IPTV_RGW_PR
+ 2752 root      1324 S    odhcpc -p /var/run/odhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i eth4 -x hostname TG799vn v2-C
+ 2753 root      1324 S    odhcpc -p /var/run/odhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -t 0 -i vlan_voip -V tel-002- -C
+ 3391 root      2624 S    /usr/lib/ipsec/starter --daemon charon
+ 3393 root     37456 S    /usr/lib/ipsec/charon --use-syslog
+ 4757 root      7796 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 4782 root      1748 S    /usr/sbin/odhcpd
+ 4800 root      1912 S    /usr/sbin/crond -f -c /etc/crontabs -l 7
+ 4846 root      1556 S    /usr/bin/dhcpopassthrud
+ 4893 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.1.pid -s -p 10.172.123.38:22 -I 3611 -K 300
+ 4894 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.2.pid -s -p 90.227.130.190:22 -I 3611 -K 300
+ 4895 root      1544 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd76:6
+ 5023 root     22832 S    lua /usr/bin/transformer
+ 5042 root      1788 S    /usr/bin/dhcpsnooper -q 0
+ 5066 root      1644 S    /usr/bin/mcsnooper
+ 5094 root      1816 S    /usr/bin/neighmd -m 0x7
+ 5708 root      4368 S N  /usr/sbin/smbd -D
+ 5746 root      2748 S    /usr/sbin/nmbd -D
+ 5768 root      5008 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 5973 root     20820 S    /usr/bin/cwmpd
+ 5974 root      4268 S    lua /usr/bin/cwmpevents
+ 5991 root      3444 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 6020 root      2144 S    /usr/bin/igmpproxy
+ 6194 root      4576 S    nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -g daemon off;
+ 6253 root      5420 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+ 6268 nobody    8328 S    nginx: worker process
+ 6314 root         0 SW   [kworker/1:0]
+ 6319 root      1648 S    /usr/bin/fseventd -d
+ 6444 root      6952 S    /usr/bin/mvfs -o config=/tmp/.mvfs/mvfs.ini /var/mvfs -o l=2
+ 6484 root      2196 S    {time_change_mon} /usr/bin/lua /sbin/time_change_monitor.lua
+ 6574 root     11200 S N  /usr/bin/mud -d -t /etc/mud/mud_file_type_config.ini -l 2
+ 6634 root     10976 S    /usr/bin/dlnad -f /var/etc/dlnad.conf
+ 6763 root      2232 S    /usr/local/sbin/zone_daemon
+ 6764 root      8468 S    /usr/local/sbin/zonewatcher
+ 6913 root      1408 S    /sbin/mountd -f
+ 6989 root      4288 S    lua /usr/bin/pinholehelper.lua
+ 6994 root      1164 S    /usr/bin/osgi-watchdog 3
+ 6995 root      1908 S    {premiumd_daemon} /bin/sh /usr/local/sbin/premiumd_daemon /tmp/premiumd.log
+ 6998 root      3384 S    /usr/local/sbin/premium -s 78.28.252.151 -p /set -i 3600
+ 7019 root      4284 S    lua /usr/bin/redirecthelper.lua
+ 7061 root      1904 S    logger -t siege
+ 7063 root     58740 S <  /usr/bin/jvms/bin/siege_jvm -v -Dmbs.server.jar=/usr/bin/osgi/bin/vms/ceej/../../../lib/framework/serverj
+ 7102 root      1908 S    {zoneredir_daemo} /bin/sh /usr/local/sbin/zoneredir_daemon /tmp/zoneredird.log
+ 7105 root      3200 S    /usr/local/sbin/zoneredir
+ 9536 root      2060 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh -v 0 -S myddns_ipv4 -- start
+ 9586 root      1908 S    {exe} ash /etc/syslog_fwd/start_fwd_process 192.168.1.104 514 /var/log/filt_msg
+ 9685 root      1908 S    tail -F -n +1 /var/log/filt_msg
+ 9686 root      1916 S    {exe} ash /etc/syslog_fwd/start_fwd_process 192.168.1.104 514 /var/log/filt_msg
+ 9687 root      1920 S    nc -vu -p 51423 192.168.1.104 514
+10660 root         0 SW   [kworker/1:1]
+13907 dnsmasq   2004 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+13912 root      1920 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq.conf.dnsmasq -k -x /var/run/dnsmasq/dnsmasq.dnsmasq.pid
+14001 root      3408 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+18119 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd76:6
+18123 root      1912 S    -ash
+18197 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd76:6
+18226 root      1928 S    -ash
+19119 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd76:6
+19138 root      1912 S    -ash
+19851 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd76:6
+19867 root      1908 S    -ash
+19905 root         0 SW   [flush-mtd-unmap]
+20127 root      2000 S    {sysupgrade} /bin/sh /sbin/sysupgrade -v /tmp/1720405o1901012closed.rbi
+20132 root      2000 S    {sysupgrade} /bin/sh /sbin/sysupgrade -v /tmp/1720405o1901012closed.rbi
+20144 root         0 SW   [flush-0:11]
+20153 root      2892 S    signature_checker -b
+20154 root      1428 R    mtd -n write - bank_2
+20157 root      2000 S    {sysupgrade} /bin/sh /sbin/sysupgrade -v /tmp/1720405o1901012closed.rbi
+20158 root      2000 S    {sysupgrade} /bin/sh /sbin/sysupgrade -v /tmp/1720405o1901012closed.rbi
+20159 root      1904 S    tee /tmp/tmp.tRQJeP
+20164 root      1904 S    {bli_unseal_aes2} /bin/sh /usr/bin/bli_unseal_aes256
+20165 root      1904 S    tee /tmp/tmp.0d8asl
+20166 root      1764 S    lua /lib/upgrade/rbi_vrss.lua
+20185 root      1904 S    sleep 60
+20192 root      1904 S    cat /tmp/1720405o1901012closed.rbi
+20199 root      2996 S    bli_unseal_aes256_helper
+20200 root      1904 S    {bli_unseal_sha2} /bin/sh /usr/bin/bli_unseal_sha256
+20214 root      1904 S    {bli_unseal_sha2} /bin/sh /usr/bin/bli_unseal_sha256
+20215 root      1904 S    tee /tmp/tmp.PyDhBc
+20216 root      1904 S    {bli_unseal_zip} /bin/sh /usr/bin/bli_unseal_zip
+20220 root      1904 S    {bli_unseal_sha2} /bin/sh /usr/bin/bli_unseal_sha256
+20222 root      1904 S    sha256sum
+20223 root      1904 S    cut -d   -f 1
+20226 root      1340 S    bli_unseal_zip_helper
+20227 root      1904 S    cat
+20250 root      1612 S    /usr/sbin/dropbear -F -P /var/run/dropbear.3.pid -p 192.168.1.1:22 -p 2001:2002:5ae3:82be::1:22 -p fd76:6
+20251 root      1904 S    /bin/sh -c sleep 10
+20253 root      1904 S    sleep 10
+20254 root      1908 S    -ash
+20261 root      1904 R    ps 
