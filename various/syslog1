@@ -1,0 +1,322 @@
+Export All
+Exporting log, please wait ...
+Exporting failed; please try again.
+Date	Facility	Process	Message
+Jan 13 11:30:01	kern.warn	kernel	[ 409.430000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:52	user.notice	mwan	ifup interface wan (eth4) <string_matching_support enabled>
+Jan 13 11:29:51	kern.warn	kernel	[ 399.740000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:44	daemon.info	wansensing.lua[5899]	21 9614 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 ctdir ORIGINAL connmark match ! 0x0/0xf0000000 CONNMARK restore mask 0xf0000000
+Jan 13 11:29:44	daemon.info	wansensing.lua[5899]	164 418K mwan_output all -- * * 0.0.0.0/0 0.0.0.0/0
+Jan 13 11:29:44	daemon.info	wansensing.lua[5899]	259 30358 mwan_pre all -- * * 0.0.0.0/0 0.0.0.0/0
+Jan 13 11:29:43	daemon.info	wansensing.lua[5899]	47 11740 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 mark match ! 0x0/0xf0000000 CONNMARK save mask 0xf0000000
+Jan 13 11:29:43	daemon.info	wansensing.lua[5899]	259 30358 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 CONNMARK restore mask 0xf0000000
+Jan 13 11:29:43	user.notice	mwan	ifup interface mgmt (vlan_mgmt) <string_matching_support enabled>
+Jan 13 11:29:37	kern.warn	kernel	[ 385.744000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:36	daemon.warn	nginx	2020/01/13 11:29:35 [warn] 10352#0: *7 [lua] session.lua:103: changeUser(): changing user to Administrator, client: 192.168.1.104, server: localhost, request: "POST /authenticate HTTP/1.1", host: "192.168.1.1", referrer: "http://192.168.1.1/"
+Jan 13 11:29:36	kern.warn	kernel	[ 384.756000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:34	daemon.info	wansensing.lua[5899]	11 4823 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 ctdir ORIGINAL connmark match ! 0x0/0xf0000000 CONNMARK restore mask 0xf0000000
+Jan 13 11:29:34	daemon.info	wansensing.lua[5899]	128 407K mwan_output all -- * * 0.0.0.0/0 0.0.0.0/0
+Jan 13 11:29:34	kern.warn	kernel	[ 382.509000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:34	daemon.info	wansensing.lua[5899]	231 26822 mwan_pre all -- * * 0.0.0.0/0 0.0.0.0/0
+Jan 13 11:29:34	daemon.info	wansensing.lua[5899]	15 5073 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 mark match ! 0x0/0xf0000000 CONNMARK save mask 0xf0000000
+Jan 13 11:29:34	daemon.info	wansensing.lua[5899]	231 26822 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 CONNMARK restore mask 0xf0000000
+Jan 13 11:29:33	user.notice	mwan	ifdown interface voip () <string_matching_support enabled>
+Jan 13 11:29:31	kern.warn	kernel	[ 379.278000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:30	daemon.err	nginx	2020/01/13 11:29:29 [error] 10352#0: *7 [lua] sessionmgr.lua:250: redirectIfNotAuthorized(): Unauthorized request, client: 192.168.1.104, server: localhost, request: "GET / HTTP/1.1", host: "192.168.1.1"
+Jan 13 11:29:29	kern.warn	kernel	[ 377.938000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:25	daemon.info	wansensing.lua[5899]	11 4823 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 ctdir ORIGINAL connmark match ! 0x0/0xf0000000 CONNMARK restore mask 0xf0000000
+Jan 13 11:29:25	daemon.info	wansensing.lua[5899]	112 399K mwan_output all -- * * 0.0.0.0/0 0.0.0.0/0
+Jan 13 11:29:24	daemon.info	wansensing.lua[5899]	209 18467 mwan_pre all -- * * 0.0.0.0/0 0.0.0.0/0
+Jan 13 11:29:24	daemon.info	wansensing.lua[5899]	15 5073 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 mark match ! 0x0/0xf0000000 CONNMARK save mask 0xf0000000
+Jan 13 11:29:24	daemon.info	wansensing.lua[5899]	209 18467 CONNMARK all -- * * 0.0.0.0/0 0.0.0.0/0 CONNMARK restore mask 0xf0000000
+Jan 13 11:29:24	user.notice	mwan	ifdown interface iptv () <string_matching_support enabled>
+Jan 13 11:29:22	kern.warn	kernel	[ 370.812000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.807000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.796000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.781000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.775000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.768000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.762000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.756000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.749000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.743000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:22	kern.warn	kernel	[ 370.737000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:19	kern.warn	kernel	[ 367.376000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:18	daemon.err	nginx	2020/01/13 11:29:16 [error] 10352#0: *7 [lua] sessionmgr.lua:250: redirectIfNotAuthorized(): Unauthorized request, client: 192.168.1.104, server: localhost, request: "POST /ajax/mobiletab.lua?auto_update=true HTTP/1.1", host: "192.168.1.1", referrer: "http://192.168.1.1/gateway.lp"
+Jan 13 11:29:18	daemon.warn	nginx	2020/01/13 11:29:16 [warn] 10352#0: *7 [lua] session.lua:343: new(): new session for default user, client: 192.168.1.104, server: localhost, request: "POST /ajax/mobiletab.lua?auto_update=true HTTP/1.1", host: "192.168.1.1", referrer: "http://192.168.1.1/gateway.lp"
+Jan 13 11:29:17	kern.warn	kernel	[ 365.913000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:17	user.notice	assist.remote	-t filter -I input_rule -p tcp --src 131.116.67.192/26 --dst 10.172.123.38 --dport 443 -j ACCEPT
+Jan 13 11:29:16	user.notice	assist.remote	-t nat -I prerouting_rule -p tcp --src 131.116.67.192/26 --dst 10.172.123.38 --dport 443 -j REDIRECT --to-port 65535
+Jan 13 11:29:16	user.notice	assist.remote	-t nat -I prerouting_rule -m tcp -p tcp --src 131.116.67.192/26 --dst 10.172.123.38 --dport 60443 -j REDIRECT --to-ports 443
+Jan 13 11:29:16	user.notice	assist.remote	-t filter -D input_rule -p tcp --src 131.116.67.192/26 --dst --dport -j ACCEPT
+Jan 13 11:29:13	kern.warn	kernel	[ 361.152000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:29:11	daemon.info	dnsmasq-dhcp[11497]	read /etc/ethers - 0 addresses
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	read /tmp/hosts/dhcp.dnsmasq - 3 addresses
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	read /etc/hosts - 1 addresses
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using 3 more local addresses
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using nameserver 195.67.199.28#53 [0]
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using nameserver 195.67.199.27#53 [0]
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using nameserver 192.168.21.35#53 [1]
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using nameserver 192.168.21.34#53 [1]
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain example.com
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain example.org
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain example.net
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain invalid
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain local
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain localhost
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain onion
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain test
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	reading /tmp/resolv.conf.auto
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using 3 more local addresses
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain example.com
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain example.org
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain example.net
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain invalid
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain local
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain localhost
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain onion
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	using local addresses only for domain test
+Jan 13 11:29:11	daemon.info	dnsmasq-dhcp[11497]	DHCP, IP range 192.168.1.64 -- 192.168.1.243, lease time 1h
+Jan 13 11:29:11	daemon.info	dnsmasq-dhcp[11497]	DHCP, IP range 192.168.168.2 -- 192.168.168.201, lease time 1h
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	compile time options: IPv6 GNU-getopt no-RTC no-DBus no-i18n no-IDN DHCP no-DHCPv6 no-Lua TFTP conntrack dns-filterno-ipset no-auth no-DNSSEC no-ID loop-detect inotify
+Jan 13 11:29:11	daemon.info	dnsmasq[11497]	started, version 2.78 cachesize 150
+Jan 13 11:29:11	daemon.info	dnsmasq[7529]	exiting on receipt of SIGTERM
+Jan 13 11:29:10	daemon.info	transformer[6204]	async run: /etc/fwdassist.sh
+Jan 13 11:29:10	daemon.info	transformer[6204]	async run: /usr/share/transformer/scripts/user_reload.sh
+Jan 13 11:29:06	user.info	root	Mmpbx not enabled by config not starting, mmpbx.state=NA@init_start
+Jan 13 11:29:05	user.info	root	Mmpbx starting mmpbx.state=STARTING
+Jan 13 11:29:00	cron.info	crond[5936]	USER root pid 11221 cmd /sbin/assistance-helper.lua
+Jan 13 11:29:00	authpriv.info	dropbear[11211]	Not backgrounding
+Jan 13 11:29:00	authpriv.info	dropbear[7470]	Early exit: Terminated by signal
+Jan 13 11:28:59	daemon.info	procd	- init complete -
+Jan 13 11:28:59	user.notice	syslog	Starting WFA Test Suite Daemon
+Jan 13 11:28:58	user.info	root	Mmpbx stopped, mmpbx.state=NAstopped
+Jan 13 11:28:57	user.notice	mwan	ifup interface wan (eth4) <string_matching_support enabled>
+Jan 13 11:28:56	kern.warn	kernel	[ 344.705000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:54	daemon.err	nginx	2020/01/13 11:28:42 [error] 10352#0: *1 [lua] sessionmgr.lua:250: redirectIfNotAuthorized(): Unauthorized request, client: 192.168.1.104, server: localhost, request: "GET / HTTP/1.1", host: "192.168.1.1"
+Jan 13 11:28:54	daemon.warn	nginx	2020/01/13 11:28:42 [warn] 10352#0: *1 [lua] session.lua:343: new(): new session for default user, client: 192.168.1.104, server: localhost, request: "GET / HTTP/1.1", host: "192.168.1.1"
+Jan 13 11:28:54	daemon.warn	[11015]	use tch.logger
+Jan 13 11:28:54	user.info	root	Mmpbx service_stop done
+Jan 13 11:28:54	user.info	root	Mmpbx service_stop voice=NA@init_stop
+Jan 13 11:28:53	kern.warn	kernel	[ 341.935000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:53	user.info	root	Mmpbx stopping, mmpbx.state=STOPPING
+Jan 13 11:28:52	user.notice	mwan	Starting mwan
+Jan 13 11:28:52	daemon.warn	[10890]	use tch.logger
+Jan 13 11:28:51	user.notice	pppoe-relay-hotplug	Interface hotspot ifup
+Jan 13 11:28:50	user.err	syslog	292>No matching interface
+Jan 13 11:28:50	user.err	syslog	292>No matching interface
+Jan 13 11:28:50	user.err	syslog	292>No matching interface
+Jan 13 11:28:50	user.err	syslog	292>No matching interface
+Jan 13 11:28:48	user.notice	osgi-watchdog	Starting OSGi watchdog
+Jan 13 11:28:48	user.notice	osgi	OSGi Started
+Jan 13 11:28:48	user.notice	mwan	Stopping mwan
+Jan 13 11:28:48	user.crit	mountd[10794]	trying to mount /tmp/run/mountd/ as the autofs root
+Jan 13 11:28:47	user.notice	osgi	Starting OSGi
+Jan 13 11:28:47	user.crit	mountd[10794]	Starting OpenWrt (auto)mountd V1
+Jan 13 11:28:45	user.err	syslog	292>No matching interface
+Jan 13 11:28:45	user.err	syslog	292>No matching interface
+Jan 13 11:28:45	user.err	syslog	292>No matching interface
+Jan 13 11:28:45	user.err	syslog	292>No matching interface
+Jan 13 11:28:45	user.err	syslog	No input interface configured. Configuring default interface = br-lan
+Jan 13 11:28:44	user.notice	ipks	Done installing prebuild ipks
+Jan 13 11:28:44	user.notice	ipks	Installing prebuilt ipks:
+Jan 13 11:28:42	user.notice	syslog	mknod: /dev/dectshim: File exists
+Jan 13 11:28:42	daemon.info	cwmpd[9711]	PROT_TRACE: LAST STATE: <Idle>
+Jan 13 11:28:42	daemon.info	cwmpd[9711]	APP_TRACE: Saveall action is set
+Jan 13 11:28:42	daemon.info	cwmpd[9711]	PROT_TRACE: Transaction succeeded, closing connection.
+Jan 13 11:28:42	user.notice	dlnad	Starting dlnad
+Jan 13 11:28:41	daemon.notice	[10565]	[timeofday] no action configured
+Jan 13 11:28:41	daemon.warn	[10565]	use tch.logger
+Jan 13 11:28:40	user.notice	mud	mud start.
+Jan 13 11:28:39	user.err	syslog	metadb_init (Heap)
+Jan 13 11:28:39	user.notice	mvfsd	start mvfsd.
+Jan 13 11:28:38	daemon.info	cwmpd[9711]	PROT_TRACE: > Empty Post
+Jan 13 11:28:38	daemon.info	cwmpd[9711]	PROT_TRACE: < InformResponse
+Jan 13 11:28:38	daemon.info	cwmpd[9711]	PROT_TRACE: > Inform (4 VALUE CHANGE)
+Jan 13 11:28:38	user.notice	fseventd	fseventd is started.
+Jan 13 11:28:37	user.notice	fseventd	start fseventd.
+Jan 13 11:28:37	daemon.info	cwmpd[9711]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:28:37	daemon.info	cwmpd[9711]	PROT_TRACE: ConnectionRequestURL updated to http://90.227.130.190:51005/6IFFtVAmMIjC32ym
+Jan 13 11:28:37	daemon.info	cwmpd[9711]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:28:37	daemon.info	cwmpd[9711]	CONNECTION: Connected to server, starting transaction.
+Jan 13 11:28:37	daemon.notice	odhcpd[5919]	Failed to send to ff02::1%br-lan (Operation not permitted)
+Jan 13 11:28:37	daemon.info	odhcpd[5919]	Using a RA lifetime of 0 seconds on br-lan
+Jan 13 11:28:37	daemon.warn	odhcpd[5919]	A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+Jan 13 11:28:37	daemon.notice	odhcpd[5919]	Failed to send to ff02::1%wl0_1 (Operation not permitted)
+Jan 13 11:28:37	daemon.info	odhcpd[5919]	Using a RA lifetime of 0 seconds on wl0_1
+Jan 13 11:28:37	daemon.warn	odhcpd[5919]	A default route is present but there is no public prefix on wl0_1 thus we don't announce a default route!
+Jan 13 11:28:36	daemon.info	cwmpd[9711]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:28:36	daemon.info	cwmpd[9711]	CONNECTION: Connecting to server
+Jan 13 11:28:36	daemon.info	cwmpd[9711]	PROT_TRACE: Events are waiting, need to contact ACS
+Jan 13 11:28:36	daemon.warn	cwmpd[9711]	TRANSFORMER_PROXY: No event handler found: ID:4, path:uci.cwmpd.events.ExternalIP
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using 3 more local addresses
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using nameserver 195.67.199.28#53 [0]
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using nameserver 195.67.199.27#53 [0]
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain example.com
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain example.org
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain example.net
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain invalid
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain local
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain localhost
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain onion
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	using local addresses only for domain test
+Jan 13 11:28:35	daemon.info	dnsmasq[7529]	reading /tmp/resolv.conf.auto
+Jan 13 11:28:35	daemon.err	dnsmasq[7529]	Ignoring nameserver 192.168.21.35 for dnsset 'mgmt', no rules for set
+Jan 13 11:28:35	daemon.err	dnsmasq[7529]	Ignoring nameserver 192.168.21.34 for dnsset 'mgmt', no rules for set
+Jan 13 11:28:35	daemon.notice	netifd	Interface 'mgmt' is now up
+Jan 13 11:28:35	daemon.notice	miniupnpd[6787]	ProcessInterfaceWatchNotify RTM_NEWADDR index=26 fam=2
+Jan 13 11:28:35	daemon.notice	netifd	mgmt (10378): Switching to bound; server 81.228.63.222 assigned ip 10.172.123.38 (leasetime 76307 T1 38153 T2 66768)
+Jan 13 11:28:35	daemon.notice	netifd	mgmt (10378): Switching to requesting (server 81.228.63.222 offered ip 10.172.123.38)
+Jan 13 11:28:35	daemon.notice	netifd	mgmt (10378): Switching to selecting
+Jan 13 11:28:35	user.notice	lte-doctor	Starting LTE Doctor
+Jan 13 11:28:34	daemon.notice	netifd	mgmt (10378): Starting in init
+Jan 13 11:28:34	daemon.info	cwmpd[9711]	PROT_TRACE: LAST STATE: <Idle>
+Jan 13 11:28:34	user.notice	cwmpd	no rollback pending, done
+Jan 13 11:28:34	user.notice	cwmpd	rollback(init, 0) TMO=900 ROLLBACK_TO=
+Jan 13 11:28:34	user.info	root	Mmpbx not enabled by config not starting, mmpbx.state=NA@init_start
+Jan 13 11:28:33	daemon.info	cwmpd[9711]	PROT_TRACE: Transaction succeeded, closing connection.
+Jan 13 11:28:33	daemon.notice	netifd	Interface 'mgmt' is setting up now
+Jan 13 11:28:33	daemon.notice	netifd	Interface 'mgmt' has link connectivity
+Jan 13 11:28:33	daemon.notice	netifd	8021q 'vlan_mgmt' link is up
+Jan 13 11:28:33	daemon.notice	netifd	Interface 'mgmt' is enabled
+Jan 13 11:28:33	kern.info	kernel	[ 321.043000] device eth4 entered promiscuous mode
+Jan 13 11:28:32	kern.warn	kernel	[ 320.991000] netdev path : vlan_mgmt -> eth4
+Jan 13 11:28:32	user.info	root	Mmpbx starting mmpbx.state=STARTING
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	Success
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	MIPS port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	GPON port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	USB port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	MOCA port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	GPON_SERDES port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	GMII_2 port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	GMII_1 port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	GPHY_1 port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	GPHY_0 port rejects jumbo frames.
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	JUMBO_PORT_MASK:0x00000000
+Jan 13 11:28:31	daemon.info	wansensing.lua[5899]	Success
+Jan 13 11:28:30	daemon.info	cwmpd[9711]	PROT_TRACE: > Empty Post
+Jan 13 11:28:30	daemon.info	cwmpd[9711]	PROT_TRACE: < InformResponse
+Jan 13 11:28:30	daemon.warn	wansensing	Dns Rules enabled for intf: mgmt
+Jan 13 11:28:29	daemon.info	cwmpd[9711]	PROT_TRACE: > Inform (1 BOOT)
+Jan 13 11:28:29	daemon.notice	wansensing	mgmt
+Jan 13 11:28:29	daemon.notice	wansensing	Enabling DNS set for interface:
+Jan 13 11:28:29	daemon.notice	wansensing	Rebind protection disabled
+Jan 13 11:28:29	daemon.info	cwmpd[9711]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:28:29	daemon.info	cwmpd[9711]	PROT_TRACE: ConnectionRequestURL updated to http://90.227.130.190:51005/6IFFtVAmMIjC32ym
+Jan 13 11:28:29	daemon.info	cwmpd[9711]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:28:29	daemon.info	cwmpd[9711]	CONNECTION: Connected to server, starting transaction.
+Jan 13 11:28:28	daemon.info	procd	Instance nginx::instance1 s in a crash loop 6 crashes, 0 seconds since last crash
+Jan 13 11:28:28	daemon.info	cwmpd[9711]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:28:28	daemon.info	cwmpd[9711]	CONNECTION: Connecting to server
+Jan 13 11:28:28	daemon.info	cwmpd[9711]	PROT_TRACE: Events are waiting, need to contact ACS
+Jan 13 11:28:27	user.notice	mwan	ifup interface hotspot (br-hotspot) <string_matching_support enabled>
+Jan 13 11:28:26	daemon.notice	wansensing	NTP configured for MVLAN config
+Jan 13 11:28:26	daemon.notice	wansensing	Option 125 received
+Jan 13 11:28:26	daemon.notice	wansensing	Network interface wan ifup detected and checking option 125
+Jan 13 11:28:26	daemon.notice	wansensing	(opt125handler) runs worker_opt125handler.check(network_interface_wan_ifup)
+Jan 13 11:28:25	user.info	root	Mmpbx stopped, mmpbx.state=NAstopped
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	Success
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	MIPS port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	GPON port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	USB port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	MOCA port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	GPON_SERDES port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	GMII_2 port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	GMII_1 port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	GPHY_1 port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	GPHY_0 port rejects jumbo frames.
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	JUMBO_PORT_MASK:0x00000000
+Jan 13 11:28:23	daemon.info	wansensing.lua[5899]	Success
+Jan 13 11:28:23	kern.warn	kernel	[ 311.824000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.799000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.752000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.744000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.728000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.711000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.691000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.667000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.650000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:23	kern.warn	kernel	[ 311.632000] netlink: 20 bytes leftover after parsing attributes.
+Jan 13 11:28:22	user.info	root	Mmpbx service_stop done
+Jan 13 11:28:22	daemon.notice	wansensing	Convert factory defaults to use 6RD
+Jan 13 11:28:22	daemon.notice	wansensing	Check/Change IPv6 Deployment
+Jan 13 11:28:22	daemon.notice	wansensing	(L3Sense) runs L3EntryExit.entry(ETH)
+Jan 13 11:28:22	user.info	root	Mmpbx service_stop voice=NA@init_stop
+Jan 13 11:28:22	daemon.err	watchdog-tch[9924]	cannot open none (errno = 2 = 'No such file or directory')
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	test=none(0) repair=none(0) alive=none heartbeat=none to=root no_act=no force=no
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	temperature: no sensors to check
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	interface: no interface to check
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	pidfile: /var/run/cwmpevents.pid
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	pidfile: /var/run/cwmpd.pid
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	pidfile: /var/run/transformer.pid
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	file: no file to check
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	ping: no machine to check
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	int=5s realtime=yes sync=no soft=no mla=0 mem=0
+Jan 13 11:28:22	daemon.info	watchdog-tch[9924]	starting daemon (5.13):
+Jan 13 11:28:21	user.info	root	Mmpbx stopping, mmpbx.state=STOPPING
+Jan 13 11:28:21	daemon.info	procd	Instance watchdog-tch::instance1 pid 9654 not stopped on SIGTERM, sending SIGKILL instead
+Jan 13 11:28:18	daemon.info	cwmpd[9711]	SSL: SPF key handler loaded!
+Jan 13 11:28:18	daemon.info	cwmpd[9711]	SSL: SPF RSA engine loaded!
+Jan 13 11:28:17	daemon.info	cwmpd[9711]	SCHEDULEINFORM: cwmp_scheduleInform_completeinit - Time Synced!
+Jan 13 11:28:17	daemon.info	cwmpd[9711]	TRANSFORMER_PROXY: Received shutdown command, shutting down the listening thread!
+Jan 13 11:28:17	daemon.info	cwmpd[9711]	TRANSFORMER_PROXY: cwmp_softwareversion_changed -- SoftwareVersion changed = false
+Jan 13 11:28:16	daemon.info	cwmpd[9711]	TRANSFER: init transfer API
+Jan 13 11:28:16	daemon.info	cwmpd[9711]	APP_TRACE: [plugins] registered '/usr/lib/cwmpd/libuciplugin.so'
+Jan 13 11:28:16	daemon.info	watchdog-tch[9654]	stopping daemon (5.13)
+Jan 13 11:28:16	user.info	root	Mmpbx not enabled by config not starting, mmpbx.state=NA@init_start
+Jan 13 11:28:15	daemon.info	cwmpd[9711]	APP_TRACE: [plugins] registered '/usr/lib/cwmpd/libtransferplugin.so'
+Jan 13 11:28:15	daemon.info	cwmpd[9711]	PROT_TRACE: ConnectionRequestURL updated to http://:0/6IFFtVAmMIjC32ym
+Jan 13 11:28:14	user.info	root	Mmpbx starting mmpbx.state=STARTING
+Jan 13 11:28:14	user.notice	cwmpd	Starting cwmpd 0x10000000
+Jan 13 11:28:14	daemon.info	cwmpd[8331]	TRANSFORMER_PROXY: Received shutdown command, shutting down the listening thread!
+Jan 13 11:28:14	daemon.info	cwmpd[8331]	APP_TRACE: daemon is exiting
+Jan 13 11:28:13	daemon.err	watchdog-tch[9654]	cannot open none (errno = 2 = 'No such file or directory')
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	test=none(0) repair=none(0) alive=none heartbeat=none to=root no_act=no force=no
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	temperature: no sensors to check
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	interface: no interface to check
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	pidfile: /var/run/transformer.pid
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	file: no file to check
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	ping: no machine to check
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	int=5s realtime=yes sync=no soft=no mla=0 mem=0
+Jan 13 11:28:13	daemon.info	watchdog-tch[9654]	starting daemon (5.13):
+Jan 13 11:28:12	daemon.info	procd	Instance watchdog-tch::instance1 pid 2492 not stopped on SIGTERM, sending SIGKILL instead
+Jan 13 11:28:09	user.info	root	Mmpbx stopped, mmpbx.state=NAstopped
+Jan 13 11:28:08	user.notice	pppoe-relay-hotplug	Interface Guest1 ifup
+Jan 13 11:28:07	daemon.info	dnsmasq-dhcp[7529]	read /etc/ethers - 0 addresses
+Jan 13 11:28:07	daemon.info	dnsmasq[7529]	read /tmp/hosts/dhcp.dnsmasq - 3 addresses
+Jan 13 11:28:07	daemon.info	dnsmasq[7529]	read /etc/hosts - 1 addresses
+Jan 13 11:28:07	daemon.info	watchdog-tch[2492]	stopping daemon (5.13)
+Jan 13 11:28:04	user.info	root	Mmpbx service_stop done
+Jan 13 11:28:04	daemon.info	wansensing.lua[5899]	interface mgmt has no physdev or physdev has no suitable ip
+Jan 13 11:28:03	user.info	root	Mmpbx service_stop voice=NA@init_stop
+Jan 13 11:28:03	daemon.info	wansensing.lua[5899]	no process in pidfile '/var/run/led-fw-interface.lua.pid' found; none killed
+Jan 13 11:28:03	user.info	root	Mmpbx stopping, mmpbx.state=STOPPING
+Jan 13 11:28:01	user.notice	igmpproxy	Starting igmpproxy
+Jan 13 11:28:00	cron.err	crond[5936]	time disparity of 653236 minutes detected
+Jan 13 11:28:00	cron.info	crond[5936]	ignoring file 'trafficmon-ubus' (no such user)
+Jan 13 11:28:00	daemon.info	cwmpd[8331]	PROT_TRACE: LAST STATE: <Idle>
+Jan 13 11:28:00	daemon.info	cwmpd[8331]	APP_TRACE: Saveall action is set
+Jan 13 11:28:00	user.notice	cwmpd	connected, no rollback needed, done
+Jan 13 11:28:00	user.notice	cwmpd	rollback(connect_success, 0) TMO=900 ROLLBACK_TO=bank_1
+Jan 13 11:27:59	user.notice	cwmpd	rollback(init, 0) TMO=900 ROLLBACK_TO=bank_1
+Jan 13 11:27:58	daemon.info	transformer[6204]	async run: /etc/init.d/mmpbxd restart
+Jan 13 11:27:58	daemon.info	cwmpd[8331]	PROT_TRACE: Transaction succeeded, closing connection.
+Jan 13 11:27:56	daemon.err	wansensing.lua[5899]	Command failed: Not found
+Jan 13 11:27:54	daemon.info	cwmpd[8331]	PROT_TRACE: > SetParameterValues Response
+Jan 13 11:27:54	daemon.info	cwmpd[8331]	PROT_TRACE: < SetParameterValues Request
+Jan 13 11:27:54	daemon.info	cwmpd[8331]	PROT_TRACE: > Empty Post
+Jan 13 11:27:53	daemon.info	cwmpd[8331]	PROT_TRACE: < InformResponse
+Jan 13 11:27:53	daemon.info	cwmpd[8331]	PROT_TRACE: > Inform (0 BOOTSTRAP, 1 BOOT, 4 VALUE CHANGE)
+Jan 13 11:27:53	daemon.warn	transformer[6204]	set_wrapper with 3 args not supported
+Jan 13 11:27:51	daemon.info	cwmpd[8331]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:27:51	daemon.info	cwmpd[8331]	PROT_TRACE: ConnectionRequestURL updated to http://90.227.130.190:51005/wWxq2AC7gnw7jbBU
+Jan 13 11:27:51	daemon.info	cwmpd[8331]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:27:51	daemon.info	cwmpd[8331]	CONNECTION: Connected to server, starting transaction.
+Jan 13 11:27:50	daemon.info	cwmpd[8331]	UBUS_CLIENT: external IP address is 90.227.130.190
+Jan 13 11:27:50	daemon.info	cwmpd[8331]	CONNECTION: Connecting to server
+Jan 13 11:27:50	daemon.info	cwmpd[8331]	PROT_TRACE: Events are waiting, need to contact ACS
+Jan 13 11:27:50	daemon.err	cwmpd[8331]	CDUS_TRACE: cwmp_changedustateapi_flush CURRENTLY NOT IMPLEMENTED
+Jan 13 11:27:49	authpriv.info	ipsec_starter[7288]	'demo_remote-grehotspot' routed
+Jan 13 11:27:49	daemon.info	ipsec	16[CFG] received stroke: route 'demo_remote-grehotspot'
+Close
+
