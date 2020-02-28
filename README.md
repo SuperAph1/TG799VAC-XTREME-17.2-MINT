@@ -1079,6 +1079,11 @@ For upgrade firmware, you just have to type:
 
     uci set tod.global.enabled='0'
 
+#### To disable mobile card since there is no button, execute: 
+
+    uci set mobiled.device_defaults.enabled=0
+    uci commit
+
 #### List installed packages:
 
     echo $(opkg list_installed | awk '{ print $1 }')
