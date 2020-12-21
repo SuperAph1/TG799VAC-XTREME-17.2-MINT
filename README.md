@@ -4,6 +4,8 @@ Website for this place can be found [here](https://wuseman.github.io/TG799VAC-XT
 
 ![Screenshot](files/felia1.jpg)
 
+#### Edit 2020-12-21: Telia changed password, default password from now is: SUPP0r7!W1f1R0uT3r
+   
 ## Very Important Notice 2019-11-15: 
 
 It is possible to get root access on 17.2.405 version if you are using a MiTM attack, but its a mess so read below: 
@@ -145,8 +147,8 @@ For upgrade firmware, you just have to type:
 
 #### If you want me host more firmwares just setup a FTP or something so I can leech them and I will host them for you, send an e-mail with info to wuseman@nr1.nu
 
-#### Edit 2020-12-21: Telia password -> SUPP0r7!W1f1R0uT3r as default password! :) 
 
+     
 # README
 
    Alright guys, i have bricked my old TG799VAC-XTREME when i figured out how to generate the access key so I just got my new TG799 VAC Xtreme2 with version 17.2 Mint, ofc i have hacked this one aswell since i DO not want backdoors in my network..
