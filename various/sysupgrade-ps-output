@@ -1,0 +1,55 @@
+ 2608 root     13604 S    hostapd -bund -p /var/run/hostapd.pid -e /tmp/hostapd.env
+ 2696 root         0 SW   [kworker/0:2]
+ 2746 root         0 SW   [dsl0]
+ 2792 root      1676 S    /sbin/netifd
+ 3030 root      1592 S    {mobiled.lua} /usr/bin/lua /lib/netifd/mobiled.lua -s 0 -p 1 -i wwan
+ 4357 root      3984 S    {wansensing.lua} /usr/bin/lua /sbin/wansensing.lua
+ 4373 root      1248 S    /usr/sbin/odhcpd
+ 4434 root      1188 S    /usr/bin/dhcpopassthrud
+ 4563 root      3372 S    lua /usr/bin/hostmanager.lua
+ 5044 root      2500 S    /usr/sbin/minitr064d -f /var/etc/minitr064d.conf
+ 5772 root         0 SW   [kworker/u:2]
+ 6355 root      1532 S    udhcpc -p /var/run/udhcpc-eth4.pid -s /lib/netifd/dhcp.script -f -o -R -t 0 -i eth4 -H Telia WiFi-router 
+ 6357 root      1532 S    udhcpc -p /var/run/udhcpc-vlan_iptv.pid -s /lib/netifd/dhcp.script -f -o -R -t 0 -i vlan_iptv -V IPTV_RGW
+ 6358 root      1532 S    udhcpc -p /var/run/udhcpc-vlan_mgmt.pid -s /lib/netifd/dhcp.script -f -o -R -t 0 -i vlan_mgmt -C -I /etc/
+ 6371 root      1528 S    udhcpc -p /var/run/udhcpc-vlan_voip.pid -s /lib/netifd/dhcp.script -f -o -R -t 0 -i vlan_voip -V tel-002-
+ 6868 root      1240 S    /usr/bin/mcsnooper -P 1
+ 6875 root      1348 S    /usr/bin/neighmd
+ 7375 root      2552 S    /usr/sbin/miniupnpd-igdv2 -f /var/etc/miniupnpd-tch.conf
+ 7459 root      3628 S N  /usr/sbin/smbd -D
+ 7598 root      2272 S    /usr/sbin/nmbd -D
+ 7606 root      2028 S    {mobiled} /usr/bin/lua /usr/bin/mobiled
+ 7793 root      1764 S    /usr/bin/igmpproxy -p 0
+ 7876 root      1756 S    /usr/bin/mldproxy -p 0
+ 9106 root      1472 S    /usr/lib/ipsec/starter --daemon charon
+ 9108 root     36216 S    /usr/lib/ipsec/charon --use-syslog
+ 9209 root      1688 S    {dynamic_dns_upd} /bin/sh /usr/lib/ddns/dynamic_dns_updater.sh myddns_ipv4 0
+ 9316 root      1528 S    {exe} ash /etc/syslog_fwd/start_fwd_process 192.168.1.104 514 /var/log/filt_msg
+ 9424 root      1524 S    sleep 60
+ 9586 root      1532 S    tail -F -n +1 /var/log/filt_msg
+ 9587 root      1536 S    {exe} ash /etc/syslog_fwd/start_fwd_process 192.168.1.104 514 /var/log/filt_msg
+ 9588 root      1544 S    nc -vu -p 51423 192.168.1.104 514
+10168 root      1580 S    {upgrade.sh} /bin/sh /usr/lib/cwmpd/transfers/upgrade.sh /tmp/cwmp_downupl_ed7Rbm
+10249 root      1524 S    {sysupgrade-safe} /bin/sh /usr/bin/sysupgrade-safe -o http://131.116.22.230:80/172339h1441018closed.rbi
+10251 root      1624 S    {sysupgrade} /bin/sh /sbin/sysupgrade --safe -o http://131.116.22.230:80/172339h1441018closed.rbi
+10260 root      1624 S    {sysupgrade} /bin/sh /sbin/sysupgrade --safe -o http://131.116.22.230:80/172339h1441018closed.rbi
+10286 root      1528 S    wget -O- -q -T 300 http://131.116.22.230:80/172339h1441018closed.rbi
+11257 root      1292 R    /usr/sbin/dropbear -P /var/run/dropbear.lan.22.pid -p 192.168.1.1:22
+11504 root      1532 S    /usr/sbin/crond -c /etc/crontabs -l 7
+11610 root      1228 S    /usr/sbin/dropbear -P /var/run/dropbear.mgmt.22.pid -s -p 10.141.89.196:22 -I 3611
+11616 root      1228 S    /usr/sbin/dropbear -P /var/run/dropbear.wan.22.pid -s -p 90.227.130.174:22 -I 3611
+11622 root      1228 S    /usr/sbin/dropbear -P /var/run/dropbear.lan.22.pid -p 192.168.1.1:22
+11688 root      1740 S    {status-led-even} /usr/bin/lua /sbin/status-led-eventing.lua
+11690 root      3016 S    {ledfw.lua} /usr/bin/lua /sbin/ledfw.lua
+11828 root      2464 S    {lte-doctor-logg} /usr/bin/lua /usr/bin/lte-doctor-logger 5 1 /tmp/lte-doctor.db
+12177 nobody    1304 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq-dnsmasq.conf -x /var/run/dnsmasq.dnsmasq.pid
+12178 root      1300 S    /usr/sbin/dnsmasq -C /var/etc/dnsmasq-dnsmasq.conf -x /var/run/dnsmasq.dnsmasq.pid
+12236 root       980 S    /usr/sbin/watchdog-tch -c /var/etc/watchdog.conf
+12271 root     12464 S    lua /usr/bin/transformer
+12801 root     55144 S    nginx: master process /usr/sbin/nginx
+12802 nobody   56756 S    nginx: worker process
+12811 root      1532 S    -ash
+12850 root      1716 S    {S99mmpbxd} /bin/sh /etc/rc.common /etc/rc.d/S99mmpbxd boot
+12853 root      1524 S    lock /tmp/.execute.lock
+12903 root      1524 S    sleep 4
+12905 root      1524 R    ps -w
