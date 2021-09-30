@@ -125,7 +125,6 @@ For upgrade firmware, you just have to type:
     
  #### Get access to all cards on latest firmware:
  
-    uci add_list web.uidefault.upgradefw_role admin
     uci add_list web.uidefault.upgradefw_role=admin
     uci add_list web.usr_assist.role=admin
     uci add_list web.assistancemodal.roles=admin
