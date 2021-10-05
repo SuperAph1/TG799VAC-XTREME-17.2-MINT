@@ -1444,7 +1444,8 @@ Result for: 17.2.0405-1441042-20191114170637-ec29699cbbf5c66c53b310489f62a141f46
 
 Just mount mtd1 and play around:
 
-![Screenshot](https://wuseman.nr1.nu/archive/tg799_telia/various_previews/squashed.png)
+![Screenshot](https://wuseman.nr1.nu/archive/tg799_telia/various_previews/2.png)
+     
      squashfuse mtd1.img /mnt/router/justforfun
      
      
