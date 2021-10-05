@@ -82,9 +82,13 @@ Also for disable  so your router wont get upgraded you can type below command AS
     
      Once type above command, wait for few seconds and you wil dump entire settings for your device.
 
-For get the CSFR code if you are building some kind of scripts the easiest way to get it is by visit: 
+Get CSFR token via cli: 
  
-     http://192.168.1.1/login.lp?action=getcsrf
+     curl -sL http://192.168.1.1/login.lp?action=getcsrf
+     
+Get CSFR token via developer console: 
+
+     $("meta[name=CSRFtoken]").attr("content")
 
 #### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing and then you can follow this wiki, more info about how to downgrade your firmware can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are - _If you leeching the firmwares, then seed 24/7 for help others_
 
