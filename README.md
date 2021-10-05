@@ -1423,6 +1423,16 @@ For upgrade firmware, you just have to type:
      option 'vlan' '4'
      option 'ports' '0 5' #lan4 " > /etc/config/network
 
+#### Create backup of all /dev/mtd[1-7]
+
+ Insert usb: 
+ 
+     mkdir -p /mnt/usb/<label>/backup_mtd
+     
+     for number in $(seq 1 7); do 
+         dd if=/dev/mtd${i} of=/mnt/usb/<label>/backup_mtd/mtd${i}.img;
+     done
+
 #### Using bridge mode with a dedicated PPPoE ethernet port:
 
     uci set network.lan.dns='1.1.1.1'
