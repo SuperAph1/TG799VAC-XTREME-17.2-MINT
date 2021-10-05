@@ -1430,8 +1430,26 @@ For upgrade firmware, you just have to type:
      mkdir -p /mnt/usb/<label>/backup_mtd
      
      for number in $(seq 1 7); do 
-         dd if=/dev/mtd${i} of=/mnt/usb/<label>/backup_mtd/mtd${i}.img;
+         dd if=/dev/mtd${number} of=/mnt/usb/<label>/backup_mtd/mtd${number}.img;
      done
+     
+Result for: 17.2.0405-1441042-20191114170637-ec29699cbbf5c66c53b310489f62a141f46bf628: 
+
+     mtd1.img: Squashfs filesystem, little endian, version 4.0, xz compressed, 29719215 bytes, 3791 inodes, blocksize: 262144 bytes, created: Tue May  2 15:59:58 2017
+     mtd2.img: ISO-8859 text, with very long lines (65536), with no line terminators
+     mtd3.img: data
+     mtd4.img: data
+     mtd5.img: data
+     mtd6.img: data
+
+Just mount mtd1 and play around:
+
+![Screenshot](https://wuseman.nr1.nu/archive/tg799_telia/various_previews/squashed.png)
+     squashfuse mtd1.img /mnt/router/justforfun
+     
+     
+
+
 
 #### Using bridge mode with a dedicated PPPoE ethernet port:
 
