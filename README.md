@@ -872,71 +872,111 @@ For upgrade firmware, you just have to type:
 
     cat log.txt  | awk '{print $7}' | sed 's/://g' | uniq -d | sort -r | uniq | sed 's/^/        list log_filter "/g' | sed 's/$/"/g'|sed "s/\"/'/g"
 
-##### Settings for systlog
+##### Settings for syslog
 
-      echo "
-      config system
-         option zonename 'Europe/Stockholm'
-         option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
-         option network_timezone '1'
-         option cronloglevel '7'
-         option hostname 'router'
-         option wizard_accessed '1'
-         option hw_reboot_count '1'
-         option log_port '514'
-         option log_filter_ip '192.168.1.104'
-         list log_filter 'Everything'
-         list log_filter 'warmboot'
-         list log_filter 'cwmpd'
-         list log_filter 'Critical'
-         list log_filter 'Zonewatcher'
-         list log_filter 'wifiinfo'
-         list log_filter 'mmpbxd'
-         list log_filter 'Everything'
-         list log_filter 'transformer'
-         list log_filter 'Zonewatcher'
-         list log_filter 'zoneredird'
-         list log_filter 'zone_daemon'
-         list log_filter 'transformer'
-         list log_filter 'syslog'
-         list log_filter 'root'
-         list log_filter 'premiumd'
-         list log_filter 'lua'
-         list log_filter 'nginx'
-         list log_filter 'kernel'
-         list log_filter 'ipks'
-         list log_filter 'opkg'
-         list log_filter 'hostmanager'
-         list log_filter 'hostapd'
-         list log_filter 'fseventd'
-         list log_filter 'dropbear'
-         list log_filter 'dnsmasq-dhcp'
-         list log_filter 'dnsmasq'
-         list log_filter 'ddns-scripts'
-         list log_filter 'awk'
-         list log_filter 'assist.remote'
-         list log_filter 'assist'
-         list log_filter 'ash'
-         list log_filter 'bash'
-         list log_filter 'sh'
-         list log_filter 'clash'
-         list log_filter 'root'
-         list log_filter 'mwan'
-         list log_filter 'user.notice'
-         list log_filter 'auth'
-         list log_filter 'pppoe-relay-hotplug'
-         list log_filter 'odhcpd'
-         list log_filter 'ipsec_starter'
-         list log_filter 'ipsec'
-         list log_filter 'insmod'
-         list log_filter 'netifd'
-         list log_filter 'wansensing'
-         list log_filter 'miniupnpd'
-         list log_filter 'user.info'
-         list log_filter 'guest'
-         list log_filter 'cwmp'
-         option sw_reboot_count '0'
-      " > /etc/config/system
+cat << "EOF" > /etc/config/system
+
+config system
+        option log_port '514'
+        option log_filter_ip ''
+        option hostname 'OpenWrt'
+        option zonename 'Europe/Stockholm'
+        option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+        option network_timezone '1'
+        option hw_reboot_count '0'
+        option sw_reboot_count '0'
+
+config timeserver 'ntp'
+        option enable_server '1'
+        list server 'ntp1.rgw.telia.se'
+        list server 'ntp2.rgw.telia.se'
+
+config time 'time'
+
+config config 'config'
+        option export_plaintext '1'
+        option export_unsigned '1'
+        option import_plaintext '1'
+        option import_unsigned '1'
+
+config coredump
+        option reboot '1'
+        option path '/root'
+        option action 'compress'
+        option url 'https://telia-core.tgwfd.org:5443/'
+
+config log 'logread'
+        option path 'logread'
+
+config trafficmon
+        option interface 'wan'
+        option minute '*/720'
+
+config trafficmon
+        option interface 'mgmt'
+        option minute '*/720'
+
+config trafficmon
+        option interface 'voip'
+        option minute '*/720'
+
+config trafficmon
+        option interface 'iptv'
+        option minute '*/720'
+
+
+list log_filter 'Everything'
+     list log_filter 'warmboot'
+     list log_filter 'cwmpd'
+     list log_filter 'Critical'
+     list log_filter 'Zonewatcher'
+     list log_filter 'wifiinfo'
+     list log_filter 'mmpbxd'
+     list log_filter 'Everything'
+     list log_filter 'transformer'
+     list log_filter 'Zonewatcher'
+     list log_filter 'zoneredird'
+     list log_filter 'zone_daemon'
+     list log_filter 'transformer'
+     list log_filter 'syslog'
+     list log_filter 'root'
+     list log_filter 'premiumd'
+     list log_filter 'lua'
+     list log_filter 'nginx'
+     list log_filter 'kernel'
+     list log_filter 'ipks'
+     list log_filter 'opkg'
+     list log_filter 'hostmanager'
+     list log_filter 'hostapd'
+     list log_filter 'fseventd'
+     list log_filter 'dropbear'
+     list log_filter 'dnsmasq-dhcp'
+     list log_filter 'dnsmasq'
+     list log_filter 'ddns-scripts'
+     list log_filter 'awk'
+     list log_filter 'assist.remote'
+     list log_filter 'assist'
+     list log_filter 'ash'
+     list log_filter 'bash'
+     list log_filter 'sh'
+     list log_filter 'clash'
+     list log_filter 'root'
+     list log_filter 'mwan'
+     list log_filter 'user.notice'
+     list log_filter 'auth'
+     list log_filter 'pppoe-relay-hotplug'
+     list log_filter 'odhcpd'
+     list log_filter 'ipsec_starter'
+     list log_filter 'ipsec'
+     list log_filter 'insmod'
+     list log_filter 'netifd'
+     list log_filter 'wansensing'
+     list log_filter 'miniupnpd'
+     list log_filter 'user.info'
+     list log_filter 'guest'
+     list log_filter 'cwmp'
+     option sw_reboot_count '0'
+EOF
 
 #### On your syslog server then put this in /etc/syslog/syslog.conf to recieve all messages from your tg799 xtream router.
 
@@ -1448,9 +1488,6 @@ Just mount mtd1 and play around:
      
      squashfuse mtd1.img /mnt/router/justforfun
      
-     
-
-
 
 #### Using bridge mode with a dedicated PPPoE ethernet port:
 
