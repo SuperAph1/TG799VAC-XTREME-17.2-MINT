@@ -874,9 +874,9 @@ For upgrade firmware, you just have to type:
 
 ##### Settings for syslog
 
-cat << "EOF" > /etc/config/system
+    cat << "EOF" > /etc/config/system
 
-config system
+    config system
         option log_port '514'
         option log_filter_ip ''
         option hostname 'OpenWrt'
@@ -939,46 +939,46 @@ config system
         list log_filter 'cwmp'
 
 
-config timeserver 'ntp'
+    config timeserver 'ntp'
         option enable_server '1'
         list server 'ntp1.rgw.telia.se'
         list server 'ntp2.rgw.telia.se'
 
-config time 'time'
+    config time 'time'
 
-config config 'config'
+    config config 'config'
         option export_plaintext '1'
         option export_unsigned '1'
         option import_plaintext '1'
         option import_unsigned '1'
 
-config coredump
+    config coredump
         option path '/root'
         option url 'https://telia-core.tgwfd.org:5443/'
         option action 'ignore'
         option reboot '0'
 
-config log 'logread'
+    config log 'logread'
         option path 'logread'
 
-config trafficmon
+    config trafficmon
         option interface 'wan'
         option minute '*/720'
 
-config trafficmon
+    config trafficmon
         option interface 'mgmt'
         option minute '*/720'
 
-config trafficmon
+    config trafficmon
         option interface 'voip'
         option minute '*/720'
 
-config trafficmon
+    config trafficmon
         option interface 'iptv'
         option minute '*/720'
         option sw_reboot_count '0'
 
-EOF
+    EOF
 
 #### On your syslog server then put this in /etc/syslog/syslog.conf to recieve all messages from your tg799 xtream router.
 
