@@ -1478,23 +1478,23 @@ tcpdump -i vlan_mgmt -s 0 -A 'tcp dst port <assistance_port> or tcp dst port 80 
 
 What does this mean? 
 
-   Explanation, for example:
+    Explanation, for example:
 
-tcp[((tcp[12:1] & 0xf0) >> 2):4] first determines the location of the bytes we are interested in (after the TCP header) and then selects the 4 bytes we wish to match against.
- To know more about how this segment syntax has been derived. refer this [73]link
-Here 0x47455420 depicts the ASCII value of  characters  'G' 'E' 'T' ' '
+    tcp[((tcp[12:1] & 0xf0) >> 2):4] first determines the location of the bytes we are interested in (after the TCP header) and then selects the 4 bytes we wish to match against.
 
-   ┌───────────┬─────────────┐
-   │ Character │ ASCII Value │
-   ├───────────┼─────────────┤
-   │ G         │ 47          │
-   ├───────────┼─────────────┤
-   │ E         │ 45          │
-   ├───────────┼─────────────┤
-   │ T         │ 54          │
-   ├───────────┼─────────────┤
-   │ Space     │ 20          │
-   └───────────┴─────────────┘
+    Here 0x47455420 depicts the ASCII value of  characters  'G' 'E' 'T' ' '
+
+    ┌───────────┬─────────────┐
+    │ Character │ ASCII Value │
+    ├───────────┼─────────────┤
+    │ G         │ 47          │
+    ├───────────┼─────────────┤
+    │ E         │ 45          │
+    ├───────────┼─────────────┤
+    │ T         │ 54          │
+    ├───────────┼─────────────┤
+    │ Space     │ 20          │
+    └───────────┴─────────────┘
 
 So... 
 
