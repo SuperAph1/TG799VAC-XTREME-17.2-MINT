@@ -1468,6 +1468,11 @@ Just mount mtd1 and play around:
 
 ![Screenshot](.preview/system-modal.lp)
 
+##### .... or enable/disable assistance by your own, just give the credenticals to telia when its needed, feels better? :) 
+
+![Screenshhot](.preview/assistance_modal.png)
+
+
 #### Mirrors for OpenWRT:
 
     http://mirrors.tuna.tsinghua.edu.cn/openwrt   HTTP, HTTPS, RSYNC     China
