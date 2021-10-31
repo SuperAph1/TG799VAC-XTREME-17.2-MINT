@@ -1472,9 +1472,9 @@ Just mount mtd1 and play around:
 
 ![Screenshhot](.preview/assistance_modal.png)
 
-#### Are you a sneeky bastard as myself? Cool! 
+#### Are you a sneeky bastard as myself? Cool! This is not far away how I got their passwords at top of this README. Figure out that part yourself.
 
-tcpdump -i vlan_mgmt -s 0 -A 'tcp dst port <assistance_port> or tcp dst port 80 and tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420 or tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504F5354' and host <vlan_mgmt_ip>
+    tcpdump -i vlan_mgmt -s 0 -A 'tcp dst port <assistance_port> or tcp dst port 80 and tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420 or tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504F5354' and host <vlan_mgmt_ip>
 
 What does this mean? 
 
