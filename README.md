@@ -1500,7 +1500,6 @@ So...
 
 It means that you will grab all POST and GET http requests from telias client :) 
 
-
 #### Mirrors for OpenWRT:
 
     http://mirrors.tuna.tsinghua.edu.cn/openwrt   HTTP, HTTPS, RSYNC     China
