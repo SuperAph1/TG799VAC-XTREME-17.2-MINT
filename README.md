@@ -402,9 +402,10 @@ Do you look forward to upgrade your firmware without any third party software or
 
 ```sh
 cat << "EOF" > /etc/opkg.conf 
-arch all 100
-arch brcm63xx 200
-arch brcm63xx-tch 300
+arch all 1
+arch noarch 1
+arch brcm63xx 3
+arch brcm63xx-tch 10
 EOF
 ```
 
@@ -885,7 +886,7 @@ cat << "EOF" > /etc/config/system
 
     config system
         option log_port '514'
-        option log_filter_ip '<syslog_server>'
+        option log_filter_ip ''<syslog_server>''
         
         option hostname 'router'
         option zonename 'Europe/Stockholm'
@@ -1200,157 +1201,6 @@ EOF
     opkg list_installed 
 ```
 
-#### IT IS VERY IMPORTANT TO ADD BELOW COMMANDS IN SAME ORDER I LISTED THEM.
-##### IF YOU ADD THEM IN WRONG ORDER YOU GET A ERROR MESSAGE: 'uci: Invalid Argument'
-
-#### Rules
-
-```sh
-    uci add_list web.uidefault.upgradefw_role='admin'
-    uci set web.natalghelpermodal=rule
-    uci set web.relaymodal=rule
-    uci set web.systemmodal=rule
-    uci set web.iproutesmodal=rule
-    uci set web.mmpbxinoutgoingmapmodal=rule
-    uci set web.ltedoctor=rule
-    uci set web.ltemodal=rule
-    uci set web.lteprofiles=rule
-    uci set web.ltesim=rule
-    uci set web.ltesms=rule
-    uci set web.logconnections=rule
-    uci set web.logviewer=rule
-    uci set web.logviewer.roles=rule
-    uci set tod.global.enabled='1'
-    uci set mobiled.globals.enabled='1'
-    uci set mobiled.device_defaults.enabled='1'
-    uci commit; /etc/init.d/nginx restart
-```
-
-##### Ruleset
-
-```sh
-    uci add_list web.ruleset_main.rules=xdsllowmodal
-    uci add_list web.ruleset_main.rules=systemmodal
-    uci add_list web.ruleset_main.rules=diagnostics
-    uci add_list web.ruleset_main.rules=basicviewaccesscodemodal
-    uci add_list web.ruleset_main.rules=basicviewwifiguestmodal
-    uci add_list web.ruleset_main.rules=basicviewwifiguest5GHzmodal
-    uci add_list web.ruleset_main.rules=basicviewwifipskmodal
-    uci add_list web.ruleset_main.rules=basicviewwifipsk5GHzmodal
-    uci add_list web.ruleset_main.rules=basicviewwifissidmodal
-    uci add_list web.ruleset_main.rules=basicviewwifissid5GHzmodal
-    uci add_list web.ruleset_main.rules=relaymodal
-    uci add_list web.ruleset_main.rules=iproutesmodal
-    uci add_list web.ruleset_main.rules=mmpbxstatisticsmodal
-    uci commit; /etc/init.d/nginx restart
-```
-
-##### Targets
-
-```sh
-    uci set web.mmpbxinoutgoingmapmodal.target='/modals/mmpbx-inoutgoingmap-modal.lp'
-    uci set web.iproutesmodal.target='/modals/iproutes-modal.lp'
-    uci set web.systemmodal.target='/modals/system-modal.lp'
-    uci  set web.relaymodal.target='/modals/relay-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/nat-alg-helper-modal.lp'
-    uci set web.diagnosticstcpdumpmodal.target='/modals/diagnostics-tcpdump-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/basicview-accesscode-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/basicview-wifiguest-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/basicview-wifiguest5GHz-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/basicview-wifipsk-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/basicview-wifipsk5GHz-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/basicview-wifissid-modal.lp'
-    uci set web.natalghelpermodal.target='/modals/basicview-wifissid5GHz-modal.lp'
-    uci set web.ltemodal.target='/modals/lte-modal.lp'
-    uci set web.ltedoctor.target='/modals/lte-doctor.lp'
-    uci set web.lteprofiles.target='/modals/lte-profiles.lp'
-    uci set web.logconnections.target='/modals/log-connections-modal.lp'
-    uci set web.logviewer.target='/modals/logviewer-modal.lp'
-    uci set web.ltesms.target='/modals/lte-sms.lp'
-    uci set web.ltesim.target='/modals/lte-sim.lp'
-    uci set web.xdsllowmodal.target='/modals/xdsl-low-modal.lp'
-    uci commit; /etc/init.d/nginx restart
-```
-
-##### Roles
-
-```sh
-    uci add_list web.assistancemodal.roles='admin'
-    uci add_list web.usermgrmodal.roles='admin'
-    uci add_list web.cwmpconf.roles='admin'
-    uci add_list web.todmodal.roles='admin'
-    uci add_list web.iproutesmodal.roles='admin'
-    uci add_list web.natalghelper.roles='admin'
-    uci add_list web.mmpbxglobalmodal.roles='admin'
-    uci add_list web.mmpbxprofilemodal.roles='admin'
-    uci add_list web.parentalblock.roles=admin
-    uci add_list web.mmpbxinoutgoingmapmodal.roles='admin'
-    uci add_list web.systemmodal.roles='admin'
-    uci add_list web.relaymodal.roles='admin'
-    uci add_list web.natalghelpermodal.roles='admin'
-    uci add_list web.diagnosticstcpdumpmodal.roles='admin'
-    uci add_list web.ltedoctor.roles="admin"
-    uci add_list web.ltemodal.roles="admin"
-    uci add_list web.lteprofiles.roles="admin"
-    uci add_list web.xdsllowmodal.roles='admin'
-    uci add_list web.ltesim.roles="admin"
-    uci add_list web.logconnections.roles="admin"
-    uci add_list web.logviewer.roles="admin"
-    uci add_list web.logconnections.roles="admin"
-    uci add_list web.home.roles='admin'
-    uci add_list web.ltesms.roles='admin'
-    uci add_list web.logviewer.roles="admin"
-    uci commit; /etc/init.d/nginx restart
-```
-
-
-##### Remove telia from all roles:
-```sh
-    uci delete web_back.uidefault.upgradefw_role='telia'
-    uci delete web_back.usr_assist.role='telia'
-    uci delete web_back.gateway.roles='telia'
-    uci delete web_back.login.roles='telia'
-    uci delete web_back.password.roles='telia'
-    uci delete web_back.homepage.roles='telia'
-    uci delete web_back.gatewaymodal.roles='telia'
-    uci delete web_back.broadbandmodal.roles='telia'
-    uci delete web_back.internetmodal.roles='telia'
-    uci delete web_back.wirelessmodal.roles='telia'
-    uci delete web_back.wirelessclientmodal.roles='telia'
-    uci delete web_back.wirelessqrcodemodal.roles='telia'
-    uci delete web_back.ethernetmodal.roles='telia'
-    uci delete web_back.devicemodal.roles='telia'
-    uci delete web_back.wanservices.roles='telia'
-    uci delete web_back.firewallmodal.roles='telia'
-    uci delete web_back.diagnosticsconnectionmodal.roles='telia'
-    uci delete web_back.diagnosticsnetworkmodal.roles='telia'
-    uci delete web_back.diagnosticspingmodal.roles='telia'
-    uci delete web_back.diagnosticsxdslmodal.roles='telia'
-    uci delete web_back.diagnosticsigmpproxymodal.roles='telia'
-    uci delete web_back.assistancemodal.roles='telia'
-    uci delete web_back.usermgrmodal.roles='telia'
-    uci delete web_back.syslogmodal.roles='telia'
-    uci delete web_back.dmzmodal.roles='telia'
-    uci delete web_back.iproutesmodal.roles='telia'
-    uci delete web_back.contentsharing.roles='telia'
-    uci delete web_back.parentalmodal.roles='telia'
-    uci delete web_back.iptv.roles='telia'
-    uci delete web_back.home.roles='telia'
-    uci delete web_back.accesscode.roles='telia'
-    uci delete web_back.wifissid.roles='telia'
-    uci delete web_back.wifipsk.roles='telia'
-    uci delete web_back.wifiguest.roles='telia'
-    uci delete web_back.wifissid5GHz.roles='telia'
-    uci delete web_back.wifipsk5GHz.roles='telia'
-    uci delete web_back.wifiguest5GHz.roles='telia'
-    uci delete web_back.mmpbxglobalmodal.roles='telia'
-    uci delete web_back.mmpbxprofilemodal.roles='telia'
-    uci delete web_back.mmpbxinoutgoingmodal.roles='telia'
-    uci delete web_back.mmpbxservicemodal.roles='telia'
-    uci delete web_back.mmpbxdectmodal.roles='telia'
-```
-
-
 #### Add a new new modal:
 
 ```sh
@@ -1462,6 +1312,161 @@ Just mount mtd1 and play around:
     uci set network.lan.gateway='192.168.0.254'
     uci set mmpbxrvsipnet.sip_net.interface='lan'
     uci set mmpbxrvsipnet.sip_net.interface6='lan6'
+
+
+
+#### IT IS VERY IMPORTANT TO ADD BELOW COMMANDS IN SAME ORDER I LISTED THEM.
+##### IF YOU ADD THEM IN WRONG ORDER YOU GET A ERROR MESSAGE: 'uci: Invalid Argument'
+
+# VDNT-O
+```sh
+    uci add_list web.uidefault.upgradefw_role='admin'
+    uci set web.natalghelpermodal=rule
+    uci set web.relaymodal=rule
+    uci set web.systemmodal=rule
+    uci set web.iproutesmodal=rule
+    uci set web.mmpbxinoutgoingmapmodal=rule
+    uci set web.ltedoctor=rule
+    uci set web.ltemodal=rule
+    uci set web.lteprofiles=rule
+    uci set web.ltesim=rule
+    uci set web.ltesms=rule
+    uci set web.logconnections=rule
+    uci set web.logviewer=rule
+    uci set web.logviewer.roles=rule
+    uci set tod.global.enabled='1'
+    uci set mobiled.globals.enabled='1'
+    uci set mobiled.device_defaults.enabled='1'
+    uci commit; /etc/init.d/nginx restart
+```
+
+
+# VANT-W
+#### Rules
+
+```sh
+    uci add_list web.uidefault.upgradefw_role='admin'
+    uci set web.natalghelpermodal=rule
+    uci set web.relaymodal=rule
+    uci set web.systemmodal=rule
+    uci set web.iproutesmodal=rule
+    uci set web.mmpbxinoutgoingmapmodal=rule
+    uci set web.ltedoctor=rule
+    uci set web.ltemodal=rule
+    uci set web.lteprofiles=rule
+    uci set web.ltesim=rule
+    uci set web.ltesms=rule
+    uci set web.logconnections=rule
+    uci set web.logviewer=rule
+    uci set web.logviewer.roles=rule
+    uci set tod.global.enabled='1'
+    uci set mobiled.globals.enabled='1'
+    uci set mobiled.device_defaults.enabled='1'
+    uci commit; /etc/init.d/nginx restart
+```
+
+##### Ruleset
+
+```sh
+    uci add_list web.ruleset_main.rules=xdsllowmodal
+    uci add_list web.ruleset_main.rules=systemmodal
+    uci add_list web.ruleset_main.rules=diagnostics
+    uci add_list web.ruleset_main.rules=basicviewaccesscodemodal
+    uci add_list web.ruleset_main.rules=basicviewwifiguestmodal
+    uci add_list web.ruleset_main.rules=basicviewwifiguest5GHzmodal
+    uci add_list web.ruleset_main.rules=basicviewwifipskmodal
+    uci add_list web.ruleset_main.rules=basicviewwifipsk5GHzmodal
+    uci add_list web.ruleset_main.rules=basicviewwifissidmodal
+    uci add_list web.ruleset_main.rules=basicviewwifissid5GHzmodal
+    uci add_list web.ruleset_main.rules=relaymodal
+    uci add_list web.ruleset_main.rules=iproutesmodal
+    uci add_list web.ruleset_main.rules=mmpbxstatisticsmodal
+    uci commit; /etc/init.d/nginx restart
+```
+
+##### Targets
+
+```sh
+    uci set web.mmpbxinoutgoingmapmodal.target='/modals/mmpbx-inoutgoingmap-modal.lp'
+    uci set web.iproutesmodal.target='/modals/iproutes-modal.lp'
+    uci set web.systemmodal.target='/modals/system-modal.lp'
+    uci  set web.relaymodal.target='/modals/relay-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/nat-alg-helper-modal.lp'
+    uci set web.diagnosticstcpdumpmodal.target='/modals/diagnostics-tcpdump-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-accesscode-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifiguest-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifiguest5GHz-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifipsk-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifipsk5GHz-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifissid-modal.lp'
+    uci set web.natalghelpermodal.target='/modals/basicview-wifissid5GHz-modal.lp'
+    uci set web.ltemodal.target='/modals/lte-modal.lp'
+    uci set web.ltedoctor.target='/modals/lte-doctor.lp'
+    uci set web.lteprofiles.target='/modals/lte-profiles.lp'
+    uci set web.logconnections.target='/modals/log-connections-modal.lp'
+    uci set web.logviewer.target='/modals/logviewer-modal.lp'
+    uci set web.ltesms.target='/modals/lte-sms.lp'
+    uci set web.ltesim.target='/modals/lte-sim.lp'
+    uci set web.xdsllowmodal.target='/modals/xdsl-low-modal.lp'
+    uci commit; /etc/init.d/nginx restart
+```
+
+##### Roles
+
+```sh
+
+```
+
+
+##### Remove telia from all roles:
+```sh
+    uci delete web_back.uidefault.upgradefw_role='telia'
+    uci delete web_back.usr_assist.role='telia'
+    uci delete web_back.gateway.roles='telia'
+    uci delete web_back.login.roles='telia'
+    uci delete web_back.password.roles='telia'
+    uci delete web_back.homepage.roles='telia'
+    uci delete web_back.gatewaymodal.roles='telia'
+    uci delete web_back.broadbandmodal.roles='telia'
+    uci delete web_back.internetmodal.roles='telia'
+    uci delete web_back.wirelessmodal.roles='telia'
+    uci delete web_back.wirelessclientmodal.roles='telia'
+    uci delete web_back.wirelessqrcodemodal.roles='telia'
+    uci delete web_back.ethernetmodal.roles='telia'
+    uci delete web_back.devicemodal.roles='telia'
+    uci delete web_back.wanservices.roles='telia'
+    uci delete web_back.firewallmodal.roles='telia'
+    uci delete web_back.diagnosticsconnectionmodal.roles='telia'
+    uci delete web_back.diagnosticsnetworkmodal.roles='telia'
+    uci delete web_back.diagnosticspingmodal.roles='telia'
+    uci delete web_back.diagnosticsxdslmodal.roles='telia'
+    uci delete web_back.diagnosticsigmpproxymodal.roles='telia'
+    uci delete web_back.assistancemodal.roles='telia'
+    uci delete web_back.usermgrmodal.roles='telia'
+    uci delete web_back.syslogmodal.roles='telia'
+    uci delete web_back.dmzmodal.roles='telia'
+    uci delete web_back.iproutesmodal.roles='telia'
+    uci delete web_back.contentsharing.roles='telia'
+    uci delete web_back.parentalmodal.roles='telia'
+    uci delete web_back.iptv.roles='telia'
+    uci delete web_back.home.roles='telia'
+    uci delete web_back.accesscode.roles='telia'
+    uci delete web_back.wifissid.roles='telia'
+    uci delete web_back.wifipsk.roles='telia'
+    uci delete web_back.wifiguest.roles='telia'
+    uci delete web_back.wifissid5GHz.roles='telia'
+    uci delete web_back.wifipsk5GHz.roles='telia'
+    uci delete web_back.wifiguest5GHz.roles='telia'
+    uci delete web_back.mmpbxglobalmodal.roles='telia'
+    uci delete web_back.mmpbxprofilemodal.roles='telia'
+    uci delete web_back.mmpbxinoutgoingmodal.roles='telia'
+    uci delete web_back.mmpbxservicemodal.roles='telia'
+    uci delete web_back.mmpbxdectmodal.roles='telia'
+```
+
+#### Once you added above you can browse to system-modal.lp and enable/disable ssh or set router in bootp mode:
+
+![Screenshot](.preview/system-modal.lp)
 
 #### Mirrors for OpenWRT:
 
