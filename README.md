@@ -1468,9 +1468,37 @@ Just mount mtd1 and play around:
 
 ![Screenshot](.preview/system-modal.lp)
 
-##### .... or enable/disable assistance by your own, just give the credenticals to telia when its needed, feels better? :) 
+#### .... or enable/disable assistance by your own, just give the credenticals to telia when its needed, feels better? :) 
 
 ![Screenshhot](.preview/assistance_modal.png)
+
+#### Are you a sneeky bastard as myself? Cool! 
+
+tcpdump -i vlan_mgmt -s 0 -A 'tcp dst port <assistance_port> or tcp dst port 80 and tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420 or tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504F5354' and host <vlan_mgmt_ip>
+
+What does this mean? 
+
+   Explanation, for example:
+
+tcp[((tcp[12:1] & 0xf0) >> 2):4] first determines the location of the bytes we are interested in (after the TCP header) and then selects the 4 bytes we wish to match against.
+ To know more about how this segment syntax has been derived. refer this [73]link
+Here 0x47455420 depicts the ASCII value of  characters  'G' 'E' 'T' ' '
+
+   ┌───────────┬─────────────┐
+   │ Character │ ASCII Value │
+   ├───────────┼─────────────┤
+   │ G         │ 47          │
+   ├───────────┼─────────────┤
+   │ E         │ 45          │
+   ├───────────┼─────────────┤
+   │ T         │ 54          │
+   ├───────────┼─────────────┤
+   │ Space     │ 20          │
+   └───────────┴─────────────┘
+
+So... 
+
+It means that you will grab all POST and GET http requests from telias client :) 
 
 
 #### Mirrors for OpenWRT:
