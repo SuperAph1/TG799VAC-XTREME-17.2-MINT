@@ -1466,7 +1466,7 @@ Just mount mtd1 and play around:
 
 #### Once you added above you can browse to system-modal.lp and enable/disable ssh or set router in bootp mode:
 
-![Screenshot](.preview/system-modal.lp)
+![Screenshot](.preview/system_modal.png)
 
 #### Mirrors for OpenWRT:
 
