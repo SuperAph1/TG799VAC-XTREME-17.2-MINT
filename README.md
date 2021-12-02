@@ -171,7 +171,7 @@ connect to [192.168.1.144] from router [192.168.1.1] 40980
 
 Below will give you a proper opkg setup
 
-#![Screenshot](.previews/opkg_on_vdnto.gif)
+#![Screenshot](.preview/opkg_on_vdnto.gif)
 
 ```sh
 rm /etc/opkg/distfeeds.conf
