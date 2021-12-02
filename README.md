@@ -524,7 +524,7 @@ EOF
 ```
 ## BootP/TFTP
 
-![Screenshot](.previews/tftp_transfer_windows_example.png)
+![Screenshot](.preview/tftp_transfer_windows_example.png)
 
 
 - Client wise:
