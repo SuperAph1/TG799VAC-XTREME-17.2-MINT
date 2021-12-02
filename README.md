@@ -169,7 +169,7 @@ connect to [192.168.1.144] from router [192.168.1.1] 40980
 
 ## OPKG 
 
-Below will give you a proper opkg setup
+- Below commands will give you a working opkg setup, copy and paste: 
 
 #![Screenshot](.preview/opkg_on_vdnto.gif)
 
@@ -296,10 +296,12 @@ Example:
 
 - Find all those settings if you are curios: 
 
+```sh
 find /www -type f -exec grep -i 'canAdd = false' {} \;
 find /www -type f -exec grep -i 'canApply = false' {} \;
 find /www -type f -exec grep -i 'canEdit = false' {} \;
 find /www -type f -exec grep -i 'canRemove = false' {} \;
+```
 
 - Run below for get access to all settings:
 
@@ -322,7 +324,7 @@ find /www -type f -exec grep -i 's/"superuser"/"engineer"/g'  {} \;
     done
 ```
 
-- Don't forget to restart nginx:
+- It is required to restart nginx:
 
 ```sh 
 /etc/init.d/nginx restart
@@ -338,7 +340,7 @@ find /www -type f -exec grep -i 's/"superuser"/"engineer"/g'  {} \;
 curl -sL http://192.168.1.1/login.lp?action=getcsrf
 ```
 
- ̣ Get CSFR token via your browsers developer console: 
+- ̣ Get CSFR token via your browsers developer console: 
 
 ```js
 /*Open prefered browser
@@ -352,12 +354,11 @@ $("meta[name=CSRFtoken]").attr("content")
 
 Advanced settings about how we cunderstand the auth processes and more about interesting stuff for webUI:
 
-```lua
 For understand how token/sesssions/proxy stuff on router when login on webUI, the files below is importnat:
-
  Validate the given token against the session's token.
- Verify user has access via the interface the request was received on
+Verify user has access via the interface the request was received on
 
+```lua
 -- Change SRP parameters and crypted password of the current user of this session.
 -- @param salt A newly generated SRP salt for the updated password
 -- @param verifier A newly calculated SRP verifier for the generated salt and updated password
@@ -386,6 +387,9 @@ For understand how token/sesssions/proxy stuff on router when login on webUI, th
      __metatable = "ah ah ah, you didn't say the magic word"
 ```
 
+- Folders/Files for session and cookies can be found in:: 
+
+- Session/SessionManager: 
 
 ```sh
     /usr/lib/lua/web/session.lua
@@ -401,7 +405,7 @@ For understand how token/sesssions/proxy stuff on router when login on webUI, th
 /usr/lib/lua/socket/http.lua
 ```
 
-- Session and cookies is geneerated by files in below fo9lder
+- Session and cookies is geneerated by files in below folder:
 
 ```lua
 local _M = socket.http
@@ -424,16 +428,13 @@ c
 ```
 
 
-
-
 ## Firmware / Upgrade
 
-Do a firmware upgrade from cli: 
+- Upgrade firmware from CLI:
 
 ```sh
 sysupgrade --safe -o /tmp/172339o1901024closed.rbi
 ```
-
 
 
 ![Screenshot](files/wth.png)
