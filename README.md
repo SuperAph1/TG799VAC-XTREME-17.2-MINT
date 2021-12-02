@@ -11,56 +11,63 @@
 
     https://weaponizedautism.wordpress.com/2017/07/14/vulnerabilities-in-technicolor-adsl-residential-gateways
 
-**Msg To TeliaCompany AB**: This is cause you blacklsited me, morons.
+**Msg To TeliaCompany AB**: This is cause you blacklsited me AND because the Violations of the GNU Licenses for both technicolor, motorola and sagemcom. I asked several times without get access to the source code. 
 
-I will expose every setting, every ip and every key i can found until they will remove the backdoors. Now im bored so let's start i really hate to write descs and the faster you get this information, the faster you can protect yourself from the backdoors. 
-
-After my expose of Telias first password they changed their password -> What they did not think of was that if they change password and I still have root access  then I could grab their new password as well? Fail! lmao
+When you release your software under the GPL, it means you give anyone a license to use your software under some terms and agreements. If somebody violates the agreement, you are in breach of contract with you.
+This means I can sue them in a court of law. Please read more here: https://www.gnu.org/licenses/gpl-violation.en.html - Fuck you Telia!
 
 #### Telia User-Agents:
 
-    IPTV.......: KreaTVWebKit/600 (Motorola STB; Linux; 5305)
-    SERVER.....: Apache-Coyote/1.1
-    CISCO.....:  Wget   
-    WEB........: 
+    IpTV............: KreaTVWebKit/600 (Motorola STB; Linux; 5305)
+    Server..........: Apache-Coyote/1.1
+    Cisco Switch....: Wget   
+    WEB.............:  
 
-#### Telias default password for technicolor devices:
+#### Default password for Telias employees:
 
-    Old.......: _T3L1a!SuPPor7   
-    New:......: SUPP0r7!W1f1R0uT3r 
-    Remote IP.: 131.116.22.242
-    Remote IP.: uci show mwan.remoteassist.dest_ip
+    Old Password....: _T3L1a!SuPPor7   
+    New Password:...: SUPP0r7!W1f1R0uT3r 
+    Remote IP.......: 131.116.22.242
+    Remote IP.......: uci show mwan.remoteassist.dest_ip
 
-#### Shell password: 
+#### Shell password for Technicolor devices: 
 
-    Login....: root
-    Password:. root
+    Login...........: root
+    Password........: root
 
 #### Assistance Password:
 
-    Port......: 60443 (uci get web.remote.port)
-    Login.....: assistance (uci get web.remote)
-    Password..: random
-    Interface.: mgmt (uci get web.remote.interface)
-    Enable....: uci set web.remote.active=1
-    Disable...: uci set web.remote.active=0
+    Login...........: assistance                  (uci get web.remote)
+    Password........: random                      ()
+    Port............: 60443                       (uci get web.remote.port)
+    Interface.......: mgmt                        (uci get web.remote.interface)
+    Enable..........: uci set web.remote.active=1
+    Disable.........: uci set web.remote.active=0
 
 ##### Ngwfdd
 
-    Login.........: telia
-    Password......: ZDgFbBH5jQvUocL7
-    URL...........: https://telia:ZDgFbBH5jQvUocLZDgFbBH5jQvUocL7@telia-gw.tgwfd.org:8443/
-    Via Shell.....: uci get ngwfdd.config.base_url
+    Login...........: telia
+    Password........: ZDgFbBH5jQvUocL7
+    Remote IP.......: .
+    Remote DNS......: telia-gw.tgwfd.org
+    Remote Port.....: 8443
+    Via Shell.......: uci get ngwfdd.config.base_url
+    Full URL........: https://telia:ZDgFbBH5jQvUocLZDgFbBH5jQvUocL7@telia-gw.tgwfd.org:8443/
 
-##### Other Telia Related
+##### My other repositorys similiar to this oné
 
-    
-    Cisco.........: https://cisco.nr1.nu/
-    Sagemcom......: https://sagemcom.nr1.nu/
-    Technicolor0..: https://technicolor.nr1.nu/    
-    Technicolor1..: https://github.com/wuseman/TG799vnv2-10.5.1.Q-SMART-3.6.1
-    Technicolor2..: https://github.com/wuseman/TG799VAC-XTREAM-V16.2-JADE
+    Cisco...........: https://cisco.nr1.nu/
+    Sagemcom........: https://sagemcom.nr1.nu/
+    Technicolor0....: https://technicolor.nr1.nu/    
+    Technicolor1....: https://github.com/wuseman/TG799vnv2-10.5.1.Q-SMART-3.6.1
+    Technicolor2....: https://github.com/wuseman/TG799VAC-XTREAM-V16.2-JADE
+    Technicolor4....: https://github.com/wuseman/TG799VAC-XTREME-17.2-MINT
 
+##### Never ever use below command unless you know exactly what you are doing:
+
+```sh
+echo "bank_2" > /proc/bankversion/active 
+```
 
 # Boards
 
@@ -117,48 +124,6 @@ Download URLS:
     https://wuseman.nr1.nu/firmwares/technicolor/VDNT-O_Telia/15516436o1361004closed.rbi
     https://wuseman.nr1.nu/firmwares/technicolor/VDNT-O_Telia/telia-vdnt-o_10.5.1.Q-bank_dump.xz
 
-#### Also disable so your router wont get upgraded you can type below command ASAP you have connected to shell (not needed anymore since their server shut down)
- 
-```sh
-uci set cwmpd.cwmpd_config.state=0
-rm /etc/cwmp*     
-```
-
-#### Add your ssh key:
-
-```sh
-ssh root@192.168.1.1 "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_rsa.pub
-```
-
-#### Get CSFR token via cli: 
-
-```sh
-curl -sL http://192.168.1.1/login.lp?action=getcsrf
-```
-
-#### Get CSFR token via your browsers developer console: 
-
-```js
-/*Open prefered browser
-Press F12
-Go to Console tab
-Paste below*/
-$("meta[name=CSRFtoken]").attr("content")
-```
-
-#### For upgrade firmware, you just have to type:
-
-```sh
-sysupgrade --safe -o /tmp/172339o1901024closed.rbi
-```
-
-#### Get access to all cards on latest firmware:
-
-```sh 
-/etc/init.d/nginx restart
-```
-  
-![Screenshot](files/wth.png)
 
 ## SSH
 
@@ -200,56 +165,280 @@ listening on [any] 1337 ...
 connect to [192.168.1.144] from router [192.168.1.1] 40980
 ```
 
-#### Let us now allow SSH and other stuff after we get ssh access, copy and paste: 
+- Enjoy root access.
+
+## OPKG 
+
+Below will give you a proper opkg setup
+
+#![Screenshot](.previews/opkg_on_vdnto.gif)
 
 ```sh
+rm /etc/opkg/distfeeds.conf
+```
+
+```sh
+cat << "EOF" > /etc/opkg/customfeeds.conf
+src/gz chaos_calmer_base http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/generic/packages/base
+src/gz chaos_calmer_packages http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/generic/packages/packages
+src/gz chaos_calmer_luci http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/generic/packages/luci
+src/gz chaos_calmer_routing http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/generic/packages/routing
+src/gz chaos_calmer_telephony http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/generic/packages/telephony
+src/gz chaos_calmer_management http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/generic/packages/management
+EOF
+```
+
+```sh
+cat << "EOF" > /etc/opkg.conf
+arch all 1
+arch all 100
+arch noarch 1
+arch brcm63xx 3
+arch brcm63xx-tch 10
+arch brcm63xx 200
+arch brcm63xx-tch 300
+dest root /
+dest ram /tmp
+lists_dir ext /var/opkg-lists
+option overlay_root /overlay
+EOF
+```
+
+- Update repositorys and install sftp-server
+
+```sh
+opkg update
+opkg install openssh-sftp-server
+ash -c /usr/libexec/sftp-server
+#opkg list-upgradable|cut -d' ' -f1|xargs opkg upgrade
+```
+
+### Configure dropbear so we can ssh into the device
+
+- Harden security by disabling password authentication.
+
+```sh
+#### MGMT 
+uci set dropbear.mgmt.enable=0
 uci set dropbear.mgmt.PasswordAuth=off
 uci set dropbear.mgmt.RootPasswordAuth=off
 uci set dropbear.mgmt.Port=22
 uci set dropbear.mgmt.Interface=mgmt
 uci set dropbear.mgmt.AllowedClientIPs=131.116.22.242/32
-uci set dropbear.mgmt.enable=0
+```
+
+```sh
+### WAN
+uci set dropbear.wan.enable=0
 uci set dropbear.wan.PasswordAuth=off
 uci set dropbear.wan.RootPasswordAuth=off
-uci set dropbear.wan.Port=22
 uci set dropbear.wan.Interface=wan
+uci set dropbear.lan.IdleTimeout=3600
+uci set dropbear.lan.SSHKeepAlive=0
+uci set dropbear.lan.enable=1
+uci set dropbear.lan.Port=22
+uci set dropbear.lan.BannerFile=/etc/banner
+uci set dropbear.lan.RootLogin=1
+uci set dropbear.lan.GatewayPorts=
+uci set dropbear.lan.rsakeyfile=
+uci set dropbear.lan.mdns=0
+uci set dropbear.lan.MaxAuthTries=2
 uci set dropbear.wan.AllowedClientIPs=131.116.22.242/32
-uci set dropbear.wan.enable=0
-uci set dropbear.lan=dropbear
+```
+
+```sh
+### LAN
+uci set dropbear.lan.enable=1
 uci set dropbear.lan.PasswordAuth=on
 uci set dropbear.lan.RootPasswordAuth=on
 uci set dropbear.lan.Interface=lan
 uci set dropbear.lan.IdleTimeout=3600
-uci set dropbear.lan.enable=1
+uci set dropbear.lan.SSHKeepAlive=0
 uci set dropbear.lan.Port=22
-uci set dropbear.lan.AllowedClientIPs=192.168.1.0/32
-uci set wireless.global.station_history_persistent=1
-uci commit
-sleep 1
-cd /www/docroot/modals/
-for modals in $(ls -1); do sed -i 's/role == "telia"/role == "admin"/g' $modals;done
-sed -i 's/role == "engineer"/role == "admin"/g' /www/docroot/modals/firewall-modal.lp
-sleep 1
-printf "\n%s\n"  "Copy and paste below in this window"
-uci show|grep \.roles|grep -v admin|cut -d'=' -f1|sed 's/^/uci add_list /g'|sed 's/$/=admin/g'
-uci set web.uidefault.upgradefw_role=admin
-printf "\n%s\n"  "Hit enter after you'copy pasted above"
-read
-uci commit
-/etc/init.d/nginx restart
-/etc/init.d/dropbear restart
-printf "\n%s\n" "All done, refresh  :)"
-exit
-cat .ssh/*.pub
-ssh root@192.168.1.1
-vi /etc/dropbear/authorized_keys
-printf 
+uci set dropbear.lan.BannerFile=
+uci set dropbear.lan.RootLogin=1
+uci set dropbear.lan.GatewayPorts=
+uci set dropbear.lan.rsakeyfile=
+uci set dropbear.lan.mdns=0
+uci set dropbear.lan.MaxAuthTries=2
 ```
 
-Now ssh into your router:
+- Setup proper permissions for dropbaar path:
+
 ```sh
-ssh root@192.168.1.1
+chmod -R u=rwX,go= /etc/dropbear
 ```
+
+- Apply changes and restart dropbear
+
+```sh
+uci commit
+/etc/init.d/dropbear restart
+```
+
+- Add your ssh key:
+
+```sh
+ssh root@192.168.1.1 "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_rsa.pub
+```
+
+## WebUI
+
+There is many permission by uid INSIDE .lp files so then we want to change telia, superuser and edngineer to admin instead
+
+Example:
+
+   Inside /www/docroot/cards/snippets/002_broadband_xdsl.lp: 
+
+```lua
+	if session:getrole() == "superuser" or session:getrole() == "telia" then
+```
+
+- Find all those settings if you are curios: 
+
+find /www -type f -exec grep -i 'canAdd = false' {} \;
+find /www -type f -exec grep -i 'canApply = false' {} \;
+find /www -type f -exec grep -i 'canEdit = false' {} \;
+find /www -type f -exec grep -i 'canRemove = false' {} \;
+
+- Run below for get access to all settings:
+
+```sh
+find /www -type f -exec grep -i 's/"telia"/"admin"/g'  {} \;
+```
+
+```sh
+find /www -type f -exec grep -i 's/"superuser"/"admin"/g'  {} \;
+```
+
+```sh
+find /www -type f -exec grep -i 's/"superuser"/"engineer"/g'  {} \;
+```
+- Copy and paste below to get full access on webUI and all the cards that exist:
+
+```sh 
+    for missed_roles in $(uci show|grep \.roles|grep -v admin|cut -d'=' -f1|sed 's/$/=admin/g'); do
+        uci add_list ${missed_roles}; 
+    done
+```
+
+- Don't forget to restart nginx:
+
+```sh 
+/etc/init.d/nginx restart
+```
+
+- Enjoy! You are now superduper admin on your own router.
+
+## Session and Tokens:
+
+- Get CSFR token via cli: 
+
+```sh
+curl -sL http://192.168.1.1/login.lp?action=getcsrf
+```
+
+ ̣ Get CSFR token via your browsers developer console: 
+
+```js
+/*Open prefered browser
+Press F12
+Go to Console tab
+Paste below*/
+$("meta[name=CSRFtoken]").attr("content")
+```
+
+##### Advanced info:
+
+Advanced settings about how we cunderstand the auth processes and more about interesting stuff for webUI:
+
+```lua
+For understand how token/sesssions/proxy stuff on router when login on webUI, the files below is importnat:
+
+ Validate the given token against the session's token.
+ Verify user has access via the interface the request was received on
+
+-- Change SRP parameters and crypted password of the current user of this session.
+-- @param salt A newly generated SRP salt for the updated password
+-- @param verifier A newly calculated SRP verifier for the generated salt and updated password
+-- @param cryptedpassword A newly calculated crypted password. This parameter is optional,
+-- set to nil if CLI password update is to be omitted
+-- @return true or nil, error message
+
+  local proxy = {
+    getusername = getusername,
+    isdefaultuser = isdefaultuser,
+    toggleDefaultUser = toggleDefaultUser,
+    getrole = getrole,
+    store = store,
+    retrieve = retrieve,
+    logout = logout,
+    hasAccess = hasAccess,
+    getCSRFtoken = getCSRFtoken,
+    checkCSRFtoken = checkCSRFtoken,
+    addUserToManager = addUserToManager,
+    delUserFromManager = delUserFromManager,
+    reloadAllUsers = reloadAllUsers,
+    changePassword = changePassword,
+    getUserCount = getUserCount
+  }
+
+     __metatable = "ah ah ah, you didn't say the magic word"
+```
+
+
+```sh
+    /usr/lib/lua/web/session.lua
+    /usr/lib/lua/web/ssessioncontrol.lua
+    /usr/lib/lua/web/ssessionmgr.lua
+```
+
+- Sockets
+
+```sh
+/usr/lib/lua/socket/core.so
+/usr/lib/lua/socket/headers.lua
+/usr/lib/lua/socket/http.lua
+```
+
+- Session and cookies is geneerated by files in below fo9lder
+
+```lua
+local _M = socket.http
+_M.TIMEOUT = 60
+_M.PORT = 80
+_M.USERAGENT = socket._VERSION
+-- Reads MIME headers from a connection, unfolding where needed
+function _M.open(host, port, create)
+    h.try(c:settimeout(_M.TIMEOUT))
+    h.try(c:connect(host, port or _M.PORT))
+    if not reqt.proxy and not _M.PROXY then
+    local proxy = reqt.proxy or _M.PROXY
+        ["user-agent"] = _M.USERAGENT,
+    port = _M.PORT,
+    local h = _M.open(nreqt.host, nreqt.port, nreqt.create)
+_M.request = socket.protect(function(reqt, body)
+return _M
+c
+
+```
+
+
+
+
+## Firmware / Upgrade
+
+Do a firmware upgrade from cli: 
+
+```sh
+sysupgrade --safe -o /tmp/172339o1901024closed.rbi
+```
+
+
+
+![Screenshot](files/wth.png)
+
+
 #### Banner (our internet providers have given us an firmware with absolutely minimal features, fuck you!!)
 
 ![Screenshot](files/webgui_default.png)
@@ -304,7 +493,6 @@ uci commit
 uci set web.usr_Administrator.role='superuser'
 uci set web.usr_Administrator.role='telia'
 ```
-
 ![Screenshot](files/upgrade_firmware.png)
 
 #### Add your own user without any extra tools:
@@ -1846,6 +2034,136 @@ uci set dropbear.afg.RootLogin='1'
 uci commit dropbear
 /etc/init.d/dropbear enable
 /etc/init.d/dropbear restart
+```
+
+## Clash 
+
+Various clash examples:
+
+```sh
+root>get InternetGatewayDevice.Services.X_000E50_RemoteAccess.
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.IPIntf [string] = InternetGatewayDevice.WANDevice.2.WANConnectionDevice.1.WANIPConnection.4
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.User [string] = assist
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Port [unsignedInt] = 60443
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.RandomPassword [boolean] = 1
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Password [string] = bWi9k7KUF$
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Secure [boolean] = 1
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Name [string] = remote
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Status [string] = Active
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Start [boolean] = 1
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.Mode [string] = Permanent
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.RandomPort [boolean] = 0
+InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.URL [string] = https://10.149.37.203:60443
+```
+
+- dmdump, the xml file will contain over 13k lines:
+
+```sh
+root@h:~ $ dmdump 
+loaded 325 objecttypes from /usr/share/transformer/mappings/igd/ and /usr/share/transformer/mappings/bbf/
+could not add NumberOfEntries parameters for:
+  Device.Routing.Router.{i}.: IPv4ForwardingNumberOfEntries
+  Device.DHCPv4.Client.{i}.: SentOptionNumberOfEntries
+  Device.Users.: UserNumberOfEntries
+  Device.X_Management.: UserNumberOfEntries
+  Device.WiFi.NeighboringWiFiDiagnostic.: ResultNumberOfEntries
+  InternetGatewayDevice.X_Management.: UserNumberOfEntries
+  #ROOT.: LANWLANConfigurationNumberOfEntries
+  Device.DHCPv4.Server.Pool.{i}.: OptionNumberOfEntries
+datamodel written to /tmp/datamodel.xml
+
+at /tmp/datamodel.xml |wc -l
+13031
+
+- XDSLCtl
+
+```sh
+xdslctl info --cfg
+xdslctl info --state
+xdslctl info --stats
+xdslctl info --SNR
+xdslctl info --QLN
+xdslctl info --Hlog
+xdslctl info --Hlin
+xdslctl info --HlinS
+xdslctl info --pbParams
+xdslctl info --vendor
+```
+
+- Example usage: 
+
+```sh
+root>xdslctl profile --show
+
+Modulations:
+        G.Dmt   Enabled
+        G.lite  Enabled
+        T1.413  Enabled
+        ADSL2   Enabled
+        AnnexL  Enabled
+        ADSL2+  Enabled
+        AnnexM  Enabled
+        VDSL2   Enabled
+VDSL2 profiles:
+        8a      Enabled
+        8b      Enabled
+        8c      Enabled
+        8d      Enabled
+        12a     Enabled
+        12b     Enabled
+        17a     Enabled
+        30a     Disabled
+        US0     Enabled
+Phone line pair:
+        Inner pair
+Capability:
+        bitswap         On
+        sra             On
+        trellis         On
+        sesdrop         On
+        CoMinMgn        On
+        24k             On
+        phyReXmt(Us/Ds) Off/On
+        Ginp(Us/Ds)     On/On
+        TpsTc           AvPvAa
+        monitorTone:    On
+        dynamicD:       On
+        dynamicF:       Off
+        SOS:            On
+        Training Margin(Q4 in dB):      -1(DEFAULT)
+```
+
+
+/usr/bin/top -b -n 1
+
+
+## wuseman stuff 
+
+# ,- W-A-R-N-I-N-G------------------------------------------------------,
+# |                                                                     |
+# |   - ALL STUFF BELOW MAY BE DANGEROUS AND IT MAY BRICK YOUR DEVICE   |
+# |   - IT IS YOU DEVICE and YOU HAVE BEEN WARNED                       |
+# |   - I TRYING EVERYTHING THATI S POSSIBLETO HACK ANY DEVICE SO       |
+# |   - YOU RUNNING ALL SUTFF BELOW ON YOUR OWN RISKS WITHOUT WARNINGS  |
+# |                                                                     |
+# ----------------------------------------------------------------E-N-D-'
+
+
+- When it's time to send your device back when Telia sending you a new one: 
+
+- THIS IS FOR VBNT-H only
+
+```sh
+    dd if=/dev/urandom of=/dev/mtd1 ## (rootfs      - firmware) 
+    dd if=/dev/urandom of=/dev/mtd2 ## (rootfs_data - settings)
+    dd if=/dev/urandom of=/dev/mtd3 ## (bank_1      - bankversion)
+    dd if=/dev/urandom of=/dev/mtd4 ## (bank_2      - bankversion)
+```
+
+- In a one-liner:
+
+```sh
+for mtd in mtd1 mtd2 mtd3 mtd4; do dd if=/dev/urandom of=/dev/${mtd}; done
 ```
 
 #### Some other urls for TG799 hacking, you all rock \m/ -_- \m/
