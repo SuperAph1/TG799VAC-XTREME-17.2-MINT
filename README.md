@@ -323,7 +323,6 @@ find /www -type f -exec grep -i 's/"superuser"/"engineer"/g'  {} \;
         uci add_list ${missed_roles}; 
     done
 ```
-
 - It is required to restart nginx:
 
 ```sh 
@@ -340,7 +339,7 @@ find /www -type f -exec grep -i 's/"superuser"/"engineer"/g'  {} \;
 curl -sL http://192.168.1.1/login.lp?action=getcsrf
 ```
 
-- ̣ Get CSFR token via your browsers developer console: 
+- Get CSFR token via your browsers developer console: 
 
 ```js
 /*Open prefered browser
@@ -436,19 +435,40 @@ c
 sysupgrade --safe -o /tmp/172339o1901024closed.rbi
 ```
 
-
-![Screenshot](files/wth.png)
-
-
-#### Banner (our internet providers have given us an firmware with absolutely minimal features, fuck you!!)
+- Default view: 
 
 ![Screenshot](files/webgui_default.png)
 
-#### Banner(Default)
+- This is all modals that are available for Telia as default:
+
+![Screenhot](files/telia_added_few_features.png)
+
+- Add Administrator user to be allowed to upgrade firmwware:
+
+```sh
+uci add_list web.uidefault.upgradefw_role='admin'
+uci commit
+```
+
+- If you will try below command you will know how it feels to work for telia a support:
+
+This part has been moved to its own directory ![WILLGETADDEDSOON]()
+
+```sh
+uci set web.usr_Administrator.role='superuser'
+uci set web.usr_Administrator.role='telia'
+```
+
+- System Modal: 
+
+![Screenshot](files/wth.png)
+
+- cli Banner
 
 ![Screenshot](files/banner_before_default.png)
 
-#### When you have root access on your router you will be able to unlock rootfs_data and install a very powerful gui vs original from Telia thanks to Ansuel and other awesoem developers by below command:
+
+- When you have root access on your router you will be able to unlock rootfs_data and install a very powerful gui vs original from Telia thanks to Ansuel and other awesoem developers by below command:
 
 ```sh
 curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; 
@@ -457,126 +477,28 @@ bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -;
 reboot
 ```
 
-##### Now go visit http://192.168.1.1 and you will see a brand new GUI interface. Default login: username: admin - password:admin
-
-#### This is how it will look a like after you run the above command:
+- This is how it will look a like after you run the above command and router rebooted: 
 
 ![Screenshot](files/login-screen-after-root.png)
 
-#### Stats view:
+- Stats view:
 
 ![Screenshot](files/stats-view.gif)
 
-#### Telstra Extension:
+- Telstra Extension:
 
 ![Screenshot](files/telstra-gui.png)
 
-#### This is an example for default setup with more lua cards:
 
-![Screenhot](files/telia_added_few_features.png)
-
-#### Luci is another thing you will be able to install - Not supported in above package yet:
-
-![Screenshot](files/wusemans_pwnS-100-percent-complete-hacking.png)
-
-Do you look forward to upgrade your firmware without any third party software or without any backdoors from your internet provider? Great, i will show you how you will do this easier then ever..
-
-#### Add Administrator user to be allowed to upgrade firmwware:
-
-```sh
-uci add_list web.uidefault.upgradefw_role='admin'
-uci commit
-```
-#### If you will try below command you will know how it feels to work for telia a support: ;)
-
-![Screenshot](files/wuseman.pwned.telia.png)
-```sh
-uci set web.usr_Administrator.role='superuser'
-uci set web.usr_Administrator.role='telia'
-```
 ![Screenshot](files/upgrade_firmware.png)
 
-#### Add your own user without any extra tools:
+## ḾiSC
+
+- Add your own user without any extra tools:
 
 ![Screenshot](files/adduser.gif)
 
-#### Add a new user with clash:
 
-![screenshot](files/clash-adduser.gif
-
-```sh
-clash newsrpuser -u <wuseman> -p <password>
-
- uci set web_back.usr_wuseman.srp_salt='D0124225'
- uci add web_back.default.users='usr_wuseman'
- uci add web_back.uidefault.defaultuser='wuseman'
- uci add web_back.usr_wuseman=user
- uci set web_back.usr_wuseman.name='wuseman'
- uci set web_back.usr_wuseman.role='wuseman'
- uci set web_back.usr_wuseman.gak_id='1'
-```
-```sh
-cat << "EOF"  >> /etc/config/web
-config user 'usr_wuseman'
-option name 'wuseman'
-option password_reminder '0'
-option srp_verifier 'A955EDB6ECAC0536BA69F9D1F1C7F3D9F8A02FDF29170D4A8506A14F7E6F752FF845DACE10E6B3C66C15EAAB53896E41D541C22F32E9E0E8D60A1D7F1D187604BE8A5653B5CDF327542E8DBE5C8481E40C70BD0506448695F7E85338D4427187A49CF799CDDDD2DB3E6D652A25830C42024EB9A682ED5C27E36B159DB7617F41FF6ED5EF58163AC2C68AC26B3D57749AF3AFEF6352950D79A410150E27CE984EA375613737A235B5E28D006C5CE69DE40B651020505AEB7CE5986829D79B9E0375F5127F090CD400B2A2D06385F9931071415042979C8ED80D328BA4810A1692E263733DA9D85DC7E762859145A0D6A607447FCF4FFD53D144D8E018D4F345C9'
-option srp_salt 'D0124225'
-EOF
-```
-
-#### Create a user for minitrr064d
-
-```sh
-computeHA1 -u <username> -p <password> -r
-Self test passed - HA1 computation reliable
-Self test passed - authentication check reliable
-
-Computing hash for <username>:minitr064d:<password>
-```
-
-### OpenVPN Client:
-
-I prefer wireguard, but for OPENVPN see below:
-
-##### Install Required Packages:
-
-```sh
-opkg update; 
-opkg install openvpn-openssl openssl-util
-```
-##### Configs - Network:
-
-```sh
-uci set network.vpnclient="interface"
-uci set network.vpnclient.ifname="tun0"
-uci set network.vpnclient.proto="none"
-uci commit network;service network restart
-```
-##### Configs - Firewall:
-
-```sh
- uci add firewall zone
- uci set firewall.@zone[-1].name="<vpn_client>"
- uci add_list firewall.@zone[-1].network="<vpn_client>"
- uci set firewall.@zone[-1].input="REJECT"
- uci set firewall.@zone[-1].output="ACCEPT"
- uci set firewall.@zone[-1].forward="REJECT"
- uci set firewall.@zone[-1].masq="​1"​
- uci set firewall.@zone[-1].mtu_fix="1"
- uci add firewall forwarding
- uci set firewall.@forwarding[-1].src="lan"
- uci set firewall.@forwarding[-1].dest="<vpn_client>"
- uci commit firewall; service firewall restart
-```
-#### Setup OpenVPN client:
-
-```sh
- uci set openvpn.vpnclient="openvpn"
- uci set openvpn.vpnclient.enabled="1"
- uci set openvpn.vpnclient.config="/etc/openvpn/vpnclient.ovpn"
- uci commit openvpn;service openvpn restart
-```
 ## OPKG
 
 ##### With below setting you will be allowed to install packages from more repos:
@@ -600,11 +522,12 @@ src/gz packages http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/pac
 src/gz telephony http://archive.openwrt.org/chaos_calmer/15.05.1/brcm63xx/smp/packages/telephony
 EOF
 ```
-## TFTP
+## BootP/TFTP
 
-#### Install TFTP:
+![Screenshot](.previews/tftp_transfer_windows_example.png)
 
-Client wise:
+
+- Client wise:
 
 Switch device power off (or pull the power cord). Connect a client to the device via Ethernet to LAN1, trigger the rescue function by pressing and holding the reset button of the device and then turning the device on (or plug in the power cord). You can release the reset button after a few seconds.
 
@@ -612,11 +535,11 @@ The device will take ~15-20 seconds to boot a mini-web server, that provides onl
 
 http://192.168.1.1
 
-
 Install atftpd on a Gentoo Machine (OpenRC) 
 
 ```sh
-emerge --sync; emerge -a atftpd
+emerge --sync
+emerge -a atftpd
 mkdir /mnt/tftp
 cp <firmware.bin> /mnt/tftp/
 chown nobody:nogroup -R /mnt/tftp
@@ -633,7 +556,9 @@ TFTPD_OPTS="--daemon --user nobody --group nobody"
 EOF
 ```
 
-Thats it, now use getent to confirm it is up and running:
+- Thats it, now use getent to confirm it is up and running:
+
+- Server Wise: (router)
 
 ```sh
 getent services tftp
@@ -645,7 +570,7 @@ Server Wise (router)
 uci set dhcp.dnsmasq.enable_tftp='1'
 ```
 
-First you need to setup a static ip to be able to communicate with router:
+- First you need to setup a static ip to be able to communicate with router:
 
 ```sh
 ifconfig eth0 192.168.1.2 netmask 255.255.255.0 up 
@@ -659,7 +584,7 @@ echo "nameserver 192.168.1.1" > /etc/resolv.conf
 tcpdump -i enp0s31f6 -vvv -s 0 port bootps
 ```
 
-When tg799 router reporting BOOTP then run below command: 
+- When tg799 router reporting BOOTP then run below command: 
 
 ```sh
 atftp --trace --option "timeout 1" --option "mode octet" --put --local-file tg799bin.firmware.rbi 192.168.1.1
@@ -669,21 +594,25 @@ atftp --trace --option "timeout 1" --option "mode octet" --put --local-file tg79
 
 ![Screenshot](files/install-opkg-packages.gif)
 ```sh
-export TERM=linux
-export TERMINFO=/etc/terminfo
+
 ```
-#### Run uci-whois.sh from scripts dir to whois all ip's that your isp added for various settings:
+
+## Old Stuff (Various)
+
+- Run uci-whois.sh from scripts dir to whois all ip's that your isp added for various settings:
 
 ![Screenshot](files/whois.gif)
 
-#### Mount root as read and write:
+-- Mount root as read and write:
 
 ```sh
 mount -o remount,rw /
 ```
-##### If you are lazy and want things sorted as i do, then run below command:
+
+- If you want sort all settings by file, do as below: 
 
 ![Screenshot](files/sorted-dirs.gif)
+
 ```sh
 mkdir /tmp/uci_sorted;
 cd /tmp/uci_sorted;
@@ -692,19 +621,20 @@ for uci_settings in "$(uci show | awk -F. '{print $1}' | uniq)"; do
     uci show ${uci_settings} > /tmp/uci_sorted/${uci_settings};
 done
 ```
-#### List all files where "password=" is readable:
+
+- List all files where password, pass or/and key is readable in ascii:
 
 ```sh
-grep -r -iE 'password=' /etc 
+find /usr/ -type f -exec grep -Ei "pass|password|key" {} \;
 ``` 
 
-#### List all files where you can find your serial:
+- List all files where password, pass or/and key in all files:
 
 ```sh
-find . -type f | xargs grep -e 'SERIAL' | cut -d':' -f1 | grep / | uniq
+find /usr/ -type f -exec strings -n20 'password' {} \;
 ```
 
-#### Turning off Power-Saving features
+- Turning off Power-Saving features
 
 ```sh
 pwrctl config --cpuspeed 0
@@ -713,22 +643,9 @@ pwrctl config --ethapd off
 pwrctl config --eee off
 pwrctl config --autogreeen off
 ```
-#### For users that miss vpn card in webgui, run below command (if this modal is missing then its under modals dir in this repo)
 
-![Screenshot](files/vpn-in-webgui.png)
 
-```sh
-cp /rom/www/docroot/modals/l2tp-ipsec-server-modal.lp /www/docroot/modals/
-
-cat >> /etc/config/web
-
-list rules 'l2tpipsecservermodal'
-config rule 'l2tpipsecservermodal'
-option target '/modals/l2tp-ipsec-server-modal.lp'
-list roles 'admin'
-list roles 'engineer'
-```
-#### Setup your dns provider from commandline:
+- Configure DNS via cli: 
 
 ```sh
 cat << "EOF"  > /etc/config/ddns 
@@ -749,87 +666,9 @@ config service 'myddns_ipv4'
 EOF
  ```   
 
-#### Setup domain names:
+- List all URLs for your firmware that can be downloaded:
 
-##### Example 1 - Echo method
-```sh
-    echo "
-    config domain
-    option name 'github'
-    option ip '192.30.253.112'" >> /etc/config/dhcp
-```
-##### Example 2 - UCI method
-```sh
-uci set dhcp.@domain[1]=domain
-uci set dhcp.@domain[1].name='github'
-uci set dhcp.@domain[1].ip='192.30.253.112'
-```
-#### Portforwarding
-
-##### Example 1 - Echo method
-```sh
-cat << "EOF" > /etc/config/firewall
-    config userredirect 'userredirectXXDD'
-    option dest_port '<PORTNUMBER>'
-    option dest 'lan'
-    option src 'wan'
-    list proto '<tcp>/<udp>/<tcpudp>'
-    option enabled '<1>/<0>'
-    option name 'CUSTOMNAMEINWEBINTERFACE'
-    option src_dport '<PORTNUMBER>'
-    option family '<ipv4>/<ipv6>'
-    option target 'DNAT'
-    option dest_ip '<lanip>'"
-EOF
-```
-
-##### Example 2 - UCI method
-
-```sh
-uci set firewall.userredirect4320=userredirect
-uci set firewall.userredirect4320.family='<ipv4/ipv6>'
-uci set firewall.userredirect4320.enabled='<1>'
-uci set firewall.userredirect4320.target='DNAT'
-uci set firewall.userredirect4320.src='<wan>'
-uci set firewall.userredirect4320.dest='<lan>'
-uci set firewall.userredirect4320.dest_port='<port>'
-uci set firewall.userredirect4320.name='nameyourforwarding'
-uci set firewall.userredirect4320.src_dport='<port>'
-uci set firewall.userredirect4320.dest_ip='<0.0.0.0>' # use 0.0.0.0 if you dont use static leases
-uci set firewall.userredirect4320.dest_mac='<macaddr>'
-uci set firewall.userredirect4320.proto='tcp' '<tcp/udp>'
-```
-
-#### Disable UPNP:
-
-```sh
-uci set minitr064d.config=minitr064d
-uci set minitr064d.config.enable_upnp='0'
-uci set minitr064d.config.log_output='0'
-uci set minitr064d.config.internal_iface='lan'
-uci set minitr064d.config.port='0'
-uci set minitr064d.config.manufacturer_url=''
-uci set minitr064d.config.model_url=''
-uci set minitr064d.config.model_description='main router'
-uci set minitr064d.config.model_number='tg799vac xtream router'
-uci set minitr064d.config.friendly_name='tg799vac xtream router'
-uci set minitr064d.config.manufacturer_name='tg799vac xtream router'
-uci set minitr064d.config.model_name='technicolor'
-```
-
-#### Environment settings:
-
-```sh
-uci set env.var.aria2_webui='0'
-uci set env.var.luci_webui='0'
-uci set env.var.transmission_webui='0'
-uci set env.var.xupnp_app='0'
-uci set env.var.blacklist_app='0'
-uci set env.var.new_ver='only god knows'
-uci set env.rip.sfp='1'
-```
-
-##### List all URLs for your firmware that can be downloaded (wont work on telias firmware. Did you found the key? Please contact me then):
+**This part has its own repository now**
 
 ```sh
 strings /etc/cwmpd.db
@@ -864,19 +703,13 @@ strings /etc/cwmpd.db
     transfera PasswordV
 ```
 
-#### List network devices:
+- List network devices:
 
 ```sh
 awk '{print $1}' /proc/net/dev
 ```
 
-#### To get a fresh network configuration on your client system you can remove all IP addresses via:
-
-```sh
-ip a flush dev <device>
-```
-
-#### Disable **all** firewall rules temp:
+- Disable **all** firewall rules (until you reboots or relaods)
 
 ```sh
 iptables -P INPUT ACCEPT
@@ -888,111 +721,70 @@ iptables -F
 iptables -X
 ```
 
-#### Changing max sync speed on your modem:
+- Changing max sync speed on your modem:
 
 ```sh
 uci set xdsl.dsl0.maxaggrdatarate='200000' # 16000 default
 uci set xdsl.dsl0.maxdsdatarate='140000'   # 11000 default
 uci set xdsl.dsl0.maxusdatarate='60000'    # 40000 default
 ```
-#### Enable or Disable dnsmasq:
+
+- Enable or Disable dnsmasq:
 
 ```sh
 uci show dhcp.lan.ignore='1'
 ```
-#### Enable or Disable network time server:
+
+- Enable or Disable network time server:
 
 ```sh
 uci set system.ntp.enable_server='1'
 ```
 
-#### Check the current running dns with:
+- Edit nsplink to something else (where you get redirected when you click on the logo at top)
 
 ```sh
-cat /etc/resolv.conf
+uci set web.uidefault.nsplink='https://wuseman.nr1.nu'
 ```
 
-#### Edit nsplink to something else (where you get redirected when you click on the logo at top)
-
-```sh
-uci set web.uidefault.nsplink='https://sendit.nu'
-```
-
-#### This will show all traffic on your router with netstat:
+- This will show all traffic on your router with netstat:
 
 ```sh
 netstat -tulnp
 ```
 
-#### This will show all ip numbers connected to your router atm..
+- This will show all ip numbers connected to your router atm..
 
 ```sh
 netstat -lantp | grep ESTABLISHED |awk '{print $5}' | awk -F: '{print $1}' | sort -u
 ```
 
-#### Capture traffic on all interfaces (add -i wl0 for include wifi):
+- Capture traffic on all interfaces (add -i wl0 for include wifi):
+
+- Via wireshark on your pc: 
+
+```sh
+ssh root@router tcpdump -i eth4 -U -s0 -w - 'not port 22' | wireshark -k -i -   
+```sh
+
+
+- On router:
 
 ```sh
 tcpdump -vvv -ttt -p -U
 tcpdump -i wl0 -vvv -ttt -p -U
 ```
 
-#### Enable or Disable Content Sharing (Samba / DNLA)
+
+
+
+- List all settings were IPv4 addresses is added: 
 
 ```sh
-uci set samba.samba.enabled='1'
-uci set dlnad.config.enabled='1'
+uci show | grep -E "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 ```
 
-#### Take control over mwan:
-
-```sh
-uci set mwan.remoteassist=rule
-uci set mwan.remoteassist.dest_ip='192.168.1.0/24'
-uci set mwan.remoteassist.policy=''
-```
-
-#### To view currently dhcp leases:
-
-```sh
-cat /tmp/dhcp.leases
-```
-
-#### To view all ipv4 adresses from uci settings:
-
-```sh
-uci show | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-```
-
-#### Print CPU info with clash:
-
-clash showinfo cpu
-
-     Processor     : ARMv7 Processor rev 1 (v7l)
-     processor     : 0
-     BogoMIPS    : 1990.65
-
-     processor     : 1
-     BogoMIPS    : 1990.65
-
-     Features    : swp half thumb fastmult edsp tls
-     CPU implementer : 0x41
-     CPU architecture: 7
-     CPU variant    : 0x4
-     CPU part    : 0xc09
-     CPU revision    : 1
-
-     Hardware    : BCM963138
-     Revision    : 0000
-     Serial     : 0000000000000000
-
-##### Enable or Disable GUI:
-
-```sh
-uci set web.remote.active='1'
-```
-
-##### List all interfaces mac-addr:
+-List all interfaces mac-addr:
 
 ```sh
 ifconfig -a  | sed '/eth\|wl/!d;s/ Link.*HWaddr//'
@@ -1012,88 +804,11 @@ ifconfig -a  | sed '/eth\|wl/!d;s/ Link.*HWaddr//'
     wl0_2     X0:X0:X0:X0:X0:X0
 ```
 
-#### Various settings:
 
-```sh
-uci set dlnad.config.friendly_name='tg799vac xtream router'
-uci set dlnad.config.model_name='tg799vac xtream router'
-uci set dlnad.config.manufacturer_url=''
-uci set dlnad.config.model_url=''
-uci set env.var.company_name='technicolor'
-uci set env.var.prod_friendly_name='tg799vac xtream router'
-uci set env.var.variant_friendly_name='tg799tvac xtream router'
-uci set env.var.prod_name='media'
-uci set env.var.prod_description='main router'
-uci set env.var.prod_number='tg799vac xtream router'
-uci set env.var.isp='telia'
-uci set mmdetectslic.non_voice_var.company_name='technicolor'
-```
 
-#### Remove trafficmon settings:
+## syslog-ng 
 
-```sh
-uci delete system.@trafficmon[0].interface=''
-uci delete system.@trafficmon[0].minute=''
-uci delete system.@trafficmon[1].interface=''
-uci delete system.@trafficmon[1].minute=''
-uci delete system.@trafficmon[2].interface=''
-uci delete system.@trafficmon[2].minute=''
-uci delete system.@trafficmon[3]=trafficmon
-uci delete system.@trafficmon[3].interface=''
-uci delete system.@trafficmon[3].minute=''
-uci delete web.trafficmonitor=rule
-uci delete web.ruleset_main.rules='gateway'
-uci delete web.trafficmonitor.target='/modals/traffic-monitor.lp'
-uci delete web.trafficmonitor.roles='admin'
-```
-#### Send syslog to your own server instead of sending * to Telia (it's insane that they want all stuff they filtering as default)
-
-```sh
-uci set ledfw.syslog=syslog
-uci set ledfw.syslog.trace='6'
-uci set mmpbx.syslog=syslog
-uci set mmpbx.syslog.service_config='1'
-uci set mmpbx.syslog.service_actions='1'
-uci set mmpbx.syslog.calls='1'
-uci set mmpbx.syslog.syslog_priority='6'
-uci set mmpbx.syslog.hide_user_identity='0'
-uci set mmpbxbrcmdectdev.syslog=syslog
-uci set mmpbxbrcmdectdev.syslog.phone='1'
-uci set mmpbxbrcmdectdev.syslog.syslog_priority='6'
-uci set mmpbxbrcmdectdev.syslog.syslog_hide_dialled_digits='1'
-uci set mmpbxbrcmfxsdev.syslog=syslog
-uci set mmpbxbrcmfxsdev.syslog.phone='1'
-uci set mmpbxbrcmfxsdev.syslog.syslog_priority='6'
-uci set mmpbxbrcmfxsdev.syslog.syslog_hide_dialled_digits='1'
-uci set mmpbxrvsipnet.syslog=syslog
-uci set mmpbxrvsipnet.syslog.registration='1'
-uci set mmpbxrvsipnet.syslog.call_signalling='1'
-uci set mmpbxrvsipnet.syslog.syslog_priority='6'
-uci set mmpbxrvsipnet.syslog.log_sip_message='1'
-uci set mmpbxrvsipnet.syslog.hide_user_identity='0'
-uci set osgi.config.enable_syslog='1'
-uci set siege.log.enable_syslog='1'
-uci del_list web_back.syslogmodal.roles='telia'
-```
-#### Grab all filters from log.txt when you export this from diagnostic tab and then insert the lines in /etc/config/system to log everything on your syslog server:
-
-```sh
-cat log.txt  | awk '{print $7}' | sed 's/://g' | uniq -d | sort -r | uniq | sed 's/^/        list log_filter "/g' | sed 's/$/"/g'|sed "s/\"/'/g"
-
-##### Settings for syslog
-
-By uci:
-
-```sh
-system.@system[0].log_port='514'
-```
-
-```sh
-uci show system.@system[0].log_port
-uci show system.@system[0].filter_ip
-```
-
-Via system file:
+- Set syslog settings in system file
 
 ```sh
 cat << "EOF" > /etc/config/system
@@ -1238,13 +953,12 @@ Now restart system:
 /etc/init.d/system restart
 ```
 
+- Syslog-ng server you want store logs from router: 
 
-#### On your syslog server then put this in /etc/syslog/syslog.conf to recieve all messages from your tg799 xtream router.
-
-#### Here is a screenshot from the listening server with the config below:
 
 ![Screenshot](files/syslog.png)
 
+```sh
     @version: 3.30
     @include "scl.conf"
 
@@ -1346,27 +1060,27 @@ Now restart system:
 
     # default log
     log { source(src); destination(console_all); };
+```
 
-
-Now restart system on your router and you should see * messages:
+- Now restart system on your router and you should see * messages:
 
 ```sh
 /etc/init.d/system restart
 ```
 
-##### Enable or Disable Time of Day ACL rules:
+- Enable or Disable Time of Day ACL rules:
 
 ```sh
 uci set tod.global.enabled='0'
 ```
 
-##### For login with debug mode enabled, then please go to (Proably not possible but it is to try):
+- For login with debug mode enabled, then please go to (Proably not possible but it is to try):
 
 ```sh
 http://192.168.1.1/?debug=1
 ```
 
-##### Enable or Disable so your router wont restart if there is an segmentation fault in a user space program:
+- Enable or Disable so your router wont restart if there is an segmentation fault in a user space program:
 
 ```sh
 uci set system.@coredump[0].reboot='0'
@@ -2038,6 +1752,42 @@ uci commit dropbear
 ```
 
 ## Clash 
+
+- Add a new user with clash:
+
+![screenshot](files/clash-adduser.gif
+
+```sh
+clash newsrpuser -u <wuseman> -p <password>
+
+ uci set web_back.usr_wuseman.srp_salt='D0124225'
+ uci add web_back.default.users='usr_wuseman'
+ uci add web_back.uidefault.defaultuser='wuseman'
+ uci add web_back.usr_wuseman=user
+ uci set web_back.usr_wuseman.name='wuseman'
+ uci set web_back.usr_wuseman.role='wuseman'
+ uci set web_back.usr_wuseman.gak_id='1'
+```
+```sh
+cat << "EOF"  >> /etc/config/web
+config user 'usr_wuseman'
+option name 'wuseman'
+option password_reminder '0'
+option srp_verifier 'A955EDB6ECAC0536BA69F9D1F1C7F3D9F8A02FDF29170D4A8506A14F7E6F752FF845DACE10E6B3C66C15EAAB53896E41D541C22F32E9E0E8D60A1D7F1D187604BE8A5653B5CDF327542E8DBE5C8481E40C70BD0506448695F7E85338D4427187A49CF799CDDDD2DB3E6D652A25830C42024EB9A682ED5C27E36B159DB7617F41FF6ED5EF58163AC2C68AC26B3D57749AF3AFEF6352950D79A410150E27CE984EA375613737A235B5E28D006C5CE69DE40B651020505AEB7CE5986829D79B9E0375F5127F090CD400B2A2D06385F9931071415042979C8ED80D328BA4810A1692E263733DA9D85DC7E762859145A0D6A607447FCF4FFD53D144D8E018D4F345C9'
+option srp_salt 'D0124225'
+EOF
+```
+
+#### Create a user for minitrr064d
+
+```sh
+computeHA1 -u <username> -p <password> -r
+Self test passed - HA1 computation reliable
+Self test passed - authentication check reliable
+
+Computing hash for <username>:minitr064d:<password>
+```
+
 
 Various clash examples:
 
