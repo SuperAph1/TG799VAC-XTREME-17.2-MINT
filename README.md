@@ -1899,17 +1899,17 @@ Capability:
 	|   - YOU RUNNING ALL SUTFF BELOW ON YOUR OWN RISKS WITHOUT WARNINGS  |
 	|                                                                     |
         '---------------------------------------------------------------E-N-D-'
-
+```
 
 - When it's time to send your device back when Telia sending you a new one: 
 
 - THIS IS FOR VBNT-H only
 
 ```sh
-    dd if=/dev/urandom of=/dev/mtd1 ## (rootfs      - firmware) 
-    dd if=/dev/urandom of=/dev/mtd2 ## (rootfs_data - settings)
-    dd if=/dev/urandom of=/dev/mtd3 ## (bank_1      - bankversion)
-    dd if=/dev/urandom of=/dev/mtd4 ## (bank_2      - bankversion)
+dd if=/dev/urandom of=/dev/mtd1 ## (rootfs      - firmware) 
+dd if=/dev/urandom of=/dev/mtd2 ## (rootfs_data - settings)
+dd if=/dev/urandom of=/dev/mtd3 ## (bank_1      - bankversion)
+dd if=/dev/urandom of=/dev/mtd4 ## (bank_2      - bankversion)
 ```
 
 - In a one-liner:
