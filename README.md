@@ -1416,7 +1416,7 @@ sysupgrade --safe -o /tmp/172339o1901024closed.rbi
 
 ![Screenshot](files/webgui_default.png)
 
-- This is all modals that are available for Telia as default:
+- This is all modals that are available from Telias devices in /www/docroot when all are enabled: 
 
 ![Screenhot](files/telia_added_few_features.png)
 
@@ -1654,7 +1654,7 @@ echo 0 > /sys/class/leds/power:red/brightness
 
 - Add a new user with clash:
 
-![screenshot](files/clash-adduser.gif
+![screenshot](files/clash-adduser.gif)
 
 ```sh
 clash newsrpuser -u <wuseman> -p <password>
@@ -1716,7 +1716,9 @@ curl 'http://192.168.1.1/modals/ethernet-modal.lp' \
   --compressed
 ```
 
-- Import config via curl
+## Export / Import configuration 
+
+- Import config via curl:
 
 ```sh
 curl 'http://192.168.1.1/modals/gateway-modal.lp?action=import_config' \
@@ -1735,7 +1737,6 @@ curl 'http://192.168.1.1/modals/gateway-modal.lp?action=import_config' \
   --compressed \
   --insecure
 ```
-
 
 - Export config via curl
 
@@ -1756,7 +1757,12 @@ curl 'http://192.168.1.1/modals/gateway-modal.lp' \
   --insecure
 ```
 
-- Upgrade Firmare Procedur: 
+## Upgrade Firmware Procedur: 
+
+0. import firmware
+1. getbanksize
+2. upgradfw
+3. upgradegfwstatus
 
 ```sh
 curl 'http://192.168.1.1/modals/gateway-modal.lp?action=getbanksize' \
@@ -1801,7 +1807,9 @@ curl 'http://192.168.1.1/modals/gateway-modal.lp?action=upgradefwstatus' \
   --insecure
 ```
 
-# Turn VOIP off
+## Interfaces
+
+- Turn VOIP off
 
 ```sh
 curl 'http://192.168.1.1/modals/internet-modal.lp' \
@@ -1820,7 +1828,7 @@ curl 'http://192.168.1.1/modals/internet-modal.lp' \
 ```
 
 ```sh
-# Turn IPTV off
+- Turn IPTV off
 
 curl 'http://192.168.1.1/modals/internet-modal.lp' \
   -H 'Connection: keep-alive' \
@@ -1837,7 +1845,7 @@ curl 'http://192.168.1.1/modals/internet-modal.lp' \
   --insecure
 ```
 
-# Turn WAN off
+- Turn WAN off
 
 ```sh
 curl 'http://192.168.1.1/modals/internet-modal.lp' \
@@ -1855,7 +1863,7 @@ curl 'http://192.168.1.1/modals/internet-modal.lp' \
   --insecure
   ```
 
-# Turn MGMT off
+- Turn MGMT off
 
 ```sh
 curl 'http://192.168.1.1/modals/internet-modal.lp' \
@@ -2036,7 +2044,7 @@ curl 'http://192.168.1.1/modals/assistance-modal.lp' \
 ## Minitrr064d
 
 - Create user: 
-- 
+
 ```sh
 computeHA1 -u <username> -p <password> -r
 Self test passed - HA1 computation reliable
@@ -2080,13 +2088,14 @@ could not add NumberOfEntries parameters for:
 datamodel written to /tmp/datamodel.xml
 ```
 
-- Alot of stuff in datamode.xml file from dmdump: 
+- There is alot of data in: datamode.xml file from dmdump command: 
 
 ```sh
 cat /tmp/datamodel.xml |wc -l
 13031
+```
 
-- XDSLCtl
+## XDSLCtl
 
 ```sh
 xdslctl info --cfg
