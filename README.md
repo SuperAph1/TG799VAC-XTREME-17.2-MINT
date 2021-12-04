@@ -349,7 +349,7 @@ Paste below*/
 $("meta[name=CSRFtoken]").attr("content")
 ```
 
-##### Advanced info:
+## Advanced info (Tokens/Sessions/Auth/Login):
 
 Advanced settings about how we cunderstand the auth processes and more about interesting stuff for webUI:
 
@@ -426,78 +426,11 @@ c
 
 ```
 
-
-## Firmware / Upgrade
-
-- Upgrade firmware from CLI:
-
-```sh
-sysupgrade --safe -o /tmp/172339o1901024closed.rbi
-```
-
-- Default view: 
-
-![Screenshot](files/webgui_default.png)
-
-- This is all modals that are available for Telia as default:
-
-![Screenhot](files/telia_added_few_features.png)
-
-- Add Administrator user to be allowed to upgrade firmwware:
-
-```sh
-uci add_list web.uidefault.upgradefw_role='admin'
-uci commit
-```
-
-- If you will try below command you will know how it feels to work for telia a support:
-
-This part has been moved to its own directory ![WILLGETADDEDSOON]()
-
-```sh
-uci set web.usr_Administrator.role='superuser'
-uci set web.usr_Administrator.role='telia'
-```
-
-- System Modal: 
-
-![Screenshot](files/wth.png)
-
-- cli Banner
-
-![Screenshot](files/banner_before_default.png)
-
-
-- When you have root access on your router you will be able to unlock rootfs_data and install a very powerful gui vs original from Telia thanks to Ansuel and other awesoem developers by below command:
-
-```sh
-curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; 
-bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -;
-/etc/init.d/rootdevice force; 
-reboot
-```
-
-- This is how it will look a like after you run the above command and router rebooted: 
-
-![Screenshot](files/login-screen-after-root.png)
-
-- Stats view:
-
-![Screenshot](files/stats-view.gif)
-
-- Telstra Extension:
-
-![Screenshot](files/telstra-gui.png)
-
-
-![Screenshot](files/upgrade_firmware.png)
-
 ## ḾiSC
 
 - Add your own user without any extra tools:
 
 ![Screenshot](files/adduser.gif)
-
 
 ## OPKG
 
@@ -1471,9 +1404,281 @@ Go to http://192.168.1.1 and use the exploit, once you entered shell:
 
 Now you can reboot and lay back :) 
 
-## Curl via cli
+## Firmware / Upgrade
 
-#### Wifi
+- Upgrade firmware from CLI:
+
+```sh
+sysupgrade --safe -o /tmp/172339o1901024closed.rbi
+```
+
+- Default view: 
+
+![Screenshot](files/webgui_default.png)
+
+- This is all modals that are available for Telia as default:
+
+![Screenhot](files/telia_added_few_features.png)
+
+- Add Administrator user to be allowed to upgrade firmwware:
+
+```sh
+uci add_list web.uidefault.upgradefw_role='admin'
+uci commit
+```
+
+- If you will try below command you will know how it feels to work for telia a support:
+
+This part has been moved to its own directory ![WILLGETADDEDSOON]()
+
+```sh
+uci set web.usr_Administrator.role='superuser'
+uci set web.usr_Administrator.role='telia'
+```
+
+- System Modal: 
+
+![Screenshot](files/wth.png)
+
+- cli Banner
+
+![Screenshot](files/banner_before_default.png)
+
+
+- When you have root access on your router you will be able to unlock rootfs_data and install a very powerful gui vs original from Telia thanks to Ansuel and other awesoem developers by below command:
+
+```sh
+curl -k https://repository.ilpuntotecnico.com/files/Ansuel/AGTEF/GUI.tar.bz2 --output /tmp/GUI.tar.bz2; 
+bzcat /tmp/GUI.tar.bz2 | tar -C / -xvf -;
+/etc/init.d/rootdevice force; 
+reboot
+```
+
+- This is how it will look a like after you run the above command and router rebooted: 
+
+![Screenshot](files/login-screen-after-root.png)
+
+- Stats view:
+
+![Screenshot](files/stats-view.gif)
+
+- Telstra Extension:
+
+![Screenshot](files/telstra-gui.png)
+
+
+![Screenshot](files/upgrade_firmware.png)
+
+
+- Current bank setup:
+
+```sh
+grep . -r /proc/banktable/
+/proc/banktable/notbootedoid:Unknown
+/proc/banktable/bootedoid:5dcd7b8d4f5d980688c30569
+/proc/banktable/passiveversion:17.2.0405-1441042-20191114170637-ec29699cbbf5c66c53b310489f62a141f46bf628
+/proc/banktable/activeversion:Unknown
+/proc/banktable/inactive:bank_2
+/proc/banktable/active:bank_1
+/proc/banktable/notbooted:bank_1
+/proc/banktable/booted:bank_2
+```
+
+- Setup Ultimate Bank Plan
+
+![Accoring to](https://hack-technicolor.readthedocs.io/en/stable/Hacking/PostRoot/#bank-planning)
+
+```sh
+# Ensure two banks match in sizes
+[ $(grep -c bank_ /proc/mtd) = 2 ] && \
+[ "$(grep bank_1 /proc/mtd | cut -d' ' -f2)" = \
+"$(grep bank_2 /proc/mtd | cut -d' ' -f2)" ] && {
+[ "$(cat /proc/banktable/booted)" = "bank_1" ] && {
+mtd -e bank_2 write /dev/$(grep bank_1 /proc/mtd | cut -d: -f1) bank_2 && \
+mtd verify /dev/$(grep bank_1 /proc/mtd | cut -d: -f1) bank_2 || \
+{ echo Clone verification failed, retry; exit; } }
+cp -rf /overlay/$(cat /proc/banktable/booted) /tmp/bank_overlay_backup
+rm -rf /overlay/*
+cp -rf /tmp/bank_overlay_backup /overlay/bank_2
+echo bank_1 > /proc/banktable/active
+sync
+mtd erase bank_1;
+echo c > /proc/sysrq-trigger; }
+```
+
+- Checking RBI firmware signature
+
+```sh
+signature_checker -b /tmp/firmware_to_check.rbi [-k /tmp/other_board_to_check.osik]binwalk -e any_decrypted_firmware.bin
+mv firmware_to_check.rbi pubkey_to_check.osik _any_decrypted_firmware.bin.extracted/squashfs-root/tmp/
+cd _any_decrypted_firmware.bin.extracted/squashfs-root
+cp $(which qemu-arm-static) .
+sudo chroot . ./qemu-arm-static /usr/bin/signature_checker -b /tmp/firmware_to_check.rbi -k /tmp/pubkey_to_check.osik
+```
+
+#### Extract RBI and Flash and preserve ssh access
+
+[Read more here](https://hack-technicolor.readthedocs.io/en/stable/Upgrade/)
+
+- Extract firmware file:
+
+```sh
+cat "1720405o1901068closed.rbi" | (bli_parser && echo "Please wait..." && (bli_unseal | dd bs=4 skip=1 seek=1 of="1720405o1901068closed.bin"))
+```
+
+```sh
+magic_value: BLI2
+fim: 23
+fia: PE
+prodid: 0
+varid: 0
+version: 0.0.0.0
+data_offset: 369
+data_size: 24068698
+timestamp: 0x276B8E76
+boardname: VDNT-O
+prodname: Technicolor TG799vn v2
+varname: TG799vn v2
+tagparserversion: 200
+flashaddress: 0xC2000000
+Please wait...
+```
+
+- Prepare SSH access:
+
+```sh
+mkdir -p /overlay/$(cat /proc/banktable/booted)/etc
+chmod 755 /overlay/$(cat /proc/banktable/booted) /overlay/$(cat /proc/banktable/booted)/etc
+echo -e "echo root:root | chpasswd
+sed -i 's#/root:.*\$#/root:/bin/ash#' /etc/passwd
+sed -i -e 's/#//' -e 's#askconsole:.*\$#askconsole:/bin/ash#' /etc/inittab
+uci -q set \$(uci show firewall | grep -m 1 \$(fw3 -q print | \
+egrep 'iptables -t filter -A zone_lan_input -p tcp -m tcp --dport 22 -m comment --comment \"!fw3: .+\" -j DROP' | \
+sed -n -e 's/^iptables.\+fw3: \(.\+\)\".\+/\1/p') | \
+sed -n -e \"s/\(.\+\).name='.\+'$/\1/p\").target='ACCEPT'
+uci add dropbear dropbear
+uci rename dropbear.@dropbear[-1]=afg
+uci set dropbear.afg.enable='1'
+uci set dropbear.afg.Interface='lan'
+uci set dropbear.afg.Port='22'
+uci set dropbear.afg.IdleTimeout='600'
+uci set dropbear.afg.PasswordAuth='on'
+uci set dropbear.afg.RootPasswordAuth='on'
+uci set dropbear.afg.RootLogin='1'
+uci set dropbear.lan.enable='0'
+uci commit dropbear
+/etc/init.d/dropbear enable
+/etc/init.d/dropbear restart
+rm /overlay/\$(cat /proc/banktable/booted)/etc/rc.local
+source /rom/etc/rc.local
+" > /overlay/$(cat /proc/banktable/booted)/etc/rc.local
+chmod +x /overlay/$(cat /proc/banktable/booted)/etc/rc.local
+sync
+```
+
+- Setup SSH access for our new firmware: 
+
+```sh
+uci -q delete dropbear.afg
+uci add dropbear dropbear
+uci rename dropbear.@dropbear[-1]=afg
+uci set dropbear.afg.enable='1'
+uci set dropbear.afg.Interface='lan'
+uci set dropbear.afg.Port='22'
+uci set dropbear.afg.IdleTimeout='600'
+uci set dropbear.afg.PasswordAuth='on'
+uci set dropbear.afg.RootPasswordAuth='on'
+uci set dropbear.afg.RootLogin='1'
+uci commit dropbear
+/etc/init.d/dropbear enable
+/etc/init.d/dropbear restart
+```
+
+-- Flash firmware via bin file: 
+
+- Erase and write new firmware into booted bank and then emulate system crash to hard reboot
+
+```sh
+mtd -e $(cat /proc/banktable/booted) write "1720405o1901068closed.bin" $(cat /proc/banktable/booted)
+Unlocking bank_1 ...
+Erasing bank_1 ...
+
+Writing from 1720405o1901068closed.bin to bank_1 ..
+```
+
+```sh
+echo c > /proc/sysrq-trigger
+```
+- Backup configuration:
+
+```sh
+tar -C /overlay -cz -f /tmp/backup-$(date -I).tar.gz $(cat /proc/banktable/booted)
+```
+
+- Use the command below to manually create an archive with all your modified files from both firmware banks:
+
+```sh
+tar -C /overlay -cz -f /tmp/overlay-files-backup-$(date -I).tar.gz bank_1 bank_2
+```
+
+- If you prefer, you can rely on sysupgrade to achieve a similar result for the booted bank only.
+
+- Save the Config:
+
+```sh
+sysupgrade -i -b /tmp/sysupgrade-backup-$(date -I).tar.gz
+```
+
+- To restore the Config:
+
+```sh
+sysupgrade -f /tmp/sysupgrade-backup-*.tar.gz
+```
+
+## Leds:
+
+- Turn on LED:
+
+```sh
+echo 1 > /sys/class/leds/power:green/brightness
+```
+
+- Turn off LED:
+
+```sh
+echo 0 > /sys/class/leds/power:red/brightness
+```
+
+## Clash 
+
+- Add a new user with clash:
+
+![screenshot](files/clash-adduser.gif
+
+```sh
+clash newsrpuser -u <wuseman> -p <password>
+
+ uci set web_back.usr_wuseman.srp_salt='D0124225'
+ uci add web_back.default.users='usr_wuseman'
+ uci add web_back.uidefault.defaultuser='wuseman'
+ uci add web_back.usr_wuseman=user
+ uci set web_back.usr_wuseman.name='wuseman'
+ uci set web_back.usr_wuseman.role='wuseman'
+ uci set web_back.usr_wuseman.gak_id='1'
+```
+```sh
+cat << "EOF"  >> /etc/config/web
+config user 'usr_wuseman'
+option name 'wuseman'
+option password_reminder '0'
+option srp_verifier 'A955EDB6ECAC0536BA69F9D1F1C7F3D9F8A02FDF29170D4A8506A14F7E6F752FF845DACE10E6B3C66C15EAAB53896E41D541C22F32E9E0E8D60A1D7F1D187604BE8A5653B5CDF327542E8DBE5C8481E40C70BD0506448695F7E85338D4427187A49CF799CDDDD2DB3E6D652A25830C42024EB9A682ED5C27E36B159DB7617F41FF6ED5EF58163AC2C68AC26B3D57749AF3AFEF6352950D79A410150E27CE984EA375613737A235B5E28D006C5CE69DE40B651020505AEB7CE5986829D79B9E0375F5127F090CD400B2A2D06385F9931071415042979C8ED80D328BA4810A1692E263733DA9D85DC7E762859145A0D6A607447FCF4FFD53D144D8E018D4F345C9'
+option srp_salt 'D0124225'
+EOF
+```
+
+## WebUI stuff via curl: 
+
+- Wifi
 
 ```sh
 curl 'http://192.168.1.1/modals/wireless-modal.lp' \
@@ -1490,7 +1695,7 @@ curl 'http://192.168.1.1/modals/wireless-modal.lp' \
   --compressed
 ```
 
-#### Enable IPV6
+- Enable IPV6
 
 ```sh
 curl 'http://192.168.1.1/modals/ethernet-modal.lp' \
@@ -1507,7 +1712,7 @@ curl 'http://192.168.1.1/modals/ethernet-modal.lp' \
   --compressed
 ```
 
-#### Import config via curl
+- Import config via curl
 
 ```sh
 curl 'http://192.168.1.1/modals/gateway-modal.lp?action=import_config' \
@@ -1528,7 +1733,7 @@ curl 'http://192.168.1.1/modals/gateway-modal.lp?action=import_config' \
 ```
 
 
-#### Export config via curl
+- Export config via curl
 
 ```sh
 curl 'http://192.168.1.1/modals/gateway-modal.lp' \
@@ -1547,7 +1752,7 @@ curl 'http://192.168.1.1/modals/gateway-modal.lp' \
   --insecure
 ```
 
-#### Upgrade Firmware
+- Upgrade Firmare Procedur: 
 
 ```sh
 curl 'http://192.168.1.1/modals/gateway-modal.lp?action=getbanksize' \
@@ -1592,194 +1797,11 @@ curl 'http://192.168.1.1/modals/gateway-modal.lp?action=upgradefwstatus' \
   --insecure
 ```
 
-#### Current bank setup:
 
-```sh
-grep . -r /proc/banktable/
-/proc/banktable/notbootedoid:Unknown
-/proc/banktable/bootedoid:5dcd7b8d4f5d980688c30569
-/proc/banktable/passiveversion:17.2.0405-1441042-20191114170637-ec29699cbbf5c66c53b310489f62a141f46bf628
-/proc/banktable/activeversion:Unknown
-/proc/banktable/inactive:bank_2
-/proc/banktable/active:bank_1
-/proc/banktable/notbooted:bank_1
-/proc/banktable/booted:bank_2
-```
+## Minitrr064d
 
-#### Setup Ultimate Bank Plan
-
-![Accoring to](https://hack-technicolor.readthedocs.io/en/stable/Hacking/PostRoot/#bank-planning)
-
-```sh
-# Ensure two banks match in sizes
-[ $(grep -c bank_ /proc/mtd) = 2 ] && \
-[ "$(grep bank_1 /proc/mtd | cut -d' ' -f2)" = \
-"$(grep bank_2 /proc/mtd | cut -d' ' -f2)" ] && {
-[ "$(cat /proc/banktable/booted)" = "bank_1" ] && {
-mtd -e bank_2 write /dev/$(grep bank_1 /proc/mtd | cut -d: -f1) bank_2 && \
-mtd verify /dev/$(grep bank_1 /proc/mtd | cut -d: -f1) bank_2 || \
-{ echo Clone verification failed, retry; exit; } }
-cp -rf /overlay/$(cat /proc/banktable/booted) /tmp/bank_overlay_backup
-rm -rf /overlay/*
-cp -rf /tmp/bank_overlay_backup /overlay/bank_2
-echo bank_1 > /proc/banktable/active
-sync
-mtd erase bank_1;
-echo c > /proc/sysrq-trigger; }
-```
-
-#### Checking RBI firmware signature
-
-```sh
-signature_checker -b /tmp/firmware_to_check.rbi [-k /tmp/other_board_to_check.osik]binwalk -e any_decrypted_firmware.bin
-mv firmware_to_check.rbi pubkey_to_check.osik _any_decrypted_firmware.bin.extracted/squashfs-root/tmp/
-cd _any_decrypted_firmware.bin.extracted/squashfs-root
-cp $(which qemu-arm-static) .
-sudo chroot . ./qemu-arm-static /usr/bin/signature_checker -b /tmp/firmware_to_check.rbi -k /tmp/pubkey_to_check.osik
-```
-
-#### Extract RBI and Flash and preserve ssh access
-
-[Read more here](https://hack-technicolor.readthedocs.io/en/stable/Upgrade/)
-
-#### Unpack the RBI file:
-```sh
-cat "/tmp/new.rbi" | (bli_parser && echo "Please wait..." && (bli_unseal | dd bs=4 skip=1 seek=1 of="/tmp/new.bin"))
-```
-
-#### Setup SSH access
-
-```sh
-mkdir -p /overlay/$(cat /proc/banktable/booted)/etc
-chmod 755 /overlay/$(cat /proc/banktable/booted) /overlay/$(cat /proc/banktable/booted)/etc
-echo -e "echo root:root | chpasswd
-sed -i 's#/root:.*\$#/root:/bin/ash#' /etc/passwd
-sed -i -e 's/#//' -e 's#askconsole:.*\$#askconsole:/bin/ash#' /etc/inittab
-uci -q set \$(uci show firewall | grep -m 1 \$(fw3 -q print | \
-egrep 'iptables -t filter -A zone_lan_input -p tcp -m tcp --dport 22 -m comment --comment \"!fw3: .+\" -j DROP' | \
-sed -n -e 's/^iptables.\+fw3: \(.\+\)\".\+/\1/p') | \
-sed -n -e \"s/\(.\+\).name='.\+'$/\1/p\").target='ACCEPT'
-uci add dropbear dropbear
-uci rename dropbear.@dropbear[-1]=afg
-uci set dropbear.afg.enable='1'
-uci set dropbear.afg.Interface='lan'
-uci set dropbear.afg.Port='22'
-uci set dropbear.afg.IdleTimeout='600'
-uci set dropbear.afg.PasswordAuth='on'
-uci set dropbear.afg.RootPasswordAuth='on'
-uci set dropbear.afg.RootLogin='1'
-uci set dropbear.lan.enable='0'
-uci commit dropbear
-/etc/init.d/dropbear enable
-/etc/init.d/dropbear restart
-rm /overlay/\$(cat /proc/banktable/booted)/etc/rc.local
-source /rom/etc/rc.local
-" > /overlay/$(cat /proc/banktable/booted)/etc/rc.local
-chmod +x /overlay/$(cat /proc/banktable/booted)/etc/rc.local
-sync
-```
-
-#### Then flash firmware
-
-#### Erase and write new firmware into booted bank
-
-(mtd -e bank_2 write /tmp/new.bin bank_2)
-
-```sh
-mtd -e $(cat /proc/banktable/booted) write "/tmp/new.bin" $(cat /proc/banktable/booted)
-```
-
-#### Emulate system crash to hard reboot
-
-```sh
-echo c > /proc/sysrq-trigger
-```
-
-#### Backing up configuration
-
-```sh
-tar -C /overlay -cz -f /tmp/backup-$(date -I).tar.gz $(cat /proc/banktable/booted)
-```
-
-#### Use the command below to manually create an archive with all your modified files from both firmware banks:
-
-```sh
-tar -C /overlay -cz -f /tmp/overlay-files-backup-$(date -I).tar.gz bank_1 bank_2
-```
-
-#### If you prefer, you can rely on sysupgrade to achieve a similar result for the booted bank only.
-
-#### To save the Config:
-
-```sh
-sysupgrade -i -b /tmp/sysupgrade-backup-$(date -I).tar.gz
-```
-
-#### To restore the Config:
-
-```sh
-sysupgrade -f /tmp/sysupgrade-backup-*.tar.gz
-```
-
-#### Turn on LED:
-
-```sh
-echo 1 > /sys/class/leds/power:green/brightness
-```
-
-#### Turn off LED:
-
-```sh
-echo 0 > /sys/class/leds/power:red/brightness
-```
-
-#### Setup permanent SSH access:
-
-```sh
-uci -q delete dropbear.afg
-uci add dropbear dropbear
-uci rename dropbear.@dropbear[-1]=afg
-uci set dropbear.afg.enable='1'
-uci set dropbear.afg.Interface='lan'
-uci set dropbear.afg.Port='22'
-uci set dropbear.afg.IdleTimeout='600'
-uci set dropbear.afg.PasswordAuth='on'
-uci set dropbear.afg.RootPasswordAuth='on'
-uci set dropbear.afg.RootLogin='1'
-uci commit dropbear
-/etc/init.d/dropbear enable
-/etc/init.d/dropbear restart
-```
-
-## Clash 
-
-- Add a new user with clash:
-
-![screenshot](files/clash-adduser.gif
-
-```sh
-clash newsrpuser -u <wuseman> -p <password>
-
- uci set web_back.usr_wuseman.srp_salt='D0124225'
- uci add web_back.default.users='usr_wuseman'
- uci add web_back.uidefault.defaultuser='wuseman'
- uci add web_back.usr_wuseman=user
- uci set web_back.usr_wuseman.name='wuseman'
- uci set web_back.usr_wuseman.role='wuseman'
- uci set web_back.usr_wuseman.gak_id='1'
-```
-```sh
-cat << "EOF"  >> /etc/config/web
-config user 'usr_wuseman'
-option name 'wuseman'
-option password_reminder '0'
-option srp_verifier 'A955EDB6ECAC0536BA69F9D1F1C7F3D9F8A02FDF29170D4A8506A14F7E6F752FF845DACE10E6B3C66C15EAAB53896E41D541C22F32E9E0E8D60A1D7F1D187604BE8A5653B5CDF327542E8DBE5C8481E40C70BD0506448695F7E85338D4427187A49CF799CDDDD2DB3E6D652A25830C42024EB9A682ED5C27E36B159DB7617F41FF6ED5EF58163AC2C68AC26B3D57749AF3AFEF6352950D79A410150E27CE984EA375613737A235B5E28D006C5CE69DE40B651020505AEB7CE5986829D79B9E0375F5127F090CD400B2A2D06385F9931071415042979C8ED80D328BA4810A1692E263733DA9D85DC7E762859145A0D6A607447FCF4FFD53D144D8E018D4F345C9'
-option srp_salt 'D0124225'
-EOF
-```
-
-#### Create a user for minitrr064d
-
+- Create user: 
+- 
 ```sh
 computeHA1 -u <username> -p <password> -r
 Self test passed - HA1 computation reliable
@@ -1788,8 +1810,7 @@ Self test passed - authentication check reliable
 Computing hash for <username>:minitr064d:<password>
 ```
 
-
-Various clash examples:
+Various clash commands: 
 
 ```sh
 root>get InternetGatewayDevice.Services.X_000E50_RemoteAccess.
@@ -1810,7 +1831,7 @@ InternetGatewayDevice.Services.X_000E50_RemoteAccess.1.URL [string] = https://10
 - dmdump, the xml file will contain over 13k lines:
 
 ```sh
-root@h:~ $ dmdump 
+dmdump 
 loaded 325 objecttypes from /usr/share/transformer/mappings/igd/ and /usr/share/transformer/mappings/bbf/
 could not add NumberOfEntries parameters for:
   Device.Routing.Router.{i}.: IPv4ForwardingNumberOfEntries
@@ -1822,8 +1843,12 @@ could not add NumberOfEntries parameters for:
   #ROOT.: LANWLANConfigurationNumberOfEntries
   Device.DHCPv4.Server.Pool.{i}.: OptionNumberOfEntries
 datamodel written to /tmp/datamodel.xml
+```
 
-at /tmp/datamodel.xml |wc -l
+- Alot of stuff in datamode.xml file from dmdump: 
+
+```sh
+cat /tmp/datamodel.xml |wc -l
 13031
 
 - XDSLCtl
@@ -1841,7 +1866,7 @@ xdslctl info --pbParams
 xdslctl info --vendor
 ```
 
-- Example usage: 
+- Example output from xdslctl: 
 
 ```sh
 root>xdslctl profile --show
@@ -1883,10 +1908,6 @@ Capability:
         SOS:            On
         Training Margin(Q4 in dB):      -1(DEFAULT)
 ```
-
-
-/usr/bin/top -b -n 1
-
 
 ## wuseman stuff 
 
