@@ -306,15 +306,15 @@ find /www -type f -exec grep -i 'canRemove = false' {} \;
 - Run below for get access to all settings:
 
 ```sh
-find /www -type f -exec grep -i 's/"telia"/"admin"/g'  {} \;
+find /www -type f -exec sed -i 's/"telia"/"admin"/g'  {} \;
 ```
 
 ```sh
-find /www -type f -exec grep -i 's/"superuser"/"admin"/g'  {} \;
+find /www -type f -exec sed -i 's/"superuser"/"admin"/g'  {} \;
 ```
 
 ```sh
-find /www -type f -exec grep -i 's/"superuser"/"admin"/g'  {} \;
+find /www -type f -exec sed -i 's/"engineer"/"admin"/g'  {} \;
 ```
 - Copy and paste below to get full access on webUI and all the cards that exist:
 
