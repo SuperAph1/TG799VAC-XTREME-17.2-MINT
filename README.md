@@ -1523,7 +1523,7 @@ sudo chroot . ./qemu-arm-static /usr/bin/signature_checker -b /tmp/firmware_to_c
 - Extract firmware file:
 
 ```sh
-cat "1720405o1901068closed.rbi" | (bli_parser && echo "Please wait..." && (bli_unseal | dd bs=4 skip=1 seek=1 of="1720405o1901068closed.bin"))
+cat "15516436o1361004closed.rbi" | (bli_parser && echo "Please wait..." && (bli_unseal | dd bs=4 skip=1 seek=1 of="15516436o1361004closed.bin"))
 ```
 
 ```sh
@@ -1609,6 +1609,7 @@ Writing from 1720405o1901068closed.bin to bank_1 ..
 ```sh
 echo c > /proc/sysrq-trigger
 ```
+
 - Backup configuration:
 
 ```sh
@@ -1677,6 +1678,9 @@ EOF
 ```
 
 ## WebUI stuff via curl: 
+
+This is very intreseting since we are allowed to turn off and on interfaces, export config files and import config files, 
+get bankSize and alot more. The only thing I didnt had any luck with YET is the ?action=upgradfw part.
 
 - Wifi
 
@@ -1793,6 +1797,237 @@ curl 'http://192.168.1.1/modals/gateway-modal.lp?action=upgradefwstatus' \
   -H 'Referer: http://192.168.1.1/gateway.lp' \
   -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
   -H 'Cookie: sessionID=0cba5e09a4e286ec6d9411538cf156f26a7530925c7107c78c1d5413b0727e7f' \
+  --compressed \
+  --insecure
+```
+
+# Turn VOIP off
+
+```sh
+curl 'http://192.168.1.1/modals/internet-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'interface=voip&uci_wan_auto=0&action=SAVE&fromModal=YES&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+```
+
+```sh
+# Turn IPTV off
+
+curl 'http://192.168.1.1/modals/internet-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'interface=iptv&uci_wan_auto=0&action=SAVE&fromModal=YES&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+```
+
+# Turn WAN off
+
+```sh
+curl 'http://192.168.1.1/modals/internet-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'interface=wan&uci_wan_auto=0&action=SAVE&fromModal=YES&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+  ```
+
+# Turn MGMT off
+
+```sh
+curl 'http://192.168.1.1/modals/internet-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'interface=mgmt&uci_wan_auto=0&action=SAVE&fromModal=YES&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+```
+
+
+- Turn DHCP on
+
+```sh
+curl 'http://192.168.1.3/modals/ethernet-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.3' \
+  -H 'Referer: http://192.168.1.3/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=85a4f11d0eeae627f417a9815d0735716738c75e956c68ae19e4d64c46ce216d;' \
+  --data-raw 'localdevIP=192.168.1.3&localdevmask=255.255.255.0&dhcpv6=disabled&dhcpv4State=server&dhcpStart=64&dhcpLimit=180&leaseTime=24h&action=SAVE&fromModal=YES&CSRFtoken=681d0f3680a6867f379468b7861460f3d5ef0e947805d0112c756bac7f2f787c' \
+  --compressed \
+  --insecure
+```
+
+- Turn off DHCP Guest
+
+  curl 'http://192.168.1.3/modals/ethernet-modal.lp?intf=guest' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.3' \
+  -H 'Referer: http://192.168.1.3/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: YPF8827340282Jdskjhfiw_928937459182JAX666=185.213.154.234; sessionID=85a4f11d0eeae627f417a9815d0735716738c75e956c68ae19e4d64c46ce216d; undefined=undefined; superuser=undefined; role=superuser=undefined' \
+  --data-raw 'localdevIP=192.168.168.1&localdevmask=255.255.255.0&dhcpv6=disabled&dhcpv4State=disabled&dhcpStart=64&dhcpLimit=180&leaseTime=1h&action=SAVE&fromModal=YES&CSRFtoken=681d0f3680a6867f379468b7861460f3d5ef0e947805d0112c756bac7f2f787c' \
+  --compressed \
+  --insecure
+```
+
+
+## Devices
+
+```sh
+  curl 'http://192.168.1.1/modals/device-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'priority=1&tableid=devices&stateid=&action=TABLE-MODIFY&index=1&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+```
+
+## Telephone
+
+```sh
+  curl 'http://192.168.1.1/modals/mmpbx-global-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'mmpbx_enabled=0&action=SAVE&fromModal=YES&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+```
+
+- Pairing Headset
+
+```sh
+curl 'http://192.168.1.1/modals/mmpbx-dect-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: application/json, text/javascript, */*; q=0.01' \/gateway.lp?auto_update=true&getSessionStatus=true
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'action=pairing_handset&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+```
+
+- List contacts
+
+```sh
+curl 'http://192.168.1.1/modals/mmpbx-contacts-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --compressed \
+  --insecure
+```
+
+- Call Log
+
+```sh
+  curl 'http://192.168.1.1/modals/mmpbx-log-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --compressed \
+  --insecure
+```
+
+- Clear all call logs
+
+```sh
+  curl 'http://192.168.1.1/modals/mmpbx-log-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'action=SAVE&operation=RESET&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
+  --compressed \
+  --insecure
+```
+
+## Assistance Disable
+
+- Set assistance off
+
+```sh
+curl 'http://192.168.1.1/modals/assistance-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: text/html, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.1' \
+  -H 'Referer: http://192.168.1.1/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=c3795762f8b5e8dbe105e19456c0ff145679aedbcbda28090a15d1d095be03e2' \
+  --data-raw 'ra_enabled=0&action=SAVE&fromModal=YES&CSRFtoken=13473a7d6cad23b9cf7aa5694ca942a0338583275f08ca6f343cac58a1352800' \
   --compressed \
   --insecure
 ```
