@@ -1890,14 +1890,15 @@ Capability:
 
 ## wuseman stuff 
 
-,- W-A-R-N-I-N-G------------------------------------------------------,
-|                                                                     |
-|   - ALL STUFF BELOW MAY BE DANGEROUS AND IT MAY BRICK YOUR DEVICE   |
-|   - IT IS YOU DEVICE and YOU HAVE BEEN WARNED                       |
-|   - I TRYING EVERYTHING THATI S POSSIBLETO HACK ANY DEVICE SO       |
-|   - YOU RUNNING ALL SUTFF BELOW ON YOUR OWN RISKS WITHOUT WARNINGS  |
-|                                                                     |
-----------------------------------------------------------------E-N-D-'
+```sh
+	,- W-A-R-N-I-N-G------------------------------------------------------,
+	|                                                                     |
+	|   - ALL STUFF BELOW MAY BE DANGEROUS AND IT MAY BRICK YOUR DEVICE   |
+	|   - IT IS YOU DEVICE and YOU HAVE BEEN WARNED                       |
+	|   - I TRYING EVERYTHING THATI S POSSIBLETO HACK ANY DEVICE SO       |
+	|   - YOU RUNNING ALL SUTFF BELOW ON YOUR OWN RISKS WITHOUT WARNINGS  |
+	|                                                                     |
+        '---------------------------------------------------------------E-N-D-'
 
 
 - When it's time to send your device back when Telia sending you a new one: 
