@@ -291,7 +291,7 @@ Example:
    Inside /www/docroot/cards/snippets/002_broadband_xdsl.lp: 
 
 ```lua
-	if session:getrole() == "superuser" or session:getrole() == "telia" then
+if session:getrole() == "superuser" or session:getrole() == "telia" then
 ```
 
 - Find all those settings if you are curios: 
@@ -314,14 +314,14 @@ find /www -type f -exec grep -i 's/"superuser"/"admin"/g'  {} \;
 ```
 
 ```sh
-find /www -type f -exec grep -i 's/"superuser"/"engineer"/g'  {} \;
+find /www -type f -exec grep -i 's/"superuser"/"admin"/g'  {} \;
 ```
 - Copy and paste below to get full access on webUI and all the cards that exist:
 
 ```sh 
-    for missed_roles in $(uci show|grep \.roles|grep -v admin|cut -d'=' -f1|sed 's/$/=admin/g'); do
-        uci add_list ${missed_roles}; 
-    done
+for missed_roles in $(uci show|grep \.roles|grep -v admin|cut -d'=' -f1|sed 's/$/=admin/g'); do
+    uci add_list ${missed_roles}; 
+done
 ```
 - It is required to restart nginx:
 
