@@ -2040,6 +2040,29 @@ curl 'http://192.168.1.1/modals/assistance-modal.lp' \
   --insecure
 ```
 
+## Bridge / DMZ
+
+- Set (MOdal is named: 'bridge' in VBNT-7 and DMZ in older boards) enable: 
+
+```sh
+curl 'http://192.168.1.3/modals/dmz-modal.lp' \
+  -H 'Connection: keep-alive' \
+  -H 'Accept: application/json, text/javascript, */*; q=0.01' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'User-Agent: Mozilla/5.0 (MSIE 10.0; Windows NT 6.1; Trident/5.0)' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Origin: http://192.168.1.3' \
+  -H 'Referer: http://192.168.1.3/gateway.lp' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Cookie: sessionID=bb647ad9f1eff0e465f392973c7d9b32b7facea8634952251b5b3e447ff1aab0' \
+  --data-raw 'DMZ_enabled=0&DMZ_flag=1&action=SAVE&fromModal=YES&CSRFtoken=34019b4b0bc60bdac7275e1a3b4a980f33343395b498472bb3b4af076e3d915b' \
+  --compressed \
+  --insecure
+```
+
+
+
+
 
 ## Minitrr064d
 
