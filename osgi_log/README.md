@@ -1,9 +1,13 @@
 # OSGI Log
+ 
+ pwned, again! ;) I got your source, you suck teliacompany. 
+ 
+![Screenshot](https://i.imgur.com/WybUoUq.png)
+
+### A little snapshot
+
 
 TIME                           B_ID LEVEL   TH_ID  MESSAGE
-
-
-
 
 
 >Sat , 04 Dec 2021 22:48:44 GMT  0    INFO           [Framework] OSGi Runtime is Starting!
