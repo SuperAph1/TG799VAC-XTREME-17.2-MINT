@@ -284,7 +284,7 @@ ssh root@192.168.1.1 "tee -a /etc/dropbear/authorized_keys" < ~/.ssh/id_rsa.pub
 
 ## WebUI
 
-There is many permission by uid INSIDE .lp files so then we want to change telia, superuser and edngineer to admin instead
+There is many settings in the .lp files in the web directory that deny 'admin' from edit settings, see below example and how to fix this:
 
 Example:
 
