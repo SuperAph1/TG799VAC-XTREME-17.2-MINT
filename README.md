@@ -63,7 +63,7 @@ This means I can sue them in a court of law. Please read more here: https://www.
     Technicolor2....: https://github.com/wuseman/TG799VAC-XTREAM-V16.2-JADE
     Technicolor4....: https://github.com/wuseman/TG799VAC-XTREME-17.2-MINT
 
-##### Never ever use below command unless you know exactly what you are doing:
+##### Never ever use mand unless you know exactly what you are doing:
 
 ```sh
 echo "bank_2" > /proc/bankversion/active 
@@ -171,7 +171,7 @@ connect to [192.168.1.144] from router [192.168.1.1] 40980
 
 - Below commands will give you a working opkg setup, copy and paste: 
 
-#![Screenshot](.preview/opkg_on_vdnto.gif)
+![Screenshot](.preview/opkg_on_vdnto.gif)
 
 ```sh
 rm /etc/opkg/distfeeds.conf
@@ -301,6 +301,8 @@ find /www -type f -exec grep -i 'canAdd = false' {} \;
 find /www -type f -exec grep -i 'canApply = false' {} \;
 find /www -type f -exec grep -i 'canEdit = false' {} \;
 find /www -type f -exec grep -i 'canRemove = false' {} \;
+find /www -type f -exec grep -i 'canDelete = false' {} \;
+
 ```
 
 - Run below for get access to all settings:
